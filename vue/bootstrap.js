@@ -1,5 +1,7 @@
-
 window._ = require('lodash');
+
+const env = require('./env.js')
+const Vue = require('vue')
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -8,9 +10,10 @@ window._ = require('lodash');
  */
 
 try {
-    window.$ = window.jQuery = require('jquery');
+  // 不再使用jQuery
+  // window.$ = window.jQuery = require('jquery');
 
-    require('bootstrap-sass');
+  require('bootstrap-sass');
 } catch (e) {}
 
 /**
@@ -32,9 +35,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 let token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
-    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
 /**
@@ -48,8 +51,14 @@ if (token) {
 // window.Pusher = require('pusher-js');
 
 // window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: 'your-pusher-key',
-//     cluster: 'mt1',
-//     encrypted: true
+//   broadcaster: 'pusher',
+//   key: 'your-pusher-key',
+//   cluster: 'mt1',
+//   encrypted: true
 // });
+
+Vue.config.productionTip = env.debug
+
+if (env.debug) {
+  window.Vue = Vue
+}

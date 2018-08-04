@@ -1,3 +1,68 @@
+# 项目简介
+
+创意工坊
+
+## 预安装环境
+
+1. composer
+
+具体见[Packagist / Composer 中国全量镜像](https://pkg.phpcomposer.com/)
+
+2. npm或yarn
+
+npm自行前往官网下载即可
+
+yarn可以从官网下载或者使用以下命令：
+``` npm install -g yarn ```
+
+3. 安装跨平台的编译器 gyp
+
+npm安装命令：
+``` npm install -g node-gyp ```
+
+yarn安装命令：
+``` yarn global add node-gyp ```
+
+## 项目初始化命令
+
+``` sh
+# 安装Laravel依赖
+composer install
+# 复制环境变量
+cp .env.example .env
+# 生成密钥
+php artisan key:generate
+# 安装前端依赖（需要预装gym否则可能安装失败，）
+# ** 需要预装gym否则可能安装失败
+# ** 需要管理员权限否则可能安装失败
+# ** 可能需要突破网络审查以防止部分依赖安装失败
+npm install
+```
+
+_以上npm可以替换为yarn_
+
+## 开发
+
+前端开发时需要执行以下命令
+
+``` npm run watch ```
+
+或
+
+``` yarn run watch ```
+
+## 构建
+
+前端开发完毕后发布前代码打包需要执行以下命令
+
+``` npm run prod ```
+
+或
+
+``` yarn run prod ```
+
+_前端主要工作文件夹为 vue 文件夹_
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">

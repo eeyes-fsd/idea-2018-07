@@ -11,5 +11,19 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.webpackConfig({
+    resolve: {
+      alias: {
+        /**
+         * 路径解析，import时字符@表示vue目录
+         */
+        '@': path.resolve(__dirname, 'vue')
+      }
+    }
+  })
+  /**
+   * 资源打包
+   */
+  .js('vue/views/home/index.js', 'public/js')
+  .js('vue/views/admin/index.js', 'public/js')
+  .sass('resources/assets/sass/app.scss', 'public/css');

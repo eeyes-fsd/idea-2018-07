@@ -5,7 +5,7 @@
 <script>
 import Example from '@/components/Example'
 export default {
-  comments: {
+  components: {
     Example
   }
 }

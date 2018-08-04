@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 
-class User extends Authenticatable implements JWTSubject
+class Organization extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\Api;
 
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -10,8 +10,13 @@ use Illuminate\Support\Facades\Session;
 
 class AuthenticateController extends Controller
 {
-    public function login()
+    public function organizationLogin()
     {
+        //
+    }
 
+    public function userLogin()
+    {
+        
     }
 }

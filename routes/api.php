@@ -15,16 +15,23 @@ use Illuminate\Http\Request;
 
 $api = app('Dingo\Api\Routing\Router');
 
-/** Version 1 Api 用于前后端交互 */
 $api->version('v1', [
-    'namespace' => 'App\Http\Controllers\Api\V1'
+    'namespace' => 'App\Http\Controllers\Api'
 ], function ($api) {
-    //TODO
-});
 
-/** Version 2 Api 用于APP交互 */
-$api->version('v2', [
-    'namespace' => 'App\Http\Controllers\Api\V2'
-], function ($api) {
-    //TODO
+    /** 认证路由 */
+    $api->get('users/authorizations', 'AuthorizationsController@userLogin')
+        ->name('api.users.authorization.login');
+    $api->get('users/authorizations/callback', 'AuthorizationsController@userCallback')
+        ->name('api.users.authorization.callback');
+    $api->post('organizations/authorizations', 'AuthorizationsController@organizationLogin')
+        ->name('api.organizations.authorizations.login');
+
+    $api->group(['prefix' => 'web'], function ($api){
+        //TODO Web 路由构建
+    });
+
+    $api->group(['prefix' => 'app'], function ($api){
+        //TODO App 路由构建
+    });
 });

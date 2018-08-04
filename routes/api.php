@@ -13,6 +13,18 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+$api = app('Dingo\Api\Routing\Router');
+
+/** Version 1 Api 用于前后端交互 */
+$api->version('v1', [
+    'namespace' => 'App\Http\Controllers\Api\V1'
+], function ($api) {
+    //TODO
+});
+
+/** Version 2 Api 用于APP交互 */
+$api->version('v2', [
+    'namespace' => 'App\Http\Controllers\Api\V2'
+], function ($api) {
+    //TODO
 });

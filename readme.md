@@ -30,8 +30,10 @@ yarn安装命令：
 composer install
 # 复制环境变量
 cp .env.example .env
-# 生成密钥
+# 生成密钥，迁移数据库
 php artisan key:generate
+php artisan jwt:secret
+php artisan migrate
 # 安装前端依赖（需要预装gym否则可能安装失败，）
 # ** 需要预装gym否则可能安装失败
 # ** 需要管理员权限否则可能安装失败

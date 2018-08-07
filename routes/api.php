@@ -20,18 +20,12 @@ $api->version('v1', [
 ], function ($api) {
 
     /** 认证路由 */
-    $api->get('users/authorizations', 'AuthorizationsController@userLogin')
-        ->name('api.users.authorization.login');
+    $api->get('users/authorizations', 'AuthorizationsController@userAuthenticate')
+        ->name('api.users.authorization.auth');
     $api->get('users/authorizations/callback', 'AuthorizationsController@userCallback')
         ->name('api.users.authorization.callback');
-    $api->post('organizations/authorizations', 'AuthorizationsController@organizationLogin')
-        ->name('api.organizations.authorizations.login');
+    $api->post('organizations/authorizations', 'AuthorizationsController@organizationAuthenticate')
+        ->name('api.organizations.authorizations.auth');
 
-    $api->group(['prefix' => 'web'], function ($api){
-        //TODO Web 路由构建
-    });
-
-    $api->group(['prefix' => 'app'], function ($api){
-        //TODO App 路由构建
-    });
+    $api->resource('organizations','OrganizationsController',['except' => ['create','edit']]);
 });

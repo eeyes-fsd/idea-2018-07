@@ -24,6 +24,5 @@ mix.webpackConfig({
   /**
    * 资源打包
    */
-  .js('vue/views/home/index.js', 'public/js/home.js')
-  .js('vue/views/admin/index.js', 'public/js/admin.js')
+  .js('vue/index.js', 'public/js')
   .sass('resources/assets/sass/app.scss', 'public/css');

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <header>
       <button @click="userLogin">个人登录</button>
       <input type="text" v-model="org.email" placeholder="邮箱地址">
@@ -53,7 +53,7 @@ export default {
         'org': '社团'
       }
       return trans[getLoginType()] || '错误的登陆身份类型'
-    }
+    },
   }
 }
 </script>

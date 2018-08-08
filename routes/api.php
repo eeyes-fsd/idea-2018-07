@@ -26,6 +26,14 @@ $api->version('v1', [
         ->name('api.users.authorization.callback');
     $api->post('organizations/authorizations', 'AuthorizationsController@organizationAuthenticate')
         ->name('api.organizations.authorizations.auth');
+    $api->put('users/refresh','AuthorizationsController@refreshUserToken')
+        ->name('api.users.authorizations.refresh');
+    $api->put('organizations/refresh','AuthorizationsController@refreshOrganizationToken')
+        ->name('api.organizations.authorizations.refresh');
+    $api->delete('users/current','AuthorizationsController@userLogout')
+        ->name('api.users.authorizations.logout');
+    $api->delete('organizations/current','AuthorizationsController@organizationLogout')
+        ->name('api.organizations.authorizations.logout');
 
     $api->resource('organizations','OrganizationsController',['except' => ['create','edit']]);
 });

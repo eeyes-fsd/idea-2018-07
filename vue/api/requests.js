@@ -83,6 +83,12 @@ _axios.interceptors.response.use(
   }
 )
 
+_axios._get = _axios.get
+
+_axios.get = function (url, params) {
+  return _axios._get(url, { params })
+}
+
 export default _axios
 
 export function getAccessToken() {

@@ -14,45 +14,69 @@ class Controller extends BaseController
     /**
      * 返回重定向响应
      *
-     * @param array   $data    返回数据
-     * @param string  $message 返回消息
-     * @param bool    $strict  是否连同响应头一起改为302
+     * 支持以下两种用法
+     * $this->redirect($data);
+     * $this->redirect('重定向', $data);
+     *
+     * 如果需要修改响应头，则有以下两种用法
+     * $this->redirect($data, true);
+     * $this->redirect('重定向', $data, true);
+     *
+     * @param mixed  $arg1
+     * @param array  $arg2
+     * @param bool   $strict 是否连同响应头一起改为302
      *
      * @return \Dingo\Api\Http\Response
      */
-    public function redirect($data, $message = 'Found', $strict = false)
+    public function redirect($arg1, $arg2 = null, $strict = false)
     {
+        if (is_string($arg1)) {
+            $message = $arg1;
+            $data = $arg2;
+        } else {
+            $message = 'Found';
+            $data = $arg1;
+            if ($arg2 !== null) {
+                $strict = $arg2;
+            }
+        }
         // 判断是否修改响应头
         if ($strict) {
             $this->response->setStatusCode(302);
         }
 
-        return $this->success($data, 302, $message);
+        return $this->success(302, $message, $data);
     }
 
     /**
      * 返回成功响应
      *
-     * 支持以下四种用法：
+     * 支持以下三种用法：
      * $this->success($data);                // 默认状态码为200，状态值为OK
-     * $this->success($data, 200);           // 状态码必须是数字，否则按下一种情况处理
-     * $this->success($data, '成功');        // 给定消息时默认状态码为200
-     * $this->success($data, 302, '重定向'); // 指定状态码和状态值时需要按顺序传入
+     * $this->success('成功', $data);        // 默认状态码为200，传入状态值和数据
+     * $this->success(302, '重定向', $data); // 指定状态码和状态值，传入数据
      *
-     * @param array  $data          返回数据
-     * @param mixed  $codeOrMessage 响应码或者返回消息
-     * @param string $message       返回消息
+     * @param mixed $arg1
+     * @param mixed $arg2
+     * @param mixed $arg3
      *
      * @return \Dingo\Api\Http\Response
      */
-    public function success($data, $codeOrMessage = 200, $message = 'OK')
+    public function success($arg1, $arg2 = null, $arg3 = null)
     {
-        // 根据是否是字符串判断参数对应情况
-        if (is_string($codeOrMessage)) {
+        // 根据类型确定各参数含义
+        if (is_array($arg1)) {
             $code = 200;
-            $message = $codeOrMessage;
+            $message = 'OK';
+            $data = $arg1;
+        } else if (is_string($arg1)) {
+            $code = 200;
+            $message = $arg1;
+            $data = $arg2;
         } else {
-            $code = $codeOrMessage;
+            $code = $arg1;
+            $message = $arg2;
+            $data = $arg3;
         }
 
         return $this->response->array([

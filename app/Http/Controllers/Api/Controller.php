@@ -23,7 +23,7 @@ class Controller extends BaseController
      * $this->redirect('重定向', $data, true);
      *
      * @param mixed  $arg1
-     * @param array  $arg2
+     * @param mixed  $arg2
      * @param bool   $strict 是否连同响应头一起改为302
      *
      * @return \Dingo\Api\Http\Response
@@ -89,11 +89,22 @@ class Controller extends BaseController
     /**
      * 返回错误响应
      *
-     * @param string $message 错误消息
-     * @param int    $code    错误码
+     * 支持以下两种用法
+     * $this->error('服务器错误');
+     * $this->error(500, '服务器错误');
+     *
+     * @param mixed $arg1
+     * @param mixed $arg2
      */
-    public function error($message, $code = 500)
+    public function error($arg1, $arg2 = null)
     {
+        if (is_int($arg1)) {
+            $code = $arg1;
+            $message = $arg2;
+        } else {
+            $code = 500;
+            $message = $arg1;
+        }
         // 由于是抛出异常因此不需要return
         $this->response->error($message, $code);
     }

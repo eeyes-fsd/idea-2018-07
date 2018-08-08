@@ -32,10 +32,10 @@ class AuthorizationsController extends Controller
                 ]),
             ]);
 
-        /** 向前端发送 302 重定向 */
-        return $this->redirect('重定向以完成授权', [
+        /** 向前端发送 201 重定向 */
+        return $this->success(201, '重定向以完成授权', [
             'url' => $url
-        ])->setStatusCode(201);
+        ]);
     }
 
     /**
@@ -85,11 +85,11 @@ class AuthorizationsController extends Controller
             /** @var string $token 通过 JWT 获取用于前后端交互的用户 Token 并返回 */
             $token = Auth::guard('api_user')->fromUser($user);
 
-            return $this->success('认证成功', [
+            return $this->success(201, '认证成功', [
                 'access_token' => $token,
                 'token_type' => 'Bearer',
                 'expires_in' => Auth::guard('api_user')->factory()->getTTL() * 60
-            ])->setStatusCode(201);
+            ]);
         } catch (\Exception $e) {
             Log::error($e->getMessage(), $request->toArray());
             return $this->error(401, '认证失败');
@@ -120,11 +120,11 @@ class AuthorizationsController extends Controller
         }
 
         /** 返回 Token */
-        return $this->success('认证成功', [
+        return $this->success(201, '认证成功', [
             'access_token' => $token,
             'token_type' => 'Bearer',
             'expires_in' => Auth::guard('api_organization')->factory()->getTTL() * 60
-        ])->setStatusCode(201);
+        ]);
     }
 
     /**
@@ -134,11 +134,11 @@ class AuthorizationsController extends Controller
      */
     public function refreshUserToken()
     {
-        return $this->success('刷新成功', [
+        return $this->success(201, '刷新成功', [
             'access_token' => Auth::guard('api_user')->refresh(),
             'token_type' => 'Bearer',
             'expires_in' => Auth::guard('api_user')->factory()->getTTL() * 60
-        ])->setStatusCode(201);
+        ]);
     }
 
     /**
@@ -163,7 +163,7 @@ class AuthorizationsController extends Controller
     public function userLogout()
     {
         Auth::guard('api_user')->logout();
-        return $this->success(204,"删除成功");
+        return $this->success(204, '删除成功');
     }
 
     /**
@@ -174,6 +174,6 @@ class AuthorizationsController extends Controller
     public function organizationLogout()
     {
         Auth::guard('api_organization')->logout();
-        return $this->success(204,"删除成功");
+        return $this->success(204, '删除成功');
     }
 }

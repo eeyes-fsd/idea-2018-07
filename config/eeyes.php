@@ -5,7 +5,8 @@ return [
         'url' => 'https://account.eeyes.net/',
         'app' => [
             'id' => env('OAUTH_CLIENT_ID'),
-            'secret' => env('OAUTH_CLIENT_SECRET')
+            'secret' => env('OAUTH_CLIENT_SECRET'),
+            'callback' => env('OAUTH_FE_CALLBACK')
         ],
     ]
 ];

@@ -22,7 +22,7 @@ class AuthorizationsController extends Controller
         /** 请求认证的 URL @var string $url */
         $url = config('eeyes.account.url') . 'oauth/authorize?' . http_build_query([
                 'client_id' => config('eeyes.account.app.id'),
-                'redirect_uri' => app('Dingo\Api\Routing\UrlGenerator')->version('v1')->route('api.users.authorization.callback'),
+                'redirect_uri' => config('app.url') . '/#' . config('eeyes.account.app.callback'),
                 'response_type' => 'code',
                 'scope' => implode(' ',[
                     'info-username.read',
@@ -56,7 +56,7 @@ class AuthorizationsController extends Controller
                     'grant_type' => 'authorization_code',
                     'client_id' => config('eeyes.account.app.id'),
                     'client_secret' => config('eeyes.account.app.secret'),
-                    'redirect_uri' => app('Dingo\Api\Routing\UrlGenerator')->version('v1')->route('api.users.authorization.callback'),
+                    'redirect_uri' => config('app.url') . '/#' . config('eeyes.account.app.callback'),
                     'code' => $request->get('code'),
                 ],
             ]);

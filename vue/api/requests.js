@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { debug, baseUrl } from '@/env'
 
+var loginType = 'null'
+
 var accessToken = 'null'
 
 function debugReporter({ debug }) {
@@ -83,10 +85,22 @@ _axios.interceptors.response.use(
 
 export default _axios
 
+export function getAccessToken() {
+  return accessToken
+}
+
 export function setAccessToken(token) {
   accessToken = token
 }
 
 export function setReporter(r) {
   reporter = r
+}
+
+export function getLoginType() {
+  return loginType
+}
+
+export function setLoginType(type) {
+  loginType = type
 }

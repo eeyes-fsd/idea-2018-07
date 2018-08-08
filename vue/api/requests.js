@@ -11,9 +11,7 @@ function debugReporter({ debug }) {
   })
   if (debug.trace instanceof Array) {
     log('trace:')
-    for (let dep in debug.trace) {
-      log(dep + ': ' + debug.trace[dep])
-    }
+    debug.trace.forEach(line => log(line))
   }
 }
 

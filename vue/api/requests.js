@@ -1,7 +1,23 @@
 import axios from 'axios'
-import { baseUrl } from '@/env'
+import { debug, baseUrl } from '@/env'
 
-var apiToken = '';
+var accessToken = 'null'
+
+function debugReporter({ debug }) {
+  let log = console.log // eslint-disable-line
+  const keys = ['class', 'file', 'line']
+  keys.forEach(key => {
+    log(key + ': ' + debug[key])
+  })
+  if (debug.trace instanceof Array) {
+    log('trace:')
+    for (let dep in debug.trace) {
+      log(dep + ': ' + debug.trace[dep])
+    }
+  }
+}
+
+var reporter = debug ? debugReporter : err => err
 
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || ''
@@ -18,7 +34,7 @@ const _axios = axios.create(config)
 
 _axios.interceptors.request.use(
   function(config) {
-    config.headers['API-Token'] = apiToken
+    config.headers['Authorization'] = 'Bearer ' + accessToken
     return config
   },
   function(error) {
@@ -31,8 +47,8 @@ _axios.interceptors.request.use(
 _axios.interceptors.response.use(
   function({ data }) {
     var error
-    if (data !== undefined && data.ret !== undefined) {
-      if (data.ret == 200) {
+    if (data !== undefined && data.status_code !== undefined) {
+      if (data.status_code >= 200 && data.status_code < 400) {
         // 正确响应
         return data.data
       } else {
@@ -43,32 +59,36 @@ _axios.interceptors.response.use(
       // 严重错误，状态码200
       // 但是没有ret说明后端框架加载失败
       error = {
-        ret: 500,
-        err_msg: '服务器无效'
+        status_code: 500,
+        message: '服务器无效'
       }
     }
-    apiConfig.reporter(error)
+    reporter(error)
     return Promise.reject(error)
   },
   function({ response: { data } }) {
     var error
-    if (data !== undefined && data.ret !== undefined) {
+    if (data !== undefined && data.status_code !== undefined) {
       error = data
     } else {
       // 严重错误，状态码200
       // 但是没有ret说明后端框架加载失败
       error = {
-        ret: 500,
-        err_msg: '服务器无效'
+        status_code: 500,
+        message: '服务器无效'
       }
     }
-    apiConfig.reporter(error)
+    reporter(error)
     return Promise.reject(error)
   }
 )
 
 export default _axios
 
-export function setApiToken(token) {
-  apiToken = token
+export function setAccessToken(token) {
+  accessToken = token
+}
+
+export function setReporter(r) {
+  reporter = r
 }

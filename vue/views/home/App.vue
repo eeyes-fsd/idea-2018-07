@@ -23,7 +23,7 @@ export default {
   methods: {
     async userLogin () {
       try {
-        let data = await requests.get('/api/users/authorizations')
+        let data = await requests.get('/users/authorizations')
         location.href = data.url
       } catch (err) {
         this.errorMessage = err.message || '未知错误'

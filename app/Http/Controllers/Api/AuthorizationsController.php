@@ -24,17 +24,13 @@ class AuthorizationsController extends Controller
         ];
 
         if (!$token = Auth::guard('api_organization')->attempt($credentials)) {
-            return $this->response->errorUnauthorized(trans('auth.failed'));
+            return $this->error(401, trans('auth.failed'));
         }
 
-        return $this->response->array([
-            'status_code' => '200',
-            'message' => '认证成功',
-            'data' => [
-                'access_token' => $token,
-                'token_type' => 'Bearer',
-                'expires_in' => Auth::guard('api_organization')->factory()->getTTL() * 60
-            ]
+        return $this->success('认证成功', [
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+            'expires_in' => Auth::guard('api_organization')->factory()->getTTL() * 60
         ]);
     }
 
@@ -50,19 +46,17 @@ class AuthorizationsController extends Controller
                 'info-name.read',
                 'info-email.read',
             ]),
-       ]);
+        ]);
 
-        return $this->response->array([
-            'status_code' => '302',
-            'data' => $url,
-            'message' => '重定向以完成授权'
+        return $this->redirect('重定向以完成授权', [
+            'url' => $url
         ]);
     }
 
     public function userCallback(Request $request)
     {
         if ($request->has('error')) {
-            return $this->response->error('认证失败',401);
+            return $this->error(401, '认证失败');
         }
         try {
             $client = new Client;
@@ -93,18 +87,15 @@ class AuthorizationsController extends Controller
                 ]);
             }
             $token = Auth::guard('api_user')->fromUser($user);
-            return $this->response->array([
-                'status_code' => '200',
-                'message' => '认证成功',
-                'data' => [
-                    'access_token' => $token,
-                    'token_type' => 'Bearer',
-                    'expires_in' => Auth::guard('api_user')->factory()->getTTL() * 60
-                ]
+
+            return $this->success('认证成功', [
+                'access_token' => $token,
+                'token_type' => 'Bearer',
+                'expires_in' => Auth::guard('api_user')->factory()->getTTL() * 60
             ]);
         } catch (\Exception $e) {
             Log::error($e->getMessage(), $request->toArray());
-            return $this->response->error('认证失败',401);
+            return $this->error(401, '认证失败');
         }
     }
 }

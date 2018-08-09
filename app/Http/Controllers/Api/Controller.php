@@ -18,17 +18,12 @@ class Controller extends BaseController
      * $this->redirect($data);
      * $this->redirect('重定向', $data);
      *
-     * 如果需要修改响应头，则有以下两种用法
-     * $this->redirect($data, true);
-     * $this->redirect('重定向', $data, true);
-     *
      * @param mixed  $arg1
      * @param mixed  $arg2
-     * @param bool   $strict 是否连同响应头一起改为302
      *
      * @return \Dingo\Api\Http\Response
      */
-    public function redirect($arg1, $arg2 = null, $strict = false)
+    public function redirect($arg1, $arg2 = null)
     {
         if (is_string($arg1)) {
             $message = $arg1;
@@ -36,13 +31,6 @@ class Controller extends BaseController
         } else {
             $message = 'Found';
             $data = $arg1;
-            if ($arg2 !== null) {
-                $strict = $arg2;
-            }
-        }
-        // 判断是否修改响应头
-        if ($strict) {
-            $this->response->setStatusCode(302);
         }
 
         return $this->success(302, $message, $data);
@@ -78,6 +66,9 @@ class Controller extends BaseController
             $message = $arg2;
             $data = $arg3;
         }
+
+        // 设置响应头
+        $this->response->setStatusCode($code);
 
         return $this->response->array([
             'status_code' => $code,

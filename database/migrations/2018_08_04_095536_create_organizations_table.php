@@ -15,9 +15,10 @@ class CreateOrganizationsTable extends Migration
     {
         Schema::create('organizations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('username');
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->string('username')->unique()->comment('社团名称');
+            $table->string('email')->unique()->comment('邮箱');
+            $table->string('password')->comment('密码');
+            $table->string('profile_photo')->nullable()->comment('头像');
             $table->boolean('active')->default(false);
             $table->rememberToken();
             $table->timestamps();

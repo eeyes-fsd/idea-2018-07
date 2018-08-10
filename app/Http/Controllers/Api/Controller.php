@@ -67,14 +67,12 @@ class Controller extends BaseController
             $data = $arg3;
         }
 
-        // 设置响应头
-        $this->response->setStatusCode($code);
 
         return $this->response->array([
             'status_code' => $code,
             'message'     => $message,
             'data'        => $data
-        ]);
+        ])->setStatusCode($code);
     }
 
     /**

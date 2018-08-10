@@ -32,8 +32,8 @@ class AuthorizationsController extends Controller
                 ]),
             ]);
 
-        /** 向前端发送 201 重定向 */
-        return $this->success(201, '重定向以完成授权', [
+        /** 向前端发送 302 重定向 */
+        return $this->success(302, '重定向以完成授权', [
             'url' => $url
         ]);
     }
@@ -72,6 +72,7 @@ class AuthorizationsController extends Controller
             ]);
             /** @var array $data 将获取到的用户数据转换为数组 */
             $data = json_decode((string)$response->getBody(),true);
+
             if (!$user = User::where('username', $data['username'])->first())
             {
                 $user = User::create([

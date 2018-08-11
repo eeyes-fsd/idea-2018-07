@@ -8,6 +8,7 @@
       <p>您当前的登陆身份类型：{{ loginType }}</p>
       <p>错误信息：{{ errorMessage }}</p>
     </header>
+    <router-link to="/publish" v-if="loginType === '个人用户'">发表文章</router-link>
   </div>
 </template>
 

@@ -7,7 +7,9 @@
 </template>
 
 <script>
-import requests from '@/api/requests.js'
+import requests, { setLoginType } from '@/api/requests.js'
+import { setCookie } from "../../util";
+
 export default {
   name: 'OauthCallback',
   data () {
@@ -25,10 +27,14 @@ export default {
     }
   },
   methods: {
+    //普通用户登录
     async loginCallback() {
       try {
         let data = await requests.get('/users/authorizations/callback', { code: this.code })
         this.args = data
+        setCookie( 'access_token', data.access_token,  data.expires_in) //保存cookie
+        setLoginType('user')  //设定登录用户的类型
+        this.$router.push('/')  //跳转回首页
       } catch (err) {
         this.errorMessage = err.message || '未知错误'
       }

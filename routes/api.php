@@ -22,7 +22,7 @@ $api->version('v1', [
     /** 认证路由 */
     $api->get('users/authorizations', 'AuthorizationsController@userAuthenticate')
         ->name('api.users.authorization.auth');
-    $api->get('users/authorizations/callback', 'AuthorizationsController@userCallback')
+    $api->post('users/authorizations/callback', 'AuthorizationsController@userCallback')
         ->name('api.users.authorization.callback');
     $api->post('organizations/authorizations', 'AuthorizationsController@organizationAuthenticate')
         ->name('api.organizations.authorizations.auth');
@@ -35,5 +35,13 @@ $api->version('v1', [
     $api->delete('organizations/current','AuthorizationsController@organizationLogout')
         ->name('api.organizations.authorizations.logout');
 
+    $api->group(['middleware' => 'api.a'], function ($api){
+        $api->get('user','UsersController@me')
+            ->name('api.users.me');
+        $api->get('organization','OrganizationsController@me')
+            ->name('api.organizations.me');
+    });
+
     $api->resource('organizations','OrganizationsController',['except' => ['create','edit']]);
+    $api->resource('users','OrganizationsController',['except' => ['create','store','edit']]);
 });

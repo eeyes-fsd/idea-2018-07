@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\OrganizationRequest;
 use App\Models\Organization;
+use App\Transformers\OrganizationTransformer;
+use Illuminate\Support\Facades\Auth;
 
 class OrganizationsController extends Controller
 {
@@ -38,5 +40,10 @@ class OrganizationsController extends Controller
     public function destroy(Organization $organization)
     {
         //
+    }
+
+    public function me()
+    {
+        return $this->response->item(Auth::guard('api_organization')->user(), new OrganizationTransformer());
     }
 }

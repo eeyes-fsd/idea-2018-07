@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthorizationsController extends Controller
 {
@@ -42,6 +41,7 @@ class AuthorizationsController extends Controller
      * CAS 登录回调方法
      *
      * @param Request $request
+     * @return \Dingo\Api\Http\Response
      */
     public function userCallback(Request $request)
     {
@@ -57,7 +57,7 @@ class AuthorizationsController extends Controller
                     'client_id' => config('eeyes.account.app.id'),
                     'client_secret' => config('eeyes.account.app.secret'),
                     'redirect_uri' => config('app.url') . '/#' . config('eeyes.account.app.callback'),
-                    'code' => $request->get('code'),
+                    'code' => $request->code,
                 ],
             ]);
             /** @var array $data 将获取到的 Token 数据转换为数组 */
@@ -70,9 +70,9 @@ class AuthorizationsController extends Controller
                     'Authorization' => $data['token_type'] . ' ' . $data['access_token'],
                 ]
             ]);
+
             /** @var array $data 将获取到的用户数据转换为数组 */
             $data = json_decode((string)$response->getBody(),true);
-
             if (!$user = User::where('username', $data['username'])->first())
             {
                 $user = User::create([
@@ -91,6 +91,7 @@ class AuthorizationsController extends Controller
                 'token_type' => 'Bearer',
                 'expires_in' => Auth::guard('api_user')->factory()->getTTL() * 60
             ]);
+
         } catch (\Exception $e) {
             Log::error($e->getMessage(), $request->toArray());
             return $this->error(401, '认证失败');
@@ -101,12 +102,13 @@ class AuthorizationsController extends Controller
      * 社团登录方法
      *
      * @param Request $request
+     * @return \Dingo\Api\Http\Response
      */
     public function organizationAuthenticate(Request $request)
     {
         /** 验证所需字段 */
         $this->validate($request,[
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required',
         ]);
 

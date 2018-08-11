@@ -68,7 +68,11 @@ _axios.interceptors.response.use(
   },
   function({ response: { data } }) {
     var error
+    console.log(data)
     if (data !== undefined && data.status_code !== undefined) {
+      if(data.status_code === 302){
+        return data.data
+      }
       error = data
     } else {
       // 严重错误，状态码200
@@ -78,6 +82,7 @@ _axios.interceptors.response.use(
         message: '服务器无效'
       }
     }
+
     reporter(error)
     return Promise.reject(error)
   }

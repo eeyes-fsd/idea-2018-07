@@ -43,5 +43,5 @@ $api->version('v1', [
     });
 
     $api->resource('organizations','OrganizationsController',['except' => ['create','edit']]);
-    $api->resource('users','OrganizationsController',['except' => ['create','store','edit']]);
+    $api->resource('users','UsersController',['except' => ['create','store','edit']]);
 });

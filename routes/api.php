@@ -22,6 +22,7 @@ $api->version('v1', [
     /** 认证路由 */
     $api->get('users/authorizations', 'AuthorizationsController@userAuthenticate')
         ->name('api.users.authorization.auth');
+//    $api->get('users/authorizations/callback', 'AuthorizationsController@userCallback')
     $api->post('users/authorizations/callback', 'AuthorizationsController@userCallback')
         ->name('api.users.authorization.callback');
     $api->post('organizations/authorizations', 'AuthorizationsController@organizationAuthenticate')

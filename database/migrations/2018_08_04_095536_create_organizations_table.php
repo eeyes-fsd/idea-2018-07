@@ -20,6 +20,9 @@ class CreateOrganizationsTable extends Migration
             $table->string('password')->comment('密码');
             $table->string('profile_photo')->nullable()->comment('头像');
             $table->boolean('active')->default(false);
+            $table->string('qq')->nullable()->comment('QQ');
+            $table->boolean('email_visibility')->default(true)->comment('邮箱是否公开');
+            $table->boolean('qq_visibility')->default(true)->comment('QQ是否公开');
             $table->rememberToken();
             $table->timestamps();
         });

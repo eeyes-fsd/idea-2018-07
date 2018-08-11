@@ -28,6 +28,7 @@ class AuthorizationsController extends Controller
                     'info-user_id.read',
                     'info-name.read',
                     'info-email.read',
+                    'info-mobile.read'
                 ]),
             ]);
 
@@ -78,7 +79,9 @@ class AuthorizationsController extends Controller
                 $user = User::create([
                     'name' => $data['name'],
                     'username' => $data['username'],
+                    'nickname' => $data['username'],
                     'email' => $data['email'],
+                    'phone' => $data['mobile'],
                     'password' => bcrypt('default_password'),
                 ]);
             }

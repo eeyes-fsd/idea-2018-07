@@ -6,6 +6,9 @@ use App\Http\Requests\OrganizationRequest;
 use App\Models\Organization;
 use App\Transformers\OrganizationTransformer;
 use Illuminate\Support\Facades\Auth;
+use League\Fractal\Manager;
+use League\Fractal\Resource\Item;
+use App\Serializers\CustomSerializer;
 
 class OrganizationsController extends Controller
 {
@@ -44,6 +47,15 @@ class OrganizationsController extends Controller
 
     public function me()
     {
-        return $this->response->item(Auth::guard('api_organization')->user(), new OrganizationTransformer());
+        $manager = new Manager();
+        $manager->setSerializer(new CustomSerializer());
+
+        $resource = new Item(Auth::guard('api_organization')->user(), new OrganizationTransformer());
+
+        return $this->success(
+            $manager->createData($resource)->toArray()
+        );
+
+//        return $this->response->item(Auth::guard('api_organization')->user(), new OrganizationTransformer());
     }
 }

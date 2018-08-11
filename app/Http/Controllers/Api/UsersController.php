@@ -7,6 +7,9 @@ use App\Transformers\UserTransformer;
 use Illuminate\Support\Facades\Auth;
 use Dingo\Api\Http\Response;
 use Illuminate\Http\Request;
+use League\Fractal\Manager;
+use League\Fractal\Resource\Item;
+use App\Serializers\CustomSerializer;
 
 class UsersController extends Controller
 {
@@ -67,6 +70,15 @@ class UsersController extends Controller
 
     public function me()
     {
-        return $this->response->item(Auth::guard('api_user')->user(), new UserTransformer());
+        $manager = new Manager();
+        $manager->setSerializer(new CustomSerializer());
+
+        $resource = new Item(Auth::guard('api_user')->user(), new UserTransformer());
+
+        return $this->success(
+            $manager->createData($resource)->toArray()
+        );
+
+//        return $this->response->item(Auth::guard('api_user')->user(), new UserTransformer());
     }
 }

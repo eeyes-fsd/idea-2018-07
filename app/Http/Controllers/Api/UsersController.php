@@ -78,7 +78,6 @@ class UsersController extends Controller
         ];
 
         //头像更改
-        dd($request->has('profile_photo'));
         if ($request->profile_photo) {
             $result = $uploader->save($request->profile_photo, 'profile_photo', $user->id);
             if ($result) {

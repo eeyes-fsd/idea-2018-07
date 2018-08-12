@@ -13,7 +13,7 @@ class AddSignatureToOrg extends Migration
      */
     public function up()
     {
-        Schema::create('organizations', function (Blueprint $table) {
+        Schema::table('organizations', function (Blueprint $table) {
             $table->string('signature')->after('profile_photo')->nullable()->comment('个性签名');
         });
     }

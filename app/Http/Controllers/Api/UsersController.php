@@ -11,7 +11,7 @@ use Dingo\Api\Http\Response;
 use Illuminate\Http\Request;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Item;
-use App\Serializers\CustomSerializer;
+use App\Response\CustomResponse;
 
 class UsersController extends Controller
 {
@@ -122,7 +122,7 @@ class UsersController extends Controller
     public function me()
     {
         $manager = new Manager();
-        $manager->setSerializer(new CustomSerializer());
+        $manager->setSerializer(new CustomResponse());
 
         $resource = new Item(Auth::guard('api_user')->user(), new UserTransformer());
 

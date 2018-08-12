@@ -8,7 +8,7 @@ use App\Transformers\OrganizationTransformer;
 use Illuminate\Support\Facades\Auth;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Item;
-use App\Serializers\CustomSerializer;
+use App\Response\CustomResponse;
 
 class OrganizationsController extends Controller
 {
@@ -47,15 +47,6 @@ class OrganizationsController extends Controller
 
     public function me()
     {
-        $manager = new Manager();
-        $manager->setSerializer(new CustomSerializer());
-
-        $resource = new Item(Auth::guard('api_organization')->user(), new OrganizationTransformer());
-
-        return $this->success(
-            $manager->createData($resource)->toArray()
-        );
-
-//        return $this->response->item(Auth::guard('api_organization')->user(), new OrganizationTransformer());
+        return $this->response->item(Auth::guard('api_organization')->user(), new OrganizationTransformer());
     }
 }

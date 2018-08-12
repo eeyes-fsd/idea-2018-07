@@ -82,7 +82,7 @@ class AuthorizationsController extends Controller
                     'nickname' => $data['username'],
                     'email' => $data['email'],
                     'phone' => $data['mobile'],
-                    'password' => bcrypt('default_password'),
+                    'password' => '*',
                 ]);
             }
 

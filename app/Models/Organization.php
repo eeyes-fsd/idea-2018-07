@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Organization extends Authenticatable implements JWTSubject
 {
+    use HasRoles;
     use Notifiable;
 
     /**
@@ -39,5 +41,10 @@ class Organization extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function articles()
+    {
+        return $this->hasMany('App\Models\Article','organization_id');
     }
 }

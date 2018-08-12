@@ -34,6 +34,7 @@ cp .env.example .env
 php artisan key:generate
 php artisan jwt:secret
 php artisan migrate
+php artisan storage:link
 # 安装前端依赖（需要预装gym否则可能安装失败，）
 # ** 需要预装gym否则可能安装失败
 # ** 需要管理员权限否则可能安装失败

@@ -44,7 +44,7 @@ class UserTransformer extends TransformerAbstract
             'qq_visibility' => $user->qq_visibility,
         ];
 
-        if(Auth::guard('api_user')->user() === $user)
+        if(Auth::guard('api_user')->user()->username === $user->username)
         {
             $data['phone'] = $user->phone;
             $data['email'] = $user->email;

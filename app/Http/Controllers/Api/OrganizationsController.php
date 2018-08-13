@@ -44,13 +44,9 @@ class OrganizationsController extends Controller
      * @return \Dingo\Api\Http\Response|void
      * @throws \Exception
      */
-    public function update(Request $request,ImageUploadHandler $uploader, $id)
+    public function update(OrganizationRequest $request,ImageUploadHandler $uploader, $id)
     {
         $organization = Organization::find($id);
-        if(Auth::guard('api_organization')->user()->cant('update',$organization))
-        {
-            return $this->error(403,'权限不足');
-        }
 
         //基本信息更改
         $data = [

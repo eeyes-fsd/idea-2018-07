@@ -8,8 +8,8 @@ class Policy
 {
     use HandlesAuthorization;
 
-    public function before($user, $abality)
+    public function before($user, $ability)
     {
-        //TODO I don't what to do.
+        //todo
     }
 }

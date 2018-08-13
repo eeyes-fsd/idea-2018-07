@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Handlers\ImageUploadHandler;
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use App\Transformers\UserTransformer;
 use Dingo\Api\Exception\UpdateResourceFailedException;
@@ -57,13 +58,9 @@ class UsersController extends Controller
      * @return Response|void
      * @throws \Exception
      */
-    public function update(Request $request,ImageUploadHandler $uploader,$id)
+    public function update(UserRequest $request, ImageUploadHandler $uploader, $id)
     {
         $user = User::find($id);
-        if(Auth::guard('api_user')->user()->cant('update',$user))
-        {
-            return $this->error(403,'权限不足');
-        }
 
         //基本信息更改
         $data = [
@@ -120,15 +117,6 @@ class UsersController extends Controller
 
     public function me()
     {
-        $manager = new Manager();
-        $manager->setSerializer(new CustomResponse());
-
-        $resource = new Item(Auth::guard('api_user')->user(), new UserTransformer());
-
-        return $this->success(
-            $manager->createData($resource)->toArray()
-        );
-
-//        return $this->response->item(Auth::guard('api_user')->user(), new UserTransformer());
+        return $this->response->item(Auth::guard('api_user')->user(), new UserTransformer());
     }
 }

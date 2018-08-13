@@ -2,11 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Organization;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class OrganizationRequest extends BaseFormRequest
+class UserRequest extends BaseFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,14 +15,13 @@ class OrganizationRequest extends BaseFormRequest
     public function authorize()
     {
         if($this->isMethod('put')) {
-            $organization = Organization::find($this->route('organization'));
-            if(!$organization){
+            $user = User::find($this->route('user'));
+            if (!$user) {
                 return false;
-            }else{
-                if(Auth::guard('api_organization')->user()->cant('update',$organization))
-                {
+            } else {
+                if (Auth::guard('api_user')->user()->cant('update', $user)) {
                     return false;
-                }else{
+                } else {
                     return true;
                 }
             }
@@ -31,6 +29,7 @@ class OrganizationRequest extends BaseFormRequest
             return true;
         }
     }
+
 
     /**
      * Get the validation rules that apply to the request.
@@ -40,9 +39,7 @@ class OrganizationRequest extends BaseFormRequest
     public function rules()
     {
         return [
-            'username' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
+            //
         ];
     }
 }

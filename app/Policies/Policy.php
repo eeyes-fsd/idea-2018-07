@@ -10,7 +10,7 @@ class Policy
 
     public function before($user, $ability)
     {
-        if ($user->can('manage_content'))
+        if ($user->can('manage_contents'))
         {
             return true;
         }

@@ -5,8 +5,21 @@ namespace App\Policies;
 use App\Models\Organization;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class OrganizationPolicy extends Policy
+class OrganizationPolicy
 {
+    /**
+     * @param $user
+     * @param $ability
+     * @return bool
+     */
+    public function before($user, $ability)
+    {
+        if ($user->can('manage_users'))
+        {
+            return true;
+        }
+    }
+
     /**
      * Create a new policy instance.
      *

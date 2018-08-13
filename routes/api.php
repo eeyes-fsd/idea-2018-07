@@ -16,13 +16,13 @@ use Illuminate\Http\Request;
 $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', [
-    'namespace' => 'App\Http\Controllers\Api'
+    'namespace' => 'App\Http\Controllers\Api',
+    'middleware' => 'bindings'
 ], function ($api) {
 
     /** 认证路由 */
     $api->get('users/authorizations', 'AuthorizationsController@userAuthenticate')
         ->name('api.users.authorization.auth');
-//    $api->get('users/authorizations/callback', 'AuthorizationsController@userCallback')
     $api->post('users/authorizations/callback', 'AuthorizationsController@userCallback')
         ->name('api.users.authorization.callback');
     $api->post('organizations/authorizations', 'AuthorizationsController@organizationAuthenticate')

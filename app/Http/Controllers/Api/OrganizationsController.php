@@ -19,9 +19,13 @@ class OrganizationsController extends Controller
         //
     }
 
+    /**
+     * @param Organization $organization
+     * @return \Dingo\Api\Http\Response
+     */
     public function show(Organization $organization)
     {
-        //
+        return $this->response->item($organization, new OrganizationTransformer());
     }
 
     public function store(OrganizationRequest $request)
@@ -38,44 +42,31 @@ class OrganizationsController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param OrganizationRequest $request
      * @param ImageUploadHandler $uploader
-     * @param int $id
-     * @return \Dingo\Api\Http\Response|void
+     * @param Organization $organization
+     * @return \Dingo\Api\Http\Response
      * @throws \Exception
      */
-    public function update(OrganizationRequest $request,ImageUploadHandler $uploader, $id)
+    public function update(Organization $organization, $request,ImageUploadHandler $uploader)
     {
-        $organization = Organization::find($id);
-
-        //基本信息更改
-        $data = [
-            'username' => $request->input('username',$organization->username),
-            'signature' => $request->input('signature',$organization->signature),
-            'qq' => $request->input('qq',$organization->qq),
-            'email_visibility' => $request->input('email_visibility',$organization->email_visibility),
-            'qq_visibility' => $request->input('qq_visibility',$organization->qq_visibility),
-        ];
+       //基本信息更改
+        $data = $request->all();
 
         //头像更改
-        if ($request->profile_photo) {
-            $result = $uploader->save($request->profile_photo, 'org_profile_photo', $organization->id);
+        if ($request->avatar) {
+            $result = $uploader->save($request->avatar, 'org_avatar', $organization->id);
             if ($result) {
-                $data['profile_photo'] = $result['path'];
+                $data['avatar'] = $result['path'];
             }
         }
 
         //修改密码
         if($request->password){
-            //todo 密码约束
-            if($organization->password === bcrypt('default_password')){
+            //TODO 密码约束
+            if($organization->password === bcrypt('default_password') || bcrypt($request->old_password) === $organization->password)
+            {
                 $data['password'] = bcrypt($request->password);
-            }else{
-                if(bcrypt($request->old_password === $organization->password)){
-                    $data['password'] = bcrypt($request->password);
-                }else{
-                    return $this->error('旧密码错误');
-                }
             }
         }
 
@@ -85,14 +76,24 @@ class OrganizationsController extends Controller
             throw $e;
         }
 
-        return $this->success($organization->toArray());
+        return $this->response->item($organization, new OrganizationTransformer());
     }
 
+    /**
+     * @param Organization $organization
+     * @return \Dingo\Api\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function destroy(Organization $organization)
     {
-        //
+        $this->authorize('delete',$organization);
+        $organization->delete();
+        return $this->success("社团用户删除成功");
     }
 
+    /**
+     * @return \Dingo\Api\Http\Response
+     */
     public function me()
     {
         return $this->response->item(Auth::guard('api_organization')->user(), new OrganizationTransformer());

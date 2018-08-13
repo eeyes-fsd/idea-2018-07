@@ -3,8 +3,9 @@
 namespace App\Transformers;
 
 use App\Models\Article;
+use League\Fractal\TransformerAbstract;
 
-class ArticleTransformer
+class ArticleTransformer extends TransformerAbstract
 {
     /**
      * @param Article $article

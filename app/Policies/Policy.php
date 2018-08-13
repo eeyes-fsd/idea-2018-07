@@ -10,6 +10,9 @@ class Policy
 
     public function before($user, $ability)
     {
-        //todo
+        if ($user->can('manage_content'))
+        {
+            return true;
+        }
     }
 }

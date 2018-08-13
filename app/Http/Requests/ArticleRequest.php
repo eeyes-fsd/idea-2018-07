@@ -6,34 +6,8 @@ use App\Models\Article;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class ArticleRequest extends BaseFormRequest
+class ArticleRequest extends Request
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        if ($this->isMethod('put')) {
-            $article = Article::find($this->route('article'));
-            if (!$article) {
-                return false;
-            } else {
-                if($article->organization_id && Auth::guard('api_organization')->check()) {
-                    return Auth::guard('api_organization')->can('updateArticles',$article);
-                } elseif ($article->user_id && Auth::guard('api_user')->check()) {
-                    return Auth::guard('api_user')->can('updateArticles',$article);
-                } else {
-                    return false;
-                }
-            }
-        } else {
-            return true;
-        }
-
-    }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -42,7 +16,7 @@ class ArticleRequest extends BaseFormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => 'required|string',
             'body' => 'required',
         ];
     }

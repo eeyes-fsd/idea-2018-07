@@ -2,12 +2,32 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class User
+ * @package App\Models
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $username
+ * @property string $email
+ * @property string $nickname
+ * @property string $avatar
+ * @property string $signature
+ * @property string $phone
+ * @property string $qq
+ * @property bool $phone_visibility
+ * @property bool $email_visibility
+ * @property bool $qq_visibility
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ * @property Article $articles
+ */
 class User extends Authenticatable implements JWTSubject
 {
     use HasRoles;

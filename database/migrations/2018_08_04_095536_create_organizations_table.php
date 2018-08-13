@@ -18,7 +18,7 @@ class CreateOrganizationsTable extends Migration
             $table->string('username')->unique()->comment('社团名称');
             $table->string('email')->unique()->comment('邮箱');
             $table->string('password')->comment('密码');
-            $table->string('profile_photo')->nullable()->comment('头像');
+            $table->string('avatar')->nullable()->comment('头像');
             $table->boolean('active')->default(false);
             $table->string('qq')->nullable()->comment('QQ');
             $table->boolean('email_visibility')->default(true)->comment('邮箱是否公开');

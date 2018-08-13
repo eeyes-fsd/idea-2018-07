@@ -7,6 +7,8 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 
 class OrganizationPolicy
 {
+    use HandlesAuthorization;
+
     /**
      * @param $user
      * @param $ability

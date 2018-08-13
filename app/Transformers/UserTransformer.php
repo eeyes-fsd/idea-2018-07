@@ -34,7 +34,7 @@ class UserTransformer extends TransformerAbstract
             'username' => $user->username,
             'NetID' => $user->username,
             'nickname' => $user->nickname,
-            'profile_photo' => $user->profile_photo,
+            'profile_photo' => $user->avatar,
             'signature' => $user->signature,
             'phone' => $user->phone_visibility ? $user->phone : '***',
             'email' => $user->email_visibility ? $user->email : '***',

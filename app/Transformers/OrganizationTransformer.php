@@ -15,8 +15,7 @@ class OrganizationTransformer extends TransformerAbstract
         $data = [
             'id' => $organization->id,
             'username' => $organization->username,
-            'email' => $organization->email,
-            'profile_photo' => $organization->profile_photo,
+            'profile_photo' => $organization->avatar,
             'active' => $organization->active,
             'email' => $organization->email_visibility ? $organization->email : '***',
             'qq' => $organization->qq_visibility ? $organization->qq : '***',

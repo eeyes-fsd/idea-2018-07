@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->nullable();
             $table->integer('organization_id')->nullable();
+            $table->integer('category_id')->comment("分类ID");
             $table->string('title')->comment('标题');
             $table->text('body')->comment('正文');
             $table->boolean('anonymous')->default(false)->comment('是否匿名');

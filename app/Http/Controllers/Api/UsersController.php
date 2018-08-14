@@ -72,6 +72,10 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         $this->authorize('delete', $user);
+        foreach ($user->articles as $article)
+        {
+            $article->delete();
+        }
         $user->delete();
         return $this->success("删除成功");
     }

@@ -6,11 +6,7 @@ use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\OrganizationRequest;
 use App\Models\Organization;
 use App\Transformers\OrganizationTransformer;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use League\Fractal\Manager;
-use League\Fractal\Resource\Item;
-use App\Response\CustomResponse;
 
 class OrganizationsController extends Controller
 {
@@ -35,10 +31,9 @@ class OrganizationsController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
-        return $this->response->array([
-            'status_code' => 200,
-            'message' => '社团用户创建成功'
-        ]);
+
+        $transformer = new OrganizationTransformer();
+        return $this->success(201,"社团用户创建成功",$transformer->transform($origanization));
     }
 
     /**
@@ -48,8 +43,10 @@ class OrganizationsController extends Controller
      * @return \Dingo\Api\Http\Response
      * @throws \Exception
      */
-    public function update(Organization $organization, $request,ImageUploadHandler $uploader)
+    public function update(Organization $organization,OrganizationRequest $request,ImageUploadHandler $uploader)
     {
+        $this->authorizeForUser(auth('api_organization')->user(),'update',$organization);
+
        //基本信息更改
         $data = $request->all();
 
@@ -87,7 +84,12 @@ class OrganizationsController extends Controller
     public function destroy(Organization $organization)
     {
         $this->authorize('delete',$organization);
-        $organization->delete();
+        $organization->articles->delete();
+        foreach ($organization->articles as $article)
+        {
+            $article->delete();
+        }
+
         return $this->success("社团用户删除成功");
     }
 

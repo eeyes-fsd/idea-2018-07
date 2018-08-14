@@ -15,7 +15,7 @@ class ArticleObserver
 {
     public function creating(Article $article)
     {
-        if(Auth::guard('api_user')->chece()){
+        if(Auth::guard('api_user')->check()){
             $article->user_id = Auth::guard('api_user')->id();
         }elseif(Auth::guard('api_organization')->check()){
             $article->organization_id = Auth::guard('api_organization')->id();

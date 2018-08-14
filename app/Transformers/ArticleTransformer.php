@@ -27,7 +27,6 @@ class ArticleTransformer extends TransformerAbstract
 
     public function includeAuthor(Article $article)
     {
-
         if ($article->user_id)
         {
             return $this->item($article->author, new UserTransformer());

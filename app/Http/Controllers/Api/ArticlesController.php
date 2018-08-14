@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Transformers\ArticleTransformer;
-use Dingo\Api\Transformer\Adapter\Fractal;
 
 class ArticlesController extends Controller
 {

@@ -63,10 +63,11 @@ class CustomResponse extends Format
 
         if (!isset($content['status_code']) && !isset($content['message']))
         {
-            $response = array_merge($content,[
+            $response = [
                 'status_code' => 200,
                 'message' => 'OK',
-            ]);
+                'data' => $content,
+            ];
         }
 
         return $this->encode($response);

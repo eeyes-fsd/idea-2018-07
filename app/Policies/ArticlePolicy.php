@@ -21,8 +21,8 @@ class ArticlePolicy extends Policy
         return $article->author === $user;
     }
 
-    public function delete()
+    public function delete($user, Article $article)
     {
-
+        return $article->author === $user;
     }
 }

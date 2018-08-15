@@ -33,6 +33,8 @@ class ArticlesController extends Controller
 
     public function update(Article $article, ArticleRequest $request)
     {
+        $this->authorizeForUser($this->getUserOrOrganization(),'update',$article);
+
         $article->update($request->all());
         $transformer = new ArticleTransformer();
         return $this->success(201,'文章已更新', $transformer->transform($article));
@@ -40,6 +42,8 @@ class ArticlesController extends Controller
 
     public function destroy(Article $article)
     {
+        $this->authorizeForUser($this->getUserOrOrganization(),'delete',$article);
+
         $article->delete();
         return $this->success("删除成功");
     }

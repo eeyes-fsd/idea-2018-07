@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class OrganizationsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('api.a',['except' => ['show','store']]);
+    }
+
     public function index()
     {
         //
@@ -33,7 +38,7 @@ class OrganizationsController extends Controller
         ]);
 
         $transformer = new OrganizationTransformer();
-        return $this->success(201,"社团用户创建成功",$transformer->transform($origanization));
+        return $this->success(201,"社团用户创建成功，请联系管理员审核",$transformer->transform($origanization));
     }
 
     /**
@@ -45,10 +50,10 @@ class OrganizationsController extends Controller
      */
     public function update(Organization $organization,OrganizationRequest $request,ImageUploadHandler $uploader)
     {
-        $this->authorizeForUser(auth('api_organization')->user(),'update',$organization);
+        $this->authorizeForUser($this->getUserOrOrganization(),'update',$organization);
 
        //基本信息更改
-        $data = $request->all();
+        $data = $request->except('active');
 
         //头像更改
         if ($request->avatar) {
@@ -83,7 +88,7 @@ class OrganizationsController extends Controller
      */
     public function destroy(Organization $organization)
     {
-        $this->authorize('delete',$organization);
+        $this->authorizeForUser($this->getUserOrOrganization(),'delete',$organization);
         $organization->articles->delete();
         foreach ($organization->articles as $article)
         {
@@ -99,5 +104,17 @@ class OrganizationsController extends Controller
     public function me()
     {
         return $this->response->item(Auth::guard('api_organization')->user(), new OrganizationTransformer());
+    }
+
+    public function activate(Organization $organization)
+    {
+        if ($this->getUserOrOrganization()->can('manage_users')) {
+            $organization->update(['active' => true]);
+        } else {
+            $this->error(403,'权限不足');
+        }
+
+        $transformer = new OrganizationTransformer();
+        return $this->success(201,$organization->username.'审核通过', $transformer->transform($organization));
     }
 }

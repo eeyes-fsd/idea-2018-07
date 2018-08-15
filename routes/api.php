@@ -41,6 +41,7 @@ $api->version('v1', [
             ->name('api.users.me');
         $api->get('organization','OrganizationsController@me')
             ->name('api.organizations.me');
+        $api->post('organizations/activate/{organization}','OrganizationsController@activate');
     });
 
     $api->resource('organizations','OrganizationsController',['except' => ['create','edit']]);

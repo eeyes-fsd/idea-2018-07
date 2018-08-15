@@ -36,4 +36,16 @@ class OrganizationPolicy
     {
         return $currentUser->id === $user->id;
     }
+
+    /**
+     * 注销组织
+     *
+     * @param Organization $currentOrganization
+     * @param Organization $organization
+     * @return bool
+     */
+    public function delete(Organization $currentOrganization, Organization $organization)
+    {
+        return $currentOrganization->id === $organization->id;
+    }
 }

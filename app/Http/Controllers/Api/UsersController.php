@@ -52,7 +52,7 @@ class UsersController extends Controller
      */
     public function update(User $user, UserRequest $request, ImageUploadHandler $uploader)
     {
-        $this->authorizeForUser($this->getUserOrOrganization(),'update',$user);
+        $this->authorizeForUser($this->getUserOrActiveOrganization(),'update',$user);
 //        $this->authorizeForUser(Auth::guard('api_user')->user(),'update',$user);
 
         //基本信息更改
@@ -80,7 +80,7 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        $this->authorizeForUser($this->getUserOrOrganization(),'delete', $user);
+        $this->authorizeForUser($this->getUserOrActiveOrganization(),'delete', $user);
         foreach ($user->articles as $article)
         {
             $article->delete();

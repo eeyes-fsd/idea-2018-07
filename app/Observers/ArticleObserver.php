@@ -15,10 +15,12 @@ class ArticleObserver
 {
     public function creating(Article $article)
     {
-        if(Auth::guard('api_user')->check()){
+        if (Auth::guard('api_user')->check()) {
             $article->user_id = Auth::guard('api_user')->id();
-        }elseif(Auth::guard('api_organization')->check()){
+        } elseif (Auth::guard('api_organization')->check() && Auth::guard('api_organization')->user()->active) {
             $article->organization_id = Auth::guard('api_organization')->id();
+        } else {
+            throw new \Exception();
         }
     }
 }

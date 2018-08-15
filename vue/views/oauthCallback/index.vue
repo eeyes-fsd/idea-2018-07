@@ -30,7 +30,7 @@ export default {
     //普通用户登录
     async loginCallback() {
       try {
-        let data = await requests.get('/users/authorizations/callback', { code: this.code })
+        let data = await requests.post('/users/authorizations/callback', { code: this.code })
         this.args = data
         setCookie( 'access_token', data.access_token,  data.expires_in) //保存cookie
         setLoginType('user')  //设定登录用户的类型

@@ -12583,7 +12583,7 @@ function setLoginType(type) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(19);
-module.exports = __webpack_require__(92);
+module.exports = __webpack_require__(93);
 
 
 /***/ }),
@@ -12599,7 +12599,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__App_vue__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__App_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__App_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__router__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__store__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__store__ = __webpack_require__(90);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -33612,7 +33612,7 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_home___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__views_home__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__views_oauthCallback__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__views_oauthCallback___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__views_oauthCallback__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__views_publish__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__views_publish__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__views_publish___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__views_publish__);
 
 
@@ -37507,7 +37507,7 @@ var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(71)
 /* template */
-var __vue_template__ = __webpack_require__(72)
+var __vue_template__ = __webpack_require__(73)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -37594,7 +37594,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_requests_js__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(72);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -37639,7 +37639,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               case 0:
                 _context.prev = 0;
                 _context.next = 3;
-                return __WEBPACK_IMPORTED_MODULE_1__api_requests_js__["a" /* default */].get('/users/authorizations/callback', { code: this.code });
+                return __WEBPACK_IMPORTED_MODULE_1__api_requests_js__["a" /* default */].post('/users/authorizations/callback', { code: this.code });
 
               case 3:
                 data = _context.sent;
@@ -37681,6 +37681,38 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 /***/ }),
 /* 72 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export getCookie */
+/* harmony export (immutable) */ __webpack_exports__["a"] = setCookie;
+/* unused harmony export delCookie */
+/**
+ * utils
+ */
+function getCookie(name) {
+  var arr,
+      reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+  if (arr = document.cookie.match(reg)) return arr[2];else return null;
+}
+
+//设置cookie,
+function setCookie(c_name, value, expiredays) {
+  var exdate = new Date();
+  exdate.setDate(exdate.getDate() + expiredays / 3600);
+  document.cookie = c_name + "=" + escape(value) + (expiredays == null ? "" : ";expires=" + exdate.toGMTString());
+};
+
+//删除cookie
+function delCookie(name) {
+  var exp = new Date();
+  exp.setTime(exp.getTime() - 1);
+  var cval = getCookie(name);
+  if (cval != null) document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+};
+
+/***/ }),
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -37706,19 +37738,19 @@ if (false) {
 }
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(74)
+  __webpack_require__(75)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(76)
+var __vue_script__ = __webpack_require__(77)
 /* template */
-var __vue_template__ = __webpack_require__(88)
+var __vue_template__ = __webpack_require__(89)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -37757,13 +37789,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(75);
+var content = __webpack_require__(76);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -37783,7 +37815,7 @@ if(false) {
 }
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -37797,12 +37829,12 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_editor__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_editor__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_editor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_editor__);
 //
 //
@@ -37835,19 +37867,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(78)
+  __webpack_require__(79)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(80)
+var __vue_script__ = __webpack_require__(81)
 /* template */
-var __vue_template__ = __webpack_require__(87)
+var __vue_template__ = __webpack_require__(88)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -37886,13 +37918,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(79);
+var content = __webpack_require__(80);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -37912,7 +37944,7 @@ if(false) {
 }
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -37926,18 +37958,18 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tinymce_tinymce__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tinymce_tinymce__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tinymce_tinymce___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_tinymce_tinymce__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_tinymce_themes_modern_theme__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_tinymce_themes_modern_theme__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_tinymce_themes_modern_theme___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_tinymce_themes_modern_theme__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_tinymce_plugins_paste__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_tinymce_plugins_paste__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_tinymce_plugins_paste___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_tinymce_plugins_paste__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_tinymce_plugins_link__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_tinymce_plugins_link__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_tinymce_plugins_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_tinymce_plugins_link__);
 //
 //
@@ -38000,7 +38032,7 @@ var EDITOR = null;
 });
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(setImmediate) {// 4.8.2 (2018-08-09)
@@ -64798,7 +64830,7 @@ var EDITOR = null;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8).setImmediate))
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports) {
 
 (function () {
@@ -74845,7 +74877,7 @@ var modern = (function () {
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Exports the "paste" plugin for usage with module loaders
@@ -74854,10 +74886,10 @@ var modern = (function () {
 //     require('tinymce/plugins/paste')
 //   ES2015:
 //     import 'tinymce/plugins/paste'
-__webpack_require__(84);
+__webpack_require__(85);
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports) {
 
 (function () {
@@ -76360,7 +76392,7 @@ var paste = (function () {
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Exports the "link" plugin for usage with module loaders
@@ -76369,10 +76401,10 @@ var paste = (function () {
 //     require('tinymce/plugins/link')
 //   ES2015:
 //     import 'tinymce/plugins/link'
-__webpack_require__(86);
+__webpack_require__(87);
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports) {
 
 (function () {
@@ -77091,7 +77123,7 @@ var link = (function () {
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -77114,7 +77146,7 @@ if (false) {
 }
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -77153,14 +77185,14 @@ if (false) {
 }
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuex_dist_logger__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuex_dist_logger__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuex_dist_logger___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vuex_dist_logger__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__env__ = __webpack_require__(6);
 
@@ -77176,7 +77208,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 }));
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -78121,7 +78153,7 @@ var index_esm = {
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function (global, factory) {
@@ -78249,57 +78281,10 @@ return createLogger;
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export getCookie */
-/* harmony export (immutable) */ __webpack_exports__["a"] = setCookie;
-/* unused harmony export delCookie */
-/**
- * utils
- */
-function getCookie(name) {
-  var arr,
-      reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-  if (arr = document.cookie.match(reg)) return arr[2];else return null;
-}
-
-//设置cookie,
-function setCookie(c_name, value, expiredays) {
-  var exdate = new Date();
-  exdate.setDate(exdate.getDate() + expiredays / 3600);
-  document.cookie = c_name + "=" + escape(value) + (expiredays == null ? "" : ";expires=" + exdate.toGMTString());
-};
-
-//删除cookie
-function delCookie(name) {
-  var exp = new Date();
-  exp.setTime(exp.getTime() - 1);
-  var cval = getCookie(name);
-  if (cval != null) document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
-};
 
 /***/ })
 /******/ ]);

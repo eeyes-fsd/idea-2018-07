@@ -109,11 +109,25 @@ class Controller extends BaseController
      *
      * @return mixed User|Organization
      */
+    public function getUserOrActiveOrganization()
+    {
+        if (Auth::guard('api_user')->check()) {
+            return Auth::guard('api_user')->user();
+        } elseif (Auth::guard('api_organization')->check() && Auth::guard('api_organization')->user()->active) {
+            return Auth::guard('api_organization')->user();
+        } else {
+            $this->error(403,'尚未登录或权限不足。');
+        }
+    }
+
+    /**
+     * @return mixed
+     */
     public function getUserOrOrganization()
     {
         if (Auth::guard('api_user')->check()) {
             return Auth::guard('api_user')->user();
-        } elseif (Auth::guard('api_organization')->check()) {
+        } elseif (Auth::guard('api_organization')->check() && Auth::guard('api_organization')->user()->active) {
             return Auth::guard('api_organization')->user();
         } else {
             $this->error(403,'尚未登录或权限不足。');

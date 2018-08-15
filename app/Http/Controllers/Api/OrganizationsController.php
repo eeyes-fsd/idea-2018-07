@@ -26,7 +26,11 @@ class OrganizationsController extends Controller
      */
     public function show(Organization $organization)
     {
-        return $this->response->item($organization, new OrganizationTransformer());
+        if ($organization->active) {
+            return $this->response->item($organization, new OrganizationTransformer());
+        } else {
+            $this->error(404,'未找到该用户或该用户尚未通过审核');
+        }
     }
 
     public function store(OrganizationRequest $request)
@@ -108,7 +112,7 @@ class OrganizationsController extends Controller
 
     public function activate(Organization $organization)
     {
-        if ($this->getUserOrOrganization()->can('manage_users')) {
+        if ($this->getUserOrActiveOrganization()->can('manage_users')) {
             $organization->update(['active' => true]);
         } else {
             $this->error(403,'权限不足');

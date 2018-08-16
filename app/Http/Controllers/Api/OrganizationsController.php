@@ -6,14 +6,15 @@ use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\OrganizationRequest;
 use App\Models\Organization;
 use App\Transformers\OrganizationTransformer;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use League\Fractal\Manager;
-use League\Fractal\Resource\Item;
-use App\Response\CustomResponse;
 
 class OrganizationsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('api.a',['except' => ['show','store']]);
+    }
+
     public function index()
     {
         //
@@ -25,7 +26,11 @@ class OrganizationsController extends Controller
      */
     public function show(Organization $organization)
     {
-        return $this->response->item($organization, new OrganizationTransformer());
+        if ($organization->active || $this->authorizeForUser($this->getUserOrActiveOrganization(),'show',$organization)) {
+            return $this->response->item($organization, new OrganizationTransformer());
+        } else {
+            $this->error(404,'未找到该用户或该用户尚未通过审核');
+        }
     }
 
     public function store(OrganizationRequest $request)
@@ -35,10 +40,9 @@ class OrganizationsController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
-        return $this->response->array([
-            'status_code' => 200,
-            'message' => '社团用户创建成功'
-        ]);
+
+        $transformer = new OrganizationTransformer();
+        return $this->success(201,"社团用户创建成功，请联系管理员审核",$transformer->transform($origanization));
     }
 
     /**
@@ -48,10 +52,12 @@ class OrganizationsController extends Controller
      * @return \Dingo\Api\Http\Response
      * @throws \Exception
      */
-    public function update(Organization $organization, $request,ImageUploadHandler $uploader)
+    public function update(Organization $organization,OrganizationRequest $request,ImageUploadHandler $uploader)
     {
+        $this->authorizeForUser($this->getUserOrOrganization(),'update',$organization);
+
        //基本信息更改
-        $data = $request->all();
+        $data = $request->except(['active','email']);
 
         //头像更改
         if ($request->avatar) {
@@ -86,8 +92,13 @@ class OrganizationsController extends Controller
      */
     public function destroy(Organization $organization)
     {
-        $this->authorize('delete',$organization);
-        $organization->delete();
+        $this->authorizeForUser($this->getUserOrOrganization(),'delete',$organization);
+        $organization->articles->delete();
+        foreach ($organization->articles as $article)
+        {
+            $article->delete();
+        }
+
         return $this->success("社团用户删除成功");
     }
 
@@ -97,5 +108,17 @@ class OrganizationsController extends Controller
     public function me()
     {
         return $this->response->item(Auth::guard('api_organization')->user(), new OrganizationTransformer());
+    }
+
+    public function activate(Organization $organization)
+    {
+        if ($this->getUserOrActiveOrganization()->can('manage_users')) {
+            $organization->update(['active' => true]);
+        } else {
+            $this->error(403,'权限不足');
+        }
+
+        $transformer = new OrganizationTransformer();
+        return $this->success(200,$organization->username.'审核通过', $transformer->transform($organization));
     }
 }

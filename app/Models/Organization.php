@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
@@ -23,7 +24,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property bool $email_visibility 用户 email 是否可见
  * @property Carbon $created_at 创建于
  * @property Carbon $updated_at 更改于
- * @property Article $articles
+ * @property Collection $articles
  */
 class Organization extends Authenticatable implements JWTSubject
 {
@@ -36,8 +37,8 @@ class Organization extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'profile_photo', 'active',
-        'phone', 'qq', 'email_visibility', 'qq_visibility',
+        'username', 'email', 'password', 'avatar', 'active',
+        'phone', 'qq', 'email_visibility', 'qq_visibility', 'signature'
     ];
 
     /**

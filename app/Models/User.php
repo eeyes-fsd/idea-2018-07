@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
@@ -26,7 +27,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property bool $qq_visibility
  * @property Carbon $created_at
  * @property Carbon $updated_at
- * @property Article $articles
+ * @property Collection $articles
  */
 class User extends Authenticatable implements JWTSubject
 {

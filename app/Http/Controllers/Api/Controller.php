@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller as BaseController;
 use Dingo\Api\Routing\Helpers;
@@ -101,5 +102,35 @@ class Controller extends BaseController
     public function errorResponse($statusCode, $message=null, $code=0)
     {
         throw new HttpException($statusCode, $message, null, [], $code);
+    }
+
+    /**
+     * 方便获取当前用户
+     *
+     * @return mixed User|Organization
+     */
+    public function getUserOrActiveOrganization()
+    {
+        if (Auth::guard('api_user')->check()) {
+            return Auth::guard('api_user')->user();
+        } elseif (Auth::guard('api_organization')->check() && Auth::guard('api_organization')->user()->active) {
+            return Auth::guard('api_organization')->user();
+        } else {
+            $this->error(403,'尚未登录或权限不足。');
+        }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserOrOrganization()
+    {
+        if (Auth::guard('api_user')->check()) {
+            return Auth::guard('api_user')->user();
+        } elseif (Auth::guard('api_organization')->check()) {
+            return Auth::guard('api_organization')->user();
+        } else {
+            $this->error(403,'尚未登录或权限不足。');
+        }
     }
 }

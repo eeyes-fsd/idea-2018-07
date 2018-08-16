@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Transformers\ArticleTransformer;
-use Dingo\Api\Transformer\Adapter\Fractal;
 
 class ArticlesController extends Controller
 {
@@ -34,6 +33,8 @@ class ArticlesController extends Controller
 
     public function update(Article $article, ArticleRequest $request)
     {
+        $this->authorizeForUser($this->getUserOrActiveOrganization(),'update',$article);
+
         $article->update($request->all());
         $transformer = new ArticleTransformer();
         return $this->success(201,'文章已更新', $transformer->transform($article));
@@ -41,6 +42,8 @@ class ArticlesController extends Controller
 
     public function destroy(Article $article)
     {
+        $this->authorizeForUser($this->getUserOrActiveOrganization(),'delete',$article);
+
         $article->delete();
         return $this->success("删除成功");
     }

@@ -12,6 +12,14 @@ use Dingo\Api\Http\Response;
 class UsersController extends Controller
 {
     /**
+     * UsersController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('api.a',['except'=>['index','show']]);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return Response
@@ -44,7 +52,8 @@ class UsersController extends Controller
      */
     public function update(User $user, UserRequest $request, ImageUploadHandler $uploader)
     {
-        $this->authorize('update',$user);
+        $this->authorizeForUser($this->getUserOrActiveOrganization(),'update',$user);
+//        $this->authorizeForUser(Auth::guard('api_user')->user(),'update',$user);
 
         //基本信息更改
         $data = $request->all();
@@ -71,7 +80,11 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        $this->authorize('delete', $user);
+        $this->authorizeForUser($this->getUserOrActiveOrganization(),'delete', $user);
+        foreach ($user->articles as $article)
+        {
+            $article->delete();
+        }
         $user->delete();
         return $this->success("删除成功");
     }

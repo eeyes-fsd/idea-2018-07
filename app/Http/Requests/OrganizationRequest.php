@@ -2,10 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Organization;
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
-
 class OrganizationRequest extends Request
 {
     /**
@@ -15,10 +11,15 @@ class OrganizationRequest extends Request
      */
     public function rules()
     {
-        return [
-            'username' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
-        ];
+        //创建的时候需要，update的时候不需要rules
+        if ($this->isMethod('post')) {
+            return [
+                'username' => 'required',
+                'email' => 'required|email',
+                'password' => 'required',
+            ];
+        } else {
+            return [];
+        }
     }
 }

@@ -17,7 +17,7 @@ $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', [
     'namespace' => 'App\Http\Controllers\Api',
-    'middleware' => 'bindings'
+    'middleware' => ['bindings','serializer:array']
 ], function ($api) {
 
     /** 认证路由 */
@@ -41,9 +41,14 @@ $api->version('v1', [
             ->name('api.users.me');
         $api->get('organization','OrganizationsController@me')
             ->name('api.organizations.me');
+        $api->post('organizations/activate/{organization}','OrganizationsController@activate');
+
+        $api->post('users/founder/{user}','RolesController@assignUserFounder');
+        $api->post('users/maintainer/{user}','RolesController@assignUserMaintainer');
     });
 
     $api->resource('organizations','OrganizationsController',['except' => ['create','edit']]);
     $api->resource('users','UsersController',['except' => ['create','store','edit']]);
     $api->resource('articles','ArticlesController',['except' => ['create','edit']]);
+    $api->resource('categories','CategoriesController',['except' => ['create','edit']]);
 });

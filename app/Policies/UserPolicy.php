@@ -36,4 +36,16 @@ class UserPolicy
     {
         return $currentUser->id === $user->id;
     }
+
+    /**
+     * 注销用户
+     *
+     * @param User $currentUser
+     * @param User $user
+     * @return bool
+     */
+    public function delete(User $currentUser, User $user)
+    {
+        return $currentUser->id === $user->id;
+    }
 }

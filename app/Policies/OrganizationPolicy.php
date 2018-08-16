@@ -48,4 +48,9 @@ class OrganizationPolicy
     {
         return $currentOrganization->id === $organization->id;
     }
+
+    public function show($user, Organization $organization)
+    {
+        return false;
+    }
 }

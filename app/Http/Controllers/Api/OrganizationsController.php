@@ -26,7 +26,7 @@ class OrganizationsController extends Controller
      */
     public function show(Organization $organization)
     {
-        if ($organization->active) {
+        if ($organization->active || $this->authorizeForUser($this->getUserOrActiveOrganization(),'show',$organization)) {
             return $this->response->item($organization, new OrganizationTransformer());
         } else {
             $this->error(404,'未找到该用户或该用户尚未通过审核');
@@ -119,6 +119,6 @@ class OrganizationsController extends Controller
         }
 
         $transformer = new OrganizationTransformer();
-        return $this->success(201,$organization->username.'审核通过', $transformer->transform($organization));
+        return $this->success(200,$organization->username.'审核通过', $transformer->transform($organization));
     }
 }

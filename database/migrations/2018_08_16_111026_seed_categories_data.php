@@ -15,20 +15,30 @@ class SeedCategoriesData extends Migration
     {
         $categories = [
             [
-                'name'        => '干货',
+                'name' => '干货',
+                'parent_id' => 0,
             ],
             [
-                'name'        => '项目',
+                'name' => '项目',
+                'parent_id' => 0,
             ],
             [
-                'name'        => '资源',
+                'name' => '资源',
+                'parent_id' => 0,
             ],
             [
-                'name'        => '奇思妙想',
+                'name' => '奇思妙想',
+                'parent_id' => 0,
             ],
             [
-                'name'        => '其他',
+                'name' => '其他',
+                'parent_id' => 0,
             ],
+            [
+                'name' => '黑科技',
+                'parent_id' => 1,
+            ],
+
         ];
 
         DB::table('categories')->insert($categories);

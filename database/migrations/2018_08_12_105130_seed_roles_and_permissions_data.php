@@ -22,6 +22,7 @@ class SeedRolesAndPermissionsData extends Migration
         Permission::create(['name' => 'manage_contents']);
         Permission::create(['name' => 'manage_users']);
         Permission::create(['name' => 'edit_settings']);
+        Permission::create(['name' => 'manage_categories']);
 
         $founder = Role::create(['name' => 'founder']);
         $founder->givePermissionTo('manage_contents');

@@ -12,18 +12,12 @@ class CategoryTransformer extends TransformerAbstract
 
     public function includeParent(Category $category)
     {
-        if ($category->parent()) {
-            return $this->item($category->parent(),new CategoryTransformer());
-        }
-        return [];
+        return $this->item($category->parent(),new CategoryTransformer());
     }
 
     public function includeChildren(Category $category)
     {
-        if ($category->children()) {
-            return $this->collection($category->children(),new CategoryTransformer());
-        }
-        return [];
+        return $this->collection($category->children()->get(),new CategoryTransformer());
     }
 
     public function transform(Category $category)

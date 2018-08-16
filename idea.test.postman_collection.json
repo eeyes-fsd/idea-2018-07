@@ -1,0 +1,1732 @@
+{
+	"info": {
+		"_postman_id": "c67e3330-f864-4d12-9b49-c64fea90340c",
+		"name": "idea.test",
+		"description": "创意工坊",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User/Organization",
+			"item": [
+				{
+					"name": "用户登录",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/users/authorizations",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"authorizations"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "用户登录",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/users/authorizations",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"users",
+										"authorizations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Aug 2018 01:19:30 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":302,\"message\":\"\\u91cd\\u5b9a\\u5411\\u4ee5\\u5b8c\\u6210\\u6388\\u6743\",\"data\":{\"url\":\"https:\\/\\/account.eeyes.net\\/oauth\\/authorize?client_id=12&redirect_uri=http%3A%2F%2Fidea.test%2F%23%2Foauth%2Fcallback&response_type=code&scope=info-username.read+info-user_id.read+info-name.read+info-email.read\"}}"
+						}
+					]
+				},
+				{
+					"name": "用户登录回调",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/users/authorizations/callback",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"authorizations",
+								"callback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "社团登录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "cantjie@163.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "cantjie",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/organizations/authorizations",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"authorizations"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "社团登录成功",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": false
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "cantjie@163.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "cantjie",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/organizations/authorizations",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations",
+										"authorizations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Aug 2018 02:50:30 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"e82ec05a2ddda927b9f2eafd718728ad9494e97b\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":201,\"message\":\"\\u8ba4\\u8bc1\\u6210\\u529f\",\"data\":{\"access_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzM4Njk0MzAsImV4cCI6MTUzMzg3MzAzMCwibmJmIjoxNTMzODY5NDMwLCJqdGkiOiJUTEpVUlJLWjFSMmZyYldKIiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.by9c_LLtSAJ2tqF0bYOVP1IsZlAtN4u2RFDaGZqw1ds\",\"token_type\":\"Bearer\",\"expires_in\":3600}}"
+						},
+						{
+							"name": "社团登录失败",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "cantjie@163.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "cantjie1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/organizations/authorizations",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations",
+										"authorizations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Aug 2018 02:54:06 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"message\":\"These credentials do not match our records.\",\"status_code\":401,\"debug\":{\"line\":173,\"file\":\"E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Response\\\\Factory.php\",\"class\":\"Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\HttpException\",\"trace\":[\"#0 E:\\\\project\\\\idea-2018-07\\\\app\\\\Http\\\\Controllers\\\\Api\\\\Controller.php(98): Dingo\\\\Api\\\\Http\\\\Response\\\\Factory->error('These credentia...', 401)\",\"#1 E:\\\\project\\\\idea-2018-07\\\\app\\\\Http\\\\Controllers\\\\Api\\\\AuthorizationsController.php(120): App\\\\Http\\\\Controllers\\\\Api\\\\Controller->error(401, 'These credentia...')\",\"#2 [internal function]: App\\\\Http\\\\Controllers\\\\Api\\\\AuthorizationsController->organizationAuthenticate(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#3 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Controller.php(54): call_user_func_array(Array, Array)\",\"#4 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\ControllerDispatcher.php(45): Illuminate\\\\Routing\\\\Controller->callAction('organizationAut...', Array)\",\"#5 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Route.php(212): Illuminate\\\\Routing\\\\ControllerDispatcher->dispatch(Object(Illuminate\\\\Routing\\\\Route), Object(App\\\\Http\\\\Controllers\\\\Api\\\\AuthorizationsController), 'organizationAut...')\",\"#6 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Route.php(169): Illuminate\\\\Routing\\\\Route->runController()\",\"#7 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(658): Illuminate\\\\Routing\\\\Route->run()\",\"#8 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(30): Illuminate\\\\Routing\\\\Router->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#9 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\PrepareController.php(45): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#10 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Dingo\\\\Api\\\\Http\\\\Middleware\\\\PrepareController->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#11 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#12 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#13 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(660): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#14 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(635): Illuminate\\\\Routing\\\\Router->runRouteWithinStack(Object(Illuminate\\\\Routing\\\\Route), Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#15 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(601): Illuminate\\\\Routing\\\\Router->runRoute(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Illuminate\\\\Routing\\\\Route))\",\"#16 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(590): Illuminate\\\\Routing\\\\Router->dispatchToRoute(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#17 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Routing\\\\Adapter\\\\Laravel.php(81): Illuminate\\\\Routing\\\\Router->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#18 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Routing\\\\Router.php(512): Dingo\\\\Api\\\\Routing\\\\Adapter\\\\Laravel->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request), 'v1')\",\"#19 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(126): Dingo\\\\Api\\\\Routing\\\\Router->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#20 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(114): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->Dingo\\\\Api\\\\Http\\\\Middleware\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#21 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\fideloper\\\\proxy\\\\src\\\\TrustProxies.php(56): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#22 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Fideloper\\\\Proxy\\\\TrustProxies->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#23 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php(30): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#24 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#25 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php(30): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#26 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#27 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize.php(27): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#28 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#29 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\CheckForMaintenanceMode.php(46): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#30 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\CheckForMaintenanceMode->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#31 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#32 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(127): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#33 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(103): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->sendRequestThroughRouter(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#34 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#35 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Illuminate\\\\Http\\\\Request))\",\"#36 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Illuminate\\\\Http\\\\Request))\",\"#37 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php(151): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#38 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php(116): Illuminate\\\\Foundation\\\\Http\\\\Kernel->sendRequestThroughRouter(Object(Illuminate\\\\Http\\\\Request))\",\"#39 E:\\\\project\\\\idea-2018-07\\\\public\\\\index.php(55): Illuminate\\\\Foundation\\\\Http\\\\Kernel->handle(Object(Illuminate\\\\Http\\\\Request))\",\"#40 {main}\"]}}"
+						}
+					]
+				},
+				{
+					"name": "创建社团用户",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "袁新杰的社团",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "cantjie",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "cantjie@163.com",
+									"type": "text"
+								},
+								{
+									"key": "qq",
+									"value": "46472001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/organizations",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "创建社团用户失败",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": false
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "袁新杰的社团",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "cantjie",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "cantjie@163.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/organizations",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Aug 2018 02:41:05 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"message\":\"SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'cantjie@163.com' for key 'organizations_email_unique' (SQL: insert into `organizations` (`username`, `email`, `password`, `updated_at`, `created_at`) values (\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2, cantjie@163.com, $2y$10$0hRhyWvZr6AV7Fa5kuRABuuhva9Li5z6fRuq4IH63LDu8shM.swge, 2018-08-10 10:41:04, 2018-08-10 10:41:04))\",\"code\":\"23000\",\"status_code\":500,\"debug\":{\"line\":664,\"file\":\"E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Connection.php\",\"class\":\"Illuminate\\\\Database\\\\QueryException\",\"trace\":[\"#0 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Connection.php(624): Illuminate\\\\Database\\\\Connection->runQueryCallback('insert into `or...', Array, Object(Closure))\",\"#1 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Connection.php(459): Illuminate\\\\Database\\\\Connection->run('insert into `or...', Array, Object(Closure))\",\"#2 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Connection.php(411): Illuminate\\\\Database\\\\Connection->statement('insert into `or...', Array)\",\"#3 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Processors\\\\Processor.php(32): Illuminate\\\\Database\\\\Connection->insert('insert into `or...', Array)\",\"#4 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2159): Illuminate\\\\Database\\\\Query\\\\Processors\\\\Processor->processInsertGetId(Object(Illuminate\\\\Database\\\\Query\\\\Builder), 'insert into `or...', Array, 'id')\",\"#5 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Builder.php(1285): Illuminate\\\\Database\\\\Query\\\\Builder->insertGetId(Array, 'id')\",\"#6 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Model.php(722): Illuminate\\\\Database\\\\Eloquent\\\\Builder->__call('insertGetId', Array)\",\"#7 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Model.php(687): Illuminate\\\\Database\\\\Eloquent\\\\Model->insertAndSetId(Object(Illuminate\\\\Database\\\\Eloquent\\\\Builder), Array)\",\"#8 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Model.php(550): Illuminate\\\\Database\\\\Eloquent\\\\Model->performInsert(Object(Illuminate\\\\Database\\\\Eloquent\\\\Builder))\",\"#9 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Builder.php(757): Illuminate\\\\Database\\\\Eloquent\\\\Model->save()\",\"#10 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Support\\\\helpers.php(1038): Illuminate\\\\Database\\\\Eloquent\\\\Builder->Illuminate\\\\Database\\\\Eloquent\\\\{closure}(Object(App\\\\Models\\\\Organization))\",\"#11 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Builder.php(758): tap(Object(App\\\\Models\\\\Organization), Object(Closure))\",\"#12 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Model.php(1470): Illuminate\\\\Database\\\\Eloquent\\\\Builder->create(Array)\",\"#13 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Model.php(1482): Illuminate\\\\Database\\\\Eloquent\\\\Model->__call('create', Array)\",\"#14 E:\\\\project\\\\idea-2018-07\\\\app\\\\Http\\\\Controllers\\\\Api\\\\OrganizationsController.php(25): Illuminate\\\\Database\\\\Eloquent\\\\Model::__callStatic('create', Array)\",\"#15 [internal function]: App\\\\Http\\\\Controllers\\\\Api\\\\OrganizationsController->store(Object(App\\\\Http\\\\Requests\\\\OrganizationRequest))\",\"#16 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Controller.php(54): call_user_func_array(Array, Array)\",\"#17 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\ControllerDispatcher.php(45): Illuminate\\\\Routing\\\\Controller->callAction('store', Array)\",\"#18 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Route.php(212): Illuminate\\\\Routing\\\\ControllerDispatcher->dispatch(Object(Illuminate\\\\Routing\\\\Route), Object(App\\\\Http\\\\Controllers\\\\Api\\\\OrganizationsController), 'store')\",\"#19 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Route.php(169): Illuminate\\\\Routing\\\\Route->runController()\",\"#20 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(658): Illuminate\\\\Routing\\\\Route->run()\",\"#21 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(30): Illuminate\\\\Routing\\\\Router->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#22 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\PrepareController.php(45): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#23 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Dingo\\\\Api\\\\Http\\\\Middleware\\\\PrepareController->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#24 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#25 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#26 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(660): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#27 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(635): Illuminate\\\\Routing\\\\Router->runRouteWithinStack(Object(Illuminate\\\\Routing\\\\Route), Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#28 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(601): Illuminate\\\\Routing\\\\Router->runRoute(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Illuminate\\\\Routing\\\\Route))\",\"#29 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(590): Illuminate\\\\Routing\\\\Router->dispatchToRoute(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#30 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Routing\\\\Adapter\\\\Laravel.php(81): Illuminate\\\\Routing\\\\Router->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#31 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Routing\\\\Router.php(512): Dingo\\\\Api\\\\Routing\\\\Adapter\\\\Laravel->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request), 'v1')\",\"#32 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(126): Dingo\\\\Api\\\\Routing\\\\Router->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#33 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(114): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->Dingo\\\\Api\\\\Http\\\\Middleware\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#34 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\fideloper\\\\proxy\\\\src\\\\TrustProxies.php(56): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#35 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Fideloper\\\\Proxy\\\\TrustProxies->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#36 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php(30): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#37 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#38 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php(30): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#39 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#40 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize.php(27): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#41 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#42 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\CheckForMaintenanceMode.php(46): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#43 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\CheckForMaintenanceMode->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#44 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#45 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(127): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#46 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(103): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->sendRequestThroughRouter(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#47 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#48 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Illuminate\\\\Http\\\\Request))\",\"#49 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Illuminate\\\\Http\\\\Request))\",\"#50 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php(151): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#51 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php(116): Illuminate\\\\Foundation\\\\Http\\\\Kernel->sendRequestThroughRouter(Object(Illuminate\\\\Http\\\\Request))\",\"#52 E:\\\\project\\\\idea-2018-07\\\\public\\\\index.php(55): Illuminate\\\\Foundation\\\\Http\\\\Kernel->handle(Object(Illuminate\\\\Http\\\\Request))\",\"#53 {main}\"]}}"
+						},
+						{
+							"name": "创建社团用户成功",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": false
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "袁新杰的社团",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "cantjie",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "cantjie1@163.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/organizations",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Aug 2018 02:42:12 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"9826dd8b0142103870df172da68218378886a272\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"\\u793e\\u56e2\\u7528\\u6237\\u521b\\u5efa\\u6210\\u529f\"}"
+						}
+					]
+				},
+				{
+					"name": "用户刷新token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDMwOTUxNCwiZXhwIjoxNTM0MzEzMTE0LCJuYmYiOjE1MzQzMDk1MTQsImp0aSI6IkxrZnVzb2VYaTN0TFhhbmQiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.mUVOFiYoOPj2mr12iz-q9hD3zgX3dGH7loxjv8JG2Z0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/users/refresh",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"refresh"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "用户刷新token成功",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/users/refresh",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"users",
+										"refresh"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Aug 2018 09:35:34 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"da5df3922750b55d361e9f62ccd36df31b2645a1\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":201,\"message\":\"\\u5237\\u65b0\\u6210\\u529f\",\"data\":{\"access_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzM5Nzk3OTAsImV4cCI6MTUzMzk4MzczNCwibmJmIjoxNTMzOTgwMTM0LCJqdGkiOiJmYUV3R0FJUVlFRG01NzltIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.x-KfkeEhvsCOnlIESLMrZXBe9AOTvjLD3ufNFosFLSs\",\"token_type\":\"Bearer\",\"expires_in\":3600}}"
+						}
+					]
+				},
+				{
+					"name": "社团刷新token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQzODMwNjAsImV4cCI6MTUzNDM4NjY2MCwibmJmIjoxNTM0MzgzMDYwLCJqdGkiOiJyaWt0NjZ1RmVMbThvRFlRIiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.8SyxMV0cpTgiGT2210AyWV58z1u0t-VDSUX3So-xm4E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/organizations/refresh",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "用户登出",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzMzk4MDI4MywiZXhwIjoxNTMzOTgzODgzLCJuYmYiOjE1MzM5ODAyODMsImp0aSI6InltR1JrSXAzb1htbE9DNkwiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.T6DVR4qmEuZMhbEx8orfMCe70Gxyq9_yx3cl6R19d4g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/users/current",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "社团登出",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzM5Nzk3OTAsImV4cCI6MTUzMzk4MzUwNCwibmJmIjoxNTMzOTc5OTA0LCJqdGkiOiJmMG1uYTRoMUpxSWNFa3RBIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.tDONWdCz-Z4E1xDUVk33fu-CTqgeZqlDq0VVVNnr5j0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/organizations/current",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "用户个人信息",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDMyMzQ5OSwiZXhwIjoxNTM0MzI3MDk5LCJuYmYiOjE1MzQzMjM0OTksImp0aSI6Inp5OGI2VWljcDB3NUZJRTUiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.H6HI6vhLgZMi3TrEnQMBwS3iWhQMHb5zL_b4m0Hl0QA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/user",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "获取用户个人信息成功",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/user",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Aug 2018 13:41:01 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"1c65f6e437f79b0ae7449c5934af9b46e851ef68\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":null,\"profile_photo\":null,\"signature\":\"\\u8fd9\\u4e2a\\u4eba\\u5f88\\u61d2\\uff0c\\u4ec0\\u4e48\\u4e5f\\u6ca1\\u6709\\u5199\",\"phone\":\"18932869937\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":null,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1}}"
+						}
+					]
+				},
+				{
+					"name": "社团个人信息",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ0MDIyNTUsImV4cCI6MTUzNDQwNTg1NSwibmJmIjoxNTM0NDAyMjU1LCJqdGkiOiI4aHFySnc3RkpWdXF3Sk40Iiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.3IMpm08D_Z-17xWM2r9LoyyQiM_Lrmm-HfkGBqM3OA4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/organization",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organization"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "获取社团个人信息成功",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/organization",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organization"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Aug 2018 13:42:03 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"7ea3353378d257270b937b169fc6d5716b27ec6c\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"email\":\"cantjie1@163.com\",\"profile_photo\":null,\"active\":0,\"qq\":null,\"email_visibility\":1,\"qq_visibility\":1}}"
+						}
+					]
+				},
+				{
+					"name": "修改用户个人信息",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQzMDk1MTQsImV4cCI6MTUzNDMxMzMzMiwibmJmIjoxNTM0MzA5NzMyLCJqdGkiOiJhWnF4RllCcHNNb0pBSmZXIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.NqSrSQ1JOIaGzJAnzjynUVTp37f5-uzTbaxci3eOWP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "nickname",
+									"value": "cantjie",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "cantjie@stu.xjtu.edu.cn",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "signature",
+									"value": "懒！",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "18932869937",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "qq",
+									"value": "8776",
+									"type": "text"
+								},
+								{
+									"key": "phone_visibility",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email_visibility",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "qq_visibility",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "avatar",
+									"type": "file"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "old_password",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/users/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "修改用户个人信息成功",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "nickname",
+											"value": "cantjie",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "cantjie@stu.xjtu.edu.cn",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "signature",
+											"value": "懒！",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "phone",
+											"value": "18932869937",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "qq",
+											"value": "8776",
+											"type": "text"
+										},
+										{
+											"key": "phone_visibility",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "email_visibility",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "qq_visibility",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "profile_photo",
+											"type": "file",
+											"src": {
+												"0": {}
+											},
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "old_password",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/users/1",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Aug 2018 02:24:27 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"6c2915b4aed8104ceaec12d883a075dc3b1535c1\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"nickname\":\"cantjie\",\"profile_photo\":\"http:\\/\\/idea.test\\/storage\\/images\\/profile_photo\\/201808\\/12\\/1_1534040615_ZFNIUXVaJJ.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"18932869937\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":0,\"created_at\":\"2018-08-11 20:41:05\",\"updated_at\":\"2018-08-12 10:23:35\"}}"
+						}
+					]
+				},
+				{
+					"name": "修改社团个人信息",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ0MDIyNTUsImV4cCI6MTUzNDQwNTg1NSwibmJmIjoxNTM0NDAyMjU1LCJqdGkiOiI4aHFySnc3RkpWdXF3Sk40Iiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.3IMpm08D_Z-17xWM2r9LoyyQiM_Lrmm-HfkGBqM3OA4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "put",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "袁新杰的社团",
+									"type": "text"
+								},
+								{
+									"key": "signature",
+									"value": "懒！",
+									"type": "text"
+								},
+								{
+									"key": "qq",
+									"value": "8776",
+									"type": "text"
+								},
+								{
+									"key": "email_visibility",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "qq_visibility",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "old_password",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "avatar",
+									"value": "",
+									"sessionValue": {
+										"0": {}
+									},
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/organizations/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "修改社团信息成功",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "袁新杰的社团",
+											"type": "text"
+										},
+										{
+											"key": "signature",
+											"value": "懒！",
+											"type": "text"
+										},
+										{
+											"key": "qq",
+											"value": "8776",
+											"type": "text"
+										},
+										{
+											"key": "email_visibility",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "qq_visibility",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "old_password",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "avatar",
+											"sessionValue": {
+												"0": {}
+											},
+											"type": "file",
+											"src": {
+												"0": {}
+											}
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/organizations/1",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Aug 2018 01:46:51 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"9d4915ac27e71ec8e00f20f951551903cff3cd00\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534384011_jmWuHcgDZp.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":0,\"email\":\"cantjie@163.com\",\"qq\":\"8776\",\"email_visibility\":\"1\",\"qq_visibility\":\"0\"}}"
+						}
+					]
+				},
+				{
+					"name": "给用户Founder角色",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ0MDIyNTUsImV4cCI6MTUzNDQwNTg1NSwibmJmIjoxNTM0NDAyMjU1LCJqdGkiOiI4aHFySnc3RkpWdXF3Sk40Iiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.3IMpm08D_Z-17xWM2r9LoyyQiM_Lrmm-HfkGBqM3OA4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/users/founder/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"founder",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取社团信息",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDQwMjE4NiwiZXhwIjoxNTM0NDA1Nzg2LCJuYmYiOjE1MzQ0MDIxODYsImp0aSI6InlDYWVNdWRRaXlmVVBLbHgiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.cSZ_GgxV8aBvGvkFwLfieKxQd2UikhwJGztRQks42O4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/organizations/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "获取社团信息失败",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/organizations/1",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Aug 2018 06:58:21 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"message\":\"\\u5c1a\\u672a\\u767b\\u5f55\\u6216\\u6743\\u9650\\u4e0d\\u8db3\\u3002\",\"status_code\":403,\"debug\":{\"line\":173,\"file\":\"E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Response\\\\Factory.php\",\"class\":\"Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\HttpException\",\"trace\":[\"#0 E:\\\\project\\\\idea-2018-07\\\\app\\\\Http\\\\Controllers\\\\Api\\\\Controller.php(99): Dingo\\\\Api\\\\Http\\\\Response\\\\Factory->error('\\\\xE5\\\\xB0\\\\x9A\\\\xE6\\\\x9C\\\\xAA\\\\xE7\\\\x99\\\\xBB\\\\xE5\\\\xBD\\\\x95\\\\xE6\\\\x88\\\\x96...', 403)\",\"#1 E:\\\\project\\\\idea-2018-07\\\\app\\\\Http\\\\Controllers\\\\Api\\\\Controller.php(119): App\\\\Http\\\\Controllers\\\\Api\\\\Controller->error(403, '\\\\xE5\\\\xB0\\\\x9A\\\\xE6\\\\x9C\\\\xAA\\\\xE7\\\\x99\\\\xBB\\\\xE5\\\\xBD\\\\x95\\\\xE6\\\\x88\\\\x96...')\",\"#2 E:\\\\project\\\\idea-2018-07\\\\app\\\\Http\\\\Controllers\\\\Api\\\\OrganizationsController.php(29): App\\\\Http\\\\Controllers\\\\Api\\\\Controller->getUserOrActiveOrganization()\",\"#3 [internal function]: App\\\\Http\\\\Controllers\\\\Api\\\\OrganizationsController->show(Object(App\\\\Models\\\\Organization))\",\"#4 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Controller.php(54): call_user_func_array(Array, Array)\",\"#5 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\ControllerDispatcher.php(45): Illuminate\\\\Routing\\\\Controller->callAction('show', Array)\",\"#6 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Route.php(212): Illuminate\\\\Routing\\\\ControllerDispatcher->dispatch(Object(Illuminate\\\\Routing\\\\Route), Object(App\\\\Http\\\\Controllers\\\\Api\\\\OrganizationsController), 'show')\",\"#7 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Route.php(169): Illuminate\\\\Routing\\\\Route->runController()\",\"#8 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(658): Illuminate\\\\Routing\\\\Route->run()\",\"#9 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(30): Illuminate\\\\Routing\\\\Router->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#10 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\liyu\\\\dingo-serializer-switch\\\\src\\\\SerializerSwitch.php(44): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#11 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Liyu\\\\Dingo\\\\SerializerSwitch->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure), 'array')\",\"#12 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#13 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Middleware\\\\SubstituteBindings.php(41): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#14 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Routing\\\\Middleware\\\\SubstituteBindings->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#15 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#16 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\PrepareController.php(45): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#17 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Dingo\\\\Api\\\\Http\\\\Middleware\\\\PrepareController->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#18 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#19 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#20 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(660): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#21 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(635): Illuminate\\\\Routing\\\\Router->runRouteWithinStack(Object(Illuminate\\\\Routing\\\\Route), Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#22 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(601): Illuminate\\\\Routing\\\\Router->runRoute(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Illuminate\\\\Routing\\\\Route))\",\"#23 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(590): Illuminate\\\\Routing\\\\Router->dispatchToRoute(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#24 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Routing\\\\Adapter\\\\Laravel.php(81): Illuminate\\\\Routing\\\\Router->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#25 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Routing\\\\Router.php(512): Dingo\\\\Api\\\\Routing\\\\Adapter\\\\Laravel->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request), 'v1')\",\"#26 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(126): Dingo\\\\Api\\\\Routing\\\\Router->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#27 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(114): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->Dingo\\\\Api\\\\Http\\\\Middleware\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#28 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\fideloper\\\\proxy\\\\src\\\\TrustProxies.php(56): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#29 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Fideloper\\\\Proxy\\\\TrustProxies->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#30 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php(30): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#31 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#32 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php(30): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#33 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#34 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize.php(27): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#35 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#36 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\CheckForMaintenanceMode.php(46): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#37 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\CheckForMaintenanceMode->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#38 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#39 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(127): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#40 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(103): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->sendRequestThroughRouter(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#41 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#42 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Illuminate\\\\Http\\\\Request))\",\"#43 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Illuminate\\\\Http\\\\Request))\",\"#44 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php(151): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#45 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php(116): Illuminate\\\\Foundation\\\\Http\\\\Kernel->sendRequestThroughRouter(Object(Illuminate\\\\Http\\\\Request))\",\"#46 E:\\\\project\\\\idea-2018-07\\\\public\\\\index.php(55): Illuminate\\\\Foundation\\\\Http\\\\Kernel->handle(Object(Illuminate\\\\Http\\\\Request))\",\"#47 {main}\"]}}"
+						},
+						{
+							"name": "获取社团信息成功",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/organizations/1",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Aug 2018 06:58:54 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"0567b353250fd6b95c8cdaa17912ce6043cd0ec5\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":0,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0}}"
+						}
+					]
+				},
+				{
+					"name": "审核通过某社团",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDQwMjE4NiwiZXhwIjoxNTM0NDA1Nzg2LCJuYmYiOjE1MzQ0MDIxODYsImp0aSI6InlDYWVNdWRRaXlmVVBLbHgiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.cSZ_GgxV8aBvGvkFwLfieKxQd2UikhwJGztRQks42O4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/organizations/activate/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"activate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Article",
+			"item": []
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "显示全部类别",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/categories",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "显示某类别",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/categories/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

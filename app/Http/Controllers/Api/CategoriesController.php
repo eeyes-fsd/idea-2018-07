@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Transformers\CategoryTransformer;
-use Dingo\Api\Transformer\Adapter\Fractal;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use League\Fractal\Manager;
+use League\Fractal\Resource\Item;
 
 class CategoriesController extends Controller
 {
@@ -15,12 +16,21 @@ class CategoriesController extends Controller
     }
     public function index()
     {
-        //
+        //todo
+        $categories = Category::all();
+        return $this->response->collection($categories,new CategoryTransformer());
     }
 
     public function show(Category $category)
     {
-        Fractal::includes(['children','parents'])->item($category, new CategoryTransformer());
+        //todo 这里返回格式不对
+        $manager = new Manager();
+        if ($category->hasParent()) {
+            $manager->parseIncludes('parent');
+        } elseif ($category->hasChildren()) {
+            $manager->parseIncludes('children');
+        }
+        return $manager->createData(new Item($category,new CategoryTransformer()))->toArray();
     }
 
     public function store(Request $request)

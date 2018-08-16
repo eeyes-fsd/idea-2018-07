@@ -57,7 +57,7 @@ class OrganizationsController extends Controller
         $this->authorizeForUser($this->getUserOrOrganization(),'update',$organization);
 
        //基本信息更改
-        $data = $request->except('active');
+        $data = $request->except(['active','email']);
 
         //头像更改
         if ($request->avatar) {

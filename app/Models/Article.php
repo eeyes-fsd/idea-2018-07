@@ -28,6 +28,12 @@ use Illuminate\Database\Eloquent\RelationNotFoundException;
  */
 class Article extends Model
 {
+
+    protected $fillable = [
+        'user_id', 'organization_id', 'category_id',
+        'title', 'body', 'anonymous',
+    ];
+
     public function author()
     {
         if ($this->user_id)

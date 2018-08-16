@@ -37,8 +37,8 @@ class Organization extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'profile_photo', 'active',
-        'phone', 'qq', 'email_visibility', 'qq_visibility',
+        'username', 'email', 'password', 'avatar', 'active',
+        'phone', 'qq', 'email_visibility', 'qq_visibility', 'signature'
     ];
 
     /**

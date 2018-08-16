@@ -127,7 +127,7 @@ class Controller extends BaseController
     {
         if (Auth::guard('api_user')->check()) {
             return Auth::guard('api_user')->user();
-        } elseif (Auth::guard('api_organization')->check() && Auth::guard('api_organization')->user()->active) {
+        } elseif (Auth::guard('api_organization')->check()) {
             return Auth::guard('api_organization')->user();
         } else {
             $this->error(403,'尚未登录或权限不足。');

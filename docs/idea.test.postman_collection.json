@@ -593,7 +593,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDMwOTUxNCwiZXhwIjoxNTM0MzEzMTE0LCJuYmYiOjE1MzQzMDk1MTQsImp0aSI6IkxrZnVzb2VYaTN0TFhhbmQiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.mUVOFiYoOPj2mr12iz-q9hD3zgX3dGH7loxjv8JG2Z0",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDQwMjE4NiwiZXhwIjoxNTM0NDA1Nzg2LCJuYmYiOjE1MzQ0MDIxODYsImp0aSI6InlDYWVNdWRRaXlmVVBLbHgiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.cSZ_GgxV8aBvGvkFwLfieKxQd2UikhwJGztRQks42O4",
 									"type": "string"
 								}
 							]
@@ -696,7 +696,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQzODMwNjAsImV4cCI6MTUzNDM4NjY2MCwibmJmIjoxNTM0MzgzMDYwLCJqdGkiOiJyaWt0NjZ1RmVMbThvRFlRIiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.8SyxMV0cpTgiGT2210AyWV58z1u0t-VDSUX3So-xm4E",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ0MDIyNTUsImV4cCI6MTUzNDQwNTg1NSwibmJmIjoxNTM0NDAyMjU1LCJqdGkiOiI4aHFySnc3RkpWdXF3Sk40Iiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.3IMpm08D_Z-17xWM2r9LoyyQiM_Lrmm-HfkGBqM3OA4",
 									"type": "string"
 								}
 							]
@@ -985,7 +985,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQzMDk1MTQsImV4cCI6MTUzNDMxMzMzMiwibmJmIjoxNTM0MzA5NzMyLCJqdGkiOiJhWnF4RllCcHNNb0pBSmZXIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.NqSrSQ1JOIaGzJAnzjynUVTp37f5-uzTbaxci3eOWP8",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0MDIxODYsImV4cCI6MTUzNDQyMDc2NiwibmJmIjoxNTM0NDE3MTY2LCJqdGkiOiJqdzVGSVA1bzR2SzNTQ2JYIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5-FUD1ojZPrlI-mASLZ7qmeON9S_YQX3yFN5c5N8Nvs",
 									"type": "string"
 								}
 							]
@@ -1684,7 +1684,327 @@
 		},
 		{
 			"name": "Article",
-			"item": []
+			"item": [
+				{
+					"name": "新建文章",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvcmVmcmVzaCIsImlhdCI6MTUzNDQwMjI1NSwiZXhwIjoxNTM0NDIxMjAxLCJuYmYiOjE1MzQ0MTc2MDEsImp0aSI6InlRYTlHbDZGTllDVnhFS0siLCJzdWIiOjEsInBydiI6Ijk0YmE1ZmFjMjM1YjIxMDI5MzU1NzA5ZDgzZGNmNTM1MmY3ZWE1NTkifQ.R7ghsxYyXPX2EvZ0Qeke_Zp67jR3EPLGbYHfWSi6694",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_id",
+									"value": "6",
+									"sessionValue": "1",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "第3篇文章",
+									"sessionValue": "第一篇文章",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "第3篇文章正文",
+									"sessionValue": "第二篇文章",
+									"type": "text"
+								},
+								{
+									"key": "anonymous",
+									"value": "1",
+									"sessionValue": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/articles",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"articles"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "新建文章成功",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "category_id",
+											"value": "6",
+											"sessionValue": "1",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "第3篇文章",
+											"sessionValue": "第一篇文章",
+											"type": "text"
+										},
+										{
+											"key": "body",
+											"value": "第3篇文章正文",
+											"sessionValue": "第二篇文章",
+											"type": "text"
+										},
+										{
+											"key": "anonymous",
+											"value": "1",
+											"sessionValue": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/articles",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"articles"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Aug 2018 11:07:27 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"c07cdca00728377f94420534ea27cec34809364c\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":201,\"message\":\"\\u6587\\u7ae0\\u5df2\\u521b\\u5efa\",\"data\":{\"title\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":\"1\",\"view_count\":null,\"like_count\":null,\"favorite_count\":null,\"reply_count\":null,\"created_at\":\"1\\u79d2\\u524d\",\"updated_at\":\"1\\u79d2\\u524d\"}}"
+						}
+					]
+				},
+				{
+					"name": "显示指定文章",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0MDIxODYsImV4cCI6MTUzNDQyMDc2NiwibmJmIjoxNTM0NDE3MTY2LCJqdGkiOiJqdzVGSVA1bzR2SzNTQ2JYIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5-FUD1ojZPrlI-mASLZ7qmeON9S_YQX3yFN5c5N8Nvs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/articles/2",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"articles",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "显示指定文章",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/articles/2",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"articles",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Aug 2018 11:39:57 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"80c04b0a722b814cdd9f9541221477bc0a14e6bc\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"title\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":0,\"view_count\":0,\"like_count\":0,\"favorite_count\":0,\"reply_count\":0,\"created_at\":\"36\\u5206\\u949f\\u524d\",\"updated_at\":\"36\\u5206\\u949f\\u524d\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1},\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":0}}}"
+						}
+					]
+				},
+				{
+					"name": "修改文章内容",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0MDIxODYsImV4cCI6MTUzNDQyMDc2NiwibmJmIjoxNTM0NDE3MTY2LCJqdGkiOiJqdzVGSVA1bzR2SzNTQ2JYIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5-FUD1ojZPrlI-mASLZ7qmeON9S_YQX3yFN5c5N8Nvs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "put",
+									"sessionValue": "_put",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "第1篇文章",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "第1篇文章正文",
+									"type": "text"
+								},
+								{
+									"key": "anonymous",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/articles/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"articles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Category",

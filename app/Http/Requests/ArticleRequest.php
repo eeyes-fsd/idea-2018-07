@@ -18,6 +18,7 @@ class ArticleRequest extends Request
         return [
             'title' => 'required|string',
             'body' => 'required',
+            'category_id' => 'required'
         ];
     }
 }

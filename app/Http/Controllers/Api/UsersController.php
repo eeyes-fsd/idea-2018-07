@@ -60,9 +60,11 @@ class UsersController extends Controller
 
         //头像更改
         if ($request->avatar) {
-            $result = $uploader->save($request->avatar, 'avatars', $user->id);
+            $result = $uploader->save($request->avatar, 'avatar', $user->id);
             if ($result) {
                 $data['avatar'] = $result['path'];
+                //删除旧头像，避免头像文件堆积
+                $uploader->delete($user->avatar);
             }
         }
 

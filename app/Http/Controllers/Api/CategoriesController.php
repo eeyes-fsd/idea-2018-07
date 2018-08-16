@@ -16,14 +16,14 @@ class CategoriesController extends Controller
     }
     public function index()
     {
-        //todo
+        //todo format is wrong
         $categories = Category::all();
         return $this->response->collection($categories,new CategoryTransformer());
     }
 
     public function show(Category $category)
     {
-        //todo 这里返回格式不对
+        //todo format is wrong
         $manager = new Manager();
         if ($category->hasParent()) {
             $manager->parseIncludes('parent');
@@ -53,7 +53,7 @@ class CategoriesController extends Controller
 
     public function destroy(Category $category)
     {
-        //todo
+        // todo  what todo with the articles?
 //        $this->authorizeForUser($this->getUserOrActiveOrganization(),'delete',$category);
 
     }

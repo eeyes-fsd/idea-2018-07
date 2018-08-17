@@ -54,9 +54,17 @@ class CustomResponse extends Format
     public function formatArray($content)
     {
         $content = $this->morphToArray($content);
+//        我觉得这样去除'data'标签。。。emmmm还行吧。。
+        if (array_key_exists('data',$content)){
+            $content = $content['data'];
+        }
 
         array_walk_recursive($content, function (&$value) {
             $value = $this->morphToArray($value);
+            if (is_array($value) && array_key_exists('data',$value)) {
+                $value = $value['data'];
+            }
+
         });
 
         $response = $content;

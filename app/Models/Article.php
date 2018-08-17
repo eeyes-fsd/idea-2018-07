@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\Eloquent\RelationNotFoundException;
+use Illuminate\Support\Collection;
 
 /**
  * Class Article
@@ -25,6 +26,7 @@ use Illuminate\Database\Eloquent\RelationNotFoundException;
  * @property Carbon $updated_at 更改于
  * @property User|Organization $author 作者
  * @property Category $category 分类
+ * @property Collection $replies 分类
  */
 class Article extends Model
 {
@@ -52,5 +54,10 @@ class Article extends Model
             throw new RelationNotFoundException();
         }
         return $this->belongsTo('App\Models\Category','category_id');
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class,'article_id');
     }
 }

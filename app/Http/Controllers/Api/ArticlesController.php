@@ -5,7 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
+use App\Serializers\CustomSerializer;
 use App\Transformers\ArticleTransformer;
+use League\Fractal\Manager;
+use League\Fractal\Resource\Item;
+use Tymon\JWTAuth\Claims\Custom;
 
 class ArticlesController extends Controller
 {
@@ -16,8 +20,9 @@ class ArticlesController extends Controller
 
     public function index()
     {
-        //return $this->response->collection(Article::all(), new );
-        //TODO 处理 Collection 的转换器
+        //todo 分页
+        $articles = Article::all();
+        return $this->response->collection($articles, new ArticleTransformer());
     }
 
     public function show(Article $article)

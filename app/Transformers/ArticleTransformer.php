@@ -14,6 +14,11 @@ class ArticleTransformer extends TransformerAbstract
     protected $defaultIncludes = ['author','category'];
 
     /**
+     * @var array
+     */
+    protected $availableIncludes = ['replies',];
+
+    /**
      * @param Article $article
      * @return array
      */
@@ -24,6 +29,7 @@ class ArticleTransformer extends TransformerAbstract
             'title' => $article->title,
             'body' => $article->body,
             'anonymous' => $article->anonymous,
+            'author_type' => $article->user_id ? 'user' : 'organization',
             'view_count' => $article->view_count,
             'like_count' => $article->like_count,
             'favorite_count' => $article->favorite_count,
@@ -48,5 +54,10 @@ class ArticleTransformer extends TransformerAbstract
     public function includeCategory(Article $article)
     {
         return $this->item($article->category,new CategoryTransformer());
+    }
+
+    public function includeReplies(Article $article)
+    {
+        return $this->collection($article->replies, new ReplyTransformer());
     }
 }

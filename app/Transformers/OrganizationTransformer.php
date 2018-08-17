@@ -22,7 +22,8 @@ class OrganizationTransformer extends TransformerAbstract
             'qq_visibility' => $organization->qq_visibility,
         ];
 
-        if(Auth::guard('api_organization')->check() && Auth::guard('api_organization')->user()->email === $organization->email)
+        if(Auth::guard('api_organization')->check()
+            && Auth::guard('api_organization')->user()->email === $organization->email)
         {
             $data['email'] = $organization->email;
             $data['qq'] = $organization->qq;

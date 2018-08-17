@@ -23,5 +23,8 @@ class ReplyObserver
         } else {
             throw new \Exception();
         }
+
+        $reply->article->increment('reply_count',1);
     }
+
 }

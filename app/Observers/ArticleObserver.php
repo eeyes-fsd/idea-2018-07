@@ -23,4 +23,20 @@ class ArticleObserver
             throw new \Exception();
         }
     }
+
+    public function saving(Article $article)
+    {
+        $oldArticle = Article::find($article->id);
+        if ($oldArticle) {
+            if ($article->category_id !== $oldArticle->category_id) {
+                $oldArticle->category->parent->decrement('article_count', 1);
+                $oldArticle->category->decrement('article_count', 1);
+                $article->category->parent->increment('article_count', 1);
+                $article->category->increment('article_count', 1);
+            }
+        } else {
+            $article->category->parent->increment('article_count',1);
+            $article->category->increment('article_count',1);
+        }
+    }
 }

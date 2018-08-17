@@ -7,17 +7,31 @@ use League\Fractal\TransformerAbstract;
 
 class CategoryTransformer extends TransformerAbstract
 {
-
+    
     protected $availableIncludes = ['parent','children'];
+
+    public function __construct($parameters = null)
+    {
+        //这里提供一种include的思路，不完善。
+//        if (is_array($parameters) && key_exists('include',$parameters)) {
+//            $this->defaultIncludes = $parameters['include'];
+//        }
+    }
 
     public function includeParent(Category $category)
     {
-        return $this->item($category->parent(),new CategoryTransformer());
+        if ($category->hasParent()) {
+            return $this->item($category->parent,new CategoryTransformer());
+        }
+        return null;
     }
 
     public function includeChildren(Category $category)
     {
-        return $this->collection($category->children()->get(),new CategoryTransformer());
+        if ($category->hasChildren()) {
+            return $this->collection($category->children,new CategoryTransformer());
+        }
+        return null;
     }
 
     public function transform(Category $category)

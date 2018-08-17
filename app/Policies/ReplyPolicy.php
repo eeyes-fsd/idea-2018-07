@@ -12,7 +12,7 @@ class ReplyPolicy
 
     public function before($user, $ability)
     {
-        //todo
+        //todo there should be a permission named manage_replies
         if ($user->can('manage_contents')) {
             return true;
         }

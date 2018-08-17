@@ -5,9 +5,13 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\ReplyRequest;
 use App\Models\Article;
 use App\Models\Reply;
+use App\Serializers\CustomSerializer;
+use App\Transformers\ArticleTransformer;
 use App\Transformers\ReplyTransformer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use League\Fractal\Manager;
+use League\Fractal\Resource\Collection;
 
 class RepliesController extends Controller
 {
@@ -20,10 +24,17 @@ class RepliesController extends Controller
      * 返回某文章的全部留言
      *
      * @param Request $request
+     * @return \Dingo\Api\Http\Response
      */
     public function index(Request $request)
     {
-        //todo
+        if ((!$request->article_id) || (!$article = Article::findOrFail($request->article_id))) {
+            $this->error(404, '缺少或错误参数article_id');
+        }
+        $manager = new Manager();
+        $manager->setSerializer(new CustomSerializer());
+        $resources = new Collection($article->replies,new ReplyTransformer());
+        return $manager->createData($resources)->toArray();
     }
 
     public function show(Reply $reply)

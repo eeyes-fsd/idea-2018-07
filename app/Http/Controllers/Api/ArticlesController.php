@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Fractal\CustomManager;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
 use App\Serializers\CustomSerializer;
 use App\Transformers\ArticleTransformer;
+use Illuminate\Http\Request;
 use League\Fractal\Manager;
+use League\Fractal\Pagination\IlluminatePaginatorAdapter;
+use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
+use function PHPSTORM_META\type;
 use Tymon\JWTAuth\Claims\Custom;
 
 class ArticlesController extends Controller
@@ -18,11 +23,25 @@ class ArticlesController extends Controller
         $this->middleware('api.a',['except' => ['index','show']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        //todo 分页
-        $articles = Article::all();
-        return $this->response->collection($articles, new ArticleTransformer());
+        //todo pagination, category, order
+        $manager = new CustomManager();
+        $manager->setSerializer(new CustomSerializer());
+
+        $paginator = Article::ofCategory($request->get('category_id',0))->paginate($request->get('per_page',15));
+        $articles = $paginator->getCollection();
+        $queryParams = array_diff_key($_GET, array_flip(['page']));
+        $paginator->appends($queryParams);
+
+        $resource = new Collection($articles, new ArticleTransformer());
+        $resource->setPaginator(new IlluminatePaginatorAdapter($paginator));
+        $data = $manager->createData($resource)->toArray();
+
+        return $data;
+
+
+
     }
 
     public function show(Article $article)
@@ -43,7 +62,7 @@ class ArticlesController extends Controller
 
     public function update(Article $article, ArticleRequest $request)
     {
-        //todo 之后迭代吧，管理员不应修改文章是否匿名
+        //todo maintainer shouldn't change whether the article is anonymous, leave it for next version
         $this->authorizeForUser($this->getUserOrActiveOrganization(),'update',$article);
 
         if ((!$category = Category::find($request->category_id)) || $category->parent_id === 0 ) {

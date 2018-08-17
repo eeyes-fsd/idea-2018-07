@@ -60,4 +60,21 @@ class Article extends Model
     {
         return $this->hasMany(Reply::class,'article_id');
     }
+
+    public function scopeOfCategory($query, $category_id)
+    {
+        if ($category_id === 0) {
+            return $query;
+        }
+        $category = Category::findOrFail($category_id);
+        if ($category->parent_id === 0) {
+            $categories = Category::where('parent_id', $category->id)->get()->toArray();
+            $category_ids = array_map(function ($category) {
+                return $category['id'];
+            }, $categories);
+            return $query->whereIn('category_id', $category_ids);
+        } else {
+            return $query->where('category_id',$category_id);
+        }
+    }
 }

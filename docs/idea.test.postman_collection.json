@@ -593,7 +593,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0MDIxODYsImV4cCI6MTUzNDQyMDc2NiwibmJmIjoxNTM0NDE3MTY2LCJqdGkiOiJqdzVGSVA1bzR2SzNTQ2JYIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5-FUD1ojZPrlI-mASLZ7qmeON9S_YQX3yFN5c5N8Nvs",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDUxMzU5NSwiZXhwIjoxNTM0NTE3MTk1LCJuYmYiOjE1MzQ1MTM1OTUsImp0aSI6ImtzQ1J3dk02UTJQOW96VDYiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.TGuqM2ai9X2COgSvg394J0HksRuwezXb8Ldw7ytIMgA",
 									"type": "string"
 								}
 							]
@@ -1693,7 +1693,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvcmVmcmVzaCIsImlhdCI6MTUzNDQwMjI1NSwiZXhwIjoxNTM0NDIxMjAxLCJuYmYiOjE1MzQ0MTc2MDEsImp0aSI6InlRYTlHbDZGTllDVnhFS0siLCJzdWIiOjEsInBydiI6Ijk0YmE1ZmFjMjM1YjIxMDI5MzU1NzA5ZDgzZGNmNTM1MmY3ZWE1NTkifQ.R7ghsxYyXPX2EvZ0Qeke_Zp67jR3EPLGbYHfWSi6694",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0NzE4NzksImV4cCI6MTUzNDUwMDQyNywibmJmIjoxNTM0NDk2ODI3LCJqdGkiOiJ0d0lTckFGb0phcDltUlg5Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.dTyelCrUE2GC9drNLStFbHaIEhedWtRSitsuXFsudwI",
 									"type": "string"
 								}
 							]
@@ -1711,13 +1711,13 @@
 								},
 								{
 									"key": "title",
-									"value": "第3篇文章",
+									"value": "第4篇文章",
 									"sessionValue": "第一篇文章",
 									"type": "text"
 								},
 								{
 									"key": "body",
-									"value": "第3篇文章正文",
+									"value": "第4篇文章正文",
 									"sessionValue": "第二篇文章",
 									"type": "text"
 								},
@@ -1859,13 +1859,13 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "{{apihost}}/articles/2",
+							"raw": "{{apihost}}/articles/1",
 							"host": [
 								"{{apihost}}"
 							],
 							"path": [
 								"articles",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -1953,7 +1953,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0MDIxODYsImV4cCI6MTUzNDQyMDc2NiwibmJmIjoxNTM0NDE3MTY2LCJqdGkiOiJqdzVGSVA1bzR2SzNTQ2JYIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5-FUD1ojZPrlI-mASLZ7qmeON9S_YQX3yFN5c5N8Nvs",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0NzE4NzksImV4cCI6MTUzNDUwMDQyNywibmJmIjoxNTM0NDk2ODI3LCJqdGkiOiJ0d0lTckFGb0phcDltUlg5Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.dTyelCrUE2GC9drNLStFbHaIEhedWtRSitsuXFsudwI",
 									"type": "string"
 								}
 							]
@@ -1976,12 +1976,12 @@
 								},
 								{
 									"key": "title",
-									"value": "第1篇文章",
+									"value": "第5篇文章",
 									"type": "text"
 								},
 								{
 									"key": "body",
-									"value": "第1篇文章正文",
+									"value": "第5篇文章正文",
 									"type": "text"
 								},
 								{
@@ -1992,13 +1992,37 @@
 							]
 						},
 						"url": {
-							"raw": "{{apihost}}/articles/1",
+							"raw": "{{apihost}}/articles/5",
 							"host": [
 								"{{apihost}}"
 							],
 							"path": [
 								"articles",
-								"1"
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "显示全部文章",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/articles?per_page=2",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"articles"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "2"
+								}
 							]
 						}
 					},
@@ -2127,7 +2151,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDQ3MTg3OSwiZXhwIjoxNTM0NDc1NDc5LCJuYmYiOjE1MzQ0NzE4NzksImp0aSI6IlluOGxSeWZGeXAzRGRkZkMiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ZVTp1DgZvQS8L2LOKCQgM843MoWti_VKVQ8Lsa_U6zE",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDUxMzU5NSwiZXhwIjoxNTM0NTE3MTk1LCJuYmYiOjE1MzQ1MTM1OTUsImp0aSI6ImtzQ1J3dk02UTJQOW96VDYiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.TGuqM2ai9X2COgSvg394J0HksRuwezXb8Ldw7ytIMgA",
 									"type": "string"
 								}
 							]
@@ -2152,7 +2176,7 @@
 								},
 								{
 									"key": "name",
-									"value": "啦啦啦啦",
+									"value": "啦啦啦啦2",
 									"sessionValue": "啦啦啦啦",
 									"type": "text"
 								}
@@ -2317,6 +2341,120 @@
 							"body": "{\"status_code\":201,\"message\":\"\\u4fee\\u6539\\u7c7b\\u522b\\u6210\\u529f\",\"data\":{\"id\":7,\"name\":\"\\u7b2c\\u4e03\\u4e2a\\u7c7b\\u522b\",\"parent_id\":2,\"article_count\":0}}"
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Reply",
+			"item": [
+				{
+					"name": "发表留言",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0NzE4NzksImV4cCI6MTUzNDUwMDQyNywibmJmIjoxNTM0NDk2ODI3LCJqdGkiOiJ0d0lTckFGb0phcDltUlg5Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.dTyelCrUE2GC9drNLStFbHaIEhedWtRSitsuXFsudwI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "body",
+									"value": "第一条留言",
+									"sessionValue": "第一条留言",
+									"type": "text"
+								},
+								{
+									"key": "article_id",
+									"value": "1",
+									"sessionValue": "0",
+									"type": "text"
+								},
+								{
+									"key": "reply_id",
+									"value": "1",
+									"sessionValue": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/replies",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"replies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除留言",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0NzE4NzksImV4cCI6MTUzNDUwMDQyNywibmJmIjoxNTM0NDk2ODI3LCJqdGkiOiJ0d0lTckFGb0phcDltUlg5Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.dTyelCrUE2GC9drNLStFbHaIEhedWtRSitsuXFsudwI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/replies/2",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"replies",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定文章的全部留言",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/replies?article_id=1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"replies"
+							],
+							"query": [
+								{
+									"key": "article_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

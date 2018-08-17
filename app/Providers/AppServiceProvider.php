@@ -8,6 +8,8 @@ use App\Models\Reply;
 use App\Observers\ArticleObserver;
 use App\Observers\CategoryObserver;
 use App\Observers\ReplyObserver;
+use App\Serializers\CustomSerializer;
+use Dingo\Api\Transformer\Adapter\Fractal;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

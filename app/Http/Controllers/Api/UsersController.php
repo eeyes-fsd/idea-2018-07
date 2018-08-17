@@ -26,7 +26,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //TODO Same problem with articles
+        //todo permission and pagination
     }
 
     /**

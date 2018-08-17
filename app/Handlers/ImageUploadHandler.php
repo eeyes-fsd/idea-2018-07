@@ -2,6 +2,8 @@
 
 namespace App\Handlers;
 
+use Illuminate\Support\Facades\Storage;
+
 class ImageUploadHandler
 {
     protected $allowed_ext = ["png", "jpg", "gif", 'jpeg'];
@@ -34,5 +36,12 @@ class ImageUploadHandler
         return [
             'path' => config('app.url') . "/$folder_name/$filename"
         ];
+    }
+
+    public function delete($file)
+    {
+
+        $file = substr($file,strlen(config('app.url').'/storage')+1);
+        Storage::disk('public')->delete($file);
     }
 }

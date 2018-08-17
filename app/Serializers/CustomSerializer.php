@@ -16,7 +16,6 @@ class CustomSerializer extends ArraySerializer
      */
     public function collection($resourceKey, array $data)
     {
-        //may need to change it to [$data]
         return $data;
     }
 

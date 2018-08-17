@@ -36,12 +36,9 @@ class Article extends Model
 
     public function author()
     {
-        if ($this->user_id)
-        {
+        if ($this->user_id) {
             return $this->belongsTo('App\Models\User','user_id');
-        }
-        elseif ($this->organization_id)
-        {
+        } elseif ($this->organization_id) {
             return $this->belongsTo('App\Models\Organization','organization_id');
         }
 

@@ -593,7 +593,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDQwMjE4NiwiZXhwIjoxNTM0NDA1Nzg2LCJuYmYiOjE1MzQ0MDIxODYsImp0aSI6InlDYWVNdWRRaXlmVVBLbHgiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.cSZ_GgxV8aBvGvkFwLfieKxQd2UikhwJGztRQks42O4",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0MDIxODYsImV4cCI6MTUzNDQyMDc2NiwibmJmIjoxNTM0NDE3MTY2LCJqdGkiOiJqdzVGSVA1bzR2SzNTQ2JYIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5-FUD1ojZPrlI-mASLZ7qmeON9S_YQX3yFN5c5N8Nvs",
 									"type": "string"
 								}
 							]
@@ -2025,7 +2025,80 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "显示全部类别",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/categories",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Aug 2018 01:15:16 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"b4e752314af5fadfd74e41f4614a6646fb266daf\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":[{\"id\":1,\"name\":\"\\u5e72\\u8d27\",\"parent_id\":0,\"article_count\":0},{\"id\":2,\"name\":\"\\u9879\\u76ee\",\"parent_id\":0,\"article_count\":0},{\"id\":3,\"name\":\"\\u8d44\\u6e90\",\"parent_id\":0,\"article_count\":0},{\"id\":4,\"name\":\"\\u5947\\u601d\\u5999\\u60f3\",\"parent_id\":0,\"article_count\":0},{\"id\":5,\"name\":\"\\u5176\\u4ed6\",\"parent_id\":0,\"article_count\":0},{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":0}]}"
+						}
+					]
 				},
 				{
 					"name": "显示某类别",
@@ -2045,6 +2118,205 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "创建新类别",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDQ3MTg3OSwiZXhwIjoxNTM0NDc1NDc5LCJuYmYiOjE1MzQ0NzE4NzksImp0aSI6IlluOGxSeWZGeXAzRGRkZkMiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ZVTp1DgZvQS8L2LOKCQgM843MoWti_VKVQ8Lsa_U6zE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "",
+									"sessionValue": "delete",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "parent_id",
+									"value": "1",
+									"sessionValue": "1",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "啦啦啦啦",
+									"sessionValue": "啦啦啦啦",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/categories",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改某类别",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDQ3MTg3OSwiZXhwIjoxNTM0NDc1NDc5LCJuYmYiOjE1MzQ0NzE4NzksImp0aSI6IlluOGxSeWZGeXAzRGRkZkMiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ZVTp1DgZvQS8L2LOKCQgM843MoWti_VKVQ8Lsa_U6zE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "parent_id",
+									"value": "2",
+									"sessionValue": "1",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "第七个类别",
+									"sessionValue": "第七个类别",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "put",
+									"sessionValue": "put",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/categories/7",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"categories",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "修改某类别",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "parent_id",
+											"value": "2",
+											"sessionValue": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "第七个类别",
+											"sessionValue": "第七个类别",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"sessionValue": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/categories/7",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"categories",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Aug 2018 03:02:02 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"8b5ec8ec5ae5ee6d987296ea8cf1af2410b1e378\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":201,\"message\":\"\\u4fee\\u6539\\u7c7b\\u522b\\u6210\\u529f\",\"data\":{\"id\":7,\"name\":\"\\u7b2c\\u4e03\\u4e2a\\u7c7b\\u522b\",\"parent_id\":2,\"article_count\":0}}"
+						}
+					]
 				}
 			]
 		}

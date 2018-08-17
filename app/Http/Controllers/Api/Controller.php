@@ -68,7 +68,6 @@ class Controller extends BaseController
             $data = $arg3;
         }
 
-
         return $this->response->array([
             'status_code' => $code,
             'message'     => $message,

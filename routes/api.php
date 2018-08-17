@@ -51,4 +51,5 @@ $api->version('v1', [
     $api->resource('users','UsersController',['except' => ['create','store','edit']]);
     $api->resource('articles','ArticlesController',['except' => ['create','edit']]);
     $api->resource('categories','CategoriesController',['except' => ['create','edit']]);
+    $api->resource('replies','RepliesController',['except' => ['create','edit']]);
 });

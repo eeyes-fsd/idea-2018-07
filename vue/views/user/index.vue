@@ -14,9 +14,6 @@
 
       }
     },
-    mounted: function(){
-      this.getInfo()
-    },
     methods:{
       async getInfo() {
         setAccessToken(getCookie('access_token'))
@@ -28,6 +25,9 @@
           this.errorMessage = err.message || '未知错误'
         }
       }
+    },
+    mounted (){
+      this.getInfo()
     },
   }
 </script>

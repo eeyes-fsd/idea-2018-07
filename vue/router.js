@@ -4,6 +4,7 @@ import Home from './views/home'
 import OauthCallback from './views/oauthCallback'
 import Publish from './views/publish'
 import User from './views/user'
+import Article from './views/article'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/userinfo',
       name: 'user',
       component: User
+    },
+    {
+      path: '/article/:id',
+      name: 'article',
+      component: Article
     }
     // {
     //   path: '',

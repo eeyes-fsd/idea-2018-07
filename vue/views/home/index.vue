@@ -8,13 +8,16 @@
       <p>您当前的登陆身份类型：{{ loginType }}</p>
       <p>错误信息：{{ errorMessage }}</p>
     </header>
-    <router-link to="/publish" v-if="loginType === '个人用户'">发表文章</router-link>
+    <router-link to="/publish" v-if="ifLogin">发表文章</router-link>
   </div>
 </template>
 
 <script>
-import requests, { getLoginType } from '@/api/requests.js'
+import requests, { getLoginType }from '@/api/requests.js'
 import Example from '@/components/Example'
+import { getCookie } from "../../util";
+import {setAccessToken, setLoginType} from "../../api/requests";
+
 export default {
   components: {
     Example
@@ -26,6 +29,7 @@ export default {
         password: ''
       },
       errorMessage: '暂时没有错误发生',
+      ifLogin: false
     }
   },
   methods: {
@@ -45,6 +49,18 @@ export default {
         this.errorMessage = err.message || '未知错误'
       }
     },
+    async checkLogin(){
+      let accessToken = getCookie('access_token')
+      if(accessToken != null){
+        try {
+          setAccessToken(accessToken)
+          let data = await requests.get('/user')
+          this.ifLogin = true
+        }catch (err) {
+          this.errorMessage = err.message || '未知错误'
+        }
+      }
+    }
   },
   computed: {
     loginType() {
@@ -55,6 +71,9 @@ export default {
       }
       return trans[getLoginType()] || '错误的登陆身份类型'
     },
+  },
+  mounted() {
+    this.checkLogin()
   }
 }
 </script>

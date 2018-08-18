@@ -9,16 +9,21 @@
           <div>
             <form role="form">
               <div class="form-group">
-                <select class="form-control " >
-                  <option value="kind.id" v-for="kind in kinds1">
+                <select class="form-control"  v-model="selectedParent">
+                  <option  v-if="!kind.parent_id" v-for="kind in kinds" v-bind:value="kind.id">
                     {{ kind.name }}
                   </option>
                 </select>
-                <select class="form-control ">
-                  <option value="kind.id" v-for="kind in kinds2">
+                <select class="form-control" v-model="category">
+                  <option  v-if="kind.parent_id==selectedParent" v-for="kind in kinds" v-bind:value="kind.id">
                     {{ kind.name }}
                   </option>
                 </select>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" v-model="anonymous">匿名
+                  </label>
+                </div>
               </div>
             </form>
           </div>
@@ -45,27 +50,37 @@
               },
               title:'',
               body:'',
-              kinds1:{},
-              kinds2:{}
+              kinds:{},
+              selectedParent: 1,  //初始化默认的分类
+              category: 6,
+              anonymous: false
           }
         },
         methods: {
           async publishIt () {
             try {
               setAccessToken(getCookie('access_token'))
-              let data = await request.post('/articles', { title: this.title, body: this.content })
+              let data = await request.post('/articles', { title: this.title, body: this.content, category_id: this.category, anonymous: this.anonymous })
               console.log(data)
+              alert("发表文章成功！")
+
             } catch (err) {
-              console.log(err)
               console.log(this.errorMessage = err.message || '未知错误')
             }
           },
-          getKinds () {
-            this.kinds1 = {}
+          async getKinds (){
+            let that = this
+            try {
+              let data = await request.get('/categories')
+              that.kinds = data
+              console.log(data)
+            }catch (e) {
+              console.log(e || 'unknown mistake')
+            }
           }
         },
-      mounted: {
-
+      mounted() {
+        this.getKinds()
       }
 
     }

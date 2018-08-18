@@ -70,7 +70,7 @@ _axios.interceptors.response.use(
     var error
     console.log(data)
     if (data !== undefined && data.status_code !== undefined) {
-      if(data.status_code === 302){
+      if(data.status_code === 200){
         return data.data
       }
       error = data

@@ -2005,13 +2005,13 @@
 					"response": []
 				},
 				{
-					"name": "显示全部文章",
+					"name": "按需求显示文章",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "{{apihost}}/articles?per_page=2",
+							"raw": "{{apihost}}/articles?per_page=1&category_id=1&orderBy=id&orderMode=desc&author_type=organization&author_id=1",
 							"host": [
 								"{{apihost}}"
 							],
@@ -2021,7 +2021,32 @@
 							"query": [
 								{
 									"key": "per_page",
-									"value": "2"
+									"value": "1",
+									"description": "每一页文章数，默认15 (所有字段均可空)"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"description": "类别id，一级类别和二级类别均可，0表示无限制"
+								},
+								{
+									"key": "orderBy",
+									"value": "id",
+									"description": "默认为id，可选列表：'updated_at', 'created_at', 'reply_count', 'favorite_count', 'like_count','view_count'"
+								},
+								{
+									"key": "orderMode",
+									"value": "desc",
+									"description": "默认desc，可选列表：desc，asc"
+								},
+								{
+									"key": "author_type",
+									"value": "organization",
+									"description": "默认为空，可选：user,organization"
+								},
+								{
+									"key": "author_id",
+									"value": "1"
 								}
 							]
 						}

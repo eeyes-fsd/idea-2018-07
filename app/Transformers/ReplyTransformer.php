@@ -23,6 +23,7 @@ class ReplyTransformer extends TransformerAbstract
             'id' => $reply->id,
             'article_id' => $reply->article_id,
             'reply_id' => $reply->reply_id,
+            'body' => $reply->body,
             'author_type' => $reply->user_id ? 'user' : 'organization',
             'created_at' => $reply->created_at->diffForHumans(),
             'updated_at' => $reply->created_at->diffForHumans(),

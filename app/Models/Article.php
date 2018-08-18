@@ -77,4 +77,13 @@ class Article extends Model
             return $query->where('category_id',$category_id);
         }
     }
+
+    public function scopeOfAuthor($query, $author_type, $author_id)
+    {
+        if (!in_array($author_type,['user','organization'])) {
+            return $query;
+        } else {
+            return $query->where($author_type . '_id', $author_id);
+        }
+    }
 }

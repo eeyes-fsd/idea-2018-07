@@ -68,9 +68,8 @@ _axios.interceptors.response.use(
   },
   function({ response: { data } }) {
     var error
-    console.log(data)
     if (data !== undefined && data.status_code !== undefined) {
-      if(data.status_code === 200){
+      if(data.status_code === 302){
         return data.data
       }
       error = data

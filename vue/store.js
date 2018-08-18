@@ -7,5 +7,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   strict: debug,
-  plugins: debug ? [createLogger()] : []
+  plugins: debug ? [createLogger()] : [],
+  state:{
+    ifLogin: false,
+    count: 0
+  },
+  mutations:{
+    login (state){
+      state.ifLogin = true
+    }
+  }
 })
+

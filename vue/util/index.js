@@ -4,7 +4,7 @@
 export function getCookie(name) {
   var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
   if (arr = document.cookie.match(reg))
-    return (arr[2]);
+    return decodeURI(arr[2]);
   else
     return null;
 }
@@ -12,8 +12,8 @@ export function getCookie(name) {
 //设置cookie,
 export function setCookie (c_name, value, expiredays) {
   var exdate = new Date();
-  exdate.setDate(exdate.getDate() + expiredays/3600);
-  document.cookie = c_name + "=" + escape(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
+  exdate.setDate(exdate.getDate() + 24*60*60*1000);//一天过期
+  document.cookie = c_name + "=" + encodeURI(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
 };
 
 //删除cookie

@@ -15,8 +15,8 @@
 <script>
 import requests, { getLoginType }from '@/api/requests.js'
 import Example from '@/components/Example'
-import { getCookie } from "../../util";
-import {setAccessToken, setLoginType} from "../../api/requests";
+import { getCookie, setCookie } from "../../util"
+import {setAccessToken, setLoginType} from "../../api/requests"
 
 export default {
   components: {
@@ -29,6 +29,7 @@ export default {
         password: ''
       },
       errorMessage: '暂时没有错误发生',
+      checkState: false,
       ifLogin: false
     }
   },
@@ -56,11 +57,13 @@ export default {
           setAccessToken(accessToken)
           let data = await requests.get('/user')
           this.ifLogin = true
+          this.$store.commit('login')
+          setCookie('userInfo', JSON.stringify(data))
         }catch (err) {
           this.errorMessage = err.message || '未知错误'
         }
       }
-    }
+    },
   },
   computed: {
     loginType() {
@@ -74,7 +77,7 @@ export default {
   },
   mounted() {
     this.checkLogin()
-  }
+  },
 }
 </script>
 

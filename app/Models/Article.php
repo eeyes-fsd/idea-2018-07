@@ -83,7 +83,7 @@ class Article extends Model
         if (!in_array($author_type,['user','organization'])) {
             return $query;
         } else {
-            return $query->where($author_type . '_id', $author_id);
+            return $query->where($author_type . '_id', $author_id)->where('anonymous',false);
         }
     }
 }

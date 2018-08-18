@@ -25,6 +25,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property Carbon $created_at 创建于
  * @property Carbon $updated_at 更改于
  * @property Collection $articles
+ * @property Collection $favoriteArticles
  */
 class Organization extends Authenticatable implements JWTSubject
 {
@@ -64,5 +65,27 @@ class Organization extends Authenticatable implements JWTSubject
     public function articles()
     {
         return $this->hasMany('App\Models\Article','organization_id');
+    }
+
+    public function favoriteArticles()
+    {
+        return $this->hasManyThrough(Article::class,
+            Favorite::class,
+            'organization_id',
+            'id',
+            'id',
+            'article_id'
+        );
+    }
+
+    public function likedArticles()
+    {
+        return $this->hasManyThrough(Article::class,
+            Like::class,
+            'user_id',
+            'id',
+            'id',
+            'article_id'
+        );
     }
 }

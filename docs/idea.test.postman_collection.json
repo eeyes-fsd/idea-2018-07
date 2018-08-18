@@ -593,7 +593,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDUxMzU5NSwiZXhwIjoxNTM0NTE3MTk1LCJuYmYiOjE1MzQ1MTM1OTUsImp0aSI6ImtzQ1J3dk02UTJQOW96VDYiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.TGuqM2ai9X2COgSvg394J0HksRuwezXb8Ldw7ytIMgA",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDU4MDIyMCwiZXhwIjoxNTM0NTgzODIwLCJuYmYiOjE1MzQ1ODAyMjAsImp0aSI6IkhDNGdiZ0lYMFFLcHBSTlMiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.9JzbcLIAXCU7rRdaT1Y3qcDOAL93nWzVNwZY6oo3TAw",
 									"type": "string"
 								}
 							]
@@ -2011,7 +2011,7 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "{{apihost}}/articles?per_page=1&category_id=1&orderBy=id&orderMode=desc&author_type=organization&author_id=1",
+							"raw": "{{apihost}}/articles?per_page=1&category_id=1&orderBy=id&orderMode=desc&page=2",
 							"host": [
 								"{{apihost}}"
 							],
@@ -2041,17 +2041,133 @@
 								},
 								{
 									"key": "author_type",
-									"value": "organization",
-									"description": "默认为空，可选：user,organization"
+									"value": "user",
+									"description": "默认为空，可选：user,organization",
+									"disabled": true
 								},
 								{
 									"key": "author_id",
-									"value": "1"
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "2"
 								}
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "按需求显示文章",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/articles?per_page=1&category_id=1&orderBy=id&orderMode=desc&page=2",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"articles"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "1",
+											"description": "每一页文章数，默认15 (所有字段均可空)"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"description": "类别id，一级类别和二级类别均可，0表示无限制"
+										},
+										{
+											"key": "orderBy",
+											"value": "id",
+											"description": "默认为id，可选列表：'updated_at', 'created_at', 'reply_count', 'favorite_count', 'like_count','view_count'"
+										},
+										{
+											"key": "orderMode",
+											"value": "desc",
+											"description": "默认desc，可选列表：desc，asc"
+										},
+										{
+											"key": "author_type",
+											"value": "user",
+											"description": "默认为空，可选：user,organization",
+											"disabled": true
+										},
+										{
+											"key": "author_id",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 07:49:22 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"26ad27d4ec30158c743ca23cd6686ed8b621c98c\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"articles\":[{\"id\":4,\"title\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":1,\"author_type\":\"user\",\"view_count\":0,\"like_count\":0,\"favorite_count\":0,\"reply_count\":0,\"created_at\":\"1\\u5929\\u524d\",\"updated_at\":\"1\\u5929\\u524d\",\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}}],\"pagination\":{\"total\":5,\"count\":1,\"per_page\":1,\"current_page\":2,\"total_pages\":5,\"first_page_url\":\"http:\\/\\/idea.test\\/api\\/articles?per_page=1&category_id=1&orderBy=id&orderMode=desc&page=1\",\"last_page_url\":\"http:\\/\\/idea.test\\/api\\/articles?per_page=1&category_id=1&orderBy=id&orderMode=desc&page=5\",\"previous_page_url\":\"http:\\/\\/idea.test\\/api\\/articles?per_page=1&category_id=1&orderBy=id&orderMode=desc&page=1\",\"next_page_url\":\"http:\\/\\/idea.test\\/api\\/articles?per_page=1&category_id=1&orderBy=id&orderMode=desc&page=3\"}}}"
+						}
+					]
 				}
 			]
 		},
@@ -2480,6 +2596,492 @@
 						}
 					},
 					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favorite收藏",
+			"item": [
+				{
+					"name": "收藏/取消收藏某文章",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ1ODAyMjAsImV4cCI6MTUzNDU4NzUzMiwibmJmIjoxNTM0NTgzOTMyLCJqdGkiOiJrOFE1cjl1dGI4M21Jd0ZYIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.xrlV4DaARl3GTap8yCSDXhgzdyNvantWY0ewbb1Tazg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "article_id",
+									"value": "3",
+									"sessionValue": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/favorites",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"favorites"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "收藏/取消收藏某文章",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "article_id",
+											"value": "3",
+											"sessionValue": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/favorites",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"favorites"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 10:01:19 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"e34d3068830ce94ae026fe442f7081c35ab5ab09\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"\\u53d6\\u6d88\\u6536\\u85cf\\u6210\\u529f\",\"data\":[\"\\u53d6\\u6d88\\u6536\\u85cf\\u6210\\u529f\"]}"
+						}
+					]
+				},
+				{
+					"name": "查看某人的全部收藏",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ1ODAyMjAsImV4cCI6MTUzNDU4NzUzMiwibmJmIjoxNTM0NTgzOTMyLCJqdGkiOiJrOFE1cjl1dGI4M21Jd0ZYIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.xrlV4DaARl3GTap8yCSDXhgzdyNvantWY0ewbb1Tazg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/favorites?author_type=user&author_id=1&per_page=2",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"favorites"
+							],
+							"query": [
+								{
+									"key": "author_type",
+									"value": "user",
+									"description": "不可为空，可选：me,organization,user"
+								},
+								{
+									"key": "author_id",
+									"value": "1",
+									"description": "不可为空，当user_type为me时该字段无效。"
+								},
+								{
+									"key": "per_page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "查看某人的全部收藏",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/favorites?author_type=user&author_id=1&per_page=2",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"favorites"
+									],
+									"query": [
+										{
+											"key": "author_type",
+											"value": "user",
+											"description": "不可为空，可选：me,organization,user"
+										},
+										{
+											"key": "author_id",
+											"value": "1",
+											"description": "不可为空，当user_type为me时该字段无效。"
+										},
+										{
+											"key": "per_page",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 10:00:49 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"15590deccfd3c730dd4894a401d19079402535c9\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"articles\":[{\"id\":1,\"title\":\"\\u7b2c1\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c1\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":0,\"author_type\":\"user\",\"view_count\":0,\"like_count\":1,\"favorite_count\":2,\"reply_count\":0,\"created_at\":\"1\\u5929\\u524d\",\"updated_at\":\"1\\u5206\\u949f\\u524d\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"18932869937\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1},\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}},{\"id\":2,\"title\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":0,\"author_type\":\"user\",\"view_count\":0,\"like_count\":1,\"favorite_count\":1,\"reply_count\":0,\"created_at\":\"1\\u5929\\u524d\",\"updated_at\":\"1\\u5206\\u949f\\u524d\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"18932869937\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1},\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}}],\"pagination\":{\"total\":3,\"count\":2,\"per_page\":2,\"current_page\":1,\"total_pages\":2,\"first_page_url\":\"http:\\/\\/idea.test\\/api\\/favorites?author_type=user&author_id=1&per_page=2&page=1\",\"last_page_url\":\"http:\\/\\/idea.test\\/api\\/favorites?author_type=user&author_id=1&per_page=2&page=2\",\"next_page_url\":\"http:\\/\\/idea.test\\/api\\/favorites?author_type=user&author_id=1&per_page=2&page=2\"}}}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Like点赞",
+			"item": [
+				{
+					"name": "查看自己点过的赞",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ1ODAyMjAsImV4cCI6MTUzNDU4NzUzMiwibmJmIjoxNTM0NTgzOTMyLCJqdGkiOiJrOFE1cjl1dGI4M21Jd0ZYIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.xrlV4DaARl3GTap8yCSDXhgzdyNvantWY0ewbb1Tazg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/likes",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"likes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "查看自己点过的赞",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/likes",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"likes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 09:59:35 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"9c5f182fe5abf0c01543c75becc882108661a2fb\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"articles\":[{\"id\":1,\"title\":\"\\u7b2c1\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c1\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":0,\"author_type\":\"user\",\"view_count\":0,\"like_count\":1,\"favorite_count\":2,\"reply_count\":0,\"created_at\":\"1\\u5929\\u524d\",\"updated_at\":\"38\\u79d2\\u524d\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"18932869937\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1},\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}},{\"id\":2,\"title\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":0,\"author_type\":\"user\",\"view_count\":0,\"like_count\":1,\"favorite_count\":1,\"reply_count\":0,\"created_at\":\"1\\u5929\\u524d\",\"updated_at\":\"33\\u79d2\\u524d\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"18932869937\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1},\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}},{\"id\":5,\"title\":\"\\u7b2c5\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c5\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":1,\"author_type\":\"user\",\"view_count\":0,\"like_count\":1,\"favorite_count\":0,\"reply_count\":0,\"created_at\":\"1\\u5929\\u524d\",\"updated_at\":\"25\\u79d2\\u524d\",\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}}],\"pagination\":{\"total\":3,\"count\":3,\"per_page\":15,\"current_page\":1,\"total_pages\":1,\"first_page_url\":\"http:\\/\\/idea.test\\/api\\/likes?page=1\",\"last_page_url\":\"http:\\/\\/idea.test\\/api\\/likes?page=1\"}}}"
+						}
+					]
+				},
+				{
+					"name": "点赞/取消赞某文章",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ1ODAyMjAsImV4cCI6MTUzNDU4NzUzMiwibmJmIjoxNTM0NTgzOTMyLCJqdGkiOiJrOFE1cjl1dGI4M21Jd0ZYIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.xrlV4DaARl3GTap8yCSDXhgzdyNvantWY0ewbb1Tazg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "article_id",
+									"value": "5",
+									"sessionValue": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/likes",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"likes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "点赞/取消赞某文章",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "article_id",
+											"value": "5",
+											"sessionValue": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/likes",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"likes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 09:59:10 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"cdf0339828fe9834cabdbe83003e154a85897dbb\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":201,\"message\":\"\\u70b9\\u8d5e\\u6210\\u529f\",\"data\":[\"\\u70b9\\u8d5e\\u6210\\u529f\"]}"
+						}
+					]
 				}
 			]
 		}

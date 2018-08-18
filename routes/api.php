@@ -45,7 +45,17 @@ $api->version('v1', [
 
         $api->post('users/founder/{user}','RolesController@assignUserFounder');
         $api->post('users/maintainer/{user}','RolesController@assignUserMaintainer');
+
+        $api->post('favorites','FavoriteController@storeOrDestroy');
+        $api->get('favorites','FavoriteController@index');
+
+        $api->post('likes','LikeController@storeOrDestroy');
+        $api->get('likes','LikeController@index');
+
+//        $api->post('favorites/article')
     });
+
+
 
     $api->resource('organizations','OrganizationsController',['except' => ['create','edit']]);
     $api->resource('users','UsersController',['except' => ['create','store','edit']]);

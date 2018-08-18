@@ -52,8 +52,6 @@ class ArticlesController extends Controller
 
         return $data;
 
-
-
     }
 
     public function show(Article $article)
@@ -87,6 +85,7 @@ class ArticlesController extends Controller
 
     public function destroy(Article $article)
     {
+        //todo delete the likes and favorites
         $this->authorizeForUser($this->getUserOrActiveOrganization(),'delete',$article);
 
         $article->delete();

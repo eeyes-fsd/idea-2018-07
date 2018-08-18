@@ -18,7 +18,6 @@ class CreateLikesTable extends Migration
             $table->integer('user_id')->nullable();
             $table->integer('organization_id')->nullable();
             $table->integer('article_id')->nullable();
-            //todo leave this function for the next version
             $table->integer('reply_id')->nullable();
             $table->timestamps();
         });

@@ -24,6 +24,7 @@ class ArticlesController extends Controller
     public function __construct()
     {
         $this->middleware('api.a',['except' => ['index','show']]);
+        $this->middleware('countView',['only' => 'show']);
     }
 
     /**
@@ -85,10 +86,14 @@ class ArticlesController extends Controller
 
     public function destroy(Article $article)
     {
-        //todo delete the likes and favorites
         $this->authorizeForUser($this->getUserOrActiveOrganization(),'delete',$article);
-
+        foreach ($article->likes as $like) {
+            $like->delete();
+        }
+        foreach ($article->favorites as $favorite) {
+            $favorite->delete();
+        }
         $article->delete();
-        return $this->success("删除成功");
+        return $this->success('删除成功');
     }
 }

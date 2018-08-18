@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
  * @property  int $reply_id  父回复id，可空
  * @property  int $user_id 作者id，可空
  * @property  int $organization_id 社团id，可空
+ * @property  int $like_count
  * @property  string $body 正文
  * @property  Carbon $created_at 创建于
  * @property  Carbon $updated_at 更改于

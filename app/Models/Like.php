@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
  * @property int $reply_id
  * @property User|Organization $author
  * @property Article $article
+ * @property Reply $reply
  */
 class Like extends Model
 {
@@ -58,6 +59,12 @@ class Like extends Model
         if ($this->article_id && Article::findOrFail($this->article_id)) {
             return $this->belongsTo(Article::class,'article_id');
         }
+    }
 
+    public function reply()
+    {
+        if ($this->reply_id && Reply::findOrFail($this->reply_id)) {
+            return $this->belongsTo(Reply::class,'reply_id');
+        }
     }
 }

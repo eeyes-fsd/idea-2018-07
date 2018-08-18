@@ -52,7 +52,9 @@ $api->version('v1', [
         $api->post('likes','LikeController@storeOrDestroy');
         $api->get('likes','LikeController@index');
 
-//        $api->post('favorites/article')
+        $api->get('search/users','SearchController@searchUser');
+        $api->get('search/organization','SearchController@searchOrganization');
+        $api->get('search/article','SearchController@searchArticle');
     });
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\SearchTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\Eloquent\RelationNotFoundException;
@@ -26,10 +27,13 @@ use Illuminate\Support\Collection;
  * @property Carbon $updated_at 更改于
  * @property User|Organization $author 作者
  * @property Category $category 分类
- * @property Collection $replies 分类
+ * @property Collection $replies 回复
+ * @property Collection $likes 点赞
+ * @property Collection $favorites 收藏
  */
 class Article extends Model
 {
+    use SearchTrait;
 
     protected $fillable = [
         'user_id', 'organization_id', 'category_id',
@@ -85,5 +89,15 @@ class Article extends Model
         } else {
             return $query->where($author_type . '_id', $author_id)->where('anonymous',false);
         }
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class,'article_id');
+    }
+
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class,'article_id');
     }
 }

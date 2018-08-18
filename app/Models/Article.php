@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\Eloquent\RelationNotFoundException;
+use Illuminate\Support\Collection;
 
 /**
  * Class Article
@@ -25,6 +26,7 @@ use Illuminate\Database\Eloquent\RelationNotFoundException;
  * @property Carbon $updated_at 更改于
  * @property User|Organization $author 作者
  * @property Category $category 分类
+ * @property Collection $replies 分类
  */
 class Article extends Model
 {
@@ -36,12 +38,9 @@ class Article extends Model
 
     public function author()
     {
-        if ($this->user_id)
-        {
+        if ($this->user_id) {
             return $this->belongsTo('App\Models\User','user_id');
-        }
-        elseif ($this->organization_id)
-        {
+        } elseif ($this->organization_id) {
             return $this->belongsTo('App\Models\Organization','organization_id');
         }
 
@@ -55,5 +54,27 @@ class Article extends Model
             throw new RelationNotFoundException();
         }
         return $this->belongsTo('App\Models\Category','category_id');
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class,'article_id');
+    }
+
+    public function scopeOfCategory($query, $category_id)
+    {
+        if ($category_id === 0) {
+            return $query;
+        }
+        $category = Category::findOrFail($category_id);
+        if ($category->parent_id === 0) {
+            $categories = Category::where('parent_id', $category->id)->get()->toArray();
+            $category_ids = array_map(function ($category) {
+                return $category['id'];
+            }, $categories);
+            return $query->whereIn('category_id', $category_ids);
+        } else {
+            return $query->where('category_id',$category_id);
+        }
     }
 }

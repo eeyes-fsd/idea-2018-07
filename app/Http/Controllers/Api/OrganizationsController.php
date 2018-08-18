@@ -69,7 +69,7 @@ class OrganizationsController extends Controller
 
         //修改密码
         if($request->password){
-            //TODO 密码约束
+            //TODO reset password
             if($organization->password === bcrypt('default_password') || bcrypt($request->old_password) === $organization->password)
             {
                 $data['password'] = bcrypt($request->password);

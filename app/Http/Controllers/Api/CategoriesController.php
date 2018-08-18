@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use League\Fractal\Manager;
+use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 
 class CategoriesController extends Controller
@@ -18,8 +19,10 @@ class CategoriesController extends Controller
     }
     public function index()
     {
+        $manager = new Manager();
+        $manager->setSerializer(new CustomSerializer());
         $categories = Category::all();
-        return $this->response->collection($categories,new CategoryTransformer());
+        return $manager->createData(new Collection($categories,new CategoryTransformer()))->toArray();
     }
 
     public function show(Category $category)
@@ -33,7 +36,7 @@ class CategoriesController extends Controller
 
     public function store(Request $request)
     {
-//        $this->authorizeForUser($this->getUserOrActiveOrganization(),'create',Category::class);
+        $this->authorizeForUser($this->getUserOrActiveOrganization(),'create',Category::class);
         Category::findOrFail($request->parent_id);
         $category = Category::create($request->only(['parent_id','name']));
         $transformer = new CategoryTransformer();
@@ -43,8 +46,10 @@ class CategoriesController extends Controller
     public function update(Category $category, Request $request)
     {
         $this->authorizeForUser($this->getUserOrActiveOrganization(),'update',$category);
-        Category::findOrFail($request->parent_id);
-        $category = Category::create($request->only(['parent_id','name']));
+        if ($request->parent_id) {
+            Category::findOrFail($request->parent_id);
+        }
+        $category->update($request->only(['parent_id','name']));
         $transformer = new CategoryTransformer();
         return $this->success(201,'修改类别成功',$transformer->transform($category));
     }

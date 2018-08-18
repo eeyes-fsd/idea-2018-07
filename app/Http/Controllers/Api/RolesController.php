@@ -10,7 +10,7 @@ class RolesController extends Controller
 {
     public function assignUserFounder(User $user)
     {
-        //todo
+        //todo permission for the first user
         $user->assignRole('Founder');
     }
 

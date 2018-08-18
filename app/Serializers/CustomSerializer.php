@@ -3,6 +3,7 @@
 namespace App\Serializers;
 
 use League\Fractal\Serializer\ArraySerializer;
+use League\Fractal\Pagination\PaginatorInterface;
 
 class CustomSerializer extends ArraySerializer
 {
@@ -16,7 +17,6 @@ class CustomSerializer extends ArraySerializer
      */
     public function collection($resourceKey, array $data)
     {
-        //may need to change it to [$data]
         return $data;
     }
 
@@ -41,5 +41,40 @@ class CustomSerializer extends ArraySerializer
     public function null()
     {
         return [];
+    }
+
+    /**
+     * Serialize the paginator.
+     *
+     * @param PaginatorInterface $paginator
+     *
+     * @return array
+     */
+    public function paginator(PaginatorInterface $paginator)
+    {
+        $currentPage = (int) $paginator->getCurrentPage();
+        $lastPage = (int) $paginator->getLastPage();
+
+        $pagination = [
+            'total' => (int) $paginator->getTotal(),
+            'count' => (int) $paginator->getCount(),
+            'per_page' => (int) $paginator->getPerPage(),
+            'current_page' => $currentPage,
+            'total_pages' => $lastPage,
+            'first_page_url' => $paginator->getUrl(1),
+            'last_page_url' => $paginator->getUrl($lastPage),
+        ];
+
+//        $pagination['links'] = [];
+
+        if ($currentPage > 1) {
+            $pagination['previous_page_url'] = $paginator->getUrl($currentPage - 1);
+        }
+
+        if ($currentPage < $lastPage) {
+            $pagination['next_page_url'] = $paginator->getUrl($currentPage + 1);
+        }
+
+        return [$pagination];
     }
 }

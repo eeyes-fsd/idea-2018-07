@@ -9,6 +9,7 @@
 <script>
 import requests, { setLoginType } from '@/api/requests.js'
 import { setCookie } from "../../util";
+import {setAccessToken} from "../../api/requests";
 
 export default {
   name: 'OauthCallback',

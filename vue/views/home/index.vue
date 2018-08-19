@@ -1,14 +1,6 @@
 <template>
   <div class="home">
-    <header>
-      <button @click="userLogin">个人登录</button>
-      <input type="text" v-model="org.email" placeholder="邮箱地址">
-      <input type="text" v-model="org.password" placeholder="密码">
-      <button @click="orgLogin">社团登录</button>
-      <p>您当前的登陆身份类型：{{ loginType }}</p>
-      <router-link to="/publish" v-if="ifLogin">发表文章</router-link>
-    </header>
-    <img src="" alt="" class="row">
+    <img :src="img.back" alt="" class="img-responsive">
   </div>
 </template>
 
@@ -24,24 +16,15 @@ export default {
   },
   data () {
     return {
-      org: {
-        email: '',
-        password: ''
-      },
       errorMessage: '暂时没有错误发生',
       checkState: false,
-      ifLogin: false
+      ifLogin: false,
+      img:{
+        back: '../img/index/background.png'
+      }
     }
   },
   methods: {
-    async userLogin () {
-      try {
-        let data = await requests.get('/users/authorizations')
-        location.href = data.url
-      } catch (err) {
-        this.errorMessage = err.message || '未知错误'
-      }
-    },
     async orgLogin () {
       try {
         let data = await requests.post('/organizations/authorizations', this.org)

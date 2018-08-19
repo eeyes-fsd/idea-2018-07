@@ -61,9 +61,8 @@
             try {
               setAccessToken(getCookie('access_token'))
               let data = await request.post('/articles', { title: this.title, body: this.content, category_id: this.category, anonymous: this.anonymous })
-              console.log(data)
               alert("发表文章成功！")
-
+              this.$router.push('/article/'+data.id)
             } catch (err) {
               console.log(this.errorMessage = err.message || '未知错误')
             }
@@ -73,7 +72,6 @@
             try {
               let data = await request.get('/categories')
               that.kinds = data
-              console.log(data)
             }catch (e) {
               console.log(e || 'unknown mistake')
             }

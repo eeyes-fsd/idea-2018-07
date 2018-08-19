@@ -1,6 +1,5 @@
 <template>
     <div>
-      <h2>用户界面</h2>
       <div class="row head-top">
         <img src="user.avatar" alt="头像太帅，加载不出来" class="userHead img-responsive img-circle center-block">
         <h3 class="text-center">{{ user.nickname }}</h3>
@@ -8,7 +7,7 @@
       </div>
       <div class="row">
         <div class="col-md-3 panel panel-default userInfo">
-          <h3>个人信息 <button class="btn btn-default pull-right"data-toggle="modal" data-target="#editor">编辑</button></h3>
+          <h3>个人信息 <button class="btn btn-default pull-right">编辑</button></h3>
           <hr/>
           <div>
             <h4>基本信息</h4>
@@ -25,7 +24,7 @@
         </div>
         <div class="col-md-8  col-md-offset-1  panel panel-default userPanel">
           <div class="row">
-            <h3 class="">个人中心</h3>
+            <h3>个人中心</h3>
             <hr/>
             <ul class="list-inline">
               <li class="tabMenu"><router-link to="/article">我的发布</router-link></li>
@@ -33,6 +32,7 @@
               <li class="tabMenu"><router-link to="/favourite">我的收藏</router-link></li>
             </ul>
           </div>
+          <hr/>
           <div class="row content">
             <router-view></router-view>
           </div>
@@ -48,7 +48,8 @@
     name: "User",
     data() {
       return {
-        user: {}
+        user: {},
+        ifMe: false
       }
     },
     methods:{
@@ -56,16 +57,20 @@
         setAccessToken(getCookie('access_token'))
         try {
           let data = await requests.get('/user')
-          console.log(data)
           this.user = data
         } catch (err) {
           console.log(err)
           this.errorMessage = err.message || '未知错误'
         }
+      },
+      checkMe() { //判断访问的是否是自己的主页
+        console.log(JSON.parse(getCookie('userInfo')))
+        let netid = JSON.parse(getCookie('userInfo')).NetID
       }
     },
     mounted (){
       this.getInfo()
+      this.checkMe()
     },
   }
 </script>
@@ -94,6 +99,10 @@
   }
   .active{
     border-bottom: #000 solid 2px;
+  }
+  /* 个人中心 */
+  .userPanel>div{
+    padding-left: 15px;
   }
   .content{
     margin-top: 20px;

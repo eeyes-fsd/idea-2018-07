@@ -36,14 +36,19 @@ class ArticlesController extends Controller
      */
     public function index(ShowArticlesRequest $request)
     {
-        $manager = new CustomManager();
-        $manager->setSerializer(new CustomSerializer());
+        if ($request->get('author_type') === 'me') {
+            $query = Article::ofAuthorByObject($this->getUserOrActiveOrganization());
+        } else {
+            $query = Article::ofAuthor($request->get('author_type'),$request->author_id);
+        }
 
-        $paginator = Article::orderBy($request->get('orderBy','id'),$request->getUser('orderMode','desc'))
-                            ->ofAuthor($request->get('author_type'),$request->get('author_id'))
+        $paginator = $query->orderBy($request->get('orderBy','id'),$request->getUser('orderMode','desc'))
                             ->ofCategory($request->get('category_id',0))
                             ->paginate($request->get('per_page',15));
+
         $articles = $paginator->getCollection();
+        $manager = new CustomManager();
+        $manager->setSerializer(new CustomSerializer());
         $queryParams = array_diff_key($_GET, array_flip(['page']));
         $paginator->appends($queryParams);
 

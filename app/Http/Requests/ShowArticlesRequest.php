@@ -16,7 +16,7 @@ class ShowArticlesRequest extends Request
                 Rule::in('desc','asc'),
             ],
             'author_type' => [
-                Rule::in('user','organization'),
+                Rule::in('me','user','organization'),
             ],
             'author_id' => 'integer',
 

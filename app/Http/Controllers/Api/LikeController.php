@@ -17,6 +17,7 @@ class LikeController extends Controller
 
     public function index(Request $request)
     {
+        //todo should return time
         if ($request->input('type','article') === 'article') {
             $paginator = $this->getUserOrActiveOrganization()->likedArticles()->paginate($request->get('per_page',15));
             $manager = new CustomManager();

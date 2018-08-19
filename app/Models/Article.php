@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\SearchTrait;
 use Carbon\Carbon;
+use Dingo\Api\Auth\Auth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\Eloquent\RelationNotFoundException;
 use Illuminate\Support\Collection;
@@ -67,7 +68,7 @@ class Article extends Model
 
     public function scopeOfCategory($query, $category_id)
     {
-        if ($category_id === 0) {
+        if ($category_id == 0) {
             return $query;
         }
         $category = Category::findOrFail($category_id);
@@ -84,10 +85,21 @@ class Article extends Model
 
     public function scopeOfAuthor($query, $author_type, $author_id)
     {
-        if (!in_array($author_type,['user','organization'])) {
+        if (!in_array($author_type,['user','organization'])  || !$author_id) {
             return $query;
         } else {
             return $query->where($author_type . '_id', $author_id)->where('anonymous',false);
+        }
+    }
+
+    public function scopeOfAuthorByObject($query, $author)
+    {
+        if ($author instanceof User) {
+            return $query->where('user_id',$author->id);
+        } elseif ($author instanceof Organization) {
+            return $query->where('organization_id', $author->id);
+        } else {
+            throw new ModelNotFoundException();
         }
     }
 

@@ -26,8 +26,8 @@ class ReplyTransformer extends TransformerAbstract
             'body' => $reply->body,
             'like_count' => $reply->like_count,
             'author_type' => $reply->user_id ? 'user' : 'organization',
-            'created_at' => $reply->created_at->diffForHumans(),
-            'updated_at' => $reply->created_at->diffForHumans(),
+            'created_at' => $reply->created_at->toDateTimeString(),
+            'updated_at' => $reply->created_at->toDateTimeString(),
         ];
     }
 

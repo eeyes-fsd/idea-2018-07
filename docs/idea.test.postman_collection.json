@@ -1679,6 +1679,192 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "显示某用户信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/users/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "显示某用户信息",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/users/1",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Aug 2018 15:34:46 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"bbbb4b544e2ca781dd18983142523cb08f80d23f\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1}}"
+						}
+					]
+				},
+				{
+					"name": "获取某社团信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/organizations/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "获取某社团信息",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/organizations/1",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Aug 2018 15:35:05 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"6d7520d23a7b2af32dce38fd7f6a721d8dd2a002\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0}}"
+						}
+					]
 				}
 			]
 		},
@@ -2007,11 +2193,21 @@
 				{
 					"name": "按需求显示文章",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDY5NDMwMCwiZXhwIjoxNTM0Njk3OTAwLCJuYmYiOjE1MzQ2OTQzMDAsImp0aSI6IjN3YXIzMnFuTXM0NXdXb1AiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.4m9GCmWWDCUiJFnRurfJ8ROCfXXHk94HFuN1NPlUQyg",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "{{apihost}}/articles?per_page=1&category_id=1&orderBy=id&orderMode=desc&page=2",
+							"raw": "{{apihost}}/articles?author_type=me&page=1",
 							"host": [
 								"{{apihost}}"
 							],
@@ -2022,37 +2218,41 @@
 								{
 									"key": "per_page",
 									"value": "1",
-									"description": "每一页文章数，默认15 (所有字段均可空)"
+									"description": "每一页文章数，默认15 (所有字段均可空)",
+									"disabled": true
 								},
 								{
 									"key": "category_id",
-									"value": "1",
-									"description": "类别id，一级类别和二级类别均可，0表示无限制"
+									"value": "0",
+									"description": "类别id，一级类别和二级类别均可，0表示无限制",
+									"disabled": true
 								},
 								{
 									"key": "orderBy",
 									"value": "id",
-									"description": "默认为id，可选列表：'updated_at', 'created_at', 'reply_count', 'favorite_count', 'like_count','view_count'"
+									"description": "默认为id，可选列表：'updated_at', 'created_at', 'reply_count', 'favorite_count', 'like_count','view_count'",
+									"disabled": true
 								},
 								{
 									"key": "orderMode",
 									"value": "desc",
-									"description": "默认desc，可选列表：desc，asc"
+									"description": "默认desc，可选列表：desc，asc",
+									"disabled": true
 								},
 								{
 									"key": "author_type",
-									"value": "user",
-									"description": "默认为空，可选：user,organization",
-									"disabled": true
+									"value": "me",
+									"description": "默认为空，可选：me,user,organization"
 								},
 								{
 									"key": "author_id",
 									"value": "1",
+									"description": "当author_type为空或为me时该项可为空",
 									"disabled": true
 								},
 								{
 									"key": "page",
-									"value": "2"
+									"value": "1"
 								}
 							]
 						}
@@ -2999,7 +3199,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDYwMzAxMCwiZXhwIjoxNTM0NjA2NjEwLCJuYmYiOjE1MzQ2MDMwMTAsImp0aSI6IlVnQkhWWHpCUTJETlNsWUwiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.1AbtmPMD-MTqMwQaDT8tBZe02JyXBOF-dxuWjZ5Dnrk",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDY5NDMwMCwiZXhwIjoxNTM0Njk3OTAwLCJuYmYiOjE1MzQ2OTQzMDAsImp0aSI6IjN3YXIzMnFuTXM0NXdXb1AiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.4m9GCmWWDCUiJFnRurfJ8ROCfXXHk94HFuN1NPlUQyg",
 									"type": "string"
 								}
 							]

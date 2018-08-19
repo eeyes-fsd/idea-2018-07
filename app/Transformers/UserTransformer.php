@@ -42,6 +42,7 @@ class UserTransformer extends TransformerAbstract
             'phone_visibility' => $user->phone_visibility,
             'email_visibility' => $user->email_visibility,
             'qq_visibility' => $user->qq_visibility,
+            'created_at' => $user->created_at->toDateTimeString(),
         ];
 
         if (Auth::guard('api_user')->check()

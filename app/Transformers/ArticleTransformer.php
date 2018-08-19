@@ -34,8 +34,8 @@ class ArticleTransformer extends TransformerAbstract
             'like_count' => $article->like_count,
             'favorite_count' => $article->favorite_count,
             'reply_count' => $article->reply_count,
-            'created_at' => $article->created_at->diffForHumans(),
-            'updated_at' => $article->updated_at->diffForHumans(),
+            'created_at' => $article->created_at->toDateTimeString(),
+            'updated_at' => $article->updated_at->toDateTimeString(),
         ];
     }
 

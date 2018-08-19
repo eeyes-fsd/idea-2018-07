@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\SearchTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Spatie\Permission\Traits\HasRoles;
@@ -28,11 +29,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property Collection $articles
+ * @property Collection $favoriteArticles
+ * @property Collection $likedArticles
+ * @property Collection $likedReplies
  */
 class User extends Authenticatable implements JWTSubject
 {
     use HasRoles;
     use Notifiable;
+    use SearchTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -67,5 +72,38 @@ class User extends Authenticatable implements JWTSubject
     public function articles()
     {
         return $this->hasMany('App\Models\Article','user_id');
+    }
+
+    public function favoriteArticles()
+    {
+        return $this->hasManyThrough(Article::class,
+            Favorite::class,
+            'user_id',
+            'id',
+            'id',
+            'article_id'
+        );
+    }
+
+    public function likedArticles()
+    {
+        return $this->hasManyThrough(Article::class,
+            Like::class,
+            'user_id',
+            'id',
+            'id',
+            'article_id'
+        );
+    }
+
+    public function likedReplies()
+    {
+        return $this->hasManyThrough(Article::class,
+            Like::class,
+            'user_id',
+            'id',
+            'id',
+            'reply_id'
+        );
     }
 }

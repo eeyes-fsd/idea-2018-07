@@ -75,6 +75,18 @@ class CustomSerializer extends ArraySerializer
             $pagination['next_page_url'] = $paginator->getUrl($currentPage + 1);
         }
 
-        return [$pagination];
+        return ['pagination' => $pagination];
+    }
+
+    /**
+     * Serialize the meta.
+     *
+     * @param array $meta
+     *
+     * @return array
+     */
+    public function meta(array $meta)
+    {
+        return $meta;
     }
 }

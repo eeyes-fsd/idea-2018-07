@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Api;
 
 use App\Fractal\CustomManager;
 use App\Http\Requests\ArticleRequest;
+use App\Http\Requests\ShowArticlesRequest;
 use App\Models\Article;
 use App\Models\Category;
 use App\Serializers\CustomSerializer;
 use App\Transformers\ArticleTransformer;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Validator;
 use League\Fractal\Manager;
 use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 use League\Fractal\Resource\Collection;
@@ -21,26 +24,34 @@ class ArticlesController extends Controller
     public function __construct()
     {
         $this->middleware('api.a',['except' => ['index','show']]);
+        $this->middleware('countView',['only' => 'show']);
     }
 
-    public function index(Request $request)
+    /**
+     * 筛选显示，可以指定：
+     * order、author、category、per_page
+     *
+     * @param ShowArticlesRequest $request
+     * @return mixed
+     */
+    public function index(ShowArticlesRequest $request)
     {
-        //todo pagination, category, order
         $manager = new CustomManager();
         $manager->setSerializer(new CustomSerializer());
 
-        $paginator = Article::ofCategory($request->get('category_id',0))->paginate($request->get('per_page',15));
+        $paginator = Article::orderBy($request->get('orderBy','id'),$request->getUser('orderMode','desc'))
+                            ->ofAuthor($request->get('author_type'),$request->get('author_id'))
+                            ->ofCategory($request->get('category_id',0))
+                            ->paginate($request->get('per_page',15));
         $articles = $paginator->getCollection();
         $queryParams = array_diff_key($_GET, array_flip(['page']));
         $paginator->appends($queryParams);
 
         $resource = new Collection($articles, new ArticleTransformer());
         $resource->setPaginator(new IlluminatePaginatorAdapter($paginator));
-        $data = $manager->createData($resource)->toArray();
+        $data = $manager->createData($resource)->setKey('articles')->toArray();
 
         return $data;
-
-
 
     }
 
@@ -76,8 +87,13 @@ class ArticlesController extends Controller
     public function destroy(Article $article)
     {
         $this->authorizeForUser($this->getUserOrActiveOrganization(),'delete',$article);
-
+        foreach ($article->likes as $like) {
+            $like->delete();
+        }
+        foreach ($article->favorites as $favorite) {
+            $favorite->delete();
+        }
         $article->delete();
-        return $this->success("删除成功");
+        return $this->success('删除成功');
     }
 }

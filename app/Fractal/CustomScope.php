@@ -9,10 +9,29 @@
 namespace App\Fractal;
 
 
+use League\Fractal\Resource\Collection;
 use League\Fractal\Scope;
 
 class CustomScope extends Scope
 {
+    protected $key;
+
+    public function setKey($key)
+    {
+        $this->key = $key;
+        return $this;
+    }
+
+    public function getKey($key)
+    {
+        return $key;
+    }
+
+    /**
+     * Convert the current data for this scope to an array.
+     *
+     * @return array
+     */
     /**
      * Convert the current data for this scope to an array.
      *
@@ -20,11 +39,10 @@ class CustomScope extends Scope
      */
     public function toArray()
     {
-        //todo Change this method to
         list($rawData, $rawIncludedData) = $this->executeResourceTransformers();
 
         $serializer = $this->manager->getSerializer();
-
+        $rawData = $rawData;
         $data = $this->serializeResource($serializer, $rawData);
 
         // If the serializer wants the includes to be side-loaded then we'll
@@ -73,7 +91,10 @@ class CustomScope extends Scope
             }
             return null;
         }
-
-        return array_merge($data, $meta);
+        if ($this->key) {
+            return array_merge([$this->key=>$data], $meta);
+        } else {
+            return array_merge($data, $meta);
+        }
     }
 }

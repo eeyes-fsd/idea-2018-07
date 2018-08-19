@@ -3,8 +3,11 @@ import Router from 'vue-router'
 import Home from './views/home'
 import OauthCallback from './views/oauthCallback'
 import Publish from './views/publish'
-import User from './views/user'
 import Article from './views/article'
+import User from './views/user/index'
+import userArticle from './views/user/userArticle'
+import userMessage from './views/user/userMessage'
+import userFavourite from './views/user/userFavourite'
 
 Vue.use(Router)
 
@@ -27,9 +30,23 @@ export default new Router({
       component:  Publish
     },
     {
-      path: '/userinfo',
+      path: '/user',
       name: 'user',
-      component: User
+      component: User,
+      children:[
+        {
+          path: '/article',
+          component: userArticle
+        },
+        {
+          path: '/message',
+          component: userMessage
+        },
+        {
+          path: '/favourite',
+          component: userFavourite
+        }
+      ]
     },
     {
       path: '/article/:id',

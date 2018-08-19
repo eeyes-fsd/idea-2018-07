@@ -6,9 +6,9 @@
       <input type="text" v-model="org.password" placeholder="密码">
       <button @click="orgLogin">社团登录</button>
       <p>您当前的登陆身份类型：{{ loginType }}</p>
-      <p>错误信息：{{ errorMessage }}</p>
+      <router-link to="/publish" v-if="ifLogin">发表文章</router-link>
     </header>
-    <router-link to="/publish" v-if="ifLogin">发表文章</router-link>
+    <img src="" alt="" class="row">
   </div>
 </template>
 

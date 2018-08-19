@@ -21,8 +21,7 @@
                   <p>{{ comment.author.nickname }}</p>
                   <p>{{ comment.created_at }}</p>
                 </div>
-                <div>
-                  应该有内容的 ，后端忘记返回了
+                <div  v-html="comment.body">
                 </div>
                 <hr/>
               </div>
@@ -90,8 +89,7 @@
             setAccessToken(getCookie('access_token'))
             console.log(this.content)
             let data = await request.post('/replies', { article_id: this.$route.params.id, body: this.content})
-            console.log(data)
-            // location.reload()
+            location.reload()
           } catch (err) {
             console.log(this.errorMessage = err.message || '未知错误')
           }

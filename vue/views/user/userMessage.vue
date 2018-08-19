@@ -1,5 +1,7 @@
 <template>
-    $END$
+    <div>
+      这是消息通知界面
+    </div>
 </template>
 
 <script>

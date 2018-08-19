@@ -3,7 +3,7 @@
         <h1>发表文章页面</h1>
         <div class="editor-container col-md-6 ">
           <input type="text" class="input-lg" v-model="title" >
-            <editor class="editor" :value="content"  :setting="editorSetting" @input="(content)=> this.content = content"></editor>
+          <editor class="editor" :value="content"  :setting="editorSetting" @input="(content)=> this.content = content"></editor>
         </div>
         <div class="col-md-4">
           <div>

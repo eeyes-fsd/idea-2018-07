@@ -17,7 +17,6 @@ export default new Router({
       path: '/',
       name: 'index',
       component: Home,
-      // children: indexChildren
     },
     {
       path: '/oauth/callback',
@@ -49,17 +48,9 @@ export default new Router({
       ]
     },
     {
-      path: '/articles/:id',
+      path: '/article/:id',
       name: 'article',
       component: Article
     }
-    // {
-    //   path: '',
-    //   redirect: '/'
-    // },
-    // {
-    //   path: '*',
-    //   redirect: '/'
-    // },
   ]
 })

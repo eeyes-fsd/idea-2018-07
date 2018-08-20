@@ -10,7 +10,10 @@ namespace App\Observers;
 
 use App\Models\Favorite;
 use App\Models\Like;
+use App\Notifications\ArticleLiked;
+use App\Notifications\ReplyLiked;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class LikeObserver
 {
@@ -25,12 +28,39 @@ class LikeObserver
             throw new \Exception();
         }
 
+    }
+
+    public function created(Like $like)
+    {
+        $threshold = 3;
         if ($like->article_id) {
+            $like->article->author->notify(new ArticleLiked($like));
+
+            $notifications = $like->article->author->getNotifications(['type'=>'article_liked'])->take($threshold)->get();
+            foreach ($notifications as $notification) {
+                if ($notification->data['like_id'] == $like->id) {
+                    $like->notification_id = $notification->id;
+                    $like->save();
+                    break;
+                }
+            }
+
             $like->article->increment('like_count',1);
+
         } elseif ($like->reply_id) {
+            $like->reply->author->notify(new ReplyLiked($like));
+
+            $notifications = $like->article->author->getNotifications(['type'=>'reply_liked'])->take($threshold)->get();
+            foreach ($notifications as $notification) {
+                if ($notification->data['like_id'] == $like->id) {
+                    $like->notification_id = $notification->id;
+                    $like->save();
+                    break;
+                }
+            }
+
             $like->reply->increment('like_count',1);
         }
-
     }
 
     public function deleting(Like $like)
@@ -40,6 +70,11 @@ class LikeObserver
         } elseif ($like->reply_id) {
             $like->reply->decrement('like_count',1);
         }
+    }
+
+    public function deleted(Like $like)
+    {
+        DB::table('notifications')->where('id', $like->notification_id)->delete();
     }
 
 }

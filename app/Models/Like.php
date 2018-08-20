@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
  * @property int $organization_id
  * @property int $article_id
  * @property int $reply_id
+ * @property string $notification_id
  * @property User|Organization $author
  * @property Article $article
  * @property Reply $reply

@@ -52,16 +52,17 @@ $api->version('v1', [
         $api->post('likes','LikeController@storeOrDestroy');
         $api->get('likes','LikeController@index');
 
-        $api->get('search/users','SearchController@searchUser');
-        $api->get('search/organization','SearchController@searchOrganization');
-        $api->get('search/article','SearchController@searchArticle');
     });
 
-
+    $api->get('search/users','SearchController@searchUser');
+    $api->get('search/organization','SearchController@searchOrganization');
+    $api->get('search/article','SearchController@searchArticle');
 
     $api->resource('organizations','OrganizationsController',['except' => ['create','edit']]);
     $api->resource('users','UsersController',['except' => ['create','store','edit']]);
     $api->resource('articles','ArticlesController',['except' => ['create','edit']]);
     $api->resource('categories','CategoriesController',['except' => ['create','edit']]);
     $api->resource('replies','RepliesController',['except' => ['create','edit']]);
+    $api->resource('notifications','NotificationsController',['except' => ['create','edit','update']]);
+    $api->post('notifications/read','NotificationsController@read');
 });

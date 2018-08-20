@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
-use Illuminate\Notifications\Notifiable;
+use App\Traits\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
@@ -21,6 +21,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $signature 用户个性签名
  * @property bool $active 用户是否审核通过
  * @property string $qq 用户 QQ
+ * @property int $notification_count
  * @property bool $qq_visibility 用户 QQ 是否可见
  * @property bool $email_visibility 用户 email 是否可见
  * @property Carbon $created_at 创建于

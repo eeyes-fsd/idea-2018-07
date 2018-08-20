@@ -19,7 +19,8 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
  * @property  Carbon $created_at 创建于
  * @property  Carbon $updated_at 更改于
  * @property  User|Organization $author 作者
- * @property  Article $article 作者
+ * @property  Article $article 文章
+ * @property  Reply $parentReply 父回复
  */
 class Reply extends Model
 {
@@ -32,7 +33,7 @@ class Reply extends Model
         if ($this->user_id) {
             return $this->belongsTo(User::class,'user_id');
         } elseif ($this->organization_id) {
-            return $this->belongsTo(Organization::class,'organization');
+            return $this->belongsTo(Organization::class,'organization_id');
         }
         throw new ModelNotFoundException('No related author found');
     }
@@ -40,6 +41,16 @@ class Reply extends Model
     public function article()
     {
         return $this->belongsTo(Article::class,'article_id');
+    }
+
+    public function hasParentReply()
+    {
+        return $this->reply_id != 0 ;
+    }
+
+    public function parentReply()
+    {
+        return $this->belongsTo(Reply::class,'reply_id');
     }
 
 }

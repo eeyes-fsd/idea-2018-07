@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Cantjie
- * Date: 2018-8-18
- * Time: 23:17
- */
 
 namespace App\Traits;
 

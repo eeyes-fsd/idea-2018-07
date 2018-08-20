@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
-use Illuminate\Notifications\Notifiable;
+use App\Traits\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
@@ -23,6 +23,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $signature
  * @property string $phone
  * @property string $qq
+ * @property int $notification_count
  * @property bool $phone_visibility
  * @property bool $email_visibility
  * @property bool $qq_visibility

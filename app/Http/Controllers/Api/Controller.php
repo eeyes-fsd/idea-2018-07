@@ -104,10 +104,10 @@ class Controller extends BaseController
     }
 
     /**
-     * 方便获取当前用户
-     *
-     * @return mixed User|Organization
-     */
+ * 方便获取当前用户
+ *
+ * @return mixed User|Organization
+ */
     public function getUserOrActiveOrganization()
     {
         if (Auth::guard('api_user')->check()) {

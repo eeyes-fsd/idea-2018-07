@@ -593,7 +593,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ1ODAyMjAsImV4cCI6MTUzNDU4NzUzMiwibmJmIjoxNTM0NTgzOTMyLCJqdGkiOiJrOFE1cjl1dGI4M21Jd0ZYIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.xrlV4DaARl3GTap8yCSDXhgzdyNvantWY0ewbb1Tazg",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ3NzE4MzAsImV4cCI6MTUzNDc3NTQ0MSwibmJmIjoxNTM0NzcxODQxLCJqdGkiOiJndXB3eG5nU3FKa3F2eWw5Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.r9vhhaF8XjGe_gzD99rOcnuba22jR4dmRbQ9GtSriUs",
 									"type": "string"
 								}
 							]
@@ -783,7 +783,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDMyMzQ5OSwiZXhwIjoxNTM0MzI3MDk5LCJuYmYiOjE1MzQzMjM0OTksImp0aSI6Inp5OGI2VWljcDB3NUZJRTUiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.H6HI6vhLgZMi3TrEnQMBwS3iWhQMHb5zL_b4m0Hl0QA",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDc4MDI4OCwiZXhwIjoxNTM0NzgzODg4LCJuYmYiOjE1MzQ3ODAyODgsImp0aSI6ImJpcmZzeFFZZmpjTTlSQVAiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.frLvHimOeV3BlRwLQ3MemkvLL1gIcvITZdACwT_R1Qc",
 									"type": "string"
 								}
 							]
@@ -884,7 +884,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ0MDIyNTUsImV4cCI6MTUzNDQwNTg1NSwibmJmIjoxNTM0NDAyMjU1LCJqdGkiOiI4aHFySnc3RkpWdXF3Sk40Iiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.3IMpm08D_Z-17xWM2r9LoyyQiM_Lrmm-HfkGBqM3OA4",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ3ODAxODUsImV4cCI6MTUzNDc4Mzc4NSwibmJmIjoxNTM0NzgwMTg1LCJqdGkiOiJBWkxOZ0V5NlpzeXRIYkp0Iiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.I2BdQToGwqBXVh3eT0WW86VXOKknfhQPrtWwrmTAosE",
 									"type": "string"
 								}
 							]
@@ -2696,7 +2696,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0NzE4NzksImV4cCI6MTUzNDUwMDQyNywibmJmIjoxNTM0NDk2ODI3LCJqdGkiOiJ0d0lTckFGb0phcDltUlg5Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.dTyelCrUE2GC9drNLStFbHaIEhedWtRSitsuXFsudwI",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ3Nzg5NDAsImV4cCI6MTUzNDc4MjU0MCwibmJmIjoxNTM0Nzc4OTQwLCJqdGkiOiIzSHpVM1VHY3JDUkZPRkVkIiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.Y4sjHFmfNOCQ0Jxncif8fRBgWwvtIWaln6mG9GvYRVY",
 									"type": "string"
 								}
 							]
@@ -2714,7 +2714,7 @@
 								},
 								{
 									"key": "article_id",
-									"value": "1",
+									"value": "2",
 									"sessionValue": "0",
 									"type": "text"
 								},
@@ -3199,7 +3199,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDY5NDMwMCwiZXhwIjoxNTM0Njk3OTAwLCJuYmYiOjE1MzQ2OTQzMDAsImp0aSI6IjN3YXIzMnFuTXM0NXdXb1AiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.4m9GCmWWDCUiJFnRurfJ8ROCfXXHk94HFuN1NPlUQyg",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ3ODAxODUsImV4cCI6MTUzNDc4Mzc4NSwibmJmIjoxNTM0NzgwMTg1LCJqdGkiOiJBWkxOZ0V5NlpzeXRIYkp0Iiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.I2BdQToGwqBXVh3eT0WW86VXOKknfhQPrtWwrmTAosE",
 									"type": "string"
 								}
 							]
@@ -3211,16 +3211,16 @@
 							"formdata": [
 								{
 									"key": "article_id",
-									"value": "5",
+									"value": "4",
 									"sessionValue": "1",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "reply_id",
-									"value": "2",
+									"value": "1",
 									"sessionValue": "3",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								}
 							]
 						},
@@ -3767,6 +3767,145 @@
 							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"articles\":[{\"id\":5,\"title\":\"\\u7b2c5\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c5\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":1,\"author_type\":\"user\",\"view_count\":0,\"like_count\":1,\"favorite_count\":0,\"reply_count\":0,\"created_at\":\"1\\u5929\\u524d\",\"updated_at\":\"1\\u5c0f\\u65f6\\u524d\",\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}},{\"id\":2,\"title\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":0,\"author_type\":\"user\",\"view_count\":2,\"like_count\":1,\"favorite_count\":1,\"reply_count\":0,\"created_at\":\"2\\u5929\\u524d\",\"updated_at\":\"1\\u5c0f\\u65f6\\u524d\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"18932869937\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1},\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}},{\"id\":3,\"title\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":1,\"author_type\":\"organization\",\"view_count\":0,\"like_count\":0,\"favorite_count\":0,\"reply_count\":0,\"created_at\":\"2\\u5929\\u524d\",\"updated_at\":\"5\\u5c0f\\u65f6\\u524d\",\"category\":{\"id\":8,\"name\":\"\\u5566\\u5566\\u5566\\u5566\",\"parent_id\":1,\"article_count\":0}},{\"id\":4,\"title\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":1,\"author_type\":\"user\",\"view_count\":0,\"like_count\":0,\"favorite_count\":0,\"reply_count\":0,\"created_at\":\"2\\u5929\\u524d\",\"updated_at\":\"2\\u5929\\u524d\",\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}}],\"pagination\":{\"total\":4,\"count\":4,\"per_page\":15,\"current_page\":1,\"total_pages\":1,\"first_page_url\":\"http:\\/\\/idea.test\\/api\\/search\\/article?wd=%E6%96%87&page=1\",\"last_page_url\":\"http:\\/\\/idea.test\\/api\\/search\\/article?wd=%E6%96%87&page=1\"}}}"
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "获取通知",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDc4MDI4OCwiZXhwIjoxNTM0NzgzODg4LCJuYmYiOjE1MzQ3ODAyODgsImp0aSI6ImJpcmZzeFFZZmpjTTlSQVAiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.frLvHimOeV3BlRwLQ3MemkvLL1gIcvITZdACwT_R1Qc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/notifications?state=read",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"notifications"
+							],
+							"query": [
+								{
+									"key": "state",
+									"value": "read",
+									"description": "非必需，为unread获取未读消息，为其他获取全部消息"
+								},
+								{
+									"key": "type",
+									"value": "article_liked",
+									"description": "非必需，可选reply_replied,article_replied,private_message,reply_liked,article_liked,all",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "标记通知为已读",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ3NzE4MzAsImV4cCI6MTUzNDc3NTQ0MSwibmJmIjoxNTM0NzcxODQxLCJqdGkiOiJndXB3eG5nU3FKa3F2eWw5Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.r9vhhaF8XjGe_gzD99rOcnuba22jR4dmRbQ9GtSriUs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "q",
+									"value": "26468f5f-7e3d-40ec-90de-8d04741aacf6",
+									"sessionValue": "[1,2,3,4]",
+									"description": "必需，数组[uuid1,uuid1] 或字符串uuid1 均可。",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/notifications/read",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"notifications",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "发送站内信",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ3ODAxODUsImV4cCI6MTUzNDc4Mzc4NSwibmJmIjoxNTM0NzgwMTg1LCJqdGkiOiJBWkxOZ0V5NlpzeXRIYkp0Iiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.I2BdQToGwqBXVh3eT0WW86VXOKknfhQPrtWwrmTAosE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_type",
+									"value": "user",
+									"sessionValue": "user",
+									"description": "必需，可选user,organization,all。选all需要权限,尚不可填all",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"sessionValue": "1",
+									"description": "必需",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "aaa",
+									"sessionValue": "aaa",
+									"description": "必需",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/notifications",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"notifications"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

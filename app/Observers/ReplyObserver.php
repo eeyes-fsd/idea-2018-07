@@ -10,6 +10,8 @@ namespace App\Observers;
 
 
 use App\Models\Reply;
+use App\Notifications\ArticleReplied;
+use App\Notifications\ReplyReplied;
 use Illuminate\Support\Facades\Auth;
 
 class ReplyObserver
@@ -23,7 +25,14 @@ class ReplyObserver
         } else {
             throw new \Exception();
         }
+    }
 
+    public function created(Reply $reply)
+    {
+        $reply->article->author->notify(new ArticleReplied($reply));
+        if ($reply->hasParentReply()) {
+            $reply->parentReply->author->notify(new ReplyReplied($reply));
+        }
         $reply->article->increment('reply_count',1);
     }
 

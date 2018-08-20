@@ -50,6 +50,7 @@ class UserTransformer extends TransformerAbstract
             $data['phone'] = $user->phone;
             $data['email'] = $user->email;
             $data['qq'] = $user->qq;
+            $data['notification_count'] = $user->notification_count;
         }
 
         return $data;

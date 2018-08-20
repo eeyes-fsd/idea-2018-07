@@ -27,6 +27,7 @@ class OrganizationTransformer extends TransformerAbstract
         {
             $data['email'] = $organization->email;
             $data['qq'] = $organization->qq;
+            $data['notification_count'] = $organization->notification_count;
         }
 
         return $data;

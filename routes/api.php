@@ -44,6 +44,7 @@ $api->version('v1', [
         $api->post('organizations/activate/{organization}','OrganizationsController@activate');
 
         $api->post('users/founder/{user}','RolesController@assignUserFounder');
+        $api->post('organizations/founder/{organization}','RolesController@assignOrganizationFounder');
         $api->post('users/maintainer/{user}','RolesController@assignUserMaintainer');
 
         $api->post('favorites','FavoriteController@storeOrDestroy');

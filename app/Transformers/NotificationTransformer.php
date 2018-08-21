@@ -4,7 +4,7 @@ namespace App\Transformers;
 
 use App\Notifications\ArticleLiked;
 use App\Notifications\ArticleReplied;
-use App\Notifications\PrivateMassage;
+use App\Notifications\PrivateMessage;
 use App\Notifications\ReplyLiked;
 use App\Notifications\ReplyReplied;
 use League\Fractal\TransformerAbstract;
@@ -38,7 +38,7 @@ class NotificationTransformer extends TransformerAbstract
                 'parent_reply_id' => $notification->data['parent_reply_id'],
                 'parent_reply_body' => $notification->data['parent_reply_body'],
             ];
-        } elseif ($notification->type === PrivateMassage::class) {
+        } elseif ($notification->type === PrivateMessage::class) {
             $data = [
                 'author_type' => $notification->data['author_type'],
                 'author_id' => $notification->data['author_id'],

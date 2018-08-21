@@ -20,9 +20,10 @@ trait Notifiable
     protected $availableTypes = ['article_replied','reply_replied','private_message',
         'article_liked','reply_liked'];
 
+
     public function notify($instance)
     {
-        if ($this === $this->getUserOrActiveOrganization()) {
+        if ($this->isUserEqual($this,$this->getUserOrActiveOrganization())) {
             return ;
         }
 
@@ -56,6 +57,11 @@ trait Notifiable
             $type = 'App\Notifications\\' . studly_case($params['type']);
             $query = $query->where('type',$type);
         }
+
+        if (array_key_exists('id',$params)) {
+            $query = $query->where('id',$params['id']);
+        }
+
         return $query;
     }
 

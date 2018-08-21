@@ -36,6 +36,8 @@ class Organization extends Authenticatable implements JWTSubject
     use Notifiable;
     use SearchTrait;
 
+    protected $guard_name = "web";
+
     /**
      * The attributes that are mass assignable.
      *

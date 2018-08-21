@@ -50,7 +50,7 @@ class SearchController extends Controller
             ->paginate($per_page);
         $organizations = $paginator->getCollection();
         if($organizations->isEmpty()){
-            return $this->error(404,'未搜索到社团或组织');
+            return $this->success(404,'未搜索到社团或组织',['未搜索到社团或组织']);
         }
         $manager = new CustomManager();
         $manager->setSerializer(new CustomSerializer());
@@ -73,7 +73,7 @@ class SearchController extends Controller
             ->paginate($per_page);
         $articles = $paginator->getCollection();
         if($articles->isEmpty()){
-            return $this->success(404,'未搜索到相关文章',['未找到相关文章']);
+            return $this->success(404,'未搜索到相关文章',['未搜索到相关文章']);
         }
         $manager = new CustomManager();
         $manager->setSerializer(new CustomSerializer());

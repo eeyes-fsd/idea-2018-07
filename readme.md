@@ -35,8 +35,8 @@ php artisan key:generate
 php artisan jwt:secret
 php artisan migrate
 php artisan storage:link
-# 安装前端依赖（需要预装gym否则可能安装失败，）
-# ** 需要预装gym否则可能安装失败
+# 安装前端依赖
+# ** 需要预装gyp否则可能安装失败
 # ** 需要管理员权限否则可能安装失败
 # ** 可能需要突破网络审查以防止部分依赖安装失败
 npm install

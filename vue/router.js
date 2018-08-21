@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/home'
+import Search from './views/home/Search'
 import OauthCallback from './views/oauthCallback'
 import Publish from './views/publish'
 import Article from './views/article'
@@ -17,6 +18,13 @@ export default new Router({
       path: '/',
       name: 'index',
       component: Home,
+      children:[
+        {
+          path: '/search',
+          name: 'search',
+          component: Search,
+        }
+      ]
     },
     {
       path: '/oauth/callback',

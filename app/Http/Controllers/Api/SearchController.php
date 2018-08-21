@@ -27,7 +27,7 @@ class SearchController extends Controller
             ->paginate($per_page);
         $users = $paginator->getCollection();
         if($users->isEmpty()){
-            return $this->success(404,'未搜索到社团或组织',['未搜索到社团或组织']);
+            return $this->success(404,'未搜索到用户',['未找到指定用户']);
         }
         $manager = new CustomManager();
         $manager->setSerializer(new CustomSerializer());

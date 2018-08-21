@@ -8,7 +8,7 @@ use App\Http\Requests\StorePrivateMessageRequest;
 use App\Models\Organization;
 use App\Models\Reply;
 use App\Models\User;
-use App\Notifications\PrivateMassage;
+use App\Notifications\PrivateMessage;
 use App\Serializers\CustomSerializer;
 use App\Transformers\NotificationTransformer;
 use Illuminate\Http\Request;
@@ -54,7 +54,7 @@ class NotificationsController extends Controller
         } elseif ($request->user_type === 'all') {
             //todo permissions ,use this function as broadcasting?
         }
-        $user->notify(new PrivateMassage($request->body));
+        $user->notify(new PrivateMessage($request->body));
         return $this->success(200,'站内信发送成功',['站内信发送成功']);
     }
 

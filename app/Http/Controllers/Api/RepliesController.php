@@ -34,7 +34,11 @@ class RepliesController extends Controller
             $this->error(404, '缺少或错误参数article_id');
         }
 
-        $paginator = Reply::ofArticle($article)->ofFirstLevel()->paginate($request->get('per_page',15));
+        $paginator = Reply::ofArticle($article)
+                            ->ofFirstLevel()
+                            ->orderBy('created_at',$request->get('orderMode') === 'asc'? 'asc':'desc')
+                            ->paginate($request->get('per_page',15));
+
         $replies = $paginator->getCollection();
         $manager = new CustomManager();
         $manager->setSerializer(new CustomSerializer());

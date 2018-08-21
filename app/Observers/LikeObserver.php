@@ -69,7 +69,9 @@ class LikeObserver
         } elseif ($like->reply_id) {
             $like->reply->decrement('like_count',1);
         }
-        DB::table('notifications')->where('id', $like->notification_id)->delete();
+        if ($like->notification_id) {
+            DB::table('notifications')->where('id', $like->notification_id)->delete();
+        }
     }
 
 }

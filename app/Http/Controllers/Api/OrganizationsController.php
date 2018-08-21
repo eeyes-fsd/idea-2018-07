@@ -39,6 +39,7 @@ class OrganizationsController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'avatar' => config('app.url') . '/storage/images/default_avatar.jpg',
         ]);
 
         $transformer = new OrganizationTransformer();

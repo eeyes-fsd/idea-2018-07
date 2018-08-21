@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { debug, baseUrl } from '@/env'
+import { getCookie } from '@/util/index.js'
 
 var loginType = 'null'
 
@@ -34,7 +35,7 @@ const _axios = axios.create(config)
 
 _axios.interceptors.request.use(
   function(config) {
-    config.headers['Authorization'] = 'Bearer ' + accessToken
+    config.headers['Authorization'] = 'Bearer ' + getCookie('access_token')
     return config
   },
   function(error) {

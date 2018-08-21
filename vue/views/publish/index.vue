@@ -59,7 +59,6 @@
         methods: {
           async publishIt () {
             try {
-              setAccessToken(getCookie('access_token'))
               let data = await request.post('/articles', { title: this.title, body: this.content, category_id: this.category, anonymous: this.anonymous })
               alert("发表文章成功！")
               this.$router.push('/article/'+data.id)

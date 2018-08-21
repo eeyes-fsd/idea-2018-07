@@ -1,14 +1,14 @@
 <template>
   <div class="user__message-item">
-    <div v-if="isPrivateMessage">
+    <div v-if="canShow">
       <div class="media">
         <div class="media-left">
-          <img class="media-object avatar" :src="avatar" alt="authorName">
+          <img class="media-object avatar" :src="avatar" :alt="name">
         </div>
-        <div class="media-body d-flex flex-row">
+        <div class="media-body">
           <div>
-            <h4 class="media-heading">{{ authorName }}</h4>
-            <p class="message-body">{{ messageBody }}</p>
+            <h4 class="media-heading">{{ title }}</h4>
+            <p class="message-body">{{ body }}</p>
           </div>
           <div>
             <p>{{ time }}</p>
@@ -26,27 +26,49 @@
 
 <script>
 import { defaultAvatar } from './data'
+import * as process from './process'
 
 export default {
   name: 'Item',
   props: {
     notification: Object
   },
+  methods: {
+    /**
+     * 获取notification的某个属性
+     * 根据process来决定如何获取
+     */
+    getAttr (key) {
+      let noti = this.notification
+      let mixed = process[noti.type][key]
+
+      // 如果是函数，就按照函数返回值获取
+      if (mixed instanceof Function) {
+        return mixed(noti)
+      } else {
+        // 否则直接索引键名
+        return noti[mixed]
+      }
+    }
+  },
   computed: {
-    isPrivateMessage () {
-      return this.notification.type == 'private_massage'
+    canShow () {
+      return process[this.notification.type] != undefined
     },
     avatar () {
-      return this.notification.author_avatar || defaultAvatar
+      return this.getAttr('avatar') || defaultAvatar
     },
-    authorName () {
-      return this.notification.author_name
+    name () {
+      return this.getAttr('name')
     },
-    messageBody () {
-      return this.notification.body
+    title () {
+      return this.getAttr('name')
+    },
+    body () {
+      return this.getAttr('body')
     },
     time () {
-      return this.notification.created_at.replace(/\s*\d+:\d+:\d+/g, '')
+      return this.getAttr('time').replace(/\s*\d+:\d+:\d+/g, '')
     }
   }
 }

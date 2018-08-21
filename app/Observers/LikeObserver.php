@@ -49,7 +49,7 @@ class LikeObserver
         } elseif ($like->reply_id) {
             $like->reply->author->notify(new ReplyLiked($like));
 
-            $notifications = $like->article->author->getNotifications(['type'=>'reply_liked'])->take($threshold)->get();
+            $notifications = $like->reply->author->getNotifications(['type'=>'reply_liked'])->take($threshold)->get();
             foreach ($notifications as $notification) {
                 if ($notification->data['like_id'] == $like->id) {
                     $like->notification_id = $notification->id;

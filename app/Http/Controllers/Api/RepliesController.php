@@ -36,7 +36,7 @@ class RepliesController extends Controller
 
         $paginator = Reply::ofArticle($article)
                             ->ofFirstLevel()
-                            ->orderBy('created_at',$request->get('orderMode') === 'asc'? 'asc':'desc')
+                            ->orderBy($request->get('orderBy') === 'like_count'?'like_count':'created_at',$request->get('orderMode') === 'asc'? 'asc':'desc')
                             ->paginate($request->get('per_page',15));
 
         $replies = $paginator->getCollection();

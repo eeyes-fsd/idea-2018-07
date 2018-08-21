@@ -57,6 +57,11 @@ trait Notifiable
             $type = 'App\Notifications\\' . studly_case($params['type']);
             $query = $query->where('type',$type);
         }
+
+        if (array_key_exists('id',$params)) {
+            $query = $query->where('id',$params['id']);
+        }
+
         return $query;
     }
 

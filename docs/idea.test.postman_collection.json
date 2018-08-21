@@ -351,7 +351,7 @@
 							"urlencoded": [
 								{
 									"key": "username",
-									"value": "袁新杰的社团",
+									"value": "袁新杰的社团1",
 									"type": "text"
 								},
 								{
@@ -361,7 +361,7 @@
 								},
 								{
 									"key": "email",
-									"value": "cantjie@163.com",
+									"value": "cantjie2@163.com",
 									"type": "text"
 								},
 								{
@@ -593,7 +593,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ3NzE4MzAsImV4cCI6MTUzNDc3NTQ0MSwibmJmIjoxNTM0NzcxODQxLCJqdGkiOiJndXB3eG5nU3FKa3F2eWw5Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.r9vhhaF8XjGe_gzD99rOcnuba22jR4dmRbQ9GtSriUs",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDgzNjE5MiwiZXhwIjoxNTM0ODM5NzkyLCJuYmYiOjE1MzQ4MzYxOTIsImp0aSI6ImQ4Z0xuV2tWOGpzMFBXalUiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.LW7FAQCu6Ar7t0UV0qQPAErI6EjggKMBiszRK5rcE1A",
 									"type": "string"
 								}
 							]
@@ -1452,7 +1452,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ0MDIyNTUsImV4cCI6MTUzNDQwNTg1NSwibmJmIjoxNTM0NDAyMjU1LCJqdGkiOiI4aHFySnc3RkpWdXF3Sk40Iiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.3IMpm08D_Z-17xWM2r9LoyyQiM_Lrmm-HfkGBqM3OA4",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDg0MjA5NiwiZXhwIjoxNTM0ODQ1Njk2LCJuYmYiOjE1MzQ4NDIwOTYsImp0aSI6IkVtQlNUMVNXZ2NYaFJhZkkiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.8ev41oX853uw0-Fb6KXu1YK3WDRHt35o-mr51E3lb7k",
 									"type": "string"
 								}
 							]
@@ -1468,6 +1468,66 @@
 							"path": [
 								"users",
 								"founder",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "给社团Founder角色",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDg0MjA5NiwiZXhwIjoxNTM0ODQ1Njk2LCJuYmYiOjE1MzQ4NDIwOTYsImp0aSI6IkVtQlNUMVNXZ2NYaFJhZkkiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.8ev41oX853uw0-Fb6KXu1YK3WDRHt35o-mr51E3lb7k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/organizations/founder/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"founder",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "给用户Maintainer角色",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDg0MjA5NiwiZXhwIjoxNTM0ODQ1Njk2LCJuYmYiOjE1MzQ4NDIwOTYsImp0aSI6IkVtQlNUMVNXZ2NYaFJhZkkiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.8ev41oX853uw0-Fb6KXu1YK3WDRHt35o-mr51E3lb7k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/users/maintainer/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"maintainer",
 								"1"
 							]
 						}
@@ -2801,7 +2861,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "{{apihost}}/replies?article_id=3&orderMode=asc",
+							"raw": "{{apihost}}/replies?article_id=3&orderMode=desc&orderBy=like_count",
 							"host": [
 								"{{apihost}}"
 							],
@@ -2816,8 +2876,13 @@
 								},
 								{
 									"key": "orderMode",
-									"value": "asc",
-									"description": "可选desc或asc"
+									"value": "desc",
+									"description": "非必需，可选desc或asc，默认created_at"
+								},
+								{
+									"key": "orderBy",
+									"value": "like_count",
+									"description": "非必需，可选created_at或like_count，默认created_at"
 								}
 							]
 						}
@@ -3290,7 +3355,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDgzNjE5MiwiZXhwIjoxNTM0ODM5NzkyLCJuYmYiOjE1MzQ4MzYxOTIsImp0aSI6ImQ4Z0xuV2tWOGpzMFBXalUiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.LW7FAQCu6Ar7t0UV0qQPAErI6EjggKMBiszRK5rcE1A",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ4NDEzMzksImV4cCI6MTUzNDg0NDkzOSwibmJmIjoxNTM0ODQxMzM5LCJqdGkiOiJkMm5rVDNPb3Y2bmRaRHhVIiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.nR6AacsZoFNvSmII9EUNuU9dlWaZ0QVGiNJO0ac9oxg",
 									"type": "string"
 								}
 							]
@@ -3309,24 +3374,25 @@
 									"key": "article_id",
 									"value": "5",
 									"description": "非必需",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "reply_id",
-									"value": "1",
+									"value": "13",
 									"description": "非必需，article_id和reply_id不可同时为空",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{apihost}}/likes",
+							"raw": "{{apihost}}/likes/",
 							"host": [
 								"{{apihost}}"
 							],
 							"path": [
-								"likes"
+								"likes",
+								""
 							]
 						}
 					},
@@ -3999,6 +4065,35 @@
 							],
 							"path": [
 								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除站内信",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ4NDEzMzksImV4cCI6MTUzNDg0NDkzOSwibmJmIjoxNTM0ODQxMzM5LCJqdGkiOiJkMm5rVDNPb3Y2bmRaRHhVIiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.nR6AacsZoFNvSmII9EUNuU9dlWaZ0QVGiNJO0ac9oxg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/notifications/61c90f45-891d-4adf-96f5-79a822f0a0bf",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"notifications",
+								"61c90f45-891d-4adf-96f5-79a822f0a0bf"
 							]
 						}
 					},

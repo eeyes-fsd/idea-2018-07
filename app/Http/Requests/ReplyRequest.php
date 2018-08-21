@@ -11,7 +11,6 @@ class ReplyRequest extends Request
     {
         return [
             'body' => 'required',
-            'article_id' => 'required',
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Fractal\CustomManager;
 use App\Http\Requests\ReplyRequest;
 use App\Models\Article;
 use App\Models\Reply;
@@ -11,6 +12,7 @@ use App\Transformers\ReplyTransformer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use League\Fractal\Manager;
+use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 use League\Fractal\Resource\Collection;
 
 class RepliesController extends Controller
@@ -31,10 +33,17 @@ class RepliesController extends Controller
         if ((!$request->article_id) || (!$article = Article::findOrFail($request->article_id))) {
             $this->error(404, '缺少或错误参数article_id');
         }
-        $manager = new Manager();
+
+        $paginator = Reply::ofArticle($article)->ofFirstLevel()->paginate($request->get('per_page',15));
+        $replies = $paginator->getCollection();
+        $manager = new CustomManager();
         $manager->setSerializer(new CustomSerializer());
-        $resources = new Collection($article->replies,new ReplyTransformer());
-        return $manager->createData($resources)->toArray();
+        $manager->parseIncludes(['children']);
+        $queryParams = array_diff_key($_GET, array_flip(['page']));
+        $paginator->appends($queryParams);
+        $resources = new Collection($replies,new ReplyTransformer());
+        $resources->setPaginator(new IlluminatePaginatorAdapter($paginator));
+        return $manager->createData($resources)->setKey('replies')->toArray();
     }
 
     public function show(Reply $reply)
@@ -44,12 +53,23 @@ class RepliesController extends Controller
 
     public function store(ReplyRequest $request)
     {
-        if (Article::findOrFail($request->article_id)) {
-            if ($request->reply_id) {
-                Reply::findOrFail($request->reply_id);
+        if ($request->reply_id) {
+            $parent_reply = Reply::findOrFail($request->reply_id);
+            if ($request->article_id && $parent_reply->id != $request->article_id) {
+                $this->error('article_id与reply_id不符');
             }
+            $reply = Reply::create([
+                'body'=>$request->body,
+                'article_id'=>$parent_reply->article_id,
+                'reply_id'=> $request->reply_id]);
+        } else {
+            Article::findOrFail($request->article_id);
+            $reply = Reply::create([
+                'body'=>$request->body,
+                'article_id'=>$request->article_id,
+                ]);
         }
-        $reply = Reply::create($request->only(['body','article_id','reply_id']));
+
         return $this->response->item($reply,new ReplyTransformer());
     }
 

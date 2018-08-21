@@ -27,7 +27,6 @@ class LikeObserver
         } else {
             throw new \Exception();
         }
-
     }
 
     public function created(Like $like)
@@ -63,17 +62,13 @@ class LikeObserver
         }
     }
 
-    public function deleting(Like $like)
+    public function deleted(Like $like)
     {
         if ($like->article_id) {
             $like->article->decrement('like_count',1);
         } elseif ($like->reply_id) {
             $like->reply->decrement('like_count',1);
         }
-    }
-
-    public function deleted(Like $like)
-    {
         DB::table('notifications')->where('id', $like->notification_id)->delete();
     }
 

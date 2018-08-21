@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -21,6 +22,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
  * @property  User|Organization $author 作者
  * @property  Article $article 文章
  * @property  Reply $parentReply 父回复
+ * @property  Collection $children 子回复
  */
 class Reply extends Model
 {
@@ -53,4 +55,21 @@ class Reply extends Model
         return $this->belongsTo(Reply::class,'reply_id');
     }
 
+    public function scopeOfFirstLevel($query)
+    {
+        return $query->where('reply_id',0);
+    }
+
+    public function scopeOfArticle($query, $article)
+    {
+        if ($article instanceof Article) {
+            return $query->where('article_id',$article->id);
+        } else {
+            return $query->where('article_id',$article);
+        }
+    }
+    public function children()
+    {
+        return $this->hasMany(Reply::class,'reply_id');
+    }
 }

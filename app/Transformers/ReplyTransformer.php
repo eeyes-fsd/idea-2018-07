@@ -10,12 +10,15 @@ namespace App\Transformers;
 
 
 use App\Models\Reply;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use League\Fractal\TransformerAbstract;
 
 class ReplyTransformer extends TransformerAbstract
 {
     protected $defaultIncludes = ['author'];
+
+    protected $availableIncludes = ['children'];
 
     public function transform(Reply $reply)
     {
@@ -39,5 +42,14 @@ class ReplyTransformer extends TransformerAbstract
             return $this->item($reply->author, new OrganizationTransformer());
         }
         throw new ModelNotFoundException();
+    }
+
+    public function includeChildren(Reply $reply)
+    {
+        if (!$reply->hasParentReply()) {
+            return $this->collection($reply->children, new ReplyTransformer());
+        } else {
+            throw new ModelNotFoundException();
+        }
     }
 }

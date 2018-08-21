@@ -51,7 +51,7 @@ class ArticlesController extends Controller
         $manager->setSerializer(new CustomSerializer());
         $queryParams = array_diff_key($_GET, array_flip(['page']));
         $paginator->appends($queryParams);
-
+        $manager->parseIncludes(['children']);
         $resource = new Collection($articles, new ArticleTransformer());
         $resource->setPaginator(new IlluminatePaginatorAdapter($paginator));
         $data = $manager->createData($resource)->setKey('articles')->toArray();
@@ -92,6 +92,9 @@ class ArticlesController extends Controller
     public function destroy(Article $article)
     {
         $this->authorizeForUser($this->getUserOrActiveOrganization(),'delete',$article);
+        foreach ($article->replies as $reply){
+            $reply->delete();
+        }
         foreach ($article->likes as $like) {
             $like->delete();
         }

@@ -83,12 +83,11 @@ export default {
     async deleteIt () { //删除文章
       try{
         let id = event.currentTarget.getAttribute("id")
-        try{
           let data = await requests.delete('/articles/'+id)
-          console.log(data)
-        }catch (e){
-          console.log(e || 'unknown mistake')
-        }
+          if(data===null){
+            alert("删除成功")
+            location.reload()
+          }
       }catch(e) {
         console.log(e || 'unknown miskake')
       }

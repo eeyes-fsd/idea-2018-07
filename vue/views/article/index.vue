@@ -115,9 +115,9 @@
           try{
             let data = await request.post('/favorites',{ article_id : this.articleId })
             if (data[0]==='收藏成功'){
-              console.log(/收藏成功/)
+              alert(/收藏成功/)
             }else if(data[0]==='取消收藏成功') {
-              console.log(/取消收藏成功/)
+              alert(/取消收藏成功/)
             }
           }catch (e) {
             console.log(this.errorMessage = err.message || '未知错误')

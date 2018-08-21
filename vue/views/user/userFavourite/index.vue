@@ -1,6 +1,6 @@
 <template>
     <div>
-      <!-- <Item v-for="(item,key) in articles" :key="key" :article="item"></Item> -->
+      <Item v-for="(item,key) in articles" :key="key" :article="item"></Item>
       <nav aria-label="article_page">
         <ul class="pagination">
           <li>
@@ -47,9 +47,9 @@
         let perpage = 3 //每页显示的文章数目
         try {
           //这里写获取收藏的url
-          // let data =  await requests.get('/articles?per_page='+perpage+'&page='+page)
-          // this.articles = data.articles
-          // this.totalPage = Math.ceil(data.pagination.total / perpage)
+          let data =  await requests.get('/favorites?author_type=user&per_page='+perpage+'&author_id='+id)
+          this.articles = data.articles
+          this.totalPage = Math.ceil(data.pagination.total / perpage)
         }catch(e) {
           console.log(e || 'unknown mistake' )
         }

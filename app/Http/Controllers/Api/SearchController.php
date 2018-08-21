@@ -27,7 +27,7 @@ class SearchController extends Controller
             ->paginate($per_page);
         $users = $paginator->getCollection();
         if($users->isEmpty()){
-            return $this->error(404,'未搜索到用户');
+            return $this->success(404,'未搜索到用户',['未找到指定用户']);
         }
         $manager = new CustomManager();
         $manager->setSerializer(new CustomSerializer());
@@ -73,7 +73,7 @@ class SearchController extends Controller
             ->paginate($per_page);
         $articles = $paginator->getCollection();
         if($articles->isEmpty()){
-            return $this->error(404,'未搜索到相关文章');
+            return $this->success(404,'未搜索到相关文章',['未找到相关文章']);
         }
         $manager = new CustomManager();
         $manager->setSerializer(new CustomSerializer());

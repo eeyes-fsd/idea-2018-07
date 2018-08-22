@@ -10,12 +10,12 @@
             <form role="form">
               <div class="form-group">
                 <select class="form-control"  v-model="selectedParent">
-                  <option  v-if="!kind.parent_id" v-for="kind in kinds" v-bind:value="kind.id">
+                  <option  v-if="!kind.parent_id" v-for="(kind,key) in kinds" v-bind:value="kind.id" :key='key'>
                     {{ kind.name }}
                   </option>
                 </select>
                 <select class="form-control" v-model="category">
-                  <option  v-if="kind.parent_id==selectedParent" v-for="kind in kinds" v-bind:value="kind.id">
+                  <option  v-if="kind.parent_id==selectedParent" v-for="(kind,key) in kinds" v-bind:value="kind.id" :key='key'>
                     {{ kind.name }}
                   </option>
                 </select>

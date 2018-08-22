@@ -13,7 +13,7 @@
               <div v-html="article.body"></div>
             </div>
             <div class="reply  panel panel-default">
-              <div v-if="getLogin">
+              <div v-if="this.ifLogin">
                 <editor class="editor" :value="content"  :setting="editorSetting" @input="(content)=> this.content = content"></editor>
                 <button @click="toComment">发表评论</button>
               </div>
@@ -40,6 +40,7 @@
 </template>
 
 <script>
+  import { mapState, mapMutations } from 'vuex'
   import request, { setAccessToken } from '../../api/requests'
   import editor from '@/components/editor'
   import { getCookie } from "../../util";
@@ -124,6 +125,11 @@
         this.getArticle()
         this.getComments()
       },
+      computed: {
+        ...mapState({
+        ifLogin: 'ifLogin'
+      })
+  },
     }
 </script>
 

@@ -76,9 +76,6 @@ export default {
     background-color: #fff;
     margin-bottom: 12px;
   }
-  .userPanel{
-
-   }
   /* 个人信息模块 */
   .tabMenu{
     display: block;

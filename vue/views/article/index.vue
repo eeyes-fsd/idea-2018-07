@@ -1,5 +1,10 @@
 <template>
     <div>
+      <ol class="breadcrumb">
+        <li><router-link to="/">{{ article.category.parent_id }}</router-link></li>
+        <li><router-link to="/">{{ article.category.id }}</router-link></li>
+        <li><router-link  to="/">{{ article.title }}</router-link></li>
+      </ol>
       <div>
         <div class="row">
           <div class="col-md-7">
@@ -18,7 +23,7 @@
               <div>
                 <div v-for="(comment,key) in comments" :key=key>
                   <div>
-                    <img :src="comment.author.avatar" alt="head">
+                    <img :src="comment.author.avatar" alt="head" class="author-head pull-left">
                     <p>{{ comment.author.nickname }}</p>
                     <p>{{ comment.created_at }}</p>
                   </div>

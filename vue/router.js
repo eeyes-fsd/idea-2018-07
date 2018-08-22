@@ -37,20 +37,20 @@ export default new Router({
       component:  Publish
     },
     {
-      path: '/user',
+      path: '/user/:id',
       name: 'user',
       component: User,
       children:[
         {
-          path: '/article',
+          path: 'article',
           component: userArticle
         },
         {
-          path: '/message',
+          path: 'message',
           component: userMessage
         },
         {
-          path: '/favourite',
+          path: 'favourite',
           component: userFavourite
         }
       ]

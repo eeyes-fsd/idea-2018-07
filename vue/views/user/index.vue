@@ -27,14 +27,14 @@
             <h3>个人中心</h3>
             <hr/>
             <ul class="list-inline">
-              <li class="tabMenu"><router-link to="/article">我的发布</router-link></li>
-              <li class="tabMenu"><router-link to="/message">消息通知</router-link></li>
-              <li class="tabMenu"><router-link to="/favourite">我的收藏</router-link></li>
+              <li class="tabMenu"><router-link :to="'/user/'+this.$route.params.id+'/article'"><span v-if="ifMe">我的发布</span><span v-else>他的发布</span></router-link></li>
+              <li class="tabMenu"><router-link v-if="ifMe" :to="'/user/'+this.$route.params.id+'/message'">消息通知</router-link></li>
+              <li class="tabMenu"><router-link :to="'/user/'+this.$route.params.id+'/favourite'"><span v-if="ifMe">我的收藏</span><span v-else>他的收藏</span></router-link></li>
             </ul>
           </div>
           <hr/>
           <div class="row content">
-            <router-view></router-view>
+            <router-view :ifMe="this.ifMe"></router-view>
           </div>
         </div>
       </div>
@@ -54,18 +54,23 @@
     },
     methods:{
       async getInfo() {
-        setAccessToken(getCookie('access_token'))
         try {
-          let data = await requests.get('/user')
-          this.user = data
+          if(this.ifMe){
+            let data = await requests.get('/user')
+            this.user = data
+          }else{
+            let data = await requests.get('users/'+this.$route.params.id)
+            this.user = data
+          }
         } catch (err) {
           console.log(err)
           this.errorMessage = err.message || '未知错误'
         }
       },
       checkMe() { //判断访问的是否是自己的主页
-        console.log(JSON.parse(getCookie('userInfo')))
-        let netid = JSON.parse(getCookie('userInfo')).NetID
+        let netId = JSON.parse(getCookie('userInfo')).id
+        let pageId = parseInt(this.$route.params.id)
+        this.ifMe = netId===pageId
       }
     },
     mounted (){

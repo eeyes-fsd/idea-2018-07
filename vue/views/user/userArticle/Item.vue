@@ -17,23 +17,7 @@
     </div>
     <hr/>
     <div class="article-comment row">
-      <div v-for="(comment,key) in comments" v-if="key<2" :key=key>
-        <div>
-          <img :src="comment.author.avatar" class="img-circle pull-left article-head" alt="头像">
-          <p>{{ comment.author.nickname }}</p>
-          <p>{{ comment.created_at }}</p>
-        </div>
-        <div  v-html="comment.body"></div>
-      <hr/>
-      </div>
-      <div class="col-md-12" v-if="showInput">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="发表你的神评论" v-model="commentCon">
-          <span class="input-group-btn">
-          <button class="btn btn-default" :id="article.id" type="button" @click="toCommentArticle">评论</button>
-          </span>
-        </div>
-      </div>
+      <comment :comment="comments[0]"></comment>
     </div>
     </div>
   </div>
@@ -41,6 +25,7 @@
 
 <script>
 import requests, { setAccessToken } from '@/api/requests.js'
+import comment from '@/views/article/comment'
 export default {
   name: 'Item',
   props: {
@@ -52,6 +37,9 @@ export default {
       showInput: false,
       commentCon: '',
     }
+  },
+  components:{
+    comment
   },
   methods : {
     async getComment () { //获取评论

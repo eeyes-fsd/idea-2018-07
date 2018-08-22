@@ -80181,6 +80181,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_requests_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_article_comment__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_article_comment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__views_article_comment__);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -80210,22 +80212,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -80241,6 +80228,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     };
   },
 
+  components: {
+    comment: __WEBPACK_IMPORTED_MODULE_2__views_article_comment___default.a
+  },
   methods: {
     getComment: function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
@@ -80540,69 +80530,8 @@ var render = function() {
       _c(
         "div",
         { staticClass: "article-comment row" },
-        [
-          _vm._l(_vm.comments, function(comment, key) {
-            return key < 2
-              ? _c("div", { key: key }, [
-                  _c("div", [
-                    _c("img", {
-                      staticClass: "img-circle pull-left article-head",
-                      attrs: { src: comment.author.avatar, alt: "头像" }
-                    }),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(comment.author.nickname))]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(comment.created_at))])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { domProps: { innerHTML: _vm._s(comment.body) } }),
-                  _vm._v(" "),
-                  _c("hr")
-                ])
-              : _vm._e()
-          }),
-          _vm._v(" "),
-          _vm.showInput
-            ? _c("div", { staticClass: "col-md-12" }, [
-                _c("div", { staticClass: "input-group" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.commentCon,
-                        expression: "commentCon"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", placeholder: "发表你的神评论" },
-                    domProps: { value: _vm.commentCon },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.commentCon = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "input-group-btn" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-default",
-                        attrs: { id: _vm.article.id, type: "button" },
-                        on: { click: _vm.toCommentArticle }
-                      },
-                      [_vm._v("评论")]
-                    )
-                  ])
-                ])
-              ])
-            : _vm._e()
-        ],
-        2
+        [_c("comment", { attrs: { comment: _vm.comments[0] } })],
+        1
       )
     ])
   ])

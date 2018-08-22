@@ -79322,7 +79322,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    editor: __WEBPACK_IMPORTED_MODULE_2__components_editor___default.a
+    editor: __WEBPACK_IMPORTED_MODULE_2__components_editor___default.a,
+    comment: __WEBPACK_IMPORTED_MODULE_4__comment___default.a
   },
   name: "Article",
   data: function data() {
@@ -83225,13 +83226,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'comment',
-  data: function data() {},
+  data: function data() {
+    return {};
+  },
 
   props: {
     comment: Object
   },
   methods: {},
-  mounted: {}
+  mounted: function mounted() {}
 });
 
 /***/ }),

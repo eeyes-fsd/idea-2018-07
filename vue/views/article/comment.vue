@@ -14,7 +14,9 @@
 export default {
   name:'comment',
   data () {
+    return {
 
+    }
   },
   props: {
     comment: Object
@@ -22,7 +24,7 @@ export default {
   methods: {
 
   },
-  mounted: {
+  mounted() {
 
   }
 }

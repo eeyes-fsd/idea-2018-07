@@ -13,7 +13,7 @@ class UserTransformer extends TransformerAbstract
      *
      * @var array
      */
-    protected $availableIncludes = [];
+    protected $availableIncludes = ['articles'];
 
     /**
      * List of resources to automatically include
@@ -21,6 +21,13 @@ class UserTransformer extends TransformerAbstract
      * @var array
      */
     protected $defaultIncludes = [];
+
+    protected $includeArticleCount;
+
+    public function __construct($includeArticleCount = 3)
+    {
+        $this->includeArticleCount = $includeArticleCount;
+    }
 
     /**
      * @param User $user
@@ -39,6 +46,8 @@ class UserTransformer extends TransformerAbstract
             'phone' => $user->phone_visibility ? $user->phone : '***',
             'email' => $user->email_visibility ? $user->email : '***',
             'qq' => $user->qq_visibility ? $user->qq : '***',
+            //todo
+            'article_count' => $user->articles->count(),
             'phone_visibility' => $user->phone_visibility,
             'email_visibility' => $user->email_visibility,
             'qq_visibility' => $user->qq_visibility,
@@ -54,5 +63,10 @@ class UserTransformer extends TransformerAbstract
         }
 
         return $data;
+    }
+
+    public function includeArticles(User $user)
+    {
+        return $this->collection($user->articles()->take($this->includeArticleCount)->get(),(new ArticleTransformer())->exclude(['author']));
     }
 }

@@ -2252,7 +2252,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDY5NDMwMCwiZXhwIjoxNTM0Njk3OTAwLCJuYmYiOjE1MzQ2OTQzMDAsImp0aSI6IjN3YXIzMnFuTXM0NXdXb1AiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.4m9GCmWWDCUiJFnRurfJ8ROCfXXHk94HFuN1NPlUQyg",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDkwNDA2NCwiZXhwIjoxNTM0OTA3NjY0LCJuYmYiOjE1MzQ5MDQwNjQsImp0aSI6ImZRYm5QVGt1ZE5xN2NpdjEiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.KJqlVeDYV_3ANPP-8xdGTqhVLmIbuALhSd2ItbpJ9QE",
 									"type": "string"
 								}
 							]
@@ -2261,7 +2261,7 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "{{apihost}}/articles?author_type=me&page=1",
+							"raw": "{{apihost}}/articles?",
 							"host": [
 								"{{apihost}}"
 							],
@@ -2295,8 +2295,9 @@
 								},
 								{
 									"key": "author_type",
-									"value": "me",
-									"description": "非必需，默认为空，可选：me,user,organization,或空"
+									"value": "organization",
+									"description": "非必需，默认为空，可选：me,user,organization,或空",
+									"disabled": true
 								},
 								{
 									"key": "author_id",
@@ -2307,7 +2308,8 @@
 								{
 									"key": "page",
 									"value": "1",
-									"description": "非必需"
+									"description": "非必需",
+									"disabled": true
 								}
 							]
 						}

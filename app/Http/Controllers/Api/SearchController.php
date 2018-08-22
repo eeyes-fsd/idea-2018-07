@@ -31,9 +31,10 @@ class SearchController extends Controller
         }
         $manager = new CustomManager();
         $manager->setSerializer(new CustomSerializer());
+        $manager->parseIncludes(['articles']);
         $queryParams = array_diff_key($_GET, array_flip(['page']));
         $paginator->appends($queryParams);
-        $resource = new Collection($users,new UserTransformer());
+        $resource = new Collection($users,new UserTransformer(3));
         $resource->setPaginator(new IlluminatePaginatorAdapter($paginator));
         $data = $manager->createData($resource)->setKey('users')->toArray();
 
@@ -54,6 +55,7 @@ class SearchController extends Controller
         }
         $manager = new CustomManager();
         $manager->setSerializer(new CustomSerializer());
+        $manager->parseIncludes(['articles']);
         $queryParams = array_diff_key($_GET, array_flip(['page']));
         $paginator->appends($queryParams);
         $resource = new Collection($organizations,new OrganizationTransformer());

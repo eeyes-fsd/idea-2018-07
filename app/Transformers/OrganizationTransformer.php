@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Auth;
 
 class OrganizationTransformer extends TransformerAbstract
 {
+    protected $availableIncludes = ['articles'];
+
+    protected $includeArticleCount;
+
+    public function __construct($includeArticleCount = 3)
+    {
+        $this->includeArticleCount = $includeArticleCount;
+    }
+
     public function transform(Organization $organization)
     {
         $data = [
@@ -18,6 +27,8 @@ class OrganizationTransformer extends TransformerAbstract
             'active' => $organization->active,
             'email' => $organization->email_visibility ? $organization->email : '***',
             'qq' => $organization->qq_visibility ? $organization->qq : '***',
+            //todo
+            'article_count' => $organization->articles->count(),
             'email_visibility' => $organization->email_visibility,
             'qq_visibility' => $organization->qq_visibility,
         ];
@@ -31,5 +42,10 @@ class OrganizationTransformer extends TransformerAbstract
         }
 
         return $data;
+    }
+
+    public function includeArticles(Organization $organization)
+    {
+        return $this->collection($organization->articles()->take($this->includeArticleCount)->get(),(new ArticleTransformer())->exclude(['author']));
     }
 }

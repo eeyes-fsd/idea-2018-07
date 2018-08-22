@@ -60,4 +60,11 @@ class ArticleTransformer extends TransformerAbstract
     {
         return $this->collection($article->replies, new ReplyTransformer());
     }
+
+    public function exclude(array $params)
+    {
+        $this->defaultIncludes = array_diff($this->defaultIncludes, $params);;
+        return $this;
+    }
+
 }

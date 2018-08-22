@@ -1,6 +1,6 @@
 <template>
   <div class="user__info">
-    <h3>个人信息 <button class="btn btn-default pull-right edit-btn" @click="editing = true">编辑</button></h3>
+    <h3>个人信息 <button class="btn btn-default pull-right edit-btn" @click="edit()">编辑</button></h3>
     <hr>
     <div>
       <h4>基本信息</h4>
@@ -36,7 +36,8 @@
         <input v-model="form.qq" type="text" class="form-control">
       </div>
     </Dialog>
-    <MessageBox :visible.sync="error" :title="错误" :message="errMsg"></MessageBox>
+    <MessageBox :visible.sync="submitOK" type="success" title="成功" message="您的个人信息已经修改完毕"></MessageBox>
+    <MessageBox :visible.sync="error" type="danger" title="错误" :message="errMsg"></MessageBox>
   </div>
 </template>
 
@@ -60,6 +61,7 @@ export default {
       editing: false,
       error: false,
       errMsg: '',
+      submitOK: false,
       form: {
         nickname: '',
         signature: '',
@@ -70,11 +72,23 @@ export default {
     }
   },
   methods: {
+    edit () {
+      this.fillForm()
+      this.editing = true
+    },
+    fillForm () {
+      let userInfo = this.user
+      for (let key in this.form) {
+        this.form[key] = userInfo[key]
+      }
+    },
     async submit () {
       try {
         let userInfo = JSON.parse(getCookie('userInfo'))
         let id = userInfo.id
         await requests.put(`/users/${id}`, this.form)
+        this.editing = false
+        this.submitOK = true
       } catch (err) {
         this.errMsg = err.message
         this.error = true

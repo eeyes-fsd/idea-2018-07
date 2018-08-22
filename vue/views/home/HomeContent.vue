@@ -80,7 +80,7 @@ export default {
   height: 100%;
   top: 0;
   left: 0;
-  background: rgba(#fff, .5);
+  background: rgba(#fff, .65);
   display: flex;
   flex-direction: row;
   justify-content: center;

@@ -27,6 +27,7 @@
     <div class="actions" v-else>
       <router-link to="/article">个人中心</router-link>
       <router-link to="/publish">发表文章</router-link>
+      <button @click="logout()">退出登录</button>
     </div>
   </nav>
 </template>
@@ -90,8 +91,13 @@ export default {
     logout () {
       delCookie('access_token')
       delCookie('userInfo')
-      location.reload()
-    }
+      delCookie('laravel_session')
+      location.href = "https://account.eeyes.net/logout"
+      // location.reload()
+    },
+    async checkMe() { //判断访问的是自己的页面还是他人的页面
+      let myid = JSON.parse(getCookie('userInfo'))
+    },
   },
   mounted () {
     this.checkLogin()

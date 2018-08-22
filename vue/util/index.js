@@ -1,3 +1,5 @@
+import refresher from './auth'
+
 /**
  * utils
  */
@@ -24,3 +26,5 @@ export function delCookie (name) {
   if (cval != null)
     document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
 };
+
+export const autoRefreshToken = refresher

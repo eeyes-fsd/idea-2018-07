@@ -25,7 +25,7 @@
       <p>欢迎访问创意工坊，请先<a href="javascript:;" @click="userLogin">登录</a></p>
     </div>
     <div class="actions" v-else>
-      <router-link to="/article">个人中心</router-link>
+      <router-link :to="`/user/${myUserId}/article`">个人中心</router-link>
       <router-link to="/publish">发表文章</router-link>
       <button @click="logout()">退出登录</button>
     </div>
@@ -35,7 +35,7 @@
 <script>
 import { mapState, mapMutations } from 'vuex'
 import requests, { getLoginType, setAccessToken } from '@/api/requests.js'
-import { getCookie, delCookie } from '../util'
+import { getCookie, delCookie, autoRefreshToken } from '../util'
 
 export default {
   name: 'TopNav',
@@ -75,6 +75,7 @@ export default {
       }
     },
     async checkLogin () {
+      autoRefreshToken()
       let accessToken = getCookie('access_token')
       if (accessToken != null) {
         try {
@@ -104,7 +105,10 @@ export default {
   computed: {
     ...mapState({
       ifLogin: 'ifLogin'
-    })
+    }),
+    myUserId () {
+      return JSON.parse(getCookie('userInfo')).id
+    }
   },
   watch: {
     ifLogin () {

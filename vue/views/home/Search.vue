@@ -4,11 +4,18 @@
     <div v-if="articles===null">
       未找到相关文章
     </div>
-    <div v-else>
-      <div v-for="(item,key) in articles" :key=key>
-        文章
-        {{ item.title }}
-      </div>
+    <div v-else class="search-articles">
+      <IdeaCard
+        v-for="(item,key) in articles"
+        :key="key"
+        class="article"
+        img-src=""
+        :title="item.title"
+        :author="item.author.nickname"
+        :datetime="item.created_at"
+        :liked="item.like_count"
+        :viewed="item.view_count">
+      </IdeaCard>
     </div>
     <div v-if="users===null">
       未找到相关用户
@@ -22,10 +29,13 @@
 <script>
 import requests from '@/api/requests.js'
 import User from './User'
+import IdeaCard from './IdeaCard'
+
 export default {
   name: 'Search',
   components:{
-    User
+    User,
+    IdeaCard
   },
   data () {
     return {
@@ -77,6 +87,13 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.search-articles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .article {
+    margin: 10px;
+  }
+}
 </style>

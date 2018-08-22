@@ -12,7 +12,7 @@
         <span class="glyphicon glyphicon-thumbs-up"></span>
         <span class="number liked">{{ liked }}</span>
         <span class="glyphicon glyphicon-eye-open"></span>
-        <span class="number liked">{{ watched }}</span>
+        <span class="number liked">{{ viewed }}</span>
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@ export default {
     author: String,
     datetime: String,
     liked: Number,
-    watched: Number
+    viewed: Number
   },
   computed: {
     date () {

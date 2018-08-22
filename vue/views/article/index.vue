@@ -47,7 +47,8 @@
 
   export default {
       components:{
-          editor
+          editor,
+          comment
       },
       name: "Article",
       data (){

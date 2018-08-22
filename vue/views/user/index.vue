@@ -27,67 +27,40 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-  import requests, { setAccessToken } from '@/api/requests.js'
-  import { getCookie } from "../../util";
-  export default {
-    name: "User",
-    data() {
-      return {
-        user: {},
-        ifMe: false
-      }
-    },
-    methods:{
-      async getInfo() {
-        try {
-          if(this.ifMe){
-            let data = await requests.get('/user')
-            this.user = data
-          }else{
-            let data = await requests.get('users/'+this.$route.params.id)
-            this.user = data
-          }
-        } catch (err) {
-          console.log(err)
-          this.errorMessage = err.message || '未知错误'
-        }
-      },
-      checkMe() { //判断访问的是否是自己的主页
-        let netId = JSON.parse(getCookie('userInfo')).id
-        let pageId = parseInt(this.$route.params.id)
-        this.ifMe = netId===pageId
-=======
 import requests, { setAccessToken } from '@/api/requests.js'
-import { getCookie } from "../../util";
+import { getCookie } from '../../util'
 import UserInfo from './UserInfo'
 
 export default {
-  name: "User",
-  components: {
-    UserInfo
-  },
+  name: 'User',
   data() {
     return {
       user: {},
       ifMe: false
     }
   },
+  components: {
+    UserInfo
+  },
   methods:{
     async getInfo() {
-      setAccessToken(getCookie('access_token'))
       try {
-        let data = await requests.get('/user')
-        this.user = data
+        if(this.ifMe){
+          let data = await requests.get('/user')
+          this.user = data
+        }else{
+          let data = await requests.get('users/'+this.$route.params.id)
+          this.user = data
+        }
       } catch (err) {
         console.log(err)
         this.errorMessage = err.message || '未知错误'
->>>>>>> ac978b95c84311f32d8c19c6f1cab6e510d6992b
       }
     },
     checkMe() { //判断访问的是否是自己的主页
-      console.log(JSON.parse(getCookie('userInfo')))
-      let netid = JSON.parse(getCookie('userInfo')).NetID
+      let netId = JSON.parse(getCookie('userInfo')).id
+      let pageId = parseInt(this.$route.params.id)
+      this.ifMe = netId===pageId
     }
   },
   mounted (){

@@ -107,7 +107,6 @@ export default {
   },
   watch: {
     ifLogin () {
-
       if (this.ifLogin) {
         this.checkLogin()
       }

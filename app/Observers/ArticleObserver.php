@@ -9,10 +9,13 @@
 namespace App\Observers;
 
 use \App\Models\Article;
+use App\Traits\GetUserTrait;
 use Illuminate\Support\Facades\Auth;
 
 class ArticleObserver
 {
+    use GetUserTrait;
+
     public function creating(Article $article)
     {
         if (Auth::guard('api_user')->check()) {
@@ -22,6 +25,20 @@ class ArticleObserver
         } else {
             throw new \Exception();
         }
+    }
+
+    public function created(Article $article)
+    {
+        if (!$user = $this->getUserOrActiveOrganization()) {
+            throw new \Exception();
+        } else {
+            $user->increment('article_count',1);
+        }
+    }
+
+    public function deleted(Article $article)
+    {
+        $article->author->decrement('article_count',1);
     }
 
     public function saving(Article $article)

@@ -1,7 +1,7 @@
 <template>
     <div>
       <div class="row head-top">
-        <img src="user.avatar" alt="头像太帅，加载不出来" class="userHead img-responsive img-circle center-block">
+        <img :src="user.avatar" alt="头像太帅，加载不出来" class="userHead img-responsive img-circle center-block">
         <h3 class="text-center">{{ user.nickname }}</h3>
         <p class="text-center">{{ user.NetID }}</p>
       </div>
@@ -30,16 +30,18 @@
 import requests, { setAccessToken } from '@/api/requests.js'
 import { getCookie } from "../../util"
 import UserInfo from './UserInfo'
+import Dialog from '@/components/Dialog'
 export default {
   name: "User",
   data() {
     return {
       user: {},
-      ifMe: false
+      ifMe: false,
+      editing: false,
     }
   },
   components:{
-    UserInfo
+    UserInfo,
   },
   methods:{
     async getInfo() {
@@ -60,6 +62,12 @@ export default {
       let netId = JSON.parse(getCookie('userInfo')).id
       let pageId = parseInt(this.$route.params.id)
       this.ifMe = netId===pageId
+    },
+    async submit () {
+
+    },
+    uploadHead () {
+      this.editing = true
     },
   },
   mounted (){

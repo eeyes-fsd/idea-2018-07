@@ -2,7 +2,7 @@
   <div>
     <div class="article">
       <div class="article-header">
-        <img src="article.author.avatar" alt="头像" class="img-circle pull-left article-head">
+        <img :src="article.author.avatar" alt="头像" class="img-circle pull-left article-head">
         <h4><a :href="'/#/article/'+article.id">{{ article.title }}</a></h4>
         <p class="article-class">{{ article.updated_at }} <span class="pull-right">{{ article.category.name }}</span></p>
       </div>
@@ -12,9 +12,12 @@
             <strong>浏览：</strong>{{ article.view_count }}
             <span class="glyphicon glyphicon-comment pull-right" aria-hidden="true">{{ article.reply_count }}&emsp;</span>
             <span class="glyphicon glyphicon-thumbs-up pull-right" aria-hidden="true">{{ article.like_count }}&emsp;&emsp;</span>
-            <a class="pull-right" @click="noFavorite()" :id="article.id"><span>取消收藏</span></a>
+            <a class="pull-right" @click="tryDislike()" :id="article.id"><span>取消收藏</span></a>
         </p>
       </div>
+      <Dialog :visible.sync="editing" @confirm="submit" position="center">
+        <h2 class="text-center">确认取消收藏本篇文章？</h2>
+      </Dialog>
       <hr/>
     </div>
   </div>
@@ -22,19 +25,29 @@
 
 <script>
 import requests, { setAccessToken } from '@/api/requests.js'
+import Dialog from '@/components/Dialog'
 export default {
   name: 'Item',
   props: {
     article: Object
   },
+  data () {
+    return {
+      editing: false
+    }
+  },
+  components: {
+    Dialog
+  },
   methods : {
-    async noFavorite () {
-      let id = event.currentTarget.getAttribute("id")
+    tryDislike () {
+      this.editing = true
+    },
+    async submit () {
       try{
-        let data = await requests.post('/favorites',{ article_id : id })
+        let data = await requests.post('/favorites',{ article_id : this.article.id })
         if(data[0]==='取消收藏成功'){
-          location.reload()
-        }else{
+          alert("取消收藏成功")
           location.reload()
         }
       }catch (e) {

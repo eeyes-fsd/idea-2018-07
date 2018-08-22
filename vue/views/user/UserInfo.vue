@@ -16,6 +16,10 @@
     </div>
     <Dialog :visible.sync="editing" @confirm="submit">
       <div class="form-group">
+        <label class="sr-only" for="inputfile">选择头像</label>
+        <input type="file" id="inputfile" @change="getFile($event)">
+      </div>
+      <div class="form-group">
         <label>昵称</label>
         <input v-model="form.nickname" type="text" class="form-control">
       </div>
@@ -68,8 +72,9 @@ export default {
         signature: '',
         phone: '',
         email: '',
-        qq: ''
-      }
+        qq: '',
+      },
+      avatar: '',
     }
   },
   methods: {
@@ -83,13 +88,24 @@ export default {
         this.form[key] = userInfo[key]
       }
     },
+    getFile () {
+      this.avatar = event.target.files[0]
+      console.log(this.form)
+    },
     async submit () {
       try {
         let userInfo = JSON.parse(getCookie('userInfo'))
         let id = userInfo.id
-        await requests.put(`/users/${id}`, this.form)
+        let formData = new FormData()
+        for (let key in this.form) {
+          formData.append(key,this.form[key])
+        }
+        console.log(formData)
+        formData.append('avatar', this.avatar)
+        let data = await requests.put(`/users/${id}`, formData)
         this.editing = false
         this.submitOK = true
+        console.log(data)
       } catch (err) {
         this.errMsg = err.message
         this.error = true

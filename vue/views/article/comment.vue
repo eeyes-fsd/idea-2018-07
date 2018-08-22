@@ -32,7 +32,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12" v-if="showInput&&this.ifLogin">
+        <div class="col-md-12" v-if="showInput&&this.isLogin">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="发表你的神评论" v-model="commentCon">
             <span class="input-group-btn">
@@ -107,7 +107,7 @@ export default {
   },
     computed: {
     ...mapState({
-      ifLogin: 'ifLogin'
+      isLogin: 'isLogin'
     })
   },
 }

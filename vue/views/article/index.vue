@@ -13,7 +13,7 @@
               <div v-html="article.body"></div>
             </div>
             <div class="reply  panel panel-default">
-              <div v-if="this.ifLogin">
+              <div v-if="this.isLogin">
                 <editor class="editor" :value="content"  :setting="editorSetting" @input="(content)=> this.content = content"></editor>
                 <button @click="toComment">发表评论</button>
               </div>
@@ -43,7 +43,6 @@
   import { mapState, mapMutations } from 'vuex'
   import request from '../../api/requests'
   import editor from '@/components/editor'
-  import { getCookie } from "../../util";
   import comment from './comment'
 
   export default {
@@ -85,7 +84,7 @@
           }
         },
         getLogin(){
-          return this.$store.state.ifLogin
+          return this.$store.state.isLogin
         },
         async toComment(){
           try {
@@ -126,7 +125,7 @@
       },
       computed: {
         ...mapState({
-        ifLogin: 'ifLogin'
+        isLogin: 'isLogin'
       })
   },
     }

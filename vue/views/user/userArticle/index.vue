@@ -22,50 +22,50 @@
 </template>
 
 <script>
-  import requests from '@/api/requests.js'
-  import { getCookie } from "../../../util";
-  import Item from './Item'
-  export default {
-    name: "userArticle",
-    components:{
-      Item
-    },
-    data() {
-      return {
-        articles: {},
-        page: 1,
-        totalPage: 1,
-        currentPage: 1,
-        comments: [],
-        commentOn: 0,
+import requests from '@/api/requests.js'
+import Item from './Item'
+
+export default {
+  name: "userArticle",
+  components:{
+    Item
+  },
+  data() {
+    return {
+      articles: {},
+      page: 1,
+      totalPage: 1,
+      currentPage: 1,
+      comments: [],
+      commentOn: 0,
+    }
+  },
+  props:{
+    isMe: Boolean
+  },
+  methods:{
+    async getMyArticle(page){
+      this.currentPage = page
+      let id = this.$route.params.id
+      console.log(id)
+      let perpage = 3 //每页显示的文章数目
+      let url = ''
+      if(this.isMe) url = '/articles?per_page='+perpage+'&page='+page
+      else url = '/articles?per_page='+perpage+'&page='+page + '&author_id='+id + '&author_type=user'
+      try {
+        console.log(url)
+        let data =  await requests.get(url)
+        this.articles = data.articles
+        this.totalPage = Math.ceil(data.pagination.total / perpage)
+      }catch(e) {
+        console.log(e || 'unknown mistake' )
       }
     },
-    props:{
-      ifMe: Boolean
-    },
-    methods:{
-      async getMyArticle(page){
-        this.currentPage = page
-        let id = this.$route.params.id
-        console.log(id)
-        let perpage = 3 //每页显示的文章数目
-        let url = ''
-        if(this.ifMe) url = '/articles?per_page='+perpage+'&page='+page
-        else url = '/articles?per_page='+perpage+'&page='+page + '&author_id='+id + '&author_type=user'
-        try {
-          console.log(url)
-          let data =  await requests.get(url)
-          this.articles = data.articles
-          this.totalPage = Math.ceil(data.pagination.total / perpage)
-        }catch(e) {
-          console.log(e || 'unknown mistake' )
-        }
-      },
-    },
-    mounted(){
-      this.getMyArticle(1)//默认获取第一页的文章
-    }
+  },
+  mounted(){
+    this.getMyArticle(1)//默认获取第一页的文章
   }
+}
 </script>
 
 <style scoped lang="scss">

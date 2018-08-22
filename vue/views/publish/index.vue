@@ -33,54 +33,53 @@
 </template>
 
 <script>
-    import editor from '@/components/editor'
-    import request from '../../api/requests'
-    import { getCookie } from "../../util";
-    export default {
-        components: {
-            'editor': editor
-        },
-        name: "Publish",
-        data: function () {
-          return {
-              content:'你好，在这里写下文章内容',
-              //tinymce的配置信息
-              editorSetting:{
-                  height:400,
-              },
-              title:'',
-              body:'',
-              kinds:{},
-              selectedParent: 1,  //初始化默认的分类
-              category: 6,
-              anonymous: false
-          }
-        },
-        methods: {
-          async publishIt () {
-            try {
-              let data = await request.post('/articles', { title: this.title, body: this.content, category_id: this.category, anonymous: this.anonymous })
-              alert("发表文章成功！")
-              this.$router.push('/article/'+data.id)
-            } catch (err) {
-              console.log(this.errorMessage = err.message || '未知错误')
-            }
-          },
-          async getKinds (){
-            let that = this
-            try {
-              let data = await request.get('/categories')
-              that.kinds = data
-            }catch (e) {
-              console.log(e || 'unknown mistake')
-            }
-          }
-        },
-      mounted() {
-        this.getKinds()
-      }
+import editor from '@/components/editor'
+import request from '../../api/requests'
 
-    }
+export default {
+    components: {
+        'editor': editor
+    },
+    name: "Publish",
+    data: function () {
+      return {
+          content:'你好，在这里写下文章内容',
+          //tinymce的配置信息
+          editorSetting:{
+              height:400,
+          },
+          title:'',
+          body:'',
+          kinds:{},
+          selectedParent: 1,  //初始化默认的分类
+          category: 6,
+          anonymous: false
+      }
+    },
+    methods: {
+      async publishIt () {
+        try {
+          let data = await request.post('/articles', { title: this.title, body: this.content, category_id: this.category, anonymous: this.anonymous })
+          alert("发表文章成功！")
+          this.$router.push('/article/'+data.id)
+        } catch (err) {
+          console.log(this.errorMessage = err.message || '未知错误')
+        }
+      },
+      async getKinds (){
+        let that = this
+        try {
+          let data = await request.get('/categories')
+          that.kinds = data
+        }catch (e) {
+          console.log(e || 'unknown mistake')
+        }
+      }
+    },
+  mounted() {
+    this.getKinds()
+  }
+}
 </script>
 
 <style scoped>

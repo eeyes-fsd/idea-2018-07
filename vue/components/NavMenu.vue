@@ -48,7 +48,6 @@ export default {
       this.parseCategories()
     },
     open (id) {
-      console.log(id)
       this.activeId = id
     },
     parseCategories () {

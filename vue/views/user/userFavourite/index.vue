@@ -22,43 +22,52 @@
 </template>
 
 <script>
-  import requests from '@/api/requests.js'
-  import { getCookie } from "../../../util";
-  import Item from './Item'
-  export default {
-    name: "userFavourite",
-    components:{
-      Item
-    },
-    data() {
-      return {
-        articles: {},
-        page: 1,
-        totalPage: 1,
-        currentPage: 1,
-        comments: [],
-        commentOn: 0,
+import { mapState } from 'vuex'
+import requests from '@/api/requests.js'
+import Item from './Item'
+
+export default {
+  name: "userFavourite",
+  components:{
+    Item
+  },
+  data() {
+    return {
+      articles: {},
+      page: 1,
+      totalPage: 1,
+      currentPage: 1,
+      comments: [],
+      commentOn: 0,
+    }
+  },
+  methods:{
+    async getMyArticle(page){
+      this.currentPage = page
+      let id = this.myUserId
+      let perpage = 3 //每页显示的文章数目
+      try {
+        //这里写获取收藏的url
+        let data =  await requests.get(`/favorites?author_type=user&per_page=${perpage}&author_id=${id}`)
+        this.articles = data.articles
+        this.totalPage = Math.ceil(data.pagination.total / perpage)
+      }catch(e) {
+        console.log(e || 'unknown mistake' )
       }
     },
-    methods:{
-      async getMyArticle(page){
-        this.currentPage = page
-        let id = JSON.parse(getCookie('userInfo')).id
-        let perpage = 3 //每页显示的文章数目
-        try {
-          //这里写获取收藏的url
-          let data =  await requests.get('/favorites?author_type=user&per_page='+perpage+'&author_id='+id)
-          this.articles = data.articles
-          this.totalPage = Math.ceil(data.pagination.total / perpage)
-        }catch(e) {
-          console.log(e || 'unknown mistake' )
-        }
-      },
+  },
+  mounted(){
+    this.getMyArticle(1)//默认获取第一页的文章
+  },
+  computed: {
+    ...mapState({
+      userInfo: 'userInfo'
+    }),
+    myUserId () {
+      return this.userInfo.id
     },
-    mounted(){
-      this.getMyArticle(1)//默认获取第一页的文章
-    }
   }
+}
 </script>
 
 <style scoped lang="scss">

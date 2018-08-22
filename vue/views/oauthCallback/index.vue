@@ -1,48 +1,61 @@
 <template>
   <div class="oauth-callback">
     <p>登录中……请稍后</p>
-    <p>当前登录code为：{{ code }}</p>
-    <p>登录成功返回参数：{{ args }}</p>
+    <MessageBox
+      :visible.sync="hasError"
+      type="danger"
+      title="错误"
+      :message="errorMessage"
+      :autoHide="false"></MessageBox>
   </div>
 </template>
 
 <script>
-import requests, { setLoginType } from '@/api/requests.js'
-import { setCookie } from '../../util';
+import { mapMutations, mapActions } from 'vuex'
+import requests from '@/api/requests.js'
+import MessageBox from '@/components/MessageBox'
 
 export default {
   name: 'OauthCallback',
+  components: {
+    MessageBox
+  },
   data () {
     return {
       code: '',
-      args: {}
+      hasError: false,
+      errorMessage: ''
     }
   },
   mounted () {
     let code = this.$route.query.code
+    // 获取登录跳转的code
     if (code && code.length > 0) {
       this.code = code
       this.$router.push('/oauth/callback') // 清空请求参数
       this.loginCallback()
+    } else {
+      this.errorMessage = '登录失败，请重新登录'
+      this.hasError = true
     }
   },
   methods: {
-    //普通用户登录
+    ...mapActions({
+      initialize: 'initialize'
+    }),
+    /**
+     * 普通用户登录
+     */
     async loginCallback() {
       try {
-        let data = await requests.post('/users/authorizations/callback', { code: this.code })
-        this.args = data
-        setCookie( 'access_token', data.access_token,  data.expires_in) //保存cookie
-        setLoginType('user')  //设定登录用户的类型
-        this.$router.push('/')  //跳转回首页
+        // 使用AccessToken开始初始化
+        this.initialize({ code: this.code })
+        // setLoginType('user')  // 设定登录用户的类型 暂时不管这个功能了
+        this.$router.push('/') // 跳转回首页
       } catch (err) {
         this.errorMessage = err.message || '未知错误'
+        this.hasError = true
       }
-    }
-  },
-  computed: {
-    shortCode() {
-      return this.code ? this.code.substr(0, 16) + '...' : '无code'
     }
   }
 }

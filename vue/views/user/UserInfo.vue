@@ -1,6 +1,6 @@
 <template>
   <div class="user__info">
-    <h3>个人信息 <button class="btn btn-default pull-right edit-btn" v-if="ifMe" @click="edit()">编辑</button></h3>
+    <h3>个人信息 <button class="btn btn-default pull-right edit-btn" v-if="isMe" @click="edit()">编辑</button></h3>
     <hr>
     <div>
       <h4>基本信息</h4>
@@ -46,16 +46,16 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import requests from '@/api/requests.js'
 import Dialog from '@/components/Dialog'
 import MessageBox from '@/components/MessageBox'
-import { getCookie } from '@/util'
 
 export default {
   name: 'UserInfo',
   props: {
     user: Object,
-    ifMe: Boolean
+    isMe: Boolean
   },
   components: {
     Dialog,
@@ -94,7 +94,7 @@ export default {
     },
     async submit () {
       try {
-        let userInfo = JSON.parse(getCookie('userInfo'))
+        let userInfo = this.userInfo
         let id = userInfo.id
         let formData = new FormData()
         for (let key in this.form) {
@@ -111,6 +111,11 @@ export default {
         this.error = true
       }
     }
+  },
+  computed: {
+    ...mapState({
+      userInfo: 'userInfo'
+    }),
   }
 }
 </script>

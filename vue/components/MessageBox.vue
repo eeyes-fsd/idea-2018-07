@@ -79,6 +79,7 @@ export default {
   text-align: center;
   opacity: 1;
   transition: transform .5s, opacity .5s;
+  z-index: 4096;
 }
 .co-message-box-hidden {
   opacity: 0;

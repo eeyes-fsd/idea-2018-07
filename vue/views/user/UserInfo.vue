@@ -36,12 +36,14 @@
         <input v-model="form.qq" type="text" class="form-control">
       </div>
     </Dialog>
+    <MessageBox :visible.sync="error" :title="错误" :message="errMsg"></MessageBox>
   </div>
 </template>
 
 <script>
 import requests from '@/api/requests.js'
 import Dialog from '@/components/Dialog'
+import MessageBox from '@/components/MessageBox'
 import { getCookie } from '@/util'
 
 export default {
@@ -50,11 +52,14 @@ export default {
     user: Object
   },
   components: {
-    Dialog
+    Dialog,
+    MessageBox
   },
   data () {
     return {
       editing: false,
+      error: false,
+      errMsg: '',
       form: {
         nickname: '',
         signature: '',
@@ -66,9 +71,14 @@ export default {
   },
   methods: {
     async submit () {
-      let userInfo = JSON.parse(getCookie('userInfo'))
-      let id = userInfo.id
-      await requests.put(`/users/${id}`, this.form)
+      try {
+        let userInfo = JSON.parse(getCookie('userInfo'))
+        let id = userInfo.id
+        await requests.put(`/users/${id}`, this.form)
+      } catch (err) {
+        this.errMsg = err.message
+        this.error = true
+      }
     }
   }
 }

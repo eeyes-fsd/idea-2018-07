@@ -1,5 +1,10 @@
 <template>
     <div>
+      <ol class="breadcrumb">
+        <li><router-link to="/">{{ article.category.parent_id }}</router-link></li>
+        <li><router-link to="/">{{ article.category.id }}</router-link></li>
+        <li><router-link  to="/">{{ article.title }}</router-link></li>
+      </ol>
       <div>
         <div class="row">
           <div class="col-md-7">
@@ -15,18 +20,7 @@
               <div v-else>
                 登录后才可以评论
               </div>
-              <div>
-                <div v-for="(comment,key) in comments" :key=key>
-                  <div>
-                    <img :src="comment.author.avatar" alt="head">
-                    <p>{{ comment.author.nickname }}</p>
-                    <p>{{ comment.created_at }}</p>
-                  </div>
-                  <div  v-html="comment.body">
-                  </div>
-                  <hr/>
-                </div>
-              </div>
+              <comment v-for="(comment,key) in comments" :key=key :comment="comment"></comment>
             </div>
           </div>
           <div class="col-md-4  panel panel-default">
@@ -49,10 +43,12 @@
   import request, { setAccessToken } from '../../api/requests'
   import editor from '@/components/editor'
   import { getCookie } from "../../util";
+  import comment from './comment'
 
   export default {
       components:{
-          editor
+          editor,
+          comment
       },
       name: "Article",
       data (){

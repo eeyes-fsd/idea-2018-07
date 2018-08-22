@@ -6,35 +6,20 @@
         <p class="text-center">{{ user.NetID }}</p>
       </div>
       <div class="row">
-        <div class="col-md-3 panel panel-default userInfo">
-          <h3>个人信息 <button class="btn btn-default pull-right">编辑</button></h3>
-          <hr/>
-          <div>
-            <h4>基本信息</h4>
-            <p>昵称：{{ user.nickname }}</p>
-            <p>个性签名:{{ user.signature }}</p>
-            <h4>联系方式</h4>
-            <p v-if="user.phone_visibility">手机：{{ user.phone }}</p>
-            <p v-else>手机：保密</p>
-            <p v-if="user.email_visibility">邮箱：{{ user.email }}</p>
-            <p v-else>邮箱：保密</p>
-            <p v-if="user.qq_visibility">QQ：{{ user.qq }}</p>
-            <p v-else>QQ：保密</p>
-          </div>
-        </div>
+        <UserInfo class="col-md-3 panel panel-default" :user="user" :ifMe="ifMe"></UserInfo>
         <div class="col-md-8  col-md-offset-1  panel panel-default userPanel">
           <div class="row">
             <h3>个人中心</h3>
             <hr/>
             <ul class="list-inline">
-              <li class="tabMenu"><router-link to="/article">我的发布</router-link></li>
-              <li class="tabMenu"><router-link to="/message">消息通知</router-link></li>
-              <li class="tabMenu"><router-link to="/favourite">我的收藏</router-link></li>
+              <li class="tabMenu"><router-link :to="'/user/'+this.$route.params.id+'/article'"><span v-if="ifMe">我的发布</span><span v-else>他的发布</span></router-link></li>
+              <li class="tabMenu"><router-link v-if="ifMe" :to="'/user/'+this.$route.params.id+'/message'">消息通知</router-link></li>
+              <li class="tabMenu"><router-link :to="'/user/'+this.$route.params.id+'/favourite'"><span v-if="ifMe">我的收藏</span><span v-else>他的收藏</span></router-link></li>
             </ul>
           </div>
           <hr/>
           <div class="row content">
-            <router-view></router-view>
+            <router-view :ifMe="this.ifMe"></router-view>
           </div>
         </div>
       </div>
@@ -42,37 +27,46 @@
 </template>
 
 <script>
-  import requests, { setAccessToken } from '@/api/requests.js'
-  import { getCookie } from "../../util";
-  export default {
-    name: "User",
-    data() {
-      return {
-        user: {},
-        ifMe: false
-      }
-    },
-    methods:{
-      async getInfo() {
-        setAccessToken(getCookie('access_token'))
-        try {
+import requests, { setAccessToken } from '@/api/requests.js'
+import { getCookie } from "../../util"
+import UserInfo from './UserInfo'
+export default {
+  name: "User",
+  data() {
+    return {
+      user: {},
+      ifMe: false
+    }
+  },
+  components:{
+    UserInfo
+  },
+  methods:{
+    async getInfo() {
+      try {
+        if(this.ifMe){
           let data = await requests.get('/user')
           this.user = data
-        } catch (err) {
-          console.log(err)
-          this.errorMessage = err.message || '未知错误'
+        }else{
+          let data = await requests.get('users/'+this.$route.params.id)
+          this.user = data
         }
-      },
-      checkMe() { //判断访问的是否是自己的主页
-        console.log(JSON.parse(getCookie('userInfo')))
-        let netid = JSON.parse(getCookie('userInfo')).NetID
+      } catch (err) {
+        console.log(err)
+        this.errorMessage = err.message || '未知错误'
       }
     },
-    mounted (){
-      this.getInfo()
-      this.checkMe()
+    checkMe() { //判断访问的是否是自己的主页
+      let netId = JSON.parse(getCookie('userInfo')).id
+      let pageId = parseInt(this.$route.params.id)
+      this.ifMe = netId===pageId
     },
-  }
+  },
+  mounted (){
+    this.getInfo()
+    this.checkMe()
+  },
+}
 </script>
 
 <style scoped>

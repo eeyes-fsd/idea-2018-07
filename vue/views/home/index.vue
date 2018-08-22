@@ -10,6 +10,7 @@ import requests, { getLoginType }from '@/api/requests.js'
 import Example from '@/components/Example'
 import { getCookie, setCookie } from "../../util"
 import {setAccessToken, setLoginType} from "../../api/requests"
+import { mapMutations } from 'vuex'
 
 export default {
   components: {
@@ -26,6 +27,9 @@ export default {
     }
   },
   methods: {
+    ...mapMutations({
+      commitLoginToVuex: 'login'
+    }),
     async orgLogin () {
       try {
         let data = await requests.post('/organizations/authorizations', this.org)
@@ -40,8 +44,7 @@ export default {
         try {
           setAccessToken(accessToken)
           let data = await requests.get('/user')
-          this.ifLogin = true
-          this.$store.commit('login')
+          this.commitLoginToVuex()
           setCookie('userInfo', JSON.stringify(data))
         }catch (err) {
           this.errorMessage = err.message || '未知错误'

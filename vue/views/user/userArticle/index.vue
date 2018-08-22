@@ -40,13 +40,21 @@
         commentOn: 0,
       }
     },
+    props:{
+      ifMe: Boolean
+    },
     methods:{
       async getMyArticle(page){
         this.currentPage = page
-        let id = JSON.parse(getCookie('userInfo')).id
+        let id = this.$route.params.id
+        console.log(id)
         let perpage = 3 //每页显示的文章数目
+        let url = ''
+        if(this.ifMe) url = '/articles?per_page='+perpage+'&page='+page
+        else url = '/articles?per_page='+perpage+'&page='+page + '&author_id='+id + '&author_type=user'
         try {
-          let data =  await requests.get('/articles?per_page='+perpage+'&page='+page)
+          console.log(url)
+          let data =  await requests.get(url)
           this.articles = data.articles
           this.totalPage = Math.ceil(data.pagination.total / perpage)
         }catch(e) {

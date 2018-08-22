@@ -27,12 +27,13 @@
     <div class="actions" v-else>
       <router-link to="/article">个人中心</router-link>
       <router-link to="/publish">发表文章</router-link>
+      <button @click="logout()">退出登录</button>
     </div>
   </nav>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import requests, { getLoginType, setAccessToken } from '@/api/requests.js'
 import { getCookie, delCookie } from '../util'
 
@@ -41,7 +42,6 @@ export default {
   data() {
     return {
       name: '',
-      ifLogin: false,
       org: {
         email: '',
         password: ''
@@ -50,6 +50,9 @@ export default {
     }
   },
   methods: {
+    ...mapMutations({
+      commitLoginToVuex: 'login'
+    }),
     async userLogin () {
       //个人登录
       try {
@@ -78,7 +81,8 @@ export default {
           setAccessToken(accessToken)
           let data = await requests.get('/user')
           this.name = data.name
-          this.ifLogin = true
+          // this.ifLogin = true
+          this.commitLoginToVuex()
         } catch (err) {
           console.log(err || 'unknown mistake')
         }
@@ -90,8 +94,9 @@ export default {
     logout () {
       delCookie('access_token')
       delCookie('userInfo')
-      location.reload()
-    }
+      delCookie('laravel_session')
+      location.href = "https://account.eeyes.net/logout"
+    },
   },
   mounted () {
     this.checkLogin()
@@ -103,6 +108,7 @@ export default {
   },
   watch: {
     ifLogin () {
+
       if (this.ifLogin) {
         this.checkLogin()
       }

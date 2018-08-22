@@ -21,20 +21,25 @@
       未找到相关用户
     </div>
     <div v-else>
-      <User v-for="(item,key) in users" :key=key :user="item"></User>
+      <UserDetails
+        v-for="(item, key) in users"
+        :key="key"
+        avatar=""
+        :name="item.nickname"
+        :signature="item.signature"></UserDetails>
     </div>
   </div>
 </template>
 
 <script>
 import requests from '@/api/requests.js'
-import User from './User'
+import UserDetails from './UserDetails'
 import IdeaCard from './IdeaCard'
 
 export default {
   name: 'Search',
   components:{
-    User,
+    UserDetails,
     IdeaCard
   },
   data () {

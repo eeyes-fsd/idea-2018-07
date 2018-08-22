@@ -46,8 +46,7 @@ class UserTransformer extends TransformerAbstract
             'phone' => $user->phone_visibility ? $user->phone : '***',
             'email' => $user->email_visibility ? $user->email : '***',
             'qq' => $user->qq_visibility ? $user->qq : '***',
-            //todo
-            'article_count' => $user->articles->count(),
+            'article_count' => $user->article_count,
             'phone_visibility' => $user->phone_visibility,
             'email_visibility' => $user->email_visibility,
             'qq_visibility' => $user->qq_visibility,

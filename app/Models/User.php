@@ -24,6 +24,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $phone
  * @property string $qq
  * @property int $notification_count
+ * @property int $article_count
  * @property bool $phone_visibility
  * @property bool $email_visibility
  * @property bool $qq_visibility

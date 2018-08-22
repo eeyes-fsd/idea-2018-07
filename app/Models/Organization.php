@@ -22,6 +22,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property bool $active 用户是否审核通过
  * @property string $qq 用户 QQ
  * @property int $notification_count
+ * @property int $article_count
  * @property bool $qq_visibility 用户 QQ 是否可见
  * @property bool $email_visibility 用户 email 是否可见
  * @property Carbon $created_at 创建于

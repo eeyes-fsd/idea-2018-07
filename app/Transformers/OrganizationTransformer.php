@@ -27,8 +27,7 @@ class OrganizationTransformer extends TransformerAbstract
             'active' => $organization->active,
             'email' => $organization->email_visibility ? $organization->email : '***',
             'qq' => $organization->qq_visibility ? $organization->qq : '***',
-            //todo
-            'article_count' => $organization->articles->count(),
+            'article_count' => $organization->article_count,
             'email_visibility' => $organization->email_visibility,
             'qq_visibility' => $organization->qq_visibility,
         ];

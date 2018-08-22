@@ -2,7 +2,7 @@
   <div>
     <div class="article">
     <div class="article-header">
-      <img src="article.author.avatar" alt="头像" class="img-circle pull-left article-head">
+      <img :src="article.author.avatar" alt="头像" class="img-circle pull-left article-head">
       <h4><a :href="'/#/article/'+article.id">{{ article.title }}</a></h4>
       <p class="article-class">{{ article.updated_at }} <span class="pull-right">{{ article.category.name }}</span></p>
     </div>
@@ -10,11 +10,14 @@
     <div class="article-footer">
       <p>
         <strong>浏览：</strong>{{ article.view_count }}
-        <a class="pull-right" @click="deleteIt()" :id="article.id"><span class="glyphicon glyphicon-trash">&emsp;&emsp;</span></a>
+        <a class="pull-right" @click="tryDelete()" :id="article.id"><span class="glyphicon glyphicon-trash">&emsp;&emsp;</span></a>
         <a class ="pull-right" @click="showcomment()"  :id="article.id"><span class="glyphicon glyphicon-comment" aria-hidden="true">{{ article.reply_count }}&emsp;</span></a>
         <a class="pull-right" @click="likeArticle()"  :id="article.id"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">{{ article.like_count }}&emsp;&emsp;</span></a>
       </p>
     </div>
+    <Dialog :visible.sync="editing" @confirm="submit" position="center">
+      <h2 class="text-center">确认删除本篇文章？</h2>
+    </Dialog>
     <hr/>
     <div class="article-comment row">
       <comment :comment="comments[0]"></comment>
@@ -26,6 +29,7 @@
 <script>
 import requests, { setAccessToken } from '@/api/requests.js'
 import comment from '@/views/article/comment'
+import Dialog from '@/components/Dialog'
 export default {
   name: 'Item',
   props: {
@@ -36,10 +40,12 @@ export default {
       comments: {},
       showInput: false,
       commentCon: '',
+      editing: false,
     }
   },
   components:{
-    comment
+    comment,
+    Dialog,
   },
   methods : {
     async getComment () { //获取评论
@@ -68,14 +74,17 @@ export default {
     showcomment () {  //显示评论框
       this.showInput = !this.showInput
     },
-    async deleteIt () { //删除文章
+    tryDelete () { //删除文章
+      this.editing = true
+    },
+    async submit () {
       try{
-        let id = event.currentTarget.getAttribute("id")
-          let data = await requests.delete('/articles/'+id)
-          if(data===null){
-            alert("删除成功")
-            location.reload()
-          }
+        let id = this.article.id
+        let data = await requests.delete('/articles/'+id)
+        if(data===null){
+          alert("删除成功")
+          location.reload()
+        }
       }catch(e) {
         console.log(e || 'unknown miskake')
       }

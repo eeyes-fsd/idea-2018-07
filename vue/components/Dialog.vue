@@ -31,7 +31,8 @@ export default {
     position: {
       type: String,
       default: 'right'
-    }
+    },
+
   },
   methods: {
     close (type) {
@@ -94,7 +95,7 @@ export default {
   @media (min-width: 500px) {
     width: 500px;
     height: auto;
-    min-height: 400px;
+    min-height: 2em;
     border-radius: 1em;
   }
 }

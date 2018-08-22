@@ -1,6 +1,6 @@
 <template>
   <div class="user__info">
-    <h3>个人信息 <button class="btn btn-default pull-right edit-btn" @click="edit()">编辑</button></h3>
+    <h3>个人信息 <button class="btn btn-default pull-right edit-btn" v-if="ifMe" @click="edit()">编辑</button></h3>
     <hr>
     <div>
       <h4>基本信息</h4>
@@ -50,7 +50,8 @@ import { getCookie } from '@/util'
 export default {
   name: 'UserInfo',
   props: {
-    user: Object
+    user: Object,
+    ifMe: Boolean
   },
   components: {
     Dialog,

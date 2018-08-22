@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import requests, { getLoginType, setAccessToken } from '@/api/requests.js'
 import { getCookie, delCookie } from '../util'
 
@@ -42,7 +42,6 @@ export default {
   data() {
     return {
       name: '',
-      ifLogin: false,
       org: {
         email: '',
         password: ''
@@ -51,6 +50,9 @@ export default {
     }
   },
   methods: {
+    ...mapMutations({
+      commitLoginToVuex: 'login'
+    }),
     async userLogin () {
       //个人登录
       try {
@@ -79,7 +81,8 @@ export default {
           setAccessToken(accessToken)
           let data = await requests.get('/user')
           this.name = data.name
-          this.ifLogin = true
+          // this.ifLogin = true
+          this.commitLoginToVuex()
         } catch (err) {
           console.log(err || 'unknown mistake')
         }
@@ -93,10 +96,6 @@ export default {
       delCookie('userInfo')
       delCookie('laravel_session')
       location.href = "https://account.eeyes.net/logout"
-      // location.reload()
-    },
-    async checkMe() { //判断访问的是自己的页面还是他人的页面
-      let myid = JSON.parse(getCookie('userInfo'))
     },
   },
   mounted () {
@@ -109,6 +108,7 @@ export default {
   },
   watch: {
     ifLogin () {
+
       if (this.ifLogin) {
         this.checkLogin()
       }

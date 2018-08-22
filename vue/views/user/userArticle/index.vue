@@ -51,7 +51,7 @@
         let perpage = 3 //每页显示的文章数目
         let url = ''
         if(this.ifMe) url = '/articles?per_page='+perpage+'&page='+page
-        else url = '/articles?per_page='+perpage+'&page='+page + '&author_id='+id
+        else url = '/articles?per_page='+perpage+'&page='+page + '&author_id='+id + '&author_type=user'
         try {
           console.log(url)
           let data =  await requests.get(url)

@@ -20,18 +20,7 @@
               <div v-else>
                 登录后才可以评论
               </div>
-              <div>
-                <div v-for="(comment,key) in comments" :key=key>
-                  <div>
-                    <img :src="comment.author.avatar" alt="head" class="author-head pull-left">
-                    <p>{{ comment.author.nickname }}</p>
-                    <p>{{ comment.created_at }}</p>
-                  </div>
-                  <div  v-html="comment.body">
-                  </div>
-                  <hr/>
-                </div>
-              </div>
+              <comment v-for="(comment,key) in comments" :key=key :comment="comment"></comment>
             </div>
           </div>
           <div class="col-md-4  panel panel-default">
@@ -54,6 +43,7 @@
   import request, { setAccessToken } from '../../api/requests'
   import editor from '@/components/editor'
   import { getCookie } from "../../util";
+  import comment from './comment'
 
   export default {
       components:{

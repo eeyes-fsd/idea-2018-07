@@ -11,23 +11,22 @@
     const CHANGED = 2;
     var EDITOR = null;
     export default {
-        name: "editor",
-        props: {
-            value: {
-                type: String,
-                required: true
-            },
-            setting: {}
+      name: "editor",
+      props: {
+        value: {
+          type: String,
+          required: true
         },
-        watch: {
-            value: function (val) {
-                console.log('init ' + val)
-                if (this.status == INIT || tinymce.activeEditor.getContent() != val){
-                    tinymce.activeEditor.setContent(val);
-                }
-                this.status = CHANGED
-            }
-        },
+          setting: {}
+      },
+      watch: {
+        value: function (val) {
+        if (this.status == INIT || tinymce.activeEditor.getContent() != val){
+          tinymce.activeEditor.setContent(val);
+          }
+          this.status = CHANGED
+        }
+      },
         data: function () {
             return {
                 status: INIT,

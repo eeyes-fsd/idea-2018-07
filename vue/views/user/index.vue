@@ -6,7 +6,7 @@
         <p class="text-center">{{ user.NetID }}</p>
       </div>
       <div class="row">
-        <UserInfo class="col-md-3 panel panel-default" :user="user"></UserInfo>
+        <UserInfo class="col-md-3 panel panel-default" :user="user" :ifMe="ifMe"></UserInfo>
         <div class="col-md-8  col-md-offset-1  panel panel-default userPanel">
           <div class="row">
             <h3>个人中心</h3>
@@ -28,18 +28,17 @@
 
 <script>
 import requests, { setAccessToken } from '@/api/requests.js'
-import { getCookie } from '../../util'
+import { getCookie } from "../../util"
 import UserInfo from './UserInfo'
-
 export default {
-  name: 'User',
+  name: "User",
   data() {
     return {
       user: {},
       ifMe: false
     }
   },
-  components: {
+  components:{
     UserInfo
   },
   methods:{
@@ -61,7 +60,7 @@ export default {
       let netId = JSON.parse(getCookie('userInfo')).id
       let pageId = parseInt(this.$route.params.id)
       this.ifMe = netId===pageId
-    }
+    },
   },
   mounted (){
     this.getInfo()

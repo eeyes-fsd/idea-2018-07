@@ -79824,152 +79824,16 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* 头像部分 */\n.head-top[data-v-9e93ad5a]{\n  padding: 36px;\n  background-color: #fff;\n  margin-bottom: 12px;\n}\n.userPanel[data-v-9e93ad5a]{\n}\n/* 个人信息模块 */\n.tabMenu[data-v-9e93ad5a]{\n  display: block;\n  float:left;\n  width: 33%;\n  text-align:center;\n  padding-bottom: 6px;\n}\n.tabMenu>a[data-v-9e93ad5a]{\n  text-decoration:none;\n  color: #636b6f;\n}\n.active[data-v-9e93ad5a]{\n  border-bottom: #000 solid 2px;\n}\n/* 个人中心 */\n.userPanel>div[data-v-9e93ad5a]{\n  padding-left: 15px;\n}\n.content[data-v-9e93ad5a]{\n  margin-top: 20px;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* 头像部分 */\n.head-top[data-v-9e93ad5a]{\n  padding: 36px;\n  background-color: #fff;\n  margin-bottom: 12px;\n}\n.userPanel[data-v-9e93ad5a]{\n}\n/* 个人信息模块 */\n.tabMenu[data-v-9e93ad5a]{\n  display: block;\n  float:left;\n  width: 33%;\n  text-align:center;\n  padding-bottom: 6px;\n}\n.tabMenu>a[data-v-9e93ad5a]{\n  text-decoration:none;\n  color: #636b6f;\n}\n.active[data-v-9e93ad5a]{\n  border-bottom: #000 solid 2px;\n}\n/* 个人中心 */\n.userPanel>div[data-v-9e93ad5a]{\n  padding-left: 15px;\n}\n.content[data-v-9e93ad5a]{\n  margin-top: 20px;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
 /* 109 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_requests_js__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(6);
-
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "User",
-  data: function data() {
-    return {
-      user: {},
-      ifMe: false
-    };
-  },
-
-  methods: {
-    getInfo: function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var data, _data;
-
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.prev = 0;
-
-                if (!this.ifMe) {
-                  _context.next = 8;
-                  break;
-                }
-
-                _context.next = 4;
-                return __WEBPACK_IMPORTED_MODULE_1__api_requests_js__["a" /* default */].get('/user');
-
-              case 4:
-                data = _context.sent;
-
-                this.user = data;
-                _context.next = 12;
-                break;
-
-              case 8:
-                _context.next = 10;
-                return __WEBPACK_IMPORTED_MODULE_1__api_requests_js__["a" /* default */].get('users/' + this.$route.params.id);
-
-              case 10:
-                _data = _context.sent;
-
-                this.user = _data;
-
-              case 12:
-                _context.next = 18;
-                break;
-
-              case 14:
-                _context.prev = 14;
-                _context.t0 = _context["catch"](0);
-
-                console.log(_context.t0);
-                this.errorMessage = _context.t0.message || '未知错误';
-
-              case 18:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this, [[0, 14]]);
-      }));
-
-      function getInfo() {
-        return _ref.apply(this, arguments);
-      }
-
-      return getInfo;
-    }(),
-    checkMe: function checkMe() {
-      //判断访问的是否是自己的主页
-      var netId = JSON.parse(Object(__WEBPACK_IMPORTED_MODULE_2__util__["b" /* getCookie */])('userInfo')).id;
-      var pageId = parseInt(this.$route.params.id);
-      this.ifMe = netId === pageId;
-    }
-  },
-  mounted: function mounted() {
-    this.getInfo();
-    this.checkMe();
-  }
-});
+throw new Error("Module build failed: SyntaxError: D:/Workplace/eeyes/idea/idea-2018-07/vue/views/user/index.vue: Unexpected token (30:0)\n\n\u001b[0m \u001b[90m 28 | \u001b[39m\u001b[90m//\u001b[39m\n \u001b[90m 29 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m    | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 31 | \u001b[39m  \u001b[36mimport\u001b[39m requests\u001b[33m,\u001b[39m { setAccessToken } from \u001b[32m'@/api/requests.js'\u001b[39m\n \u001b[90m 32 | \u001b[39m  \u001b[36mimport\u001b[39m { getCookie } from \u001b[32m\"../../util\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 33 | \u001b[39m  \u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m {\u001b[0m\n");
 
 /***/ }),
 /* 110 */
@@ -79993,137 +79857,107 @@ var render = function() {
       _c("p", { staticClass: "text-center" }, [_vm._v(_vm._s(_vm.user.NetID))])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-3 panel panel-default userInfo" }, [
-        _vm._m(0),
+    _c(
+      "div",
+      { staticClass: "row" },
+      [
+        _c("UserInfo", {
+          staticClass: "col-md-3 panel panel-default",
+          attrs: { user: _vm.user }
+        }),
         _vm._v(" "),
-        _c("hr"),
-        _vm._v(" "),
-        _c("div", [
-          _c("h4", [_vm._v("基本信息")]),
-          _vm._v(" "),
-          _c("p", [_vm._v("昵称：" + _vm._s(_vm.user.nickname))]),
-          _vm._v(" "),
-          _c("p", [_vm._v("个性签名:" + _vm._s(_vm.user.signature))]),
-          _vm._v(" "),
-          _c("h4", [_vm._v("联系方式")]),
-          _vm._v(" "),
-          _vm.user.phone_visibility
-            ? _c("p", [_vm._v("手机：" + _vm._s(_vm.user.phone))])
-            : _c("p", [_vm._v("手机：保密")]),
-          _vm._v(" "),
-          _vm.user.email_visibility
-            ? _c("p", [_vm._v("邮箱：" + _vm._s(_vm.user.email))])
-            : _c("p", [_vm._v("邮箱：保密")]),
-          _vm._v(" "),
-          _vm.user.qq_visibility
-            ? _c("p", [_vm._v("QQ：" + _vm._s(_vm.user.qq))])
-            : _c("p", [_vm._v("QQ：保密")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "col-md-8  col-md-offset-1  panel panel-default userPanel"
-        },
-        [
-          _c("div", { staticClass: "row" }, [
-            _c("h3", [_vm._v("个人中心")]),
+        _c(
+          "div",
+          {
+            staticClass:
+              "col-md-8  col-md-offset-1  panel panel-default userPanel"
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("h3", [_vm._v("个人中心")]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("ul", { staticClass: "list-inline" }, [
+                _c(
+                  "li",
+                  { staticClass: "tabMenu" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: "/user/" + this.$route.params.id + "/article"
+                        }
+                      },
+                      [
+                        _vm.ifMe
+                          ? _c("span", [_vm._v("我的发布")])
+                          : _c("span", [_vm._v("他的发布")])
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "tabMenu" },
+                  [
+                    _vm.ifMe
+                      ? _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to: "/user/" + this.$route.params.id + "/message"
+                            }
+                          },
+                          [_vm._v("消息通知")]
+                        )
+                      : _vm._e()
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "tabMenu" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: "/user/" + this.$route.params.id + "/favourite"
+                        }
+                      },
+                      [
+                        _vm.ifMe
+                          ? _c("span", [_vm._v("我的收藏")])
+                          : _c("span", [_vm._v("他的收藏")])
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ])
+            ]),
             _vm._v(" "),
             _c("hr"),
             _vm._v(" "),
-            _c("ul", { staticClass: "list-inline" }, [
-              _c(
-                "li",
-                { staticClass: "tabMenu" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      attrs: {
-                        to: "/user/" + this.$route.params.id + "/article"
-                      }
-                    },
-                    [
-                      _vm.ifMe
-                        ? _c("span", [_vm._v("我的发布")])
-                        : _c("span", [_vm._v("他的发布")])
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "tabMenu" },
-                [
-                  _vm.ifMe
-                    ? _c(
-                        "router-link",
-                        {
-                          attrs: {
-                            to: "/user/" + this.$route.params.id + "/message"
-                          }
-                        },
-                        [_vm._v("消息通知")]
-                      )
-                    : _vm._e()
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "tabMenu" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      attrs: {
-                        to: "/user/" + this.$route.params.id + "/favourite"
-                      }
-                    },
-                    [
-                      _vm.ifMe
-                        ? _c("span", [_vm._v("我的收藏")])
-                        : _c("span", [_vm._v("他的收藏")])
-                    ]
-                  )
-                ],
-                1
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "row content" },
-            [_c("router-view", { attrs: { ifMe: this.ifMe } })],
-            1
-          )
-        ]
-      )
-    ])
+            _c(
+              "div",
+              { staticClass: "row content" },
+              [_c("router-view", { attrs: { ifMe: this.ifMe } })],
+              1
+            )
+          ]
+        )
+      ],
+      1
+    )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h3", [
-      _vm._v("个人信息 "),
-      _c("button", { staticClass: "btn btn-default pull-right" }, [
-        _vm._v("编辑")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

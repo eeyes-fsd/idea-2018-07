@@ -3,16 +3,7 @@
     <div class="logo">
       <img src="" alt="logo" class="logo">
     </div>
-    <ul class="links flex-row">
-      <li>
-        <router-link to="/">首页</router-link>
-        <router-link to="/">干货</router-link>
-        <router-link to="/">项目</router-link>
-        <router-link to="/">资源</router-link>
-        <router-link to="/">奇思妙想</router-link>
-        <router-link to="/">其他</router-link>
-      </li>
-    </ul>
+    <NavMenu :categories="categories"></NavMenu>
     <div class="search_box">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="文章/用户/组织" v-model="searchCon">
@@ -36,6 +27,7 @@
 import { mapState, mapMutations } from 'vuex'
 import requests, { getLoginType, setAccessToken } from '@/api/requests.js'
 import { getCookie, delCookie, autoRefreshToken } from '../util'
+import NavMenu from './NavMenu'
 
 export default {
   name: 'TopNav',
@@ -48,6 +40,9 @@ export default {
       },
       searchCon: '',
     }
+  },
+  components: {
+    NavMenu
   },
   methods: {
     ...mapMutations({

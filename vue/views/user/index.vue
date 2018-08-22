@@ -27,40 +27,40 @@
 </template>
 
 <script>
-  import requests, { setAccessToken } from '@/api/requests.js'
-  import { getCookie } from "../../util"
-  import UserInfo from './UserInfo'
-  export default {
-    name: "User",
-    data() {
-      return {
-        user: {},
-        ifMe: false
+import requests, { setAccessToken } from '@/api/requests.js'
+import { getCookie } from "../../util"
+import UserInfo from './UserInfo'
+export default {
+  name: "User",
+  data() {
+    return {
+      user: {},
+      ifMe: false
+    }
+  },
+  components:{
+    UserInfo
+  },
+  methods:{
+    async getInfo() {
+      try {
+        if(this.ifMe){
+          let data = await requests.get('/user')
+          this.user = data
+        }else{
+          let data = await requests.get('users/'+this.$route.params.id)
+          this.user = data
+        }
+      } catch (err) {
+        console.log(err)
+        this.errorMessage = err.message || '未知错误'
       }
     },
-    components:{
-      UserInfo
+    checkMe() { //判断访问的是否是自己的主页
+      let netId = JSON.parse(getCookie('userInfo')).id
+      let pageId = parseInt(this.$route.params.id)
+      this.ifMe = netId===pageId
     },
-    methods:{
-      async getInfo() {
-        try {
-          if(this.ifMe){
-            let data = await requests.get('/user')
-            this.user = data
-          }else{
-            let data = await requests.get('users/'+this.$route.params.id)
-            this.user = data
-          }
-        } catch (err) {
-          console.log(err)
-          this.errorMessage = err.message || '未知错误'
-        }
-      },
-      checkMe() { //判断访问的是否是自己的主页
-        let netId = JSON.parse(getCookie('userInfo')).id
-        let pageId = parseInt(this.$route.params.id)
-        this.ifMe = netId===pageId
-      },
   },
   mounted (){
     this.getInfo()

@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <img :src="img.back" alt="" class="img-responsive">
+    <router-view></router-view>
   </div>
 </template>
 

@@ -35,14 +35,15 @@ class OrganizationsController extends Controller
 
     public function store(OrganizationRequest $request)
     {
-        $origanization = Organization::create([
+        $organization = Organization::create([
             'username' => $request->username,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'avatar' => config('app.url') . '/storage/images/default_avatar.jpg',
         ]);
 
         $transformer = new OrganizationTransformer();
-        return $this->success(201,"社团用户创建成功，请联系管理员审核",$transformer->transform($origanization));
+        return $this->success(201,"社团用户创建成功，请联系管理员审核",$transformer->transform($organization));
     }
 
     /**

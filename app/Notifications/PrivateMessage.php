@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class PrivateMassage extends Notification
+class PrivateMessage extends Notification
 {
     use Queueable;
 
@@ -26,7 +26,7 @@ class PrivateMassage extends Notification
      */
     protected $body;
     /**
-     * PrivateMassage constructor.
+     * PrivateMessage constructor.
      * @param $body string
      */
     public function __construct($body)

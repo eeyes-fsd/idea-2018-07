@@ -16,9 +16,9 @@
                 登录后才可以评论
               </div>
               <div>
-                <div v-for="comment in comments" >
+                <div v-for="(comment,key) in comments" :key=key>
                   <div>
-                    <img :src="comment.author.anatar" alt="head">
+                    <img :src="comment.author.avatar" alt="head">
                     <p>{{ comment.author.nickname }}</p>
                     <p>{{ comment.created_at }}</p>
                   </div>
@@ -34,8 +34,9 @@
             <p>{{ author.nickname }}</p>
             <p>{{ author.signature }}</p>
             <p>
-              <span class="glyphicon glyphicon-eye-open">&emsp;{{ article.view_count }}&emsp;&emsp;</span>
-              <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">&emsp;{{ article.like_count }}</span>
+              <span class="glyphicon glyphicon-eye-open" >&emsp;{{ article.view_count }}&emsp;&emsp;</span>
+              <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" @click="likeIt()">&emsp;{{ article.like_count }}&emsp;&emsp;</span>
+              <span class="glyphicon glyphicon-heart" aria-hidden="true" @click="collectIt()">&emsp;</span>
             </p>
             <p>{{ article.created_at }}</p>
           </div>
@@ -57,6 +58,7 @@
       data (){
           return {
             article: {},
+            articleId: -1,
             author: {},
             //tinymce的配置信息
             editorSetting:{
@@ -71,6 +73,7 @@
           try {
             let data = await request.get('/articles/'+ this.$route.params.id)
             this.article = data
+            this.articleId = data.id
             this.author = data.author
           }catch (e) {
             console.log(e || 'unknown mistake')
@@ -79,7 +82,7 @@
         async getComments(){
           try {
             let data = await request.get('/replies?article_id='+this.$route.params.id)
-            this.comments = data
+            this.comments = data.replies
           }catch (e) {
             console.log(e || 'unknown mistake' )
           }
@@ -93,6 +96,30 @@
             let data = await request.post('/replies', { article_id: this.$route.params.id, body: this.content})
             location.reload()
           } catch (err) {
+            console.log(this.errorMessage = err.message || '未知错误')
+          }
+        },
+        async likeIt () {
+          try{
+            let data = await request.post('/likes',{ article_id : this.articleId })
+            if (data[0]==='点赞成功'){
+              this.article.like_count++
+            }else if(data[0]==='取消点赞成功') {
+              this.article.like_count--
+            }
+          }catch (e) {
+            console.log(this.errorMessage = err.message || '未知错误')
+          }
+        },
+        async collectIt () {
+          try{
+            let data = await request.post('/favorites',{ article_id : this.articleId })
+            if (data[0]==='收藏成功'){
+              alert(/收藏成功/)
+            }else if(data[0]==='取消收藏成功') {
+              alert(/取消收藏成功/)
+            }
+          }catch (e) {
             console.log(this.errorMessage = err.message || '未知错误')
           }
         }

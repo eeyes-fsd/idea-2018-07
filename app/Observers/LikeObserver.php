@@ -49,7 +49,7 @@ class LikeObserver
         } elseif ($like->reply_id) {
             $like->reply->author->notify(new ReplyLiked($like));
 
-            $notifications = $like->article->author->getNotifications(['type'=>'reply_liked'])->take($threshold)->get();
+            $notifications = $like->reply->author->getNotifications(['type'=>'reply_liked'])->take($threshold)->get();
             foreach ($notifications as $notification) {
                 if ($notification->data['like_id'] == $like->id) {
                     $like->notification_id = $notification->id;
@@ -69,7 +69,9 @@ class LikeObserver
         } elseif ($like->reply_id) {
             $like->reply->decrement('like_count',1);
         }
-        DB::table('notifications')->where('id', $like->notification_id)->delete();
+        if ($like->notification_id) {
+            DB::table('notifications')->where('id', $like->notification_id)->delete();
+        }
     }
 
 }

@@ -83,6 +83,7 @@ class AuthorizationsController extends Controller
                     'email' => $data['email'],
                     'phone' => $data['mobile'],
                     'password' => '*',
+                    'avatar' => config('app.url') . '/storage/images/default_avatar.jpg',
                 ]);
             }
 

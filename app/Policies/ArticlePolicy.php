@@ -18,11 +18,11 @@ class ArticlePolicy extends Policy
 
     public function update($user, Article $article)
     {
-        return $article->author === $user;
+        return $this->isUserEqual($user,$article->author);
     }
 
     public function delete($user, Article $article)
     {
-        return $article->author === $user;
+        return $this->isUserEqual($article->author,$user);
     }
 }

@@ -17,6 +17,6 @@ class FavoritePolicy extends Policy
 
     public function delete($user, Favorite $favorite)
     {
-        return $favorite->author === $user;
+        return $this->isUserEqual($user,$favorite->author);
     }
 }

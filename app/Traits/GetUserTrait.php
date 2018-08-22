@@ -2,6 +2,8 @@
 
 namespace App\Traits;
 
+use App\Models\Organization;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 trait GetUserTrait
@@ -14,6 +16,17 @@ trait GetUserTrait
             return Auth::guard('api_organization')->user();
         } else {
             return null;
+        }
+    }
+
+    public function isUserEqual($user1, $user2)
+    {
+        if ($user1 instanceof User && $user2 instanceof User) {
+            return $user1->username === $user2->username;
+        } elseif ($user1 instanceof Organization && $user2 instanceof Organization) {
+            return $user1->email === $user2->email;
+        } else {
+            return false;
         }
     }
 }

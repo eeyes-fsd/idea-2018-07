@@ -13,6 +13,14 @@
         <router-link to="/">其他</router-link>
       </li>
     </ul>
+    <div class="search_box">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="文章/用户/组织" v-model="searchCon">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" @click="search()">搜索</button>
+        </span>
+      </div>
+    </div>
     <div class="welcome" v-if="!ifLogin">
       <p>欢迎访问创意工坊，请先<a href="javascript:;" @click="userLogin">登录</a></p>
     </div>
@@ -37,7 +45,8 @@ export default {
       org: {
         email: '',
         password: ''
-      }
+      },
+      searchCon: '',
     }
   },
   methods: {
@@ -74,6 +83,9 @@ export default {
           console.log(err || 'unknown mistake')
         }
       }
+    },
+    async search () {
+      this.$router.push({ name: 'search', query: { key : this.searchCon } })
     },
     logout () {
       delCookie('access_token')
@@ -115,6 +127,9 @@ li {
   background: #fff;
   box-shadow: 0 2px 2px #aaa;
   z-index: 1;
+}
+.search_box{
+  width: 20%;
 }
 .links {
   flex-grow: 1;

@@ -8,7 +8,7 @@ use App\Http\Requests\StorePrivateMessageRequest;
 use App\Models\Organization;
 use App\Models\Reply;
 use App\Models\User;
-use App\Notifications\PrivateMassage;
+use App\Notifications\PrivateMessage;
 use App\Serializers\CustomSerializer;
 use App\Transformers\NotificationTransformer;
 use Illuminate\Http\Request;
@@ -52,9 +52,9 @@ class NotificationsController extends Controller
         } elseif ($request->user_type === 'organization') {
             $user = Organization::findOrFail($request->user_id);
         } elseif ($request->user_type === 'all') {
-            //todo permissions ,use this function as broadcasting?
+            //todo permissions ,use this function as broadcasting? leave it for next edition
         }
-        $user->notify(new PrivateMassage($request->body));
+        $user->notify(new PrivateMessage($request->body));
         return $this->success(200,'站内信发送成功',['站内信发送成功']);
     }
 
@@ -64,9 +64,15 @@ class NotificationsController extends Controller
     }
 
 
-    public function destroy()
+    public function destroy($id)
     {
-
+        $notification = $this->getUserOrActiveOrganization()->getNotifications(['id',$id])->first();
+        if (!$notification) {
+            return $this->error(404,'未找到对应通知');
+        } else {
+            $notification->delete();
+            return $this->success(['删除成功']);
+        }
     }
 
     public function read(Request $request)

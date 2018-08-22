@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import requests, { setAccessToken } from '@/api/requests.js'
+import requests from '@/api/requests.js'
 import { getCookie } from "../../util"
 import UserInfo from './UserInfo'
 import Dialog from '@/components/Dialog'

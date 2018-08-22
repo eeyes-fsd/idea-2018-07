@@ -41,7 +41,7 @@
 
 <script>
   import { mapState, mapMutations } from 'vuex'
-  import request, { setAccessToken } from '../../api/requests'
+  import request from '../../api/requests'
   import editor from '@/components/editor'
   import { getCookie } from "../../util";
   import comment from './comment'
@@ -89,7 +89,6 @@
         },
         async toComment(){
           try {
-            setAccessToken(getCookie('access_token'))
             let data = await request.post('/replies', { article_id: this.$route.params.id, body: this.content})
             location.reload()
           } catch (err) {

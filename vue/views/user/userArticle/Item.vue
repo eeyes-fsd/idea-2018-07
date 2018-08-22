@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import requests, { setAccessToken } from '@/api/requests.js'
+import requests from '@/api/requests.js'
 import comment from '@/views/article/comment'
 import Dialog from '@/components/Dialog'
 export default {
@@ -96,7 +96,6 @@ export default {
         if(data != null){
           let data1 = await requests.get('/replies?article_id='+data.article_id)
           this.comments = data1.replies
-          console.log(data1)
         }
       }catch(e) {
         console.log(e || 'unknown miskake')

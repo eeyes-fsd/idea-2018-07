@@ -1,10 +1,6 @@
 import axios from 'axios'
 import { debug, baseUrl } from '@/env'
-import { getCookie } from '@/util/index.js'
-
-var loginType = 'null'
-
-var accessToken = 'null'
+import store from '@/store'
 
 function debugReporter({ debug }) {
   let log = console.log // eslint-disable-line
@@ -35,7 +31,8 @@ const _axios = axios.create(config)
 
 _axios.interceptors.request.use(
   function(config) {
-    config.headers['Authorization'] = 'Bearer ' + getCookie('access_token')
+    let accessToken = store.getters.getAccessToken // 从vuex读取AccessToken
+    config.headers['Authorization'] = 'Bearer ' + accessToken
     return config
   },
   function(error) {
@@ -96,22 +93,15 @@ _axios.get = function (url, params) {
 
 export default _axios
 
-export function getAccessToken() {
-  return accessToken
-}
-
-export function setAccessToken(token) {
-  accessToken = token
-}
 
 export function setReporter(r) {
   reporter = r
 }
 
 export function getLoginType() {
-  return loginType
+  return ''
 }
 
 export function setLoginType(type) {
-  loginType = type
+  // loginType = type
 }

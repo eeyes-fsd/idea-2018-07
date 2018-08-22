@@ -9,7 +9,7 @@
 import requests, { getLoginType }from '@/api/requests.js'
 import Example from '@/components/Example'
 import { getCookie, setCookie } from "../../util"
-import {setAccessToken, setLoginType} from "../../api/requests"
+import { setLoginType} from "../../api/requests"
 import { mapMutations } from 'vuex'
 
 export default {
@@ -42,7 +42,6 @@ export default {
       let accessToken = getCookie('access_token')
       if(accessToken != null){
         try {
-          setAccessToken(accessToken)
           let data = await requests.get('/user')
           this.commitLoginToVuex()
           setCookie('userInfo', JSON.stringify(data))

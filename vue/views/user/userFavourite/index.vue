@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import requests, { setAccessToken } from '@/api/requests.js'
+  import requests from '@/api/requests.js'
   import { getCookie } from "../../../util";
   import Item from './Item'
   export default {

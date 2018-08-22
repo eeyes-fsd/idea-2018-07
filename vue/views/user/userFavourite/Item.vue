@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import requests, { setAccessToken } from '@/api/requests.js'
+import requests from '@/api/requests.js'
 import Dialog from '@/components/Dialog'
 export default {
   name: 'Item',

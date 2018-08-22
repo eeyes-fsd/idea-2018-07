@@ -34,7 +34,7 @@
 
 <script>
     import editor from '@/components/editor'
-    import request, { setAccessToken } from '../../api/requests'
+    import request from '../../api/requests'
     import { getCookie } from "../../util";
     export default {
         components: {

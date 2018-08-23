@@ -1,12 +1,16 @@
 <template>
-  <div class="co-message-box" :class="{ 'co-message-box-hidden': !visible }">
-    <div class="alert co-message-box-inner" role="alert" :class="alertClass">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <strong>{{ showedTitle }}</strong>
-      <span>{{ message }}</span>
-    </div>
+  <div
+    class="alert co-message-box"
+    role="alert"
+    :class="[
+      `alert-${type}`,
+      visible ? '' : 'co-message-box-hidden'
+    ]">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>{{ showedTitle }}</strong>
+    <span>{{ message }}</span>
   </div>
 </template>
 
@@ -54,14 +58,6 @@ export default {
     }
   },
   computed: {
-    alertClass () {
-      return {
-        'alert-success': this.type == 'success',
-        'alert-info': this.type == 'info',
-        'alert-warning': this.type == 'warning',
-        'alert-danger': this.type == 'danger',
-      }
-    },
     showedTitle () {
       return this.title || this.type[0].toUpperCase() + this.type.slice(1)
     }
@@ -73,19 +69,17 @@ export default {
 .co-message-box {
   position: fixed;
   top: 0;
-  left: 0;
-  padding-top: .8em;
-  width: 100%;
+  left: 50%;
+  margin: .8em 0 0;
+  display: inline-block;
+  transform: translateX(-50%);
   text-align: center;
   opacity: 1;
   transition: transform .5s, opacity .5s;
+  z-index: 4096;
 }
 .co-message-box-hidden {
   opacity: 0;
   transform: translateY(-100%);
-}
-.co-message-box-inner {
-  margin: 0 auto;
-  display: inline-block;
 }
 </style>

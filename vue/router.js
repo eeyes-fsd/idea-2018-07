@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/home'
 import Search from './views/home/Search'
+import HomeContent from './views/home/HomeContent'
 import OauthCallback from './views/oauthCallback'
 import Publish from './views/publish'
 import Article from './views/article'
@@ -23,8 +24,14 @@ export default new Router({
           path: '/search',
           name: 'search',
           component: Search,
-        }
-      ]
+        },
+        {
+          path: '/category/:id',
+          name: 'category',
+          component: HomeContent
+        },
+      ],
+      redirect: '/category/1'
     },
     {
       path: '/oauth/callback',

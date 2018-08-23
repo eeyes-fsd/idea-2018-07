@@ -1,6 +1,6 @@
 <template>
   <div class="user__info">
-    <h3>个人信息 <button class="btn btn-default pull-right edit-btn" v-if="ifMe" @click="edit()">编辑</button></h3>
+    <h3>个人信息 <button class="btn btn-default pull-right edit-btn" v-if="isMe" @click="edit()">编辑</button></h3>
     <hr>
     <div>
       <h4>基本信息</h4>
@@ -15,6 +15,10 @@
       <p v-else>QQ：保密</p>
     </div>
     <Dialog :visible.sync="editing" @confirm="submit">
+      <div class="form-group">
+        <label class="sr-only" for="inputfile">选择头像</label>
+        <input type="file" id="inputfile" @change="getFile($event)">
+      </div>
       <div class="form-group">
         <label>昵称</label>
         <input v-model="form.nickname" type="text" class="form-control">
@@ -42,16 +46,16 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import requests from '@/api/requests.js'
 import Dialog from '@/components/Dialog'
 import MessageBox from '@/components/MessageBox'
-import { getCookie } from '@/util'
 
 export default {
   name: 'UserInfo',
   props: {
     user: Object,
-    ifMe: Boolean
+    isMe: Boolean
   },
   components: {
     Dialog,
@@ -68,8 +72,9 @@ export default {
         signature: '',
         phone: '',
         email: '',
-        qq: ''
-      }
+        qq: '',
+      },
+      avatar: '',
     }
   },
   methods: {
@@ -83,18 +88,34 @@ export default {
         this.form[key] = userInfo[key]
       }
     },
+    getFile () {
+      this.avatar = event.target.files[0]
+      console.log(this.form)
+    },
     async submit () {
       try {
-        let userInfo = JSON.parse(getCookie('userInfo'))
+        let userInfo = this.userInfo
         let id = userInfo.id
-        await requests.put(`/users/${id}`, this.form)
+        let formData = new FormData()
+        for (let key in this.form) {
+          formData.append(key,this.form[key])
+        }
+        console.log(formData)
+        formData.append('avatar', this.avatar)
+        let data = await requests.put(`/users/${id}`, formData)
         this.editing = false
         this.submitOK = true
+        console.log(data)
       } catch (err) {
         this.errMsg = err.message
         this.error = true
       }
     }
+  },
+  computed: {
+    ...mapState({
+      userInfo: 'userInfo'
+    }),
   }
 }
 </script>

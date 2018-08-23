@@ -17,7 +17,7 @@
           type: String,
           required: true
         },
-          setting: {}
+        setting: {}
       },
       watch: {
         value: function (val) {
@@ -49,7 +49,8 @@
                             _this.$emit('input', content);
                         });
                     },
-                    plugins:[]
+                    plugins:[],
+
                 };
             Object.assign(setting,_this.setting)
             tinymce.init(setting);

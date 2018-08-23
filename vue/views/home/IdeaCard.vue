@@ -1,8 +1,10 @@
 <template>
   <div class="idea-card">
-    <div class="idea-card-cover">
-      <img class="idea-card-cover" :src="imgSrc" :alt="''">
-    </div>
+    <router-link :to="`/article/${id}`">
+      <div class="idea-card-cover">
+        <img class="idea-card-cover" :src="imgSrc" :alt="''">
+      </div>
+    </router-link>
     <div class="idea-card-details">
       <h6 class="idea-card-title one-line one-line-title">{{ title }}</h6>
       <p class="idea-card-author one-line">{{ author }}</p>
@@ -27,7 +29,8 @@ export default {
     author: String,
     datetime: String,
     liked: Number,
-    viewed: Number
+    viewed: Number,
+    id: Number,
   },
   computed: {
     date () {

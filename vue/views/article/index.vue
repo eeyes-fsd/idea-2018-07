@@ -1,20 +1,23 @@
 <template>
     <div>
       <ol class="breadcrumb">
-        <li><router-link to="/">{{ article.category.parent_id }}</router-link></li>
-        <li><router-link to="/">{{ article.category.id }}</router-link></li>
-        <li><router-link  to="/">{{ article.title }}</router-link></li>
+        <li><router-link :to="`/category/${article.category.parent_id}`">父</router-link></li>
+        <li><router-link :to="`/category/${article.category.id}`">{{ article.category.name }}</router-link></li>
+        <li><router-link  :to="`/article/${article.id}`">{{ article.title }}</router-link></li>
       </ol>
       <div>
         <div class="row">
           <div class="col-md-7">
-            <div class="article panel panel-default">
+            <div class="panel panel-default">
               <h1>{{ article.title }}</h1>
-              <div v-html="article.body"></div>
+              <div v-html="article.body" class="article"></div>
             </div>
             <div class="reply  panel panel-default">
-              <div v-if="this.ifLogin">
-                <editor class="editor" :value="content"  :setting="editorSetting" @input="(content)=> this.content = content"></editor>
+              <div v-if="this.isLogin">
+                <!-- <editor class="editor" :value="content"  :setting="editorSetting" @input="(content)=> this.content = content"></editor> -->
+                <div>
+                  <tinymce :height="300" v-model="content"/>
+                </div>
                 <button @click="toComment">发表评论</button>
               </div>
               <div v-else>
@@ -41,15 +44,16 @@
 
 <script>
   import { mapState, mapMutations } from 'vuex'
-  import request, { setAccessToken } from '../../api/requests'
+  import request from '../../api/requests'
   import editor from '@/components/editor'
-  import { getCookie } from "../../util";
   import comment from './comment'
+  import tinymce from '@/components/Tinymce'
 
   export default {
       components:{
           editor,
-          comment
+          comment,
+          tinymce,
       },
       name: "Article",
       data (){
@@ -85,11 +89,10 @@
           }
         },
         getLogin(){
-          return this.$store.state.ifLogin
+          return this.$store.state.isLogin
         },
         async toComment(){
           try {
-            setAccessToken(getCookie('access_token'))
             let data = await request.post('/replies', { article_id: this.$route.params.id, body: this.content})
             location.reload()
           } catch (err) {
@@ -127,13 +130,20 @@
       },
       computed: {
         ...mapState({
-        ifLogin: 'ifLogin'
+        isLogin: 'isLogin'
       })
   },
     }
 </script>
 
-<style scoped>
+<style>
+  .wscnph{
+    max-width: 300px;
+  }
+</style>
+
+
+<style scoped lang="scss">
   .author-head{
     width: 50px;
     height: 50px;

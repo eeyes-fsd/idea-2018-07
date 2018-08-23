@@ -3,16 +3,7 @@
     <div class="logo">
       <img src="" alt="logo" class="logo">
     </div>
-    <ul class="links flex-row">
-      <li>
-        <router-link to="/">首页</router-link>
-        <router-link to="/">干货</router-link>
-        <router-link to="/">项目</router-link>
-        <router-link to="/">资源</router-link>
-        <router-link to="/">奇思妙想</router-link>
-        <router-link to="/">其他</router-link>
-      </li>
-    </ul>
+    <NavMenu></NavMenu>
     <div class="search_box">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="文章/用户/组织" v-model="searchCon">
@@ -21,21 +12,27 @@
         </span>
       </div>
     </div>
-    <div class="welcome" v-if="!ifLogin">
+    <div class="welcome" v-if="!isLogin">
       <p>欢迎访问创意工坊，请先<a href="javascript:;" @click="userLogin">登录</a></p>
     </div>
     <div class="actions" v-else>
-      <router-link to="/article">个人中心</router-link>
+      <router-link :to="`/user/${myUserId}/article`">个人中心</router-link>
       <router-link to="/publish">发表文章</router-link>
       <button @click="logout()">退出登录</button>
     </div>
+    <MessageBox
+      :visible.sync="error"
+      title="错误"
+      type="danger"
+      :message="errorMessage"></MessageBox>
   </nav>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
-import requests, { getLoginType, setAccessToken } from '@/api/requests.js'
-import { getCookie, delCookie } from '../util'
+import { mapState, mapMutations, mapActions } from 'vuex'
+import requests from '@/api/requests.js'
+import NavMenu from './NavMenu'
+import MessageBox from './MessageBox'
 
 export default {
   name: 'TopNav',
@@ -47,11 +44,20 @@ export default {
         password: ''
       },
       searchCon: '',
+      error: false,
+      errorMessage: ''
     }
+  },
+  components: {
+    NavMenu,
+    MessageBox
   },
   methods: {
     ...mapMutations({
       commitLoginToVuex: 'login'
+    }),
+    ...mapActions({
+      logout: 'logout'
     }),
     async userLogin () {
       //个人登录
@@ -74,46 +80,20 @@ export default {
         this.errorMessage = err.message || '未知错误'
       }
     },
-    async checkLogin () {
-      let accessToken = getCookie('access_token')
-      if (accessToken != null) {
-        try {
-          setAccessToken(accessToken)
-          let data = await requests.get('/user')
-          this.name = data.name
-          // this.ifLogin = true
-          this.commitLoginToVuex()
-        } catch (err) {
-          console.log(err || 'unknown mistake')
-        }
-      }
-    },
     async search () {
       this.$router.push({ name: 'search', query: { key : this.searchCon } })
     },
-    logout () {
-      delCookie('access_token')
-      delCookie('userInfo')
-      delCookie('laravel_session')
-      location.href = "https://account.eeyes.net/logout"
-    },
   },
-  mounted () {
-    this.checkLogin()
-  },
+
   computed: {
     ...mapState({
-      ifLogin: 'ifLogin'
-    })
-  },
-  watch: {
-    ifLogin () {
-
-      if (this.ifLogin) {
-        this.checkLogin()
-      }
+      isLogin: 'isLogin',
+      userInfo: 'userInfo'
+    }),
+    myUserId () {
+      return this.userInfo.id
     }
-  }
+  },
 }
 </script>
 

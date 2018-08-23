@@ -6,7 +6,7 @@
         <p class="text-center">{{ user.NetID }}</p>
       </div>
       <div class="row">
-        <UserInfo class="col-md-3 panel panel-default" :user="user" :isMe="isMe"></UserInfo>
+        <UserInfo class="col-md-3 panel panel-default" :user="user" :isMe="isMySelf"></UserInfo>
         <div class="col-md-8  col-md-offset-1  panel panel-default userPanel">
           <div class="row">
             <h3>个人中心</h3>
@@ -14,21 +14,21 @@
             <ul class="list-inline">
               <li class="tabMenu">
                 <router-link :to="`/user/'${$route.params.id}/article`"
-                  >{{ isMe ? '我的' : '他的' }}发布</router-link>
+                  >{{ isMySelf ? '我的' : '他的' }}发布</router-link>
               </li>
-              <li class="tabMenu" v-if="isMe">
+              <li class="tabMenu" v-if="isMySelf">
                 <router-link :to="`/user/'${$route.params.id}/message`"
                   >消息通知</router-link>
               </li>
               <li class="tabMenu">
                 <router-link :to="`/user/'${$route.params.id}/favourite`"
-                  >{{ isMe ? '我的' : '他的' }}收藏</router-link>
+                  >{{ isMySelf ? '我的' : '他的' }}收藏</router-link>
               </li>
             </ul>
           </div>
           <hr>
           <div class="row content">
-            <router-view :isMe="this.isMe"></router-view>
+            <router-view :isMe="this.isMySelf"></router-view>
           </div>
         </div>
       </div>
@@ -46,7 +46,6 @@ export default {
   data() {
     return {
       user: {},
-      isMe: false,
       editing: false,
     }
   },
@@ -82,7 +81,7 @@ export default {
     myUserId () {
       return this.userInfo.id
     },
-    isMe () {
+    isMySelf () {
       return this.myUserId == parseInt(this.$route.params.id)
     }
   }

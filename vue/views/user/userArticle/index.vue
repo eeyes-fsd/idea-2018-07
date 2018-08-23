@@ -47,13 +47,11 @@ export default {
     async getMyArticle(page){
       this.currentPage = page
       let id = this.$route.params.id
-      console.log(id)
       let perpage = 3 //每页显示的文章数目
       let url = ''
       if(this.isMe) url = '/articles?per_page='+perpage+'&page='+page
       else url = '/articles?per_page='+perpage+'&page='+page + '&author_id='+id + '&author_type=user'
       try {
-        console.log(url)
         let data =  await requests.get(url)
         this.articles = data.articles
         this.totalPage = Math.ceil(data.pagination.total / perpage)

@@ -8,13 +8,16 @@
       <div>
         <div class="row">
           <div class="col-md-7">
-            <div class="article panel panel-default">
+            <div class="panel panel-default">
               <h1>{{ article.title }}</h1>
-              <div v-html="article.body"></div>
+              <div v-html="article.body" class="article"></div>
             </div>
             <div class="reply  panel panel-default">
               <div v-if="this.isLogin">
-                <editor class="editor" :value="content"  :setting="editorSetting" @input="(content)=> this.content = content"></editor>
+                <!-- <editor class="editor" :value="content"  :setting="editorSetting" @input="(content)=> this.content = content"></editor> -->
+                <div>
+                  <tinymce :height="300" v-model="content"/>
+                </div>
                 <button @click="toComment">发表评论</button>
               </div>
               <div v-else>
@@ -44,11 +47,13 @@
   import request from '../../api/requests'
   import editor from '@/components/editor'
   import comment from './comment'
+  import tinymce from '@/components/Tinymce'
 
   export default {
       components:{
           editor,
-          comment
+          comment,
+          tinymce,
       },
       name: "Article",
       data (){
@@ -131,7 +136,14 @@
     }
 </script>
 
-<style scoped>
+<style>
+  .wscnph{
+    max-width: 300px;
+  }
+</style>
+
+
+<style scoped lang="scss">
   .author-head{
     width: 50px;
     height: 50px;

@@ -1,9 +1,8 @@
 <template>
     <div>
         <h1>发表文章页面</h1>
-        <div class="editor-container col-md-6 ">
+        <div class="editor-container col-md-8 ">
           <input type="text" class="input-lg" v-model="title" >
-          <!-- <editor class="editor" :value="content"  :setting="editorSetting" @input="(content)=> this.content = content"></editor> -->
           <div>
             <tinymce :height="300" v-model="content"/>
           </div>
@@ -49,14 +48,7 @@ export default {
     data: function () {
       return {
           content:
-            `<h1 style="text-align: center;">Welcome to the TinyMCE demo!</h1><p style="text-align: center; font-size: 15px;"><img title="TinyMCE Logo" src="//www.tinymce.com/images/glyph-tinymce@2x.png" alt="TinyMCE Logo" width="110" height="97" /><ul>
-            <li>Our <a href="//www.tinymce.com/docs/">documentation</a> is a great resource for learning how to configure TinyMCE.</li><li>Have a specific question? Visit the <a href="https://community.tinymce.com/forum/">Community Forum</a>.</li><li>We also offer enterprise grade support as part of <a href="https://tinymce.com/pricing">TinyMCE premium subscriptions</a>.</li>
-            </ul>`
-          ,
-          //tinymce的配置信息
-          editorSetting:{
-              height:400,
-          },
+            `<h1 style="text-align: center;">欢迎在创意工坊创出你的一片天地！</h1>`,
           title:'',
           body:'',
           kinds:{},

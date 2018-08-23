@@ -13,11 +13,9 @@
         :viewed="item.view_count">
       </IdeaCard>
     </div>
-    <div class="pagination">
-      这是临时分页器
-      <input type="text" v-model="page">
-      <button @click="loadContent()">跳转</button>
-    </div>
+    <Pagination
+      :pagination="pagination"
+      @change="change"></Pagination>
     <div class="loading-cover" v-show="loading">
       <p>加载中</p>
     </div>
@@ -27,15 +25,18 @@
 <script>
 import requests from '@/api/requests'
 import IdeaCard from './IdeaCard'
+import Pagination from '@/components/Pagination'
 
 export default {
   name: 'HomeContent',
   components: {
-    IdeaCard
+    IdeaCard,
+    Pagination
   },
   data () {
     return {
       articles: [],
+      pagination: {},
       loading: false,
       page: 1
     }
@@ -47,8 +48,13 @@ export default {
     async loadContent() {
       this.loading = true
       let data = await requests.get(`/articles?category_id=${this.categoryId}&page=${this.page}`)
+      this.pagination = data.pagination
       this.articles = data.articles
       this.loading = false
+    },
+    change (targetPage) {
+      this.page = targetPage
+      this.loadContent()
     }
   },
   watch: {
@@ -73,5 +79,8 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  .article {
+    margin: 14px;
+  }
 }
 </style>

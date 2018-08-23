@@ -1,9 +1,11 @@
 <template>
     <div>
         <h1>发表文章页面</h1>
-        <div class="editor-container col-md-6 ">
+        <div class="editor-container col-md-8 ">
           <input type="text" class="input-lg" v-model="title" >
-          <editor class="editor" :value="content"  :setting="editorSetting" @input="(content)=> this.content = content"></editor>
+          <div>
+            <tinymce :height="300" v-model="content"/>
+          </div>
         </div>
         <div class="col-md-4">
           <div>
@@ -35,19 +37,18 @@
 <script>
 import editor from '@/components/editor'
 import request from '../../api/requests'
+import tinymce from '@/components/Tinymce'
 
 export default {
     components: {
-        'editor': editor
+      editor,
+      tinymce
     },
     name: "Publish",
     data: function () {
       return {
-          content:'你好，在这里写下文章内容',
-          //tinymce的配置信息
-          editorSetting:{
-              height:400,
-          },
+          content:
+            `<h1 style="text-align: center;">欢迎在创意工坊创出你的一片天地！</h1>`,
           title:'',
           body:'',
           kinds:{},

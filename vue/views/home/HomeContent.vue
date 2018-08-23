@@ -7,6 +7,7 @@
         class="article"
         img-src=""
         :title="item.title"
+        :id="item.id"
         :author="item.author.nickname"
         :datetime="item.created_at"
         :liked="item.like_count"

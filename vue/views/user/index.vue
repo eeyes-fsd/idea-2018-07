@@ -13,15 +13,15 @@
             <hr>
             <ul class="list-inline">
               <li class="tabMenu">
-                <router-link :to="`/user/'${$route.params.id}/article`"
+                <router-link :to="`/user/${$route.params.id}/article`"
                   >{{ isMySelf ? '我的' : '他的' }}发布</router-link>
               </li>
               <li class="tabMenu" v-if="isMySelf">
-                <router-link :to="`/user/'${$route.params.id}/message`"
+                <router-link :to="`/user/${$route.params.id}/message`"
                   >消息通知</router-link>
               </li>
               <li class="tabMenu">
-                <router-link :to="`/user/'${$route.params.id}/favourite`"
+                <router-link :to="`/user/${$route.params.id}/favourite`"
                   >{{ isMySelf ? '我的' : '他的' }}收藏</router-link>
               </li>
             </ul>

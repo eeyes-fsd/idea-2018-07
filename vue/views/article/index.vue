@@ -1,9 +1,9 @@
 <template>
     <div>
       <ol class="breadcrumb">
-        <li><router-link to="/">{{ article.category.parent_id }}</router-link></li>
-        <li><router-link to="/">{{ article.category.id }}</router-link></li>
-        <li><router-link  to="/">{{ article.title }}</router-link></li>
+        <li><router-link :to="`/category/${article.category.parent_id}`">父</router-link></li>
+        <li><router-link :to="`/category/${article.category.id}`">{{ article.category.name }}</router-link></li>
+        <li><router-link  :to="`/article/${article.id}`">{{ article.title }}</router-link></li>
       </ol>
       <div>
         <div class="row">

@@ -108,6 +108,13 @@ export default {
 }
 </script>
 
+<style>
+  .article-content img{
+    max-width: 300px;
+  }
+</style>
+
+
 <style scope lang="scss">
   .article-head{
     width: 60px;

@@ -30,7 +30,8 @@ export default new Router({
           name: 'category',
           component: HomeContent
         },
-      ]
+      ],
+      redirect: '/category/1'
     },
     {
       path: '/oauth/callback',

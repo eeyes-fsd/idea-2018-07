@@ -40925,7 +40925,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -40941,6 +40941,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_editor__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_editor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_editor__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_requests__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Tinymce__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Tinymce___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_Tinymce__);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -40979,18 +40981,24 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    'editor': __WEBPACK_IMPORTED_MODULE_1__components_editor___default.a
+    editor: __WEBPACK_IMPORTED_MODULE_1__components_editor___default.a,
+    tinymce: __WEBPACK_IMPORTED_MODULE_3__components_Tinymce___default.a
   },
   name: "Publish",
   data: function data() {
     return {
-      content: '你好，在这里写下文章内容',
+      content: '<h1 style="text-align: center;">Welcome to the TinyMCE demo!</h1><p style="text-align: center; font-size: 15px;"><img title="TinyMCE Logo" src="//www.tinymce.com/images/glyph-tinymce@2x.png" alt="TinyMCE Logo" width="110" height="97" /><ul>\n            <li>Our <a href="//www.tinymce.com/docs/">documentation</a> is a great resource for learning how to configure TinyMCE.</li><li>Have a specific question? Visit the <a href="https://community.tinymce.com/forum/">Community Forum</a>.</li><li>We also offer enterprise grade support as part of <a href="https://tinymce.com/pricing">TinyMCE premium subscriptions</a>.</li>\n            </ul>',
+
       //tinymce的配置信息
       editorSetting: {
         height: 400
@@ -80321,51 +80329,52 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
-  var this$1 = this
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("h1", [_vm._v("发表文章页面")]),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "editor-container col-md-6 " },
-      [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.title,
-              expression: "title"
-            }
-          ],
-          staticClass: "input-lg",
-          attrs: { type: "text" },
-          domProps: { value: _vm.title },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.title = $event.target.value
-            }
+    _c("div", { staticClass: "editor-container col-md-6 " }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.title,
+            expression: "title"
           }
-        }),
-        _vm._v(" "),
-        _c("editor", {
-          staticClass: "editor",
-          attrs: { value: _vm.content, setting: _vm.editorSetting },
-          on: {
-            input: function(content) {
-              return (this$1.content = content)
+        ],
+        staticClass: "input-lg",
+        attrs: { type: "text" },
+        domProps: { value: _vm.title },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
             }
+            _vm.title = $event.target.value
           }
-        })
-      ],
-      1
-    ),
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("tinymce", {
+            attrs: { height: 300 },
+            model: {
+              value: _vm.content,
+              callback: function($$v) {
+                _vm.content = $$v
+              },
+              expression: "content"
+            }
+          })
+        ],
+        1
+      )
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "col-md-4" }, [
       _c("div", [
@@ -84550,6 +84559,675 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(192)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(194)
+/* template */
+var __vue_template__ = __webpack_require__(202)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-ccfd7efa"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "vue\\components\\Tinymce\\index.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-ccfd7efa", Component.options)
+  } else {
+    hotAPI.reload("data-v-ccfd7efa", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 192 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(193);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("0cf1d270", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ccfd7efa\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ccfd7efa\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 193 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.tinymce-container[data-v-ccfd7efa] {\r\n  position: relative;\n}\n.tinymce-container[data-v-ccfd7efa] .mce-fullscreen {\r\n  z-index: 10000;\n}\n.tinymce-textarea[data-v-ccfd7efa] {\r\n  visibility: hidden;\r\n  z-index: -1;\n}\n.editor-custom-btn-container[data-v-ccfd7efa] {\r\n  position: absolute;\r\n  right: 4px;\r\n  top: 4px;\r\n  /*z-index: 2005;*/\n}\n.fullscreen .editor-custom-btn-container[data-v-ccfd7efa] {\r\n  z-index: 10000;\r\n  position: fixed;\n}\n.editor-upload-btn[data-v-ccfd7efa] {\r\n  display: inline-block;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 194 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_editorImage__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_editorImage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_editorImage__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__plugins__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__toolbar__ = __webpack_require__(201);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Tinymce',
+  components: { editorImage: __WEBPACK_IMPORTED_MODULE_0__components_editorImage___default.a },
+  props: {
+    id: {
+      type: String,
+      default: 'vue-tinymce-' + +new Date()
+    },
+    value: {
+      type: String,
+      default: ''
+    },
+    toolbar: {
+      type: Array,
+      required: false,
+      default: function _default() {
+        return [];
+      }
+    },
+    menubar: {
+      type: String,
+      default: 'file edit insert view format table'
+    },
+    height: {
+      type: Number,
+      required: false,
+      default: 360
+    }
+  },
+  data: function data() {
+    return {
+      hasChange: false,
+      hasInit: false,
+      tinymceId: this.id,
+      fullscreen: false,
+      languageTypeList: {
+        'en': 'en',
+        'zh': 'zh_CN'
+      }
+    };
+  },
+
+  computed: {
+    language: function language() {
+      return this.languageTypeList[this.$store.getters.language];
+    }
+  },
+  watch: {
+    value: function value(val) {
+      var _this2 = this;
+
+      if (!this.hasChange && this.hasInit) {
+        this.$nextTick(function () {
+          return window.tinymce.get(_this2.tinymceId).setContent(val || '');
+        });
+      }
+    },
+    language: function language() {
+      var _this3 = this;
+
+      this.destroyTinymce();
+      this.$nextTick(function () {
+        return _this3.initTinymce();
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.initTinymce();
+  },
+  activated: function activated() {
+    this.initTinymce();
+  },
+  deactivated: function deactivated() {
+    this.destroyTinymce();
+  },
+  destroyed: function destroyed() {
+    this.destroyTinymce();
+  },
+
+  methods: {
+    initTinymce: function initTinymce() {
+      var _this4 = this;
+
+      var _this = this;
+      window.tinymce.init({
+        language: this.language,
+        selector: '#' + this.tinymceId,
+        height: this.height,
+        body_class: 'panel-body ',
+        object_resizing: false,
+        toolbar: this.toolbar.length > 0 ? this.toolbar : __WEBPACK_IMPORTED_MODULE_2__toolbar__["a" /* default */],
+        menubar: this.menubar,
+        plugins: __WEBPACK_IMPORTED_MODULE_1__plugins__["a" /* default */],
+        end_container_on_empty_block: true,
+        powerpaste_word_import: 'clean',
+        code_dialog_height: 450,
+        code_dialog_width: 1000,
+        advlist_bullet_styles: 'square',
+        advlist_number_styles: 'default',
+        imagetools_cors_hosts: ['www.tinymce.com', 'codepen.io'],
+        default_link_target: '_blank',
+        link_title: false,
+        nonbreaking_force_tab: true, // inserting nonbreaking space &nbsp; need Nonbreaking Space Plugin
+        init_instance_callback: function init_instance_callback(editor) {
+          if (_this.value) {
+            editor.setContent(_this.value);
+          }
+          _this.hasInit = true;
+          editor.on('NodeChange Change KeyUp SetContent', function () {
+            _this4.hasChange = true;
+            _this4.$emit('input', editor.getContent());
+          });
+        },
+        setup: function setup(editor) {
+          editor.on('FullscreenStateChanged', function (e) {
+            _this.fullscreen = e.state;
+          });
+        }
+        // 整合七牛上传
+        // images_dataimg_filter(img) {
+        //   setTimeout(() => {
+        //     const $image = $(img);
+        //     $image.removeAttr('width');
+        //     $image.removeAttr('height');
+        //     if ($image[0].height && $image[0].width) {
+        //       $image.attr('data-wscntype', 'image');
+        //       $image.attr('data-wscnh', $image[0].height);
+        //       $image.attr('data-wscnw', $image[0].width);
+        //       $image.addClass('wscnph');
+        //     }
+        //   }, 0);
+        //   return img
+        // },
+        // images_upload_handler(blobInfo, success, failure, progress) {
+        //   progress(0);
+        //   const token = _this.$store.getters.token;
+        //   getToken(token).then(response => {
+        //     const url = response.data.qiniu_url;
+        //     const formData = new FormData();
+        //     formData.append('token', response.data.qiniu_token);
+        //     formData.append('key', response.data.qiniu_key);
+        //     formData.append('file', blobInfo.blob(), url);
+        //     upload(formData).then(() => {
+        //       success(url);
+        //       progress(100);
+        //     })
+        //   }).catch(err => {
+        //     failure('出现未知问题，刷新页面，或者联系程序员')
+        //     console.log(err);
+        //   });
+        // },
+
+      });
+    },
+    destroyTinymce: function destroyTinymce() {
+      if (window.tinymce.get(this.tinymceId)) {
+        window.tinymce.get(this.tinymceId).destroy();
+      }
+    },
+    setContent: function setContent(value) {
+      window.tinymce.get(this.tinymceId).setContent(value);
+    },
+    getContent: function getContent() {
+      window.tinymce.get(this.tinymceId).getContent();
+    },
+    imageSuccessCBK: function imageSuccessCBK(arr) {
+      var _this = this;
+      arr.forEach(function (v) {
+        window.tinymce.get(_this.tinymceId).insertContent('<img class="wscnph" src="' + v.url + '" >');
+      });
+    }
+  }
+});
+
+/***/ }),
+/* 195 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(196)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(198)
+/* template */
+var __vue_template__ = __webpack_require__(199)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-3c54ec72"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "vue\\components\\Tinymce\\components\\editorImage.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3c54ec72", Component.options)
+  } else {
+    hotAPI.reload("data-v-3c54ec72", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 196 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(197);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("fd0b928a", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3c54ec72\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./editorImage.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3c54ec72\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./editorImage.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 197 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.editor-slide-upload[data-v-3c54ec72] {\n  margin-bottom: 20px;\n}\n.editor-slide-upload[data-v-3c54ec72] .el-upload--picture-card {\n    width: 100%;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 198 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+// import { getToken } from 'api/qiniu'
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'EditorSlideUpload',
+  props: {
+    color: {
+      type: String,
+      default: '#1890ff'
+    }
+  },
+  data: function data() {
+    return {
+      dialogVisible: false,
+      listObj: {},
+      fileList: []
+    };
+  },
+
+  methods: {
+    checkAllSuccess: function checkAllSuccess() {
+      var _this = this;
+
+      return Object.keys(this.listObj).every(function (item) {
+        return _this.listObj[item].hasSuccess;
+      });
+    },
+    handleSubmit: function handleSubmit() {
+      var _this2 = this;
+
+      var arr = Object.keys(this.listObj).map(function (v) {
+        return _this2.listObj[v];
+      });
+      if (!this.checkAllSuccess()) {
+        this.$message('请等待所有图片上传成功 或 出现了网络问题，请刷新页面重新上传！');
+        return;
+      }
+      console.log(arr);
+      this.$emit('successCBK', arr);
+      this.listObj = {};
+      this.fileList = [];
+      this.dialogVisible = false;
+    },
+    handleSuccess: function handleSuccess(response, file) {
+      var uid = file.uid;
+      var objKeyArr = Object.keys(this.listObj);
+      for (var i = 0, len = objKeyArr.length; i < len; i++) {
+        if (this.listObj[objKeyArr[i]].uid === uid) {
+          this.listObj[objKeyArr[i]].url = response.files.file;
+          this.listObj[objKeyArr[i]].hasSuccess = true;
+          return;
+        }
+      }
+    },
+    handleRemove: function handleRemove(file) {
+      var uid = file.uid;
+      var objKeyArr = Object.keys(this.listObj);
+      for (var i = 0, len = objKeyArr.length; i < len; i++) {
+        if (this.listObj[objKeyArr[i]].uid === uid) {
+          delete this.listObj[objKeyArr[i]];
+          return;
+        }
+      }
+    },
+    beforeUpload: function beforeUpload(file) {
+      var _self = this;
+      var _URL = window.URL || window.webkitURL;
+      var fileName = file.uid;
+      this.listObj[fileName] = {};
+      return new Promise(function (resolve, reject) {
+        var img = new Image();
+        img.src = _URL.createObjectURL(file);
+        img.onload = function () {
+          _self.listObj[fileName] = { hasSuccess: false, uid: file.uid, width: this.width, height: this.height };
+        };
+        resolve(true);
+      });
+    }
+  }
+});
+
+/***/ }),
+/* 199 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "upload-container" },
+    [
+      _c(
+        "el-button",
+        {
+          style: { background: _vm.color, borderColor: _vm.color },
+          attrs: { icon: "el-icon-upload", size: "mini", type: "primary" },
+          on: {
+            click: function($event) {
+              _vm.dialogVisible = true
+            }
+          }
+        },
+        [_vm._v("上传图片\n  ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "el-dialog",
+        {
+          attrs: { visible: _vm.dialogVisible },
+          on: {
+            "update:visible": function($event) {
+              _vm.dialogVisible = $event
+            }
+          }
+        },
+        [
+          _c(
+            "el-upload",
+            {
+              staticClass: "editor-slide-upload",
+              attrs: {
+                multiple: true,
+                "file-list": _vm.fileList,
+                "show-file-list": true,
+                "on-remove": _vm.handleRemove,
+                "on-success": _vm.handleSuccess,
+                "before-upload": _vm.beforeUpload,
+                action: "https://httpbin.org/post",
+                "list-type": "picture-card"
+              }
+            },
+            [
+              _c("el-button", { attrs: { size: "small", type: "primary" } }, [
+                _vm._v("点击上传")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-button",
+            {
+              on: {
+                click: function($event) {
+                  _vm.dialogVisible = false
+                }
+              }
+            },
+            [_vm._v("取 消")]
+          ),
+          _vm._v(" "),
+          _c(
+            "el-button",
+            { attrs: { type: "primary" }, on: { click: _vm.handleSubmit } },
+            [_vm._v("确 定")]
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3c54ec72", module.exports)
+  }
+}
+
+/***/ }),
+/* 200 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// Any plugins you want to use has to be imported
+// Detail plugins list see https://www.tinymce.com/docs/plugins/
+// Custom builds see https://www.tinymce.com/download/custom-builds/
+
+var plugins = ['advlist anchor autolink autosave code codesample colorpicker colorpicker contextmenu directionality emoticons fullscreen hr image imagetools importcss insertdatetime link lists media nonbreaking noneditable pagebreak paste preview print save searchreplace spellchecker tabfocus table template textcolor textpattern visualblocks visualchars wordcount'];
+
+/* harmony default export */ __webpack_exports__["a"] = (plugins);
+
+/***/ }),
+/* 201 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// Here is a list of the toolbar
+// Detail list see https://www.tinymce.com/docs/advanced/editor-control-identifiers/#toolbarcontrols
+
+var toolbar = ['bold italic underline strikethrough alignleft aligncenter alignright outdent indent  blockquote undo redo removeformat subscript superscript code codesample', 'hr bullist numlist link image charmap preview anchor pagebreak insertdatetime media table emoticons forecolor backcolor fullscreen'];
+
+/* harmony default export */ __webpack_exports__["a"] = (toolbar);
+
+/***/ }),
+/* 202 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "tinymce-container editor-container",
+      class: { fullscreen: _vm.fullscreen }
+    },
+    [
+      _c("textarea", {
+        staticClass: "tinymce-textarea",
+        attrs: { id: _vm.tinymceId }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "editor-custom-btn-container" },
+        [
+          _c("editorImage", {
+            staticClass: "editor-upload-btn",
+            attrs: { color: "#1890ff" },
+            on: { successCBK: _vm.imageSuccessCBK }
+          })
+        ],
+        1
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-ccfd7efa", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

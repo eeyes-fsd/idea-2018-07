@@ -102,10 +102,7 @@ export default {
       }
     }
   },
-  mounted() {
-
-  },
-    computed: {
+  computed: {
     ...mapState({
       isLogin: 'isLogin'
     })

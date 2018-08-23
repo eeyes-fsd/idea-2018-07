@@ -6,6 +6,7 @@ use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use App\Transformers\UserTransformer;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Dingo\Api\Http\Response;
 
@@ -58,7 +59,7 @@ class UsersController extends Controller
         //基本信息更改
         $data = $request->all();
 
-        //头像更改
+        //头像更改  这个保留在这吧，万一以后用呢
         if ($request->avatar) {
             $result = $uploader->save($request->avatar, 'avatar', $user->id);
             if ($result) {
@@ -69,6 +70,22 @@ class UsersController extends Controller
         }
 
         //更新数据
+        $user->update($data);
+        return $this->response->item($user, new UserTransformer());
+    }
+
+    public function updateAvatar(User $user, Request $request,ImageUploadHandler $uploader)
+    {
+        $this->authorizeForUser($this->getUserOrActiveOrganization(),'update',$user);
+        $data = [];
+        if ($request->avatar) {
+            $result = $uploader->save($request->avatar, 'avatar', $user->id);
+            if ($result) {
+                $data['avatar'] = $result['path'];
+                //删除旧头像，避免头像文件堆积
+                $uploader->delete($user->avatar);
+            }
+        }
         $user->update($data);
         return $this->response->item($user, new UserTransformer());
     }

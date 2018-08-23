@@ -58,7 +58,7 @@ class Article extends Model
         {
             throw new RelationNotFoundException();
         }
-        return $this->belongsTo('App\Models\Category','category_id');
+        return $this->belongsTo(Category::class,'category_id');
     }
 
     public function replies()

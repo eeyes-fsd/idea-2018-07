@@ -53,7 +53,7 @@ class ArticleTransformer extends TransformerAbstract
 
     public function includeCategory(Article $article)
     {
-        return $this->item($article->category,new CategoryTransformer());
+        return $this->item($article->category,new CategoryTransformer(['includes' => ['parent']]));
     }
 
     public function includeReplies(Article $article)

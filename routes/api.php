@@ -47,6 +47,10 @@ $api->version('v1', [
         $api->post('organizations/founder/{organization}','RolesController@assignOrganizationFounder');
         $api->post('users/maintainer/{user}','RolesController@assignUserMaintainer');
 
+        $api->post('users/avatar/{user}','UsersController@updateAvatar');
+        $api->post('organizations/avatar/{organization}','OrganizationsController@updateAvatar');
+        $api->post('articles/images/{article}','ArticlesController@uploadImage');
+
         $api->post('favorites','FavoriteController@storeOrDestroy');
         $api->get('favorites','FavoriteController@index');
 

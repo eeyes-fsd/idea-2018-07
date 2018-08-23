@@ -131,7 +131,7 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "cantjie@163.com",
+									"value": "cantjie1@163.com",
 									"type": "text"
 								},
 								{
@@ -351,7 +351,7 @@
 							"urlencoded": [
 								{
 									"key": "username",
-									"value": "袁新杰的社团1",
+									"value": "袁新杰的社团12",
 									"type": "text"
 								},
 								{
@@ -361,7 +361,7 @@
 								},
 								{
 									"key": "email",
-									"value": "cantjie2@163.com",
+									"value": "cantjie1@163.com",
 									"type": "text"
 								},
 								{
@@ -1919,6 +1919,83 @@
 							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0}}"
 						}
 					]
+				},
+				{
+					"name": "修改社团头像",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUwMjY2NTIsImV4cCI6MTUzNTAzMDI1MiwibmJmIjoxNTM1MDI2NjUyLCJqdGkiOiJVUVRYUkpNbUZJc3JVV0dZIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.SbXsno3E7GFF5SDxHgTz9eC9ZPdQbZnCGXeI0Uws7pY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/organizations/avatar/5",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"avatar",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改个人头像",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ5MjQzMTYsImV4cCI6MTUzNDkyNzkxNiwibmJmIjoxNTM0OTI0MzE2LCJqdGkiOiIzWXpGakt6cDNZckZDcmZSIiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.WHfWq51B0p3eCjm8etX1gB3MS87mu5VwoRZerWK1xYo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"value": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/users/avatar/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"avatar",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -1933,7 +2010,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ5MjQzMTYsImV4cCI6MTUzNDkyNzkxNiwibmJmIjoxNTM0OTI0MzE2LCJqdGkiOiIzWXpGakt6cDNZckZDcmZSIiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.WHfWq51B0p3eCjm8etX1gB3MS87mu5VwoRZerWK1xYo",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUwMjY2NTIsImV4cCI6MTUzNTAzMDI1MiwibmJmIjoxNTM1MDI2NjUyLCJqdGkiOiJVUVRYUkpNbUZJc3JVV0dZIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.SbXsno3E7GFF5SDxHgTz9eC9ZPdQbZnCGXeI0Uws7pY",
 									"type": "string"
 								}
 							]
@@ -2095,13 +2172,13 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "{{apihost}}/articles/2",
+							"raw": "{{apihost}}/articles/3",
 							"host": [
 								"{{apihost}}"
 							],
 							"path": [
 								"articles",
-								"2"
+								"3"
 							]
 						}
 					},
@@ -2113,13 +2190,13 @@
 								"header": [],
 								"body": {},
 								"url": {
-									"raw": "{{apihost}}/articles/2",
+									"raw": "{{apihost}}/articles/3",
 									"host": [
 										"{{apihost}}"
 									],
 									"path": [
 										"articles",
-										"2"
+										"3"
 									]
 								}
 							},
@@ -2147,13 +2224,13 @@
 								},
 								{
 									"key": "Date",
-									"value": "Thu, 16 Aug 2018 11:39:57 GMT",
+									"value": "Thu, 23 Aug 2018 12:39:37 GMT",
 									"name": "Date",
 									"description": "The date and time that the message was sent"
 								},
 								{
 									"key": "ETag",
-									"value": "\"80c04b0a722b814cdd9f9541221477bc0a14e6bc\"",
+									"value": "\"de6f73bc00fc32b1713bcabf564b42b5a8cbd727\"",
 									"name": "ETag",
 									"description": "An identifier for a specific version of a resource, often a message digest"
 								},
@@ -2177,7 +2254,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"title\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":0,\"view_count\":0,\"like_count\":0,\"favorite_count\":0,\"reply_count\":0,\"created_at\":\"36\\u5206\\u949f\\u524d\",\"updated_at\":\"36\\u5206\\u949f\\u524d\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1},\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":0}}}"
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":3,\"title\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":1,\"author_type\":\"organization\",\"view_count\":4,\"like_count\":0,\"favorite_count\":0,\"reply_count\":5,\"created_at\":\"2018-08-16 19:07:27\",\"updated_at\":\"2018-08-23 20:38:44\",\"category\":{\"id\":8,\"name\":\"\\u5566\\u5566\\u5566\\u5566\",\"parent_id\":1,\"article_count\":0,\"parent\":{\"id\":1,\"name\":\"\\u5e72\\u8d27\",\"parent_id\":0,\"article_count\":5}}}}"
 						}
 					]
 				},
@@ -2450,6 +2527,44 @@
 							"path": [
 								"articles",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "上传文章所需图片",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUwMjY2NTIsImV4cCI6MTUzNTAzMDI1MiwibmJmIjoxNTM1MDI2NjUyLCJqdGkiOiJVUVRYUkpNbUZJc3JVV0dZIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.SbXsno3E7GFF5SDxHgTz9eC9ZPdQbZnCGXeI0Uws7pY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/articles/images/10",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"articles",
+								"images",
+								"10"
 							]
 						}
 					},

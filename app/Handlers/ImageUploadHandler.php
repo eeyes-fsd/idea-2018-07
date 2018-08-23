@@ -40,8 +40,9 @@ class ImageUploadHandler
 
     public function delete($file)
     {
-
         $file = substr($file,strlen(config('app.url').'/storage')+1);
-        Storage::disk('public')->delete($file);
+        if ($file !== 'images/default_avatar.jpg'){
+            Storage::disk('public')->delete($file);
+        }
     }
 }

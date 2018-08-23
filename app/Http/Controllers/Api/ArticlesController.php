@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Fractal\CustomManager;
+use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\ArticleRequest;
 use App\Http\Requests\ShowArticlesRequest;
 use App\Models\Article;
@@ -104,4 +105,21 @@ class ArticlesController extends Controller
         $article->delete();
         return $this->success('删除成功');
     }
+
+    public function uploadImage(Article $article,Request $request,ImageUploadHandler $uploader)
+    {
+        //todo e曈有个img.eeyes.net?
+        $this->authorizeForUser($this->getUserOrActiveOrganization(), 'update', $article);
+        if ($request->image) {
+            $result = $uploader->save($request->image, 'articles', $article->id);
+            if ($result) {
+                $path = $result['path'];
+
+                return $this->success(['path' => $path]);
+            }
+        }
+
+        return $this->error('图片上传失败');
+    }
+    
 }

@@ -4,6 +4,7 @@ namespace App\Transformers;
 
 use App\Models\Category;
 use League\Fractal\TransformerAbstract;
+use function Sodium\crypto_box_publickey_from_secretkey;
 
 class CategoryTransformer extends TransformerAbstract
 {
@@ -12,10 +13,15 @@ class CategoryTransformer extends TransformerAbstract
 
     public function __construct($parameters = null)
     {
+        if ($parameters === null) {
+            return ;
+        }
+
+        if (array_key_exists('includes',$parameters)) {
+            $includes = array_intersect($this->availableIncludes,$parameters['includes']);
+            $this->defaultIncludes = array_merge($this->defaultIncludes,$includes);
+        }
         //这里提供一种include的思路，不完善。
-//        if (is_array($parameters) && key_exists('include',$parameters)) {
-//            $this->defaultIncludes = $parameters['include'];
-//        }
     }
 
     public function includeParent(Category $category)

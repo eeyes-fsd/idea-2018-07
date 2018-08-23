@@ -6,6 +6,7 @@ use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\OrganizationRequest;
 use App\Models\Organization;
 use App\Transformers\OrganizationTransformer;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class OrganizationsController extends Controller
@@ -83,6 +84,22 @@ class OrganizationsController extends Controller
             throw $e;
         }
 
+        return $this->response->item($organization, new OrganizationTransformer());
+    }
+
+    public function updateAvatar(Organization $organization, Request $request,ImageUploadHandler $uploader)
+    {
+        $this->authorizeForUser($this->getUserOrOrganization(),'update',$organization);
+        $data = [];
+        if ($request->avatar) {
+            $result = $uploader->save($request->avatar, 'org_avatar', $organization->id);
+            if ($result) {
+                $data['avatar'] = $result['path'];
+                //删除旧头像，避免头像文件堆积
+                $uploader->delete($organization->avatar);
+            }
+        }
+        $organization->update($data);
         return $this->response->item($organization, new OrganizationTransformer());
     }
 

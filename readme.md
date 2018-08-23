@@ -43,7 +43,7 @@ npm install
 ```
 
 _以上npm可以替换为yarn_
-请在storage/app/image文件夹下放置一张default_avatar.jpg文件
+请在storage/app/image文件夹下放置一张default_avatar.jpg文件,并将其置为只读
 
 ## 开发
 

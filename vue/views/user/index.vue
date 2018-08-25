@@ -6,8 +6,8 @@
         <p class="text-center">{{ user.NetID }}</p>
       </div>
       <div class="row">
-        <UserInfo class="col-md-3 panel panel-default" :user="user" :isMe="isMySelf"></UserInfo>
-        <div class="col-md-8  col-md-offset-1  panel panel-default userPanel">
+        <UserInfo class="col-md-3 panel panel-default userInfo" :user="user" :isMe="isMySelf"></UserInfo>
+        <div class="col-md-8  panel panel-default userPanel">
           <div class="row">
             <h3>个人中心</h3>
             <hr>
@@ -93,7 +93,8 @@ export default {
   .head-top{
     padding: 36px;
     background-color: #fff;
-    margin-bottom: 12px;
+    margin: 12px -15px;
+    background-image: url('/img/user/userback.jpg');
   }
   /* 个人信息模块 */
   .tabMenu{
@@ -109,6 +110,12 @@ export default {
   }
   .active{
     border-bottom: #000 solid 2px;
+  }
+  .userHead{
+    width: 10em;
+  }
+  .userInfo{
+    margin: 0 12px;
   }
   /* 个人中心 */
   .userPanel>div{

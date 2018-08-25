@@ -61,4 +61,7 @@ export default {
 .app-cover {
   min-height: 600px;
 }
+.container {
+  background-color: #fff;
+}
 </style>

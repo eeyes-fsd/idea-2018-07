@@ -1,8 +1,10 @@
 <template>
   <div>
-    <h2>下面是搜索：<strong>{{ this.$route.query.key }} 的结果</strong></h2>
+    <h2>以下是：<strong>{{ this.$route.query.key }} 的搜索结果</strong></h2>
+    <h5 class="section-title">相关文章</h5>
+    <hr>
     <div v-if="articles===null">
-      未找到相关文章
+      <p class="no-found">未找到相关文章</p>
     </div>
     <div v-else class="search-articles">
       <IdeaCard
@@ -17,8 +19,10 @@
         :viewed="item.view_count">
       </IdeaCard>
     </div>
+    <h5 class="section-title">相关用户</h5>
+    <hr>
     <div v-if="users===null">
-      未找到相关用户
+      <p class="no-found">未找到相关用户</p>
     </div>
     <div v-else>
       <UserDetails
@@ -100,5 +104,15 @@ export default {
   .article {
     margin: 10px;
   }
+}
+.section-title {
+  padding-left: 12px;
+  font-size: 1.4em;
+}
+.section-title + hr {
+  margin: 8px 2px 4px;
+}
+.no-found {
+  padding-left: 12px;
 }
 </style>

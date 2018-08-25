@@ -6,7 +6,9 @@
       </div>
     </router-link>
     <div class="idea-card-details">
-      <h6 class="idea-card-title one-line one-line-title">{{ title }}</h6>
+      <h6 class="idea-card-title one-line one-line-title">
+        <router-link :to="`/article/${id}`">{{ title }}</router-link>
+      </h6>
       <p class="idea-card-author one-line">{{ author }}</p>
       <p class="idea-card-date one-line">{{ date }}</p>
       <hr class="idea-card-hr">
@@ -69,6 +71,9 @@ export default {
   margin: 11px 0;
   font-size: 12px;
   font-weight: bold;
+  a {
+    text-decoration: none;
+  }
 }
 .idea-card-author {
   margin: 0;

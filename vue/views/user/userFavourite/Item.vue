@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="article">
+    <div class="article" v-loading="loading">
       <div class="article-header">
         <img :src="article.author.avatar" alt="头像" class="img-circle pull-left article-head">
         <h4><a :href="'/#/article/'+article.id">{{ article.title }}</a></h4>
@@ -13,8 +13,8 @@
       <div class="article-footer">
         <p>
             <strong>浏览：</strong>{{ article.view_count }}
-            <span class="glyphicon glyphicon-comment pull-right" aria-hidden="true">{{ article.reply_count }}&emsp;</span>
-            <span class="glyphicon glyphicon-thumbs-up pull-right" aria-hidden="true">{{ article.like_count }}&emsp;&emsp;</span>
+            <a href="javascript:;"><span class="glyphicon glyphicon-comment pull-right" aria-hidden="true">{{ article.reply_count }}&emsp;</span></a>
+            <a href="javascript:;"><span class="glyphicon glyphicon-thumbs-up pull-right" aria-hidden="true" :id="article.id" @click="likeArticle()" :class="{ like : article.liked }">{{ article.like_count }}&emsp;&emsp;</span></a>
             <button type="button" @click="tryDislike()" class="btn btn-danger pull-right">取消收藏</button>
         </p>
       </div>
@@ -36,7 +36,8 @@ export default {
   },
   data () {
     return {
-      editing: false
+      editing: false,
+      loading: false,
     }
   },
   components: {
@@ -56,7 +57,25 @@ export default {
       }catch (e) {
         console.log(e || 'unknown mistake')
       }
-    }
+    },
+    async likeArticle() {
+      //点赞文章
+      try {
+        this.loading = true
+        let id = event.currentTarget.getAttribute("id");
+        let data = await requests.post("/likes", { article_id: id });
+        if (data[0] === "点赞成功") {
+          this.article.like_count++;
+          this.article.liked = 1
+        } else if (data[0] === "取消点赞成功") {
+          this.article.liked = 0
+          this.article.like_count--;
+        }
+        this.loading = false
+      } catch (e) {
+        console.log(e || "unknown mistake");
+      }
+    },
   },
 }
 </script>
@@ -92,5 +111,8 @@ export default {
 .article-footer>p>button{
   margin-right: 2em;
   margin-top: -0.7em;
+}
+.like{
+  color: red;
 }
 </style>

@@ -3,11 +3,16 @@
 namespace App\Transformers;
 
 use App\Models\Article;
+use App\Models\Favorite;
+use App\Models\Like;
+use App\Models\User;
+use App\Traits\GetUserTrait;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use League\Fractal\TransformerAbstract;
 
 class ArticleTransformer extends TransformerAbstract
 {
+    use GetUserTrait;
     /**
      * @var array
      */
@@ -18,13 +23,22 @@ class ArticleTransformer extends TransformerAbstract
      */
     protected $availableIncludes = ['replies',];
 
+    protected $infoForCur = false;
+
+    public function __construct($params=[])
+    {
+        if (array_key_exists('info_for_cur',$params)) {
+            $this->infoForCur = $params['info_for_cur'];
+        }
+    }
+    
     /**
      * @param Article $article
      * @return array
      */
     public function transform(Article $article)
     {
-        return [
+        $data = [
             'id' => $article->id,
             'title' => $article->title,
             'body' => $article->body,
@@ -37,6 +51,21 @@ class ArticleTransformer extends TransformerAbstract
             'created_at' => $article->created_at->toDateTimeString(),
             'updated_at' => $article->updated_at->toDateTimeString(),
         ];
+
+        if ($this->infoForCur) {
+            $user = $this->getUserOrActiveOrganization();
+            $user_type = $user instanceof User? 'user' : 'organization';
+            if ($user) {
+                $like_query = Like::where("{$user_type}_id",$user->id)
+                    ->where('article_id',$article->id);
+                $favorite_query = Favorite::where("{$user_type}_id",$user->id)
+                    ->where('article_id',$article->id);
+                $data['liked'] = $like_query->count();
+                $data['favorited'] = $favorite_query->count();
+            }
+        }
+
+        return $data;
     }
 
     public function includeAuthor(Article $article)

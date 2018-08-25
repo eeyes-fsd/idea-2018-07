@@ -57,6 +57,8 @@ $api->version('v1', [
         $api->post('likes','LikeController@storeOrDestroy');
         $api->get('likes','LikeController@index');
 
+        $api->post('curinfo','UsersController@currentInfo');//弃用
+
     });
 
     $api->get('search/users','SearchController@searchUser');

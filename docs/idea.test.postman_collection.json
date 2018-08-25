@@ -1996,6 +1996,229 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "获取文章、评论是否被自己点赞或收藏",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxODM4MjYsImV4cCI6MTUzNTE4NzQyNiwibmJmIjoxNTM1MTgzODI2LCJqdGkiOiJVSGlRb0VjSTAydDc0NkxqIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.OGETytQ4LPDueGUi5rBlqknPSMe4jFtWbtv5O14lAYw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "article_id",
+									"value": "10",
+									"description": "非必需",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "reply_id",
+									"value": "17",
+									"description": "非必需",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/curinfo",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"curinfo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "获取文章、评论是否被自己点赞或收藏",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "article_id",
+											"value": "10",
+											"description": "非必需",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "reply_id",
+											"value": "17",
+											"description": "非必需",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/curinfo",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"curinfo"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Aug 2018 08:00:59 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"7d25f004af9959f508074b0a37d437940b6842f4\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"liked\":1}}"
+						},
+						{
+							"name": "获取文章、评论是否被自己点赞或收藏",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "article_id",
+											"value": "10",
+											"description": "非必需",
+											"type": "text"
+										},
+										{
+											"key": "reply_id",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/curinfo",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"curinfo"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Aug 2018 07:59:41 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"c9bd20e566a44757381b3864674780977610acc9\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"liked\":1,\"favorited\":0}}"
+						}
+					]
 				}
 			]
 		},
@@ -2163,7 +2386,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0MDIxODYsImV4cCI6MTUzNDQyMDc2NiwibmJmIjoxNTM0NDE3MTY2LCJqdGkiOiJqdzVGSVA1bzR2SzNTQ2JYIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5-FUD1ojZPrlI-mASLZ7qmeON9S_YQX3yFN5c5N8Nvs",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxODM4MjYsImV4cCI6MTUzNTE4NzQyNiwibmJmIjoxNTM1MTgzODI2LCJqdGkiOiJVSGlRb0VjSTAydDc0NkxqIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.OGETytQ4LPDueGUi5rBlqknPSMe4jFtWbtv5O14lAYw",
 									"type": "string"
 								}
 							]
@@ -2172,13 +2395,13 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "{{apihost}}/articles/3",
+							"raw": "{{apihost}}/articles/10",
 							"host": [
 								"{{apihost}}"
 							],
 							"path": [
 								"articles",
-								"3"
+								"10"
 							]
 						}
 					},
@@ -2968,6 +3191,16 @@
 				{
 					"name": "获取指定文章的全部留言",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxODM4MjYsImV4cCI6MTUzNTE4NzQyNiwibmJmIjoxNTM1MTgzODI2LCJqdGkiOiJVSGlRb0VjSTAydDc0NkxqIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.OGETytQ4LPDueGUi5rBlqknPSMe4jFtWbtv5O14lAYw",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -3018,7 +3251,7 @@
 								],
 								"body": {},
 								"url": {
-									"raw": "{{apihost}}/replies?article_id=2",
+									"raw": "{{apihost}}/replies?article_id=3&orderMode=desc&orderBy=like_count",
 									"host": [
 										"{{apihost}}"
 									],
@@ -3028,8 +3261,18 @@
 									"query": [
 										{
 											"key": "article_id",
-											"value": "2",
+											"value": "3",
 											"description": "必需"
+										},
+										{
+											"key": "orderMode",
+											"value": "desc",
+											"description": "非必需，可选desc或asc，默认created_at"
+										},
+										{
+											"key": "orderBy",
+											"value": "like_count",
+											"description": "非必需，可选created_at或like_count，默认created_at"
 										}
 									]
 								}
@@ -3058,13 +3301,13 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 21 Aug 2018 04:05:30 GMT",
+									"value": "Sat, 25 Aug 2018 08:19:22 GMT",
 									"name": "Date",
 									"description": "The date and time that the message was sent"
 								},
 								{
 									"key": "ETag",
-									"value": "\"1d793f2bbe0f3cc86398b823e9dd9ad40636712f\"",
+									"value": "\"58c6db2f096be366c614372739adf717da52a94f\"",
 									"name": "ETag",
 									"description": "An identifier for a specific version of a resource, often a message digest"
 								},
@@ -3088,7 +3331,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"replies\":[{\"id\":3,\"article_id\":2,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 20:29:16\",\"updated_at\":\"2018-08-20 20:29:16\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0},\"children\":[{\"id\":8,\"article_id\":2,\"reply_id\":3,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 23:29:24\",\"updated_at\":\"2018-08-20 23:29:24\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0}},{\"id\":9,\"article_id\":2,\"reply_id\":3,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 23:30:39\",\"updated_at\":\"2018-08-20 23:30:39\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0}},{\"id\":10,\"article_id\":2,\"reply_id\":3,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 23:30:52\",\"updated_at\":\"2018-08-20 23:30:52\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0}},{\"id\":12,\"article_id\":2,\"reply_id\":3,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"user\",\"created_at\":\"2018-08-21 11:55:08\",\"updated_at\":\"2018-08-21 11:55:08\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"}}]},{\"id\":4,\"article_id\":2,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 20:29:35\",\"updated_at\":\"2018-08-20 20:29:35\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0},\"children\":[]},{\"id\":5,\"article_id\":2,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 20:33:30\",\"updated_at\":\"2018-08-20 20:33:30\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0},\"children\":[]},{\"id\":6,\"article_id\":2,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 20:33:45\",\"updated_at\":\"2018-08-20 20:33:45\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0},\"children\":[]},{\"id\":7,\"article_id\":2,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 20:35:23\",\"updated_at\":\"2018-08-20 20:35:23\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0},\"children\":[]}],\"pagination\":{\"total\":5,\"count\":5,\"per_page\":15,\"current_page\":1,\"total_pages\":1,\"first_page_url\":\"http:\\/\\/idea.test\\/api\\/replies?article_id=2&page=1\",\"last_page_url\":\"http:\\/\\/idea.test\\/api\\/replies?article_id=2&page=1\"}}}"
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"replies\":[{\"id\":13,\"article_id\":3,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":1,\"author_type\":\"user\",\"created_at\":\"2018-08-21 15:58:10\",\"updated_at\":\"2018-08-21 15:58:10\",\"liked\":0,\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"article_count\":0,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"},\"children\":[]},{\"id\":14,\"article_id\":3,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"user\",\"created_at\":\"2018-08-21 15:58:11\",\"updated_at\":\"2018-08-21 15:58:11\",\"liked\":0,\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"article_count\":0,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"},\"children\":[{\"id\":16,\"article_id\":3,\"reply_id\":14,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"user\",\"created_at\":\"2018-08-21 15:58:26\",\"updated_at\":\"2018-08-21 15:58:26\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"article_count\":0,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"}},{\"id\":17,\"article_id\":3,\"reply_id\":14,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":1,\"author_type\":\"user\",\"created_at\":\"2018-08-21 15:58:27\",\"updated_at\":\"2018-08-21 15:58:27\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"article_count\":0,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"}}]},{\"id\":15,\"article_id\":3,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"user\",\"created_at\":\"2018-08-21 15:58:12\",\"updated_at\":\"2018-08-21 15:58:12\",\"liked\":0,\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"article_count\":0,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"},\"children\":[]}],\"pagination\":{\"total\":3,\"count\":3,\"per_page\":15,\"current_page\":1,\"total_pages\":1,\"first_page_url\":\"http:\\/\\/idea.test\\/api\\/replies?article_id=3&orderMode=desc&orderBy=like_count&page=1\",\"last_page_url\":\"http:\\/\\/idea.test\\/api\\/replies?article_id=3&orderMode=desc&orderBy=like_count&page=1\"}}}"
 						}
 					]
 				}
@@ -3105,7 +3348,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDgyMzY4NywiZXhwIjoxNTM0ODI3Mjg3LCJuYmYiOjE1MzQ4MjM2ODcsImp0aSI6IjRNNjJQU240OHZ2MkpFNEoiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.fLLA0EiHcPyFlEsFCLRbRH8GZiJedfI8VBADvlc_eN0",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxODM4MjYsImV4cCI6MTUzNTE4NzQyNiwibmJmIjoxNTM1MTgzODI2LCJqdGkiOiJVSGlRb0VjSTAydDc0NkxqIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.OGETytQ4LPDueGUi5rBlqknPSMe4jFtWbtv5O14lAYw",
 									"type": "string"
 								}
 							]
@@ -3117,7 +3360,7 @@
 							"formdata": [
 								{
 									"key": "article_id",
-									"value": "3",
+									"value": "10",
 									"description": "必需",
 									"type": "text"
 								}
@@ -3472,7 +3715,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ4NDEzMzksImV4cCI6MTUzNDg0NDkzOSwibmJmIjoxNTM0ODQxMzM5LCJqdGkiOiJkMm5rVDNPb3Y2bmRaRHhVIiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.nR6AacsZoFNvSmII9EUNuU9dlWaZ0QVGiNJO0ac9oxg",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxODM4MjYsImV4cCI6MTUzNTE4NzQyNiwibmJmIjoxNTM1MTgzODI2LCJqdGkiOiJVSGlRb0VjSTAydDc0NkxqIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.OGETytQ4LPDueGUi5rBlqknPSMe4jFtWbtv5O14lAYw",
 									"type": "string"
 								}
 							]
@@ -3489,7 +3732,7 @@
 							"formdata": [
 								{
 									"key": "article_id",
-									"value": "5",
+									"value": "10",
 									"description": "非必需",
 									"type": "text",
 									"disabled": true

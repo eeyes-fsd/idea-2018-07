@@ -45,7 +45,7 @@ class RepliesController extends Controller
         $manager->parseIncludes(['children']);
         $queryParams = array_diff_key($_GET, array_flip(['page']));
         $paginator->appends($queryParams);
-        $resources = new Collection($replies,new ReplyTransformer());
+        $resources = new Collection($replies,new ReplyTransformer(['info_for_cur'=>true]));
         $resources->setPaginator(new IlluminatePaginatorAdapter($paginator));
         return $manager->createData($resources)->setKey('replies')->toArray();
     }

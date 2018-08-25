@@ -63,7 +63,7 @@ class ArticlesController extends Controller
 
     public function show(Article $article)
     {
-        return $this->response->item($article, new ArticleTransformer());
+        return $this->response->item($article, new ArticleTransformer(['info_for_cur'=>true]));
     }
 
     public function store(ArticleRequest $request)

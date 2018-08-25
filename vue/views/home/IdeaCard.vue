@@ -43,7 +43,7 @@ export default {
 <style lang="scss">
 .idea-card {
   width: 160px;
-  height: 230px;
+  height: auto;
   border-radius: 12px;
   box-shadow: 1px 1px 10px rgba(#ccc, 0.35);
   .one-line {
@@ -90,6 +90,15 @@ export default {
   .glyphicon,
   .number {
     font-size: 12px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .idea-card {
+    width: 100%;
+  }
+  .idea-card-cover {
+    width: 100%;
+    height: auto;
   }
 }
 </style>

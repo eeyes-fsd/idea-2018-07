@@ -6,7 +6,7 @@
             <input type="text" class="form-control" v-model="title" placeholder="请输入标题">
           </div>
           <div class="editor">
-            <tinymce :height="300" v-model="content"/>
+            <tinymce :height="300" allowPicture="true" v-model="content"/>
           </div>
         </div>
         <div class="col-md-3 panel panel-default settings">

@@ -1,5 +1,8 @@
 <template>
   <div class="home-content">
+    <div class="no-articles" v-if="articles.length == 0">
+      <p>哎呀，这里什么都没有哦</p>
+    </div>
     <div class="articles">
       <IdeaCard
         v-for="(item,key) in articles"
@@ -82,6 +85,16 @@ export default {
   flex-wrap: wrap;
   .article {
     margin: 14px;
+  }
+}
+.no-articles {
+  min-height: 260px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: 1.4em;
   }
 }
 </style>

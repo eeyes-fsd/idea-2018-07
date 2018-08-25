@@ -122,15 +122,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 li {
   list-style: none;
 }
 .top-nav {
-  /* height: 60px; */
   padding: 5px;
   background: #fff;
-  box-shadow: 0 2px 2px #aaa;
+  box-shadow: 0 2px 2px rgba(#aaa, .5);
   z-index: 1;
 }
 .search-box{

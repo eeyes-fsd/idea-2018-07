@@ -5,8 +5,11 @@
       <img :src="article.author.avatar" alt="头像" class="img-circle pull-left article-head">
       <h4><a :href="'/#/article/'+article.id">{{ article.title }}</a></h4>
       <p class="article-class">{{ article.updated_at }}
-        <router-link :to="`/category/${article.category.id}`"><span class="pull-right">{{ article.category.name }}</span>
-        <router-link :to="`/category/${article.category.parent.id}`"><span class="pull-right">{{ article.category.parent.name }}</span></router-link>
+        <router-link :to="`/category/${article.category.id}`">
+          <span class="pull-right">{{ article.category.name }}</span>
+        </router-link>
+        <router-link :to="`/category/${article.category.parent.id}`">
+          <span class="pull-right">{{ article.category.parent.name }}</span>
         </router-link>
       </p>
     </div>
@@ -14,9 +17,15 @@
     <div class="article-footer">
       <p>
         <strong>浏览：</strong>{{ article.view_count }}
-        <a class="pull-right" @click="tryDelete()" :id="article.id"><span class="glyphicon glyphicon-trash">&emsp;&emsp;</span></a>
-        <a class ="pull-right" @click="showcomment()"  :id="article.id"><span class="glyphicon glyphicon-comment" aria-hidden="true">{{ article.reply_count }}&emsp;</span></a>
-        <a class="pull-right" @click="likeArticle()"  :id="article.id"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">{{ article.like_count }}&emsp;&emsp;</span></a>
+        <a class="pull-right" @click="tryDelete()" :id="article.id">
+          <span class="glyphicon glyphicon-trash">&emsp;&emsp;</span>
+        </a>
+        <a class ="pull-right" @click="showcomment()" :id="article.id">
+          <span class="glyphicon glyphicon-comment" aria-hidden="true">{{ article.reply_count }}&emsp;</span>
+        </a>
+        <a class="pull-right" @click="likeArticle()" :id="article.id">
+          <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">{{ article.like_count }}&emsp;&emsp;</span>
+        </a>
       </p>
     </div>
     <Dialog :visible.sync="editing" @confirm="submit" position="center">
@@ -25,9 +34,9 @@
     <div class="col-md-12" v-if="showInput&&this.isLogin">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="发表你的神评论" v-model="commentCon">
-          <span class="input-group-btn">
+        <span class="input-group-btn">
           <button class="btn btn-default" :id="article.id" type="button" @click="toCommentArticle()">评论</button>
-          </span>
+        </span>
       </div>
     </div>
     <hr/>

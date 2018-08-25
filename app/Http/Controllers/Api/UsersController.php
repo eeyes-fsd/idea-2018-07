@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\UserRequest;
+use App\Models\Article;
+use App\Models\Favorite;
+use App\Models\Like;
 use App\Models\User;
 use App\Transformers\UserTransformer;
 use Illuminate\Http\Request;
@@ -115,5 +118,31 @@ class UsersController extends Controller
     public function me()
     {
         return $this->response->item(Auth::guard('api_user')->user(), new UserTransformer());
+    }
+
+
+    public function currentInfo(Request $request)
+    {
+        $user = $this->getUserOrActiveOrganization();
+        $user_type = $user instanceof User ? 'user' : 'organization';
+        $like_query = Like::where("{$user_type}_id",$user->id);
+        if ($request->article_id) {
+            $like_query = $like_query->where('article_id',$request->article_id);
+            $favorite_query = Favorite::where("{$user_type}_id",$user->id)
+                            ->where('article_id',$request->article_id);
+
+            return $this->success([
+                'liked' => $like_query->count(),
+                'favorited' => $favorite_query->count(),
+            ]);
+        } elseif ($request->reply_id) {
+            $like_query = $like_query->where('reply_id',$request->reply_id);
+
+            return $this->success([
+                'liked' => $like_query->count(),
+            ]);
+        } else {
+            return $this->error('参数错误');
+        }
     }
 }

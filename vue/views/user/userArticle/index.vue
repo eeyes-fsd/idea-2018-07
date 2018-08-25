@@ -1,6 +1,11 @@
 <template>
   <div v-loading="loading">
-    <Item v-for="(item,key) in articles" :key="key" :article="item"></Item>
+    <div class="no-content" v-if="articles.length == 0">
+      <p>哎呀，这里什么都没有哦</p>
+    </div>
+    <div v-else>
+      <Item v-for="(item,key) in articles" :key="key" :article="item"></Item>
+    </div>
     <Pagination
       :pagination="pagination"
       @change="getMyArticle"
@@ -22,7 +27,7 @@ export default {
   data() {
     return {
       loading: false,
-      articles: {},
+      articles: [],
       pagination: {},
       comments: [],
       commentOn: 0,
@@ -56,7 +61,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .article-footer>p{
+  .article-footer > p{
     padding-right: 1rem;
   }
+  .no-content {
+  min-height: 260px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: 1.4em;
+  }
+}
 </style>

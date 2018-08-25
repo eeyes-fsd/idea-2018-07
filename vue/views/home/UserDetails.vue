@@ -16,7 +16,7 @@
         class="article"
         img-src=""
         :title="item.title"
-        :author="item.author.nickname"
+        :author="name"
         :datetime="item.created_at"
         :liked="item.like_count"
         :viewed="item.view_count">
@@ -26,15 +26,18 @@
 </template>
 
 <script>
+import IdeaCard from './IdeaCard'
+
 export default {
   name: 'UserDetails',
   props: {
     avatar: String,
     name: String,
-    signature: String
+    signature: String,
+    articles: Array
   },
-  computed: {
-    articles: () => []
+  components: {
+    IdeaCard
   }
 }
 </script>
@@ -50,11 +53,16 @@ export default {
 }
 .user__details-info {
   flex-grow: 1;
+  align-items: center;
 }
 .user__details-avatar {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+}
+.user__details-avatar,
+.user__details-details {
+  margin-left: 30px;
 }
 .user__details-img {
   width: 100%;
@@ -64,6 +72,25 @@ export default {
 .user__details-articles {
   .article {
     margin: 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .user__details-articles {
+    min-width: 450px;
+    flex-grow: 1;
+  }
+}
+@media screen and (max-width: 500px) {
+  .user__details-articles {
+    min-width: 300px;
+    flex-grow: 1;
+  }
+}
+@media screen and (max-width: 400px) {
+  .user__details-articles {
+    min-width: 150px;
+    overflow: hidden;
+    flex-grow: 1;
   }
 }
 </style>

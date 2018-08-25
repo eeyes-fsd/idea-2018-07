@@ -1996,6 +1996,229 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "获取文章、评论是否被自己点赞或收藏",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxODM4MjYsImV4cCI6MTUzNTE4NzQyNiwibmJmIjoxNTM1MTgzODI2LCJqdGkiOiJVSGlRb0VjSTAydDc0NkxqIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.OGETytQ4LPDueGUi5rBlqknPSMe4jFtWbtv5O14lAYw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "article_id",
+									"value": "10",
+									"description": "非必需",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "reply_id",
+									"value": "17",
+									"description": "非必需",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/curinfo",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"curinfo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "获取文章、评论是否被自己点赞或收藏",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "article_id",
+											"value": "10",
+											"description": "非必需",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "reply_id",
+											"value": "17",
+											"description": "非必需",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/curinfo",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"curinfo"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Aug 2018 08:00:59 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"7d25f004af9959f508074b0a37d437940b6842f4\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"liked\":1}}"
+						},
+						{
+							"name": "获取文章、评论是否被自己点赞或收藏",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "article_id",
+											"value": "10",
+											"description": "非必需",
+											"type": "text"
+										},
+										{
+											"key": "reply_id",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/curinfo",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"curinfo"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Aug 2018 07:59:41 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"c9bd20e566a44757381b3864674780977610acc9\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"liked\":1,\"favorited\":0}}"
+						}
+					]
 				}
 			]
 		},
@@ -2172,13 +2395,13 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "{{apihost}}/articles/3",
+							"raw": "{{apihost}}/articles/5",
 							"host": [
 								"{{apihost}}"
 							],
 							"path": [
 								"articles",
-								"3"
+								"5"
 							]
 						}
 					},
@@ -3105,7 +3328,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDgyMzY4NywiZXhwIjoxNTM0ODI3Mjg3LCJuYmYiOjE1MzQ4MjM2ODcsImp0aSI6IjRNNjJQU240OHZ2MkpFNEoiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.fLLA0EiHcPyFlEsFCLRbRH8GZiJedfI8VBADvlc_eN0",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxODM4MjYsImV4cCI6MTUzNTE4NzQyNiwibmJmIjoxNTM1MTgzODI2LCJqdGkiOiJVSGlRb0VjSTAydDc0NkxqIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.OGETytQ4LPDueGUi5rBlqknPSMe4jFtWbtv5O14lAYw",
 									"type": "string"
 								}
 							]
@@ -3117,7 +3340,7 @@
 							"formdata": [
 								{
 									"key": "article_id",
-									"value": "3",
+									"value": "10",
 									"description": "必需",
 									"type": "text"
 								}
@@ -3472,7 +3695,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ4NDEzMzksImV4cCI6MTUzNDg0NDkzOSwibmJmIjoxNTM0ODQxMzM5LCJqdGkiOiJkMm5rVDNPb3Y2bmRaRHhVIiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.nR6AacsZoFNvSmII9EUNuU9dlWaZ0QVGiNJO0ac9oxg",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxODM4MjYsImV4cCI6MTUzNTE4NzQyNiwibmJmIjoxNTM1MTgzODI2LCJqdGkiOiJVSGlRb0VjSTAydDc0NkxqIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.OGETytQ4LPDueGUi5rBlqknPSMe4jFtWbtv5O14lAYw",
 									"type": "string"
 								}
 							]
@@ -3489,7 +3712,7 @@
 							"formdata": [
 								{
 									"key": "article_id",
-									"value": "5",
+									"value": "10",
 									"description": "非必需",
 									"type": "text",
 									"disabled": true

@@ -3,7 +3,8 @@
     <Item v-for="(item,key) in articles" :key="key" :article="item"></Item>
     <Pagination
       :pagination="pagination"
-      @change="getMyArticle"></Pagination>
+      @change="getMyArticle"
+      class="text-center"></Pagination>
   </div>
 </template>
 

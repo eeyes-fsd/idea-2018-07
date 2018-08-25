@@ -30,11 +30,11 @@ export default {
   },
   methods: {
     async getData (page = 1) {
-      this.loading = false
+      this.loading = true
       let data = await requests.get(`/notifications?state=read&page=${page}`)
       this.pagination = data.pagination
       this.notifications = data.notifications
-      this.loading = true
+      this.loading = false
     }
   }
 }

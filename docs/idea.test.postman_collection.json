@@ -2233,7 +2233,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUwMjY2NTIsImV4cCI6MTUzNTAzMDI1MiwibmJmIjoxNTM1MDI2NjUyLCJqdGkiOiJVUVRYUkpNbUZJc3JVV0dZIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.SbXsno3E7GFF5SDxHgTz9eC9ZPdQbZnCGXeI0Uws7pY",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxOTkxMjksImV4cCI6MTUzNTIwMjcyOSwibmJmIjoxNTM1MTk5MTI5LCJqdGkiOiJzb1FNZ3B3UGJvdTBVWENVIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.oTX_s5aCyaggG4vCDMSv3xUzmSuJ8ebg2EtcdSZ9T78",
 									"type": "string"
 								}
 							]
@@ -2763,7 +2763,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUwMjY2NTIsImV4cCI6MTUzNTAzMDI1MiwibmJmIjoxNTM1MDI2NjUyLCJqdGkiOiJVUVRYUkpNbUZJc3JVV0dZIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.SbXsno3E7GFF5SDxHgTz9eC9ZPdQbZnCGXeI0Uws7pY",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxOTkxMjksImV4cCI6MTUzNTIwMjcyOSwibmJmIjoxNTM1MTk5MTI5LCJqdGkiOiJzb1FNZ3B3UGJvdTBVWENVIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.oTX_s5aCyaggG4vCDMSv3xUzmSuJ8ebg2EtcdSZ9T78",
 									"type": "string"
 								}
 							]
@@ -2780,18 +2780,141 @@
 							]
 						},
 						"url": {
-							"raw": "{{apihost}}/articles/images/10",
+							"raw": "{{apihost}}/articles/images",
 							"host": [
 								"{{apihost}}"
 							],
 							"path": [
 								"articles",
-								"images",
-								"10"
+								"images"
 							]
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "上传封面图片",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxOTkxMjksImV4cCI6MTUzNTIwMjcyOSwibmJmIjoxNTM1MTk5MTI5LCJqdGkiOiJzb1FNZ3B3UGJvdTBVWENVIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.oTX_s5aCyaggG4vCDMSv3xUzmSuJ8ebg2EtcdSZ9T78",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/articles/cover/11",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"articles",
+								"cover",
+								"11"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "上传封面图片",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": {
+												"0": {}
+											}
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/articles/cover/11",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"articles",
+										"cover",
+										"11"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Aug 2018 12:24:06 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"71d42d4a475b081ba946089483a224c689ff5fd4\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":11,\"title\":\"\\u7b2c4\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c4\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":1,\"cover\":\"http:\\/\\/idea.test\\/storage\\/images\\/covers\\/201808\\/25\\/11_1535199846_C2OEYgufl5.jpg\",\"author_type\":\"organization\",\"view_count\":0,\"like_count\":0,\"favorite_count\":0,\"reply_count\":0,\"created_at\":\"2018-08-25 20:12:24\",\"updated_at\":\"2018-08-25 20:24:06\",\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":7,\"parent\":{\"id\":1,\"name\":\"\\u5e72\\u8d27\",\"parent_id\":0,\"article_count\":7}}}}"
+						}
+					]
 				}
 			]
 		},

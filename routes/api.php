@@ -49,7 +49,8 @@ $api->version('v1', [
 
         $api->post('users/avatar/{user}','UsersController@updateAvatar');
         $api->post('organizations/avatar/{organization}','OrganizationsController@updateAvatar');
-        $api->post('articles/images/{article}','ArticlesController@uploadImage');
+        $api->post('articles/images','ArticlesController@uploadImage');
+        $api->post('articles/cover/{article}','ArticlesController@uploadCover');
 
         $api->post('favorites','FavoriteController@storeOrDestroy');
         $api->get('favorites','FavoriteController@index');

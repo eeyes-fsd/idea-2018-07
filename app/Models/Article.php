@@ -19,6 +19,7 @@ use Illuminate\Support\Collection;
  * @property int $category_id 所属分类 ID
  * @property string $title 文章标题
  * @property string $body 文章内容
+ * @property string $cover 文章内容
  * @property bool $anonymous 是否匿名
  * @property int $view_count 查看计数
  * @property int $like_count 点赞计数
@@ -38,7 +39,7 @@ class Article extends Model
 
     protected $fillable = [
         'user_id', 'organization_id', 'category_id',
-        'title', 'body', 'anonymous',
+        'title', 'body', 'anonymous', 'cover',
     ];
 
     public function author()

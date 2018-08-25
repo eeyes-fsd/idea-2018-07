@@ -43,6 +43,7 @@ class ArticleTransformer extends TransformerAbstract
             'title' => $article->title,
             'body' => $article->body,
             'anonymous' => $article->anonymous,
+            'cover' => $article->cover,
             'author_type' => $article->user_id ? 'user' : 'organization',
             'view_count' => $article->view_count,
             'like_count' => $article->like_count,

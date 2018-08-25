@@ -1,5 +1,5 @@
 <template>
-  <div :class="{fullscreen:fullscreen}" class="tinymce-container editor-container">
+  <div v-loading="loading" :class="{fullscreen:fullscreen}" class="tinymce-container editor-container">
     <textarea :id="tinymceId" class="tinymce-textarea"/>
     <div class="editor-custom-btn-container">
       <editorImage color="#1890ff" class="editor-upload-btn" @successCBK="imageSuccessCBK"/>
@@ -49,7 +49,8 @@ export default {
       fullscreen: false,
       languageTypeList: {
         'zh': 'zh_CN'
-      }
+      },
+      loading: true,
     }
   },
   computed: {
@@ -84,6 +85,7 @@ export default {
   methods: {
     initTinymce() {
       const _this = this
+      this.loading = true
       window.tinymce.init({
         language: this.language,
         selector: `#${this.tinymceId}`,
@@ -119,6 +121,7 @@ export default {
           })
         }
       })
+      this.loading = false
     },
     destroyTinymce() {
       if (window.tinymce.get(this.tinymceId)) {

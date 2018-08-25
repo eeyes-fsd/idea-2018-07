@@ -1,22 +1,24 @@
 <template>
     <div>
-        <h1>发表文章页面</h1>
-        <div class="editor-container col-md-8 ">
-          <input type="text" class="input-lg" v-model="title" >
-          <div>
+        <div class="editor-body col-md-8 panel panel-default">
+          <div class="form-group">
+            <label for="title">标题</label>
+            <input type="text" class="form-control" v-model="title" placeholder="请输入标题">
+          </div>
+          <div class="editor">
             <tinymce :height="300" v-model="content"/>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3 panel panel-default settings">
           <div>
             <form role="form">
               <div class="form-group">
-                <select class="form-control"  v-model="selectedParent">
+                <select class="form-control cate"  v-model="selectedParent">
                   <option  v-if="!kind.parent_id" v-for="(kind,key) in kinds" v-bind:value="kind.id" :key='key'>
                     {{ kind.name }}
                   </option>
                 </select>
-                <select class="form-control" v-model="category">
+                <select class="form-control cate" v-model="category">
                   <option  v-if="kind.parent_id==selectedParent" v-for="(kind,key) in kinds" v-bind:value="kind.id" :key='key'>
                     {{ kind.name }}
                   </option>
@@ -29,7 +31,7 @@
               </div>
             </form>
           </div>
-          <button @click="publishIt">发表文章</button>
+          <button @click="publishIt" class="btn btn-primary center-block">发表文章</button>
         </div>
     </div>
 </template>
@@ -59,6 +61,10 @@ export default {
     },
     methods: {
       async publishIt () {
+        if(this.title===''){
+          alert('请输入标题')
+          return
+        }
         try {
           let data = await request.post('/articles', { title: this.title, body: this.content, category_id: this.category, anonymous: this.anonymous })
           alert("发表文章成功！")
@@ -84,5 +90,22 @@ export default {
 </script>
 
 <style scoped>
-
+  .editor{
+    overflow: hidden;
+  }
+  .editor-body{
+    padding: 3em;
+  }
+  .settings{
+    padding: 2em;
+    margin: 0 2em;
+  }
+  @media screen and (max-width: 400px) {
+    .settings {
+    margin: 0;
+    }
+  }
+  .cate{
+    margin: 2em 0;
+  }
 </style>

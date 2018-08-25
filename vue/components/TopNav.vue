@@ -1,25 +1,49 @@
 <template>
-  <nav class="top-nav flex-row">
-    <div class="logo">
-      <img src="" alt="logo" class="logo">
-    </div>
-    <NavMenu></NavMenu>
-    <div class="search_box">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="文章/用户/组织" v-model="searchCon">
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="button" @click="search()">搜索</button>
-        </span>
+  <nav class="top-nav navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button"
+          class="navbar-toggle collapsed"
+          @click="active = !active"
+          :aria-expanded="active">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <router-link to="/">
+          <img src="" alt="logo" class="logo">
+        </router-link>
+      </div>
+      <div class="collapse navbar-collapse" :class="{ 'in': active }">
+        <NavMenu></NavMenu>
+        <div class="nav navbar-right">
+          <div class="welcome" v-if="!isLogin">
+            <p>欢迎访问创意工坊，请先<a href="javascript:;" @click="userLogin">登录</a></p>
+          </div>
+          <ul class="actions nav navbar-nav" v-else>
+            <li>
+              <router-link :to="`/user/${myUserId}/article`">个人中心</router-link>
+            </li>
+            <li>
+              <router-link to="/publish">发表文章</router-link>
+            </li>
+            <li>
+              <a href="javascript:;" @click="logout()">退出登录</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-form navbar-right search-box">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="文章/用户/组织" v-model="searchCon">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" @click="search()">搜索</button>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="welcome" v-if="!isLogin">
-      <p>欢迎访问创意工坊，请先<a href="javascript:;" @click="userLogin">登录</a></p>
-    </div>
-    <div class="actions" v-else>
-      <router-link :to="`/user/${myUserId}/article`">个人中心</router-link>
-      <router-link to="/publish">发表文章</router-link>
-      <button @click="logout()">退出登录</button>
-    </div>
+
     <MessageBox
       :visible.sync="error"
       title="错误"
@@ -38,6 +62,7 @@ export default {
   name: 'TopNav',
   data() {
     return {
+      active: true,
       name: '',
       org: {
         email: '',
@@ -101,23 +126,20 @@ export default {
 li {
   list-style: none;
 }
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
 .top-nav {
-  height: 60px;
+  /* height: 60px; */
   padding: 5px;
-  display: flex;
   background: #fff;
   box-shadow: 0 2px 2px #aaa;
   z-index: 1;
 }
-.search_box{
-  width: 20%;
+.search-box{
+  width: 15em;
 }
 .links {
   flex-grow: 1;
+}
+p {
+  margin: 11px 0;
 }
 </style>

@@ -1,6 +1,5 @@
 <template>
   <el-pagination
-    small
     layout="prev, pager, next"
     :pager-count="5"
     :page-size="pageSize"

@@ -73,7 +73,11 @@ class ReplyTransformer extends TransformerAbstract
     public function includeChildren(Reply $reply)
     {
         if (!$reply->hasParentReply()) {
-            return $this->collection($reply->children, new ReplyTransformer());
+            if ($this->infoForCur) {
+                return $this->collection($reply->children, new ReplyTransformer(['info_for_cur'=>true]));
+            } else {
+                return $this->collection($reply->children, new ReplyTransformer());
+            }
         } else {
             throw new ModelNotFoundException();
         }

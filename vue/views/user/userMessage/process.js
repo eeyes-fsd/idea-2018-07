@@ -18,7 +18,7 @@ export const article_replied = {
   time: 'created_at'
 }
 
-export const private_massage = { // <><> 这里有后端的拼写错误
+export const private_message = {
   avatar: 'author_avatar',
   name: 'author_name',
   title (noti) {

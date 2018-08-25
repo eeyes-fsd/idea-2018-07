@@ -1,13 +1,14 @@
 <template>
-  <el-pagination
-    small
-    layout="prev, pager, next"
-    :pager-count="5"
-    :page-size="pageSize"
-    :total="total"
-    :current-page="currentPage"
-    @current-change="sendChangeEvent">
-  </el-pagination>
+  <div class="co-pagination">
+    <el-pagination
+      layout="prev, pager, next"
+      :pager-count="5"
+      :page-size="pageSize"
+      :total="total"
+      :current-page="currentPage"
+      @current-change="sendChangeEvent">
+    </el-pagination>
+  </div>
 </template>
 
 <script>
@@ -34,3 +35,12 @@ export default {
   }
 }
 </script>
+
+<style>
+.co-pagination {
+  text-align: center;
+}
+.co-pagination > .el-pagination {
+  display: inline-block;
+}
+</style>

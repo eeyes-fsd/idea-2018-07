@@ -42,6 +42,9 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+  background: #fff;
+}
 // 全局样式
 .loading-cover {
   position: absolute;
@@ -60,5 +63,8 @@ export default {
 <style lang="scss">
 .app-cover {
   min-height: 600px;
+}
+.container {
+  background-color: #fff;
 }
 </style>

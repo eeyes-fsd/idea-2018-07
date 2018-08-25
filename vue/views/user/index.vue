@@ -6,11 +6,11 @@
         <p class="text-center">{{ user.NetID }}</p>
       </div>
       <div class="row">
-        <UserInfo class="col-md-3 panel panel-default" :user="user" :isMe="isMySelf"></UserInfo>
-        <div class="col-md-8  col-md-offset-1  panel panel-default userPanel">
+        <UserInfo class="col-md-3 panel panel-default userInfo" :user="user" :isMe="isMySelf"></UserInfo>
+        <div class="col-md-8  panel panel-default userPanel">
           <div class="row">
             <h3>个人中心</h3>
-            <hr>
+            <hr style="border-top:3px solid #655e5e; width:90%;" />
             <ul class="list-inline">
               <li class="tabMenu">
                 <router-link :to="`/user/${$route.params.id}/article`"
@@ -88,29 +88,43 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   /* 头像部分 */
   .head-top{
     padding: 36px;
     background-color: #fff;
-    margin-bottom: 12px;
+    margin: 12px -15px;
+    background-image: url('/img/user/userback.jpg');
   }
   /* 个人信息模块 */
+  .panel{
+    border-radius: 0;
+    overflow: hidden;
+  }
   .tabMenu{
     display: block;
     float:left;
     width: 33%;
     text-align:center;
     padding-bottom: 6px;
-  }
-  .tabMenu>a{
-    text-decoration:none;
-    color: #636b6f;
+    a{
+      text-decoration:none;
+      color: #636b6f;
+    }
   }
   .active{
     border-bottom: #000 solid 2px;
   }
+  .userHead{
+    width: 10em;
+  }
+  .userInfo{
+    margin: 12px 12px;
+  }
   /* 个人中心 */
+  .userPanel{
+    margin: 12px 12px;
+  }
   .userPanel>div{
     padding-left: 15px;
   }

@@ -4,7 +4,7 @@
       <li class="media">
         <div class="media-left">
           <router-link :to="'/user/'+comment.author.id+'/article'">
-            <img :src="comment.author.avatar" alt="头像" class="comment-head img-round">
+            <img :src="comment.author.avatar" alt="头像" class="comment-head img-circle">
           </router-link>
         </div>
         <div class="media-body">
@@ -18,7 +18,7 @@
           <div class="media" v-for="(item,key) in comment.children" :key="key">
             <div class="media-left">
               <router-link :to="'/user/'+item.author.id+'/article'">
-                <img :src="item.author.avatar" alt="头像" class="comment-head img-round">
+                <img :src="item.author.avatar" alt="头像" class="comment-head img-circle">
               </router-link>
             </div>
             <div class="media-body">

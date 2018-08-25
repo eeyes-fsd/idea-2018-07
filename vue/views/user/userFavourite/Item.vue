@@ -4,7 +4,10 @@
       <div class="article-header">
         <img :src="article.author.avatar" alt="头像" class="img-circle pull-left article-head">
         <h4><a :href="'/#/article/'+article.id">{{ article.title }}</a></h4>
-        <p class="article-class">{{ article.updated_at }} <span class="pull-right">{{ article.category.name }}</span></p>
+        <p class="article-class">{{ article.updated_at }}
+          <router-link :to="`/category/${article.category.id}`"><span class="pull-right">{{ article.category.name }}</span>
+          <router-link :to="`/category/${article.category.parent.id}`"><span class="pull-right">{{ article.category.parent.name }}</span></router-link></router-link>
+        </p>
       </div>
       <div class="article-content" v-html="article.body"></div>
       <div class="article-footer">
@@ -12,7 +15,7 @@
             <strong>浏览：</strong>{{ article.view_count }}
             <span class="glyphicon glyphicon-comment pull-right" aria-hidden="true">{{ article.reply_count }}&emsp;</span>
             <span class="glyphicon glyphicon-thumbs-up pull-right" aria-hidden="true">{{ article.like_count }}&emsp;&emsp;</span>
-            <a class="pull-right" @click="tryDislike()" :id="article.id"><span>取消收藏</span></a>
+            <button type="button" @click="tryDislike()" class="btn btn-danger pull-right">取消收藏</button>
         </p>
       </div>
       <Dialog :visible.sync="editing" @confirm="submit" position="center">
@@ -59,15 +62,35 @@ export default {
 </script>
 
 <style scope lang="scss">
-  .article-head{
-    width: 60px;
-    height: 60px;
+.article-header {
+  height: 7em;
+}
+.article-head {
+  width: 60px;
+  height: 60px;
+  margin: 0 24px;
+}
+.article-comment {
+  padding: 32px;
+  .comment-head {
+    width: 48px;
+    height: 48px;
   }
-  .article-class{
-    padding-right: 6em;
-    span{
-      border: 1px solid #000;
-      padding: 2px;
-    }
+}
+.article-content {
+  padding: 0 2em;
+}
+.article-class {
+  padding-right: 6em;
+  span {
+    border: 1px solid #000;
+    padding: 2px;
+    margin-left: 1em;
+    color: #000;
   }
+}
+.article-footer>p>button{
+  margin-right: 2em;
+  margin-top: -0.7em;
+}
 </style>

@@ -6,7 +6,9 @@
       </div>
     </router-link>
     <div class="idea-card-details">
-      <h6 class="idea-card-title one-line one-line-title">{{ title }}</h6>
+      <h6 class="idea-card-title one-line one-line-title">
+        <router-link :to="`/article/${id}`">{{ title }}</router-link>
+      </h6>
       <p class="idea-card-author one-line">{{ author }}</p>
       <p class="idea-card-date one-line">{{ date }}</p>
       <hr class="idea-card-hr">
@@ -43,7 +45,7 @@ export default {
 <style lang="scss">
 .idea-card {
   width: 160px;
-  height: 230px;
+  height: auto;
   border-radius: 12px;
   box-shadow: 1px 1px 10px rgba(#ccc, 0.35);
   .one-line {
@@ -69,6 +71,9 @@ export default {
   margin: 11px 0;
   font-size: 12px;
   font-weight: bold;
+  a {
+    text-decoration: none;
+  }
 }
 .idea-card-author {
   margin: 0;
@@ -90,6 +95,15 @@ export default {
   .glyphicon,
   .number {
     font-size: 12px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .idea-card {
+    width: 100%;
+  }
+  .idea-card-cover {
+    width: 100%;
+    height: auto;
   }
 }
 </style>

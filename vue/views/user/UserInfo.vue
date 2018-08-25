@@ -1,7 +1,7 @@
 <template>
   <div class="user__info">
     <h3>个人信息 <button class="btn btn-default pull-right edit-btn" v-if="isMe" @click="edit()">编辑</button></h3>
-    <hr>
+    <hr style="border-top:3px solid #655e5e;" />
     <div>
       <h4>基本信息</h4>
       <p>昵称：{{ user.nickname }}</p>
@@ -15,10 +15,6 @@
       <p v-else>QQ：保密</p>
     </div>
     <Dialog :visible.sync="editing" @confirm="submit">
-      <div class="form-group">
-        <label class="sr-only" for="inputfile">选择头像</label>
-        <input type="file" id="inputfile" @change="getFile($event)">
-      </div>
       <div class="form-group">
         <label>昵称</label>
         <input v-model="form.nickname" type="text" class="form-control">
@@ -88,21 +84,11 @@ export default {
         this.form[key] = userInfo[key]
       }
     },
-    getFile () {
-      this.avatar = event.target.files[0]
-      console.log(this.form)
-    },
     async submit () {
       try {
         let userInfo = this.userInfo
         let id = userInfo.id
-        let formData = new FormData()
-        for (let key in this.form) {
-          formData.append(key,this.form[key])
-        }
-        console.log(formData)
-        formData.append('avatar', this.avatar)
-        let data = await requests.put(`/users/${id}`, formData)
+        let data = await requests.put(`/users/${id}`, this.form)
         this.editing = false
         this.submitOK = true
         console.log(data)

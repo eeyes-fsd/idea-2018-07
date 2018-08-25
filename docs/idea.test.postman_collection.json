@@ -2386,7 +2386,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0MDIxODYsImV4cCI6MTUzNDQyMDc2NiwibmJmIjoxNTM0NDE3MTY2LCJqdGkiOiJqdzVGSVA1bzR2SzNTQ2JYIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5-FUD1ojZPrlI-mASLZ7qmeON9S_YQX3yFN5c5N8Nvs",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxODM4MjYsImV4cCI6MTUzNTE4NzQyNiwibmJmIjoxNTM1MTgzODI2LCJqdGkiOiJVSGlRb0VjSTAydDc0NkxqIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.OGETytQ4LPDueGUi5rBlqknPSMe4jFtWbtv5O14lAYw",
 									"type": "string"
 								}
 							]
@@ -2395,13 +2395,13 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "{{apihost}}/articles/5",
+							"raw": "{{apihost}}/articles/10",
 							"host": [
 								"{{apihost}}"
 							],
 							"path": [
 								"articles",
-								"5"
+								"10"
 							]
 						}
 					},
@@ -3191,6 +3191,16 @@
 				{
 					"name": "获取指定文章的全部留言",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxODM4MjYsImV4cCI6MTUzNTE4NzQyNiwibmJmIjoxNTM1MTgzODI2LCJqdGkiOiJVSGlRb0VjSTAydDc0NkxqIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.OGETytQ4LPDueGUi5rBlqknPSMe4jFtWbtv5O14lAYw",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -3241,7 +3251,7 @@
 								],
 								"body": {},
 								"url": {
-									"raw": "{{apihost}}/replies?article_id=2",
+									"raw": "{{apihost}}/replies?article_id=3&orderMode=desc&orderBy=like_count",
 									"host": [
 										"{{apihost}}"
 									],
@@ -3251,8 +3261,18 @@
 									"query": [
 										{
 											"key": "article_id",
-											"value": "2",
+											"value": "3",
 											"description": "必需"
+										},
+										{
+											"key": "orderMode",
+											"value": "desc",
+											"description": "非必需，可选desc或asc，默认created_at"
+										},
+										{
+											"key": "orderBy",
+											"value": "like_count",
+											"description": "非必需，可选created_at或like_count，默认created_at"
 										}
 									]
 								}
@@ -3281,13 +3301,13 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 21 Aug 2018 04:05:30 GMT",
+									"value": "Sat, 25 Aug 2018 08:19:22 GMT",
 									"name": "Date",
 									"description": "The date and time that the message was sent"
 								},
 								{
 									"key": "ETag",
-									"value": "\"1d793f2bbe0f3cc86398b823e9dd9ad40636712f\"",
+									"value": "\"58c6db2f096be366c614372739adf717da52a94f\"",
 									"name": "ETag",
 									"description": "An identifier for a specific version of a resource, often a message digest"
 								},
@@ -3311,7 +3331,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"replies\":[{\"id\":3,\"article_id\":2,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 20:29:16\",\"updated_at\":\"2018-08-20 20:29:16\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0},\"children\":[{\"id\":8,\"article_id\":2,\"reply_id\":3,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 23:29:24\",\"updated_at\":\"2018-08-20 23:29:24\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0}},{\"id\":9,\"article_id\":2,\"reply_id\":3,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 23:30:39\",\"updated_at\":\"2018-08-20 23:30:39\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0}},{\"id\":10,\"article_id\":2,\"reply_id\":3,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 23:30:52\",\"updated_at\":\"2018-08-20 23:30:52\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0}},{\"id\":12,\"article_id\":2,\"reply_id\":3,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"user\",\"created_at\":\"2018-08-21 11:55:08\",\"updated_at\":\"2018-08-21 11:55:08\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"}}]},{\"id\":4,\"article_id\":2,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 20:29:35\",\"updated_at\":\"2018-08-20 20:29:35\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0},\"children\":[]},{\"id\":5,\"article_id\":2,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 20:33:30\",\"updated_at\":\"2018-08-20 20:33:30\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0},\"children\":[]},{\"id\":6,\"article_id\":2,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 20:33:45\",\"updated_at\":\"2018-08-20 20:33:45\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0},\"children\":[]},{\"id\":7,\"article_id\":2,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"organization\",\"created_at\":\"2018-08-20 20:35:23\",\"updated_at\":\"2018-08-20 20:35:23\",\"author\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0},\"children\":[]}],\"pagination\":{\"total\":5,\"count\":5,\"per_page\":15,\"current_page\":1,\"total_pages\":1,\"first_page_url\":\"http:\\/\\/idea.test\\/api\\/replies?article_id=2&page=1\",\"last_page_url\":\"http:\\/\\/idea.test\\/api\\/replies?article_id=2&page=1\"}}}"
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"replies\":[{\"id\":13,\"article_id\":3,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":1,\"author_type\":\"user\",\"created_at\":\"2018-08-21 15:58:10\",\"updated_at\":\"2018-08-21 15:58:10\",\"liked\":0,\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"article_count\":0,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"},\"children\":[]},{\"id\":14,\"article_id\":3,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"user\",\"created_at\":\"2018-08-21 15:58:11\",\"updated_at\":\"2018-08-21 15:58:11\",\"liked\":0,\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"article_count\":0,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"},\"children\":[{\"id\":16,\"article_id\":3,\"reply_id\":14,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"user\",\"created_at\":\"2018-08-21 15:58:26\",\"updated_at\":\"2018-08-21 15:58:26\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"article_count\":0,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"}},{\"id\":17,\"article_id\":3,\"reply_id\":14,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":1,\"author_type\":\"user\",\"created_at\":\"2018-08-21 15:58:27\",\"updated_at\":\"2018-08-21 15:58:27\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"article_count\":0,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"}}]},{\"id\":15,\"article_id\":3,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"user\",\"created_at\":\"2018-08-21 15:58:12\",\"updated_at\":\"2018-08-21 15:58:12\",\"liked\":0,\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"article_count\":0,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"},\"children\":[]}],\"pagination\":{\"total\":3,\"count\":3,\"per_page\":15,\"current_page\":1,\"total_pages\":1,\"first_page_url\":\"http:\\/\\/idea.test\\/api\\/replies?article_id=3&orderMode=desc&orderBy=like_count&page=1\",\"last_page_url\":\"http:\\/\\/idea.test\\/api\\/replies?article_id=3&orderMode=desc&orderBy=like_count&page=1\"}}}"
 						}
 					]
 				}

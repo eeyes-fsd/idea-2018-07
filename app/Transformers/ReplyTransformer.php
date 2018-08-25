@@ -9,20 +9,34 @@
 namespace App\Transformers;
 
 
+use App\Models\Like;
 use App\Models\Reply;
+use App\Models\User;
+use App\Traits\GetUserTrait;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use League\Fractal\TransformerAbstract;
 
 class ReplyTransformer extends TransformerAbstract
 {
+    use GetUserTrait;
+
     protected $defaultIncludes = ['author'];
 
     protected $availableIncludes = ['children'];
 
+    protected $infoForCur = false;
+
+    public function __construct($params=[])
+    {
+        if (array_key_exists('info_for_cur',$params)) {
+            $this->infoForCur = $params['info_for_cur'];
+        }
+    }
+
     public function transform(Reply $reply)
     {
-        return [
+        $data = [
             'id' => $reply->id,
             'article_id' => $reply->article_id,
             'reply_id' => $reply->reply_id,
@@ -32,6 +46,18 @@ class ReplyTransformer extends TransformerAbstract
             'created_at' => $reply->created_at->toDateTimeString(),
             'updated_at' => $reply->created_at->toDateTimeString(),
         ];
+
+        if ($this->infoForCur) {
+            $user = $this->getUserOrActiveOrganization();
+            $user_type = $user instanceof User? 'user' : 'organization';
+            if ($user) {
+                $like_query = Like::where("{$user_type}_id",$user->id)
+                    ->where('article_id',$reply->id);
+                $data['liked'] = $like_query->count();
+            }
+        }
+
+        return $data;
     }
 
     public function includeAuthor(Reply $reply)

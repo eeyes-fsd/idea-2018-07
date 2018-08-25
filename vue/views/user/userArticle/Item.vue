@@ -41,7 +41,7 @@
     </div>
     <hr/>
     <div class="article-comment row">
-      <comment :comment="comments[0]"></comment>
+      <comment v-if="comments.length > 0" :comment="comments[0]"></comment>
     </div>
     </div>
     <hr style="border-top:2px solid #655e5e; width:90%;" />

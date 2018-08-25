@@ -21,12 +21,12 @@
                 <button @click="toComment">发表评论</button>
               </div>
               <div v-else>
-                登录后才可以评论
+                <p>登录后才可以评论</p>
               </div>
               <comment v-for="(comment,key) in comments" :key=key :comment="comment"></comment>
             </div>
           </div>
-          <div class="col-md-4  panel panel-default">
+          <div class="col-md-4 panel panel-default">
             <img src="" alt="head" class="author-head img-round">
             <p>{{ author.nickname }}</p>
             <p>{{ author.signature }}</p>

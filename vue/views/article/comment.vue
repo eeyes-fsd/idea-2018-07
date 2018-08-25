@@ -12,7 +12,7 @@
           <p>{{ comment.created_at }}</p>
           <p v-html="comment.body"></p>
           <p>
-            <a class="pull-left" @click="likeComment()"  :id="comment.id" href="javascript:;"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">{{ comment.like_count }}&emsp;&emsp;</span></a>
+            <a class="pull-left" @click="likeComment()"  :id="comment.id" href="javascript:;"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" :class="{ like : comment.liked }">{{ comment.like_count }}&emsp;&emsp;</span></a>
             <a class ="pull-left" @click="showcomment()"  :id="comment.id" href="javascript:;"><span class="glyphicon glyphicon-comment" aria-hidden="true">{{ comment.reply_count }}&emsp;</span></a>
           </p>
 
@@ -26,7 +26,7 @@
               </p>
               <p>
                 {{ item.created_at }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a  @click="likeSecondComment()" :index="key" :id="item.id"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">{{ item.like_count }}&emsp;&emsp;</span></a>
+                <a  @click="likeSecondComment()" :index="key" :id="item.id"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" >{{ item.like_count }}&emsp;&emsp;</span></a>
                 <a  @click="showcomment()"  :id="comment.id"><span class="glyphicon glyphicon-comment" aria-hidden="true">{{ comment.reply_count }}&emsp;</span></a>
               </p>
             </div>
@@ -70,8 +70,10 @@ export default {
         let data = await requests.post('/likes',{ reply_id : id })
         if(data[0]==='点赞成功'){
           this.comment.like_count++
-        }else{
+          this.comment.liked = 1
+        }else if(data[0]==='取消点赞成功'){
           this.comment.like_count--
+          this.comment.liked = 0
         }
       }catch (e) {
         console.log(e || 'unknown mistake')
@@ -126,5 +128,8 @@ export default {
   }
   .second-con>a>h4{
     margin: 0;
+  }
+  .like{
+    color: red;
   }
 </style>

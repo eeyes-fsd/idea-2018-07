@@ -17,14 +17,14 @@
     <div class="article-footer">
       <p>
         <strong>浏览：</strong>{{ article.view_count }}
-        <a class="pull-right" @click="tryDelete()" :id="article.id">
+        <a class="pull-right" @click="tryDelete()" :id="article.id" href="javascript:;">
           <span class="glyphicon glyphicon-trash">&emsp;&emsp;</span>
         </a>
-        <a class ="pull-right" @click="showcomment()" :id="article.id">
+        <a class ="pull-right" @click="showcomment()" :id="article.id" href="javascript:;">
           <span class="glyphicon glyphicon-comment" aria-hidden="true">{{ article.reply_count }}&emsp;</span>
         </a>
-        <a class="pull-right" @click="likeArticle()" :id="article.id">
-          <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">{{ article.like_count }}&emsp;&emsp;</span>
+        <a class="pull-right" @click="likeArticle()" :id="article.id"  href="javascript:;">
+          <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"  :class="{ like : article.liked }">{{ article.like_count }}&emsp;&emsp;</span>
         </a>
       </p>
     </div>
@@ -92,7 +92,9 @@ export default {
         let data = await requests.post("/likes", { article_id: id });
         if (data[0] === "点赞成功") {
           this.article.like_count++;
+          this.article.liked = 1
         } else if (data[0] === "取消点赞成功") {
+          this.article.liked = 0
           this.article.like_count--;
         }
         this.loading = false
@@ -193,5 +195,8 @@ export default {
     margin-left: 1em;
     color: #000;
   }
+}
+.like{
+  color: red;
 }
 </style>

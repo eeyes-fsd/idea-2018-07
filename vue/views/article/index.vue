@@ -34,8 +34,8 @@
             <p>{{ author.signature }}</p>
             <p>
               <span class="glyphicon glyphicon-eye-open" >&emsp;{{ article.view_count }}&emsp;&emsp;</span>
-              <a  href="javascript:;"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" @click="likeIt()" >&emsp;{{ article.like_count }}&emsp;&emsp;</span></a>
-              <a  href="javascript:;"><span class="glyphicon glyphicon-heart" aria-hidden="true" @click="collectIt()">&emsp;</span></a>
+              <a  href="javascript:;"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" @click="likeIt()" :class="{ like : article.liked }">&emsp;{{ article.like_count }}&emsp;&emsp;</span></a>
+              <a  href="javascript:;"><span class="glyphicon glyphicon-heart" aria-hidden="true" @click="collectIt()"  :class="{ like : article.favorited }">&emsp;</span></a>
             </p>
             <p>{{ article.created_at }}</p>
           </div>
@@ -69,7 +69,6 @@
             },
             content: '发布你的神评论吧',
             comments:{},
-
           }
       },
       methods:{
@@ -110,10 +109,11 @@
           try{
             let data = await request.post('/likes',{ article_id : this.articleId })
             if (data[0]==='点赞成功'){
-
               this.article.like_count++
+              this.article.liked=1
             }else if(data[0]==='取消点赞成功') {
               this.article.like_count--
+              this.article.liked=0
             }
           }catch (e) {
             console.log(this.errorMessage = err.message || '未知错误')
@@ -127,19 +127,14 @@
           try{
             let data = await request.post('/favorites',{ article_id : this.articleId })
             if (data[0]==='收藏成功'){
-              alert(/收藏成功/)
+              this.article.favorited = 1
             }else if(data[0]==='取消收藏成功') {
-              alert(/取消收藏成功/)
+              this.article.favorited = 0
             }
           }catch (e) {
             console.log(this.errorMessage = err.message || '未知错误')
           }
         },
-        async aboutArticle () { //查询这篇文章自己是否点过赞或收藏过
-          if(this.isLogin){
-            console.log(/获取是否点过赞/)
-          }
-        }
       },
       mounted (){
         this.getArticle()
@@ -150,11 +145,6 @@
         isLogin: 'isLogin'
         })
       },
-      watch: {
-        isLogin () {
-          this.aboutArticle()
-        }
-      }
     }
 </script>
 
@@ -162,7 +152,7 @@
   .wscnph{
     max-width: 300px;
   }
-  @media screen and (max-width: 400px;) {
+  @media screen and (max-width: 400px) {
     .wscnph{
       max-width: 200px;
     }
@@ -191,5 +181,8 @@
   }
   .author-info{
     padding: 2em;
+  }
+  .like{
+    color: red;
   }
 </style>

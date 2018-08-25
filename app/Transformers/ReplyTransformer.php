@@ -52,7 +52,7 @@ class ReplyTransformer extends TransformerAbstract
             $user_type = $user instanceof User? 'user' : 'organization';
             if ($user) {
                 $like_query = Like::where("{$user_type}_id",$user->id)
-                    ->where('article_id',$reply->id);
+                    ->where('reply_id',$reply->id);
                 $data['liked'] = $like_query->count();
             }
         }

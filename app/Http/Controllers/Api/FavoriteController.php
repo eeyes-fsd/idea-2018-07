@@ -34,7 +34,7 @@ class FavoriteController extends Controller
         $queryParams = array_diff_key($_GET, array_flip(['page']));
         $paginator->appends($queryParams);
 
-        $resource = new Collection($articles, new ArticleTransformer());
+        $resource = new Collection($articles, new ArticleTransformer(['info_for_cur'=>true]));
         $resource->setPaginator(new IlluminatePaginatorAdapter($paginator));
         $data = $manager->createData($resource)->setKey('articles')->toArray();
 

@@ -35,19 +35,11 @@
       </div>
     </div>
     <Dialog :visible.sync="editingAvatar" position="center" @confirm="handleUploadAvatar">
-      <el-upload
-        class="avatar-uploader"
-        :action="`/api/users/avatar/${currentId}`"
-        ref="avatarUploader"
+      <ImageUploader
         name="avatar"
-        :headers="avatarHeaders"
-        :show-file-list="false"
-        :auto-upload="false"
-        :before-upload="beforeAvatarUpload"
-        :on-success="handleAvatarSuccess">
-        <img v-if="imageUrl" :src="imageUrl" class="avatar">
-        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-      </el-upload>
+        ref="avatarUploader"
+        :action="`/api/users/avatar/${currentId}`"
+        @success="handleAvatarSuccess"></ImageUploader>
     </Dialog>
   </div>
 </template>
@@ -57,19 +49,20 @@ import { mapState, mapActions } from 'vuex'
 import requests from '@/api/requests.js'
 import UserInfo from './UserInfo'
 import Dialog from '@/components/Dialog'
+import ImageUploader from '@/components/ImageUploader'
 
 export default {
   name: "User",
   data() {
     return {
       user: {},
-      editingAvatar: false,
-      imageUrl: ''
+      editingAvatar: false
     }
   },
   components:{
     UserInfo,
-    Dialog
+    Dialog,
+    ImageUploader
   },
   methods:{
     ...mapActions({
@@ -93,35 +86,19 @@ export default {
         this.editingAvatar = true
       }
     },
-    handleChooseFile (event) {
-      let file = event.srcElement.files[0]
-      this.imageUrl = URL.createObjectURL(file);
-    },
     handleUploadAvatar () {
-      this.$refs.avatarUploader.submit()
+      this.$refs.avatarUploader.upload()
     },
-    handleAvatarSuccess(res, file) {
+    handleAvatarSuccess () {
       this.refreshUserInfo(() => {
         this.user = this.userInfo
         this.$message.success('上传成功');
         this.editingAvatar = false
       })
     },
-    beforeAvatarUpload (file) {
-      var isJPG = file.type === 'image/jpeg';
-      var isLt2M = file.size / 1024 / 1024 < 2;
-      if (!isJPG) {
-        this.$message.error('上传头像图片只能是 JPG 格式!');
-      }
-      if (!isLt2M) {
-        this.$message.error('上传头像图片大小不能超过 2MB!');
-      }
-      return isJPG && isLt2M;
-    }
   },
   mounted (){
     this.getInfo()
-    this.$refs.avatarUploader.$el.children[0].children[1].onchange = this.handleChooseFile
   },
   watch: {
     currentId () {
@@ -131,8 +108,7 @@ export default {
   computed: {
     ...mapState({
       isLogin: 'isLogin',
-      userInfo: 'userInfo',
-      accessToken: 'accessToken'
+      userInfo: 'userInfo'
     }),
     currentId () {
       return this.$route.params.id
@@ -143,47 +119,9 @@ export default {
     isMySelf () {
       return this.myUserId == parseInt(this.currentId)
     },
-    avatarHeaders () {
-      return {
-        Authorization: `Bearer ${this.accessToken}`
-      }
-    }
   }
 }
 </script>
-
-<style>
-.avatar-uploader {
-  text-align: center;
-}
-.avatar-uploader .el-upload {
-  border: 1px dashed #d9d9d9;
-  border-radius: 6px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.avatar-uploader .el-upload:hover {
-  border-color: #409EFF;
-}
-.avatar-uploader input {
-  display: none;
-}
-.avatar-uploader-icon {
-  font-size: 28px;
-  color: #8c939d;
-  width: 178px;
-  height: 178px;
-  line-height: 178px;
-  text-align: center;
-}
-.avatar-uploader .avatar {
-  width: 178px;
-  height: 178px;
-  display: block;
-}
-</style>
-
 
 <style scoped lang="scss">
   /* 头像部分 */

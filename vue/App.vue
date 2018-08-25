@@ -42,6 +42,9 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+  background: #fff;
+}
 // 全局样式
 .loading-cover {
   position: absolute;

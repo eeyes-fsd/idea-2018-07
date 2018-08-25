@@ -30,7 +30,8 @@
         :key="key"
         avatar=""
         :name="item.nickname"
-        :signature="item.signature"></UserDetails>
+        :signature="item.signature"
+        :articles="item.articles"></UserDetails>
     </div>
   </div>
 </template>

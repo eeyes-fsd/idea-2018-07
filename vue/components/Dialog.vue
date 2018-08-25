@@ -32,7 +32,6 @@ export default {
       type: String,
       default: 'right'
     },
-
   },
   methods: {
     close (type) {

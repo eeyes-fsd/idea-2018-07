@@ -130,6 +130,14 @@ export default new Vuex.Store({
         await sleep(time * refreshTimeRate)
       }
     },
+    async refreshUserInfo ({ commit }, callback) {
+      // 获取用户信息
+      let info = await requests.get('/user')
+      commit('setUserInfo', info)
+      if (callback) {
+        callback()
+      }
+    },
     logout () {
       delCookie('access_token')
       delCookie('laravel_session')

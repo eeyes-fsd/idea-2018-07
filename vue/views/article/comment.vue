@@ -12,22 +12,22 @@
           <p>{{ comment.created_at }}</p>
           <p v-html="comment.body"></p>
           <p>
-            <a class ="pull-right" @click="showcomment()"  :id="comment.id"><span class="glyphicon glyphicon-comment" aria-hidden="true">{{ comment.reply_count }}&emsp;</span></a>
-            <a class="pull-right" @click="likeComment()"  :id="comment.id"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">{{ comment.like_count }}&emsp;&emsp;</span></a>
+            <a class="pull-left" @click="likeComment()"  :id="comment.id" href="javascript:;"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">{{ comment.like_count }}&emsp;&emsp;</span></a>
+            <a class ="pull-left" @click="showcomment()"  :id="comment.id" href="javascript:;"><span class="glyphicon glyphicon-comment" aria-hidden="true">{{ comment.reply_count }}&emsp;</span></a>
           </p>
+
           <div class="media" v-for="(item,key) in comment.children" :key="key">
             <div class="media-left">
-              <router-link :to="'/user/'+item.author.id+'/article'">
-                <img :src="item.author.avatar" alt="头像" class="comment-head img-circle">
-              </router-link>
             </div>
-            <div class="media-body">
-              <h4>{{ item.author.nickname }}</h4>
-              <p>{{ item.created_at }}</p>
-              <p v-html="item.body"></p>
+            <div class="media-body second-com">
               <p>
-                <a class ="pull-right" @click="showcomment()"  :id="comment.id"><span class="glyphicon glyphicon-comment" aria-hidden="true">{{ comment.reply_count }}&emsp;</span></a>
-                <a class="pull-right" @click="likeSecondComment()" :index="key" :id="item.id"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">{{ item.like_count }}&emsp;&emsp;</span></a>
+                <router-link :to="'/user/'+item.author.id+'/article'"><span>{{ item.author.nickname }}</span></router-link>:
+                <span v-html="item.body"></span>
+              </p>
+              <p>
+                {{ item.created_at }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a  @click="likeSecondComment()" :index="key" :id="item.id"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">{{ item.like_count }}&emsp;&emsp;</span></a>
+                <a  @click="showcomment()"  :id="comment.id"><span class="glyphicon glyphicon-comment" aria-hidden="true">{{ comment.reply_count }}&emsp;</span></a>
               </p>
             </div>
           </div>
@@ -42,6 +42,7 @@
         </div>
       </li>
     </ul>
+    <hr style="border-top:1px solid #000; clear:both;" />
   </div>
 </template>
 
@@ -81,7 +82,7 @@ export default {
       console.log(this.commentCon)
       try{
         let data = await requests.post('/replies', { body: this.commentCon, reply_id: id })
-        console.log(data)
+        location.reload()
       }catch (e){
         console.log(e || 'unknown mistake')
       }
@@ -122,5 +123,8 @@ export default {
   }
   .media{
     clear: both;
+  }
+  .second-con>a>h4{
+    margin: 0;
   }
 </style>

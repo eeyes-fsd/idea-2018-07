@@ -1,6 +1,6 @@
 <template>
   <div class="upload-container">
-    <el-button :style="{background:color,borderColor:color}" icon="el-icon-upload" size="mini" type="primary" @click=" dialogVisible=true">上传图片
+    <el-button v-if="allowPic" :style="{background:color,borderColor:color}" icon="el-icon-upload" size="mini" type="primary" @click=" dialogVisible=true">上传图片
     </el-button>
     <el-dialog :visible.sync="dialogVisible">
       <el-upload
@@ -28,7 +28,11 @@ export default {
   props: {
     color: {
       type: String,
-      default: '#1890ff'
+      default: '#1890ff',
+    },
+    allowPic: {
+      type: Boolean,
+      default: false,
     }
   },
   data() {

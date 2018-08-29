@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/** 页面路由注册示例 */
+Route::get('/', 'PagesController@root')->name('root');

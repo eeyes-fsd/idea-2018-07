@@ -41,9 +41,14 @@ return [
             'provider' => 'users',
         ],
 
-        'api' => [
+        'api_user' => [
             'driver' => 'jwt',
             'provider' => 'users',
+        ],
+
+        'api_organization' => [
+            'driver' => 'jwt',
+            'provider' => 'organizations'
         ],
     ],
 
@@ -67,13 +72,13 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+         'organizations' => [
+             'driver' => 'eloquent',
+             'model' => App\Models\Organization::class,
+         ],
     ],
 
     /*
@@ -94,6 +99,11 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'organization' => [
+            'provider' => 'organizations',
             'table' => 'password_resets',
             'expire' => 60,
         ],

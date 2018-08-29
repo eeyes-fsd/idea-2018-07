@@ -211,11 +211,12 @@ return [
     |
     */
 
-    'defaultFormat' => env('API_DEFAULT_FORMAT', 'json'),
+    'defaultFormat' => env('API_DEFAULT_FORMAT', 'stand'),
 
     'formats' => [
 
         'json' => Dingo\Api\Http\Response\Format\Json::class,
+        'stand' => App\Response\CustomResponse::class,
 
     ],
 

@@ -1,0 +1,4588 @@
+{
+	"info": {
+		"_postman_id": "c67e3330-f864-4d12-9b49-c64fea90340c",
+		"name": "idea.test",
+		"description": "创意工坊",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User/Organization",
+			"item": [
+				{
+					"name": "用户登录",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/users/authorizations",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"authorizations"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "用户登录",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/users/authorizations",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"users",
+										"authorizations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Aug 2018 01:19:30 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":302,\"message\":\"\\u91cd\\u5b9a\\u5411\\u4ee5\\u5b8c\\u6210\\u6388\\u6743\",\"data\":{\"url\":\"https:\\/\\/account.eeyes.net\\/oauth\\/authorize?client_id=12&redirect_uri=http%3A%2F%2Fidea.test%2F%23%2Foauth%2Fcallback&response_type=code&scope=info-username.read+info-user_id.read+info-name.read+info-email.read\"}}"
+						}
+					]
+				},
+				{
+					"name": "用户登录回调",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/users/authorizations/callback",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"authorizations",
+								"callback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "社团登录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "cantjie1@163.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "cantjie",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/organizations/authorizations",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"authorizations"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "社团登录成功",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": false
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "cantjie@163.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "cantjie",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/organizations/authorizations",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations",
+										"authorizations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Aug 2018 02:50:30 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"e82ec05a2ddda927b9f2eafd718728ad9494e97b\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":201,\"message\":\"\\u8ba4\\u8bc1\\u6210\\u529f\",\"data\":{\"access_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzM4Njk0MzAsImV4cCI6MTUzMzg3MzAzMCwibmJmIjoxNTMzODY5NDMwLCJqdGkiOiJUTEpVUlJLWjFSMmZyYldKIiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.by9c_LLtSAJ2tqF0bYOVP1IsZlAtN4u2RFDaGZqw1ds\",\"token_type\":\"Bearer\",\"expires_in\":3600}}"
+						},
+						{
+							"name": "社团登录失败",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "cantjie@163.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "cantjie1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/organizations/authorizations",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations",
+										"authorizations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Aug 2018 02:54:06 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"message\":\"These credentials do not match our records.\",\"status_code\":401,\"debug\":{\"line\":173,\"file\":\"E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Response\\\\Factory.php\",\"class\":\"Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\HttpException\",\"trace\":[\"#0 E:\\\\project\\\\idea-2018-07\\\\app\\\\Http\\\\Controllers\\\\Api\\\\Controller.php(98): Dingo\\\\Api\\\\Http\\\\Response\\\\Factory->error('These credentia...', 401)\",\"#1 E:\\\\project\\\\idea-2018-07\\\\app\\\\Http\\\\Controllers\\\\Api\\\\AuthorizationsController.php(120): App\\\\Http\\\\Controllers\\\\Api\\\\Controller->error(401, 'These credentia...')\",\"#2 [internal function]: App\\\\Http\\\\Controllers\\\\Api\\\\AuthorizationsController->organizationAuthenticate(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#3 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Controller.php(54): call_user_func_array(Array, Array)\",\"#4 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\ControllerDispatcher.php(45): Illuminate\\\\Routing\\\\Controller->callAction('organizationAut...', Array)\",\"#5 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Route.php(212): Illuminate\\\\Routing\\\\ControllerDispatcher->dispatch(Object(Illuminate\\\\Routing\\\\Route), Object(App\\\\Http\\\\Controllers\\\\Api\\\\AuthorizationsController), 'organizationAut...')\",\"#6 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Route.php(169): Illuminate\\\\Routing\\\\Route->runController()\",\"#7 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(658): Illuminate\\\\Routing\\\\Route->run()\",\"#8 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(30): Illuminate\\\\Routing\\\\Router->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#9 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\PrepareController.php(45): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#10 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Dingo\\\\Api\\\\Http\\\\Middleware\\\\PrepareController->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#11 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#12 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#13 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(660): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#14 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(635): Illuminate\\\\Routing\\\\Router->runRouteWithinStack(Object(Illuminate\\\\Routing\\\\Route), Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#15 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(601): Illuminate\\\\Routing\\\\Router->runRoute(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Illuminate\\\\Routing\\\\Route))\",\"#16 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(590): Illuminate\\\\Routing\\\\Router->dispatchToRoute(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#17 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Routing\\\\Adapter\\\\Laravel.php(81): Illuminate\\\\Routing\\\\Router->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#18 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Routing\\\\Router.php(512): Dingo\\\\Api\\\\Routing\\\\Adapter\\\\Laravel->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request), 'v1')\",\"#19 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(126): Dingo\\\\Api\\\\Routing\\\\Router->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#20 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(114): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->Dingo\\\\Api\\\\Http\\\\Middleware\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#21 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\fideloper\\\\proxy\\\\src\\\\TrustProxies.php(56): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#22 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Fideloper\\\\Proxy\\\\TrustProxies->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#23 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php(30): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#24 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#25 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php(30): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#26 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#27 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize.php(27): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#28 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#29 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\CheckForMaintenanceMode.php(46): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#30 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\CheckForMaintenanceMode->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#31 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#32 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(127): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#33 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(103): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->sendRequestThroughRouter(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#34 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#35 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Illuminate\\\\Http\\\\Request))\",\"#36 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Illuminate\\\\Http\\\\Request))\",\"#37 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php(151): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#38 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php(116): Illuminate\\\\Foundation\\\\Http\\\\Kernel->sendRequestThroughRouter(Object(Illuminate\\\\Http\\\\Request))\",\"#39 E:\\\\project\\\\idea-2018-07\\\\public\\\\index.php(55): Illuminate\\\\Foundation\\\\Http\\\\Kernel->handle(Object(Illuminate\\\\Http\\\\Request))\",\"#40 {main}\"]}}"
+						}
+					]
+				},
+				{
+					"name": "创建社团用户",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "袁新杰的社团12",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "cantjie",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "cantjie1@163.com",
+									"type": "text"
+								},
+								{
+									"key": "qq",
+									"value": "46472001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/organizations",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "创建社团用户失败",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": false
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "袁新杰的社团",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "cantjie",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "cantjie@163.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/organizations",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Aug 2018 02:41:05 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"message\":\"SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'cantjie@163.com' for key 'organizations_email_unique' (SQL: insert into `organizations` (`username`, `email`, `password`, `updated_at`, `created_at`) values (\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2, cantjie@163.com, $2y$10$0hRhyWvZr6AV7Fa5kuRABuuhva9Li5z6fRuq4IH63LDu8shM.swge, 2018-08-10 10:41:04, 2018-08-10 10:41:04))\",\"code\":\"23000\",\"status_code\":500,\"debug\":{\"line\":664,\"file\":\"E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Connection.php\",\"class\":\"Illuminate\\\\Database\\\\QueryException\",\"trace\":[\"#0 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Connection.php(624): Illuminate\\\\Database\\\\Connection->runQueryCallback('insert into `or...', Array, Object(Closure))\",\"#1 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Connection.php(459): Illuminate\\\\Database\\\\Connection->run('insert into `or...', Array, Object(Closure))\",\"#2 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Connection.php(411): Illuminate\\\\Database\\\\Connection->statement('insert into `or...', Array)\",\"#3 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Processors\\\\Processor.php(32): Illuminate\\\\Database\\\\Connection->insert('insert into `or...', Array)\",\"#4 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2159): Illuminate\\\\Database\\\\Query\\\\Processors\\\\Processor->processInsertGetId(Object(Illuminate\\\\Database\\\\Query\\\\Builder), 'insert into `or...', Array, 'id')\",\"#5 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Builder.php(1285): Illuminate\\\\Database\\\\Query\\\\Builder->insertGetId(Array, 'id')\",\"#6 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Model.php(722): Illuminate\\\\Database\\\\Eloquent\\\\Builder->__call('insertGetId', Array)\",\"#7 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Model.php(687): Illuminate\\\\Database\\\\Eloquent\\\\Model->insertAndSetId(Object(Illuminate\\\\Database\\\\Eloquent\\\\Builder), Array)\",\"#8 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Model.php(550): Illuminate\\\\Database\\\\Eloquent\\\\Model->performInsert(Object(Illuminate\\\\Database\\\\Eloquent\\\\Builder))\",\"#9 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Builder.php(757): Illuminate\\\\Database\\\\Eloquent\\\\Model->save()\",\"#10 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Support\\\\helpers.php(1038): Illuminate\\\\Database\\\\Eloquent\\\\Builder->Illuminate\\\\Database\\\\Eloquent\\\\{closure}(Object(App\\\\Models\\\\Organization))\",\"#11 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Builder.php(758): tap(Object(App\\\\Models\\\\Organization), Object(Closure))\",\"#12 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Model.php(1470): Illuminate\\\\Database\\\\Eloquent\\\\Builder->create(Array)\",\"#13 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Model.php(1482): Illuminate\\\\Database\\\\Eloquent\\\\Model->__call('create', Array)\",\"#14 E:\\\\project\\\\idea-2018-07\\\\app\\\\Http\\\\Controllers\\\\Api\\\\OrganizationsController.php(25): Illuminate\\\\Database\\\\Eloquent\\\\Model::__callStatic('create', Array)\",\"#15 [internal function]: App\\\\Http\\\\Controllers\\\\Api\\\\OrganizationsController->store(Object(App\\\\Http\\\\Requests\\\\OrganizationRequest))\",\"#16 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Controller.php(54): call_user_func_array(Array, Array)\",\"#17 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\ControllerDispatcher.php(45): Illuminate\\\\Routing\\\\Controller->callAction('store', Array)\",\"#18 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Route.php(212): Illuminate\\\\Routing\\\\ControllerDispatcher->dispatch(Object(Illuminate\\\\Routing\\\\Route), Object(App\\\\Http\\\\Controllers\\\\Api\\\\OrganizationsController), 'store')\",\"#19 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Route.php(169): Illuminate\\\\Routing\\\\Route->runController()\",\"#20 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(658): Illuminate\\\\Routing\\\\Route->run()\",\"#21 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(30): Illuminate\\\\Routing\\\\Router->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#22 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\PrepareController.php(45): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#23 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Dingo\\\\Api\\\\Http\\\\Middleware\\\\PrepareController->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#24 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#25 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#26 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(660): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#27 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(635): Illuminate\\\\Routing\\\\Router->runRouteWithinStack(Object(Illuminate\\\\Routing\\\\Route), Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#28 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(601): Illuminate\\\\Routing\\\\Router->runRoute(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Illuminate\\\\Routing\\\\Route))\",\"#29 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(590): Illuminate\\\\Routing\\\\Router->dispatchToRoute(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#30 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Routing\\\\Adapter\\\\Laravel.php(81): Illuminate\\\\Routing\\\\Router->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#31 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Routing\\\\Router.php(512): Dingo\\\\Api\\\\Routing\\\\Adapter\\\\Laravel->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request), 'v1')\",\"#32 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(126): Dingo\\\\Api\\\\Routing\\\\Router->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#33 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(114): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->Dingo\\\\Api\\\\Http\\\\Middleware\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#34 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\fideloper\\\\proxy\\\\src\\\\TrustProxies.php(56): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#35 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Fideloper\\\\Proxy\\\\TrustProxies->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#36 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php(30): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#37 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#38 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php(30): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#39 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#40 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize.php(27): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#41 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#42 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\CheckForMaintenanceMode.php(46): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#43 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\CheckForMaintenanceMode->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#44 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#45 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(127): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#46 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(103): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->sendRequestThroughRouter(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#47 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#48 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Illuminate\\\\Http\\\\Request))\",\"#49 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Illuminate\\\\Http\\\\Request))\",\"#50 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php(151): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#51 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php(116): Illuminate\\\\Foundation\\\\Http\\\\Kernel->sendRequestThroughRouter(Object(Illuminate\\\\Http\\\\Request))\",\"#52 E:\\\\project\\\\idea-2018-07\\\\public\\\\index.php(55): Illuminate\\\\Foundation\\\\Http\\\\Kernel->handle(Object(Illuminate\\\\Http\\\\Request))\",\"#53 {main}\"]}}"
+						},
+						{
+							"name": "创建社团用户成功",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": false
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "袁新杰的社团",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "cantjie",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "cantjie1@163.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/organizations",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Aug 2018 02:42:12 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"9826dd8b0142103870df172da68218378886a272\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"\\u793e\\u56e2\\u7528\\u6237\\u521b\\u5efa\\u6210\\u529f\"}"
+						}
+					]
+				},
+				{
+					"name": "用户刷新token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDgzNjE5MiwiZXhwIjoxNTM0ODM5NzkyLCJuYmYiOjE1MzQ4MzYxOTIsImp0aSI6ImQ4Z0xuV2tWOGpzMFBXalUiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.LW7FAQCu6Ar7t0UV0qQPAErI6EjggKMBiszRK5rcE1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/users/refresh",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"refresh"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "用户刷新token成功",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/users/refresh",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"users",
+										"refresh"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Aug 2018 09:35:34 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"da5df3922750b55d361e9f62ccd36df31b2645a1\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":201,\"message\":\"\\u5237\\u65b0\\u6210\\u529f\",\"data\":{\"access_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzM5Nzk3OTAsImV4cCI6MTUzMzk4MzczNCwibmJmIjoxNTMzOTgwMTM0LCJqdGkiOiJmYUV3R0FJUVlFRG01NzltIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.x-KfkeEhvsCOnlIESLMrZXBe9AOTvjLD3ufNFosFLSs\",\"token_type\":\"Bearer\",\"expires_in\":3600}}"
+						}
+					]
+				},
+				{
+					"name": "社团刷新token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ0MDIyNTUsImV4cCI6MTUzNDQwNTg1NSwibmJmIjoxNTM0NDAyMjU1LCJqdGkiOiI4aHFySnc3RkpWdXF3Sk40Iiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.3IMpm08D_Z-17xWM2r9LoyyQiM_Lrmm-HfkGBqM3OA4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/organizations/refresh",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "用户登出",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzMzk4MDI4MywiZXhwIjoxNTMzOTgzODgzLCJuYmYiOjE1MzM5ODAyODMsImp0aSI6InltR1JrSXAzb1htbE9DNkwiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.T6DVR4qmEuZMhbEx8orfMCe70Gxyq9_yx3cl6R19d4g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/users/current",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "社团登出",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzM5Nzk3OTAsImV4cCI6MTUzMzk4MzUwNCwibmJmIjoxNTMzOTc5OTA0LCJqdGkiOiJmMG1uYTRoMUpxSWNFa3RBIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.tDONWdCz-Z4E1xDUVk33fu-CTqgeZqlDq0VVVNnr5j0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/organizations/current",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "用户个人信息",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDc4MDI4OCwiZXhwIjoxNTM0NzgzODg4LCJuYmYiOjE1MzQ3ODAyODgsImp0aSI6ImJpcmZzeFFZZmpjTTlSQVAiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.frLvHimOeV3BlRwLQ3MemkvLL1gIcvITZdACwT_R1Qc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/user",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "获取用户个人信息成功",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/user",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Aug 2018 13:41:01 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"1c65f6e437f79b0ae7449c5934af9b46e851ef68\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":null,\"profile_photo\":null,\"signature\":\"\\u8fd9\\u4e2a\\u4eba\\u5f88\\u61d2\\uff0c\\u4ec0\\u4e48\\u4e5f\\u6ca1\\u6709\\u5199\",\"phone\":\"18932869937\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":null,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1}}"
+						}
+					]
+				},
+				{
+					"name": "社团个人信息",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ3ODAxODUsImV4cCI6MTUzNDc4Mzc4NSwibmJmIjoxNTM0NzgwMTg1LCJqdGkiOiJBWkxOZ0V5NlpzeXRIYkp0Iiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.I2BdQToGwqBXVh3eT0WW86VXOKknfhQPrtWwrmTAosE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/organization",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organization"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "获取社团个人信息成功",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/organization",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organization"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Aug 2018 13:42:03 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"7ea3353378d257270b937b169fc6d5716b27ec6c\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"email\":\"cantjie1@163.com\",\"profile_photo\":null,\"active\":0,\"qq\":null,\"email_visibility\":1,\"qq_visibility\":1}}"
+						}
+					]
+				},
+				{
+					"name": "修改用户个人信息",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0MDIxODYsImV4cCI6MTUzNDQyMDc2NiwibmJmIjoxNTM0NDE3MTY2LCJqdGkiOiJqdzVGSVA1bzR2SzNTQ2JYIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5-FUD1ojZPrlI-mASLZ7qmeON9S_YQX3yFN5c5N8Nvs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "nickname",
+									"value": "cantjie",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "cantjie@stu.xjtu.edu.cn",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "signature",
+									"value": "懒！",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "18932869937",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "qq",
+									"value": "8776",
+									"type": "text"
+								},
+								{
+									"key": "phone_visibility",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email_visibility",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "qq_visibility",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "avatar",
+									"type": "file"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "old_password",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/users/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "修改用户个人信息成功",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "nickname",
+											"value": "cantjie",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "cantjie@stu.xjtu.edu.cn",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "signature",
+											"value": "懒！",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "phone",
+											"value": "18932869937",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "qq",
+											"value": "8776",
+											"type": "text"
+										},
+										{
+											"key": "phone_visibility",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "email_visibility",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "qq_visibility",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "profile_photo",
+											"type": "file",
+											"src": {
+												"0": {}
+											},
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "old_password",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/users/1",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 12 Aug 2018 02:24:27 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"6c2915b4aed8104ceaec12d883a075dc3b1535c1\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"nickname\":\"cantjie\",\"profile_photo\":\"http:\\/\\/idea.test\\/storage\\/images\\/profile_photo\\/201808\\/12\\/1_1534040615_ZFNIUXVaJJ.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"18932869937\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":0,\"created_at\":\"2018-08-11 20:41:05\",\"updated_at\":\"2018-08-12 10:23:35\"}}"
+						}
+					]
+				},
+				{
+					"name": "修改社团个人信息",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ0MDIyNTUsImV4cCI6MTUzNDQwNTg1NSwibmJmIjoxNTM0NDAyMjU1LCJqdGkiOiI4aHFySnc3RkpWdXF3Sk40Iiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.3IMpm08D_Z-17xWM2r9LoyyQiM_Lrmm-HfkGBqM3OA4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "put",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "袁新杰的社团",
+									"type": "text"
+								},
+								{
+									"key": "signature",
+									"value": "懒！",
+									"type": "text"
+								},
+								{
+									"key": "qq",
+									"value": "8776",
+									"type": "text"
+								},
+								{
+									"key": "email_visibility",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "qq_visibility",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "old_password",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "avatar",
+									"value": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/organizations/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "修改社团信息成功",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "袁新杰的社团",
+											"type": "text"
+										},
+										{
+											"key": "signature",
+											"value": "懒！",
+											"type": "text"
+										},
+										{
+											"key": "qq",
+											"value": "8776",
+											"type": "text"
+										},
+										{
+											"key": "email_visibility",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "qq_visibility",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "old_password",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "avatar",
+											"type": "file",
+											"src": {
+												"0": {}
+											}
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/organizations/1",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Aug 2018 01:46:51 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"9d4915ac27e71ec8e00f20f951551903cff3cd00\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534384011_jmWuHcgDZp.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":0,\"email\":\"cantjie@163.com\",\"qq\":\"8776\",\"email_visibility\":\"1\",\"qq_visibility\":\"0\"}}"
+						}
+					]
+				},
+				{
+					"name": "给用户Founder角色",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDg0MjA5NiwiZXhwIjoxNTM0ODQ1Njk2LCJuYmYiOjE1MzQ4NDIwOTYsImp0aSI6IkVtQlNUMVNXZ2NYaFJhZkkiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.8ev41oX853uw0-Fb6KXu1YK3WDRHt35o-mr51E3lb7k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/users/founder/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"founder",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "给社团Founder角色",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDg0MjA5NiwiZXhwIjoxNTM0ODQ1Njk2LCJuYmYiOjE1MzQ4NDIwOTYsImp0aSI6IkVtQlNUMVNXZ2NYaFJhZkkiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.8ev41oX853uw0-Fb6KXu1YK3WDRHt35o-mr51E3lb7k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/organizations/founder/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"founder",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "给用户Maintainer角色",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDg0MjA5NiwiZXhwIjoxNTM0ODQ1Njk2LCJuYmYiOjE1MzQ4NDIwOTYsImp0aSI6IkVtQlNUMVNXZ2NYaFJhZkkiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.8ev41oX853uw0-Fb6KXu1YK3WDRHt35o-mr51E3lb7k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/users/maintainer/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"maintainer",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取社团信息",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDQwMjE4NiwiZXhwIjoxNTM0NDA1Nzg2LCJuYmYiOjE1MzQ0MDIxODYsImp0aSI6InlDYWVNdWRRaXlmVVBLbHgiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.cSZ_GgxV8aBvGvkFwLfieKxQd2UikhwJGztRQks42O4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/organizations/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "获取社团信息失败",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/organizations/1",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Aug 2018 06:58:21 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"message\":\"\\u5c1a\\u672a\\u767b\\u5f55\\u6216\\u6743\\u9650\\u4e0d\\u8db3\\u3002\",\"status_code\":403,\"debug\":{\"line\":173,\"file\":\"E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Response\\\\Factory.php\",\"class\":\"Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\HttpException\",\"trace\":[\"#0 E:\\\\project\\\\idea-2018-07\\\\app\\\\Http\\\\Controllers\\\\Api\\\\Controller.php(99): Dingo\\\\Api\\\\Http\\\\Response\\\\Factory->error('\\\\xE5\\\\xB0\\\\x9A\\\\xE6\\\\x9C\\\\xAA\\\\xE7\\\\x99\\\\xBB\\\\xE5\\\\xBD\\\\x95\\\\xE6\\\\x88\\\\x96...', 403)\",\"#1 E:\\\\project\\\\idea-2018-07\\\\app\\\\Http\\\\Controllers\\\\Api\\\\Controller.php(119): App\\\\Http\\\\Controllers\\\\Api\\\\Controller->error(403, '\\\\xE5\\\\xB0\\\\x9A\\\\xE6\\\\x9C\\\\xAA\\\\xE7\\\\x99\\\\xBB\\\\xE5\\\\xBD\\\\x95\\\\xE6\\\\x88\\\\x96...')\",\"#2 E:\\\\project\\\\idea-2018-07\\\\app\\\\Http\\\\Controllers\\\\Api\\\\OrganizationsController.php(29): App\\\\Http\\\\Controllers\\\\Api\\\\Controller->getUserOrActiveOrganization()\",\"#3 [internal function]: App\\\\Http\\\\Controllers\\\\Api\\\\OrganizationsController->show(Object(App\\\\Models\\\\Organization))\",\"#4 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Controller.php(54): call_user_func_array(Array, Array)\",\"#5 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\ControllerDispatcher.php(45): Illuminate\\\\Routing\\\\Controller->callAction('show', Array)\",\"#6 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Route.php(212): Illuminate\\\\Routing\\\\ControllerDispatcher->dispatch(Object(Illuminate\\\\Routing\\\\Route), Object(App\\\\Http\\\\Controllers\\\\Api\\\\OrganizationsController), 'show')\",\"#7 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Route.php(169): Illuminate\\\\Routing\\\\Route->runController()\",\"#8 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(658): Illuminate\\\\Routing\\\\Route->run()\",\"#9 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(30): Illuminate\\\\Routing\\\\Router->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#10 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\liyu\\\\dingo-serializer-switch\\\\src\\\\SerializerSwitch.php(44): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#11 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Liyu\\\\Dingo\\\\SerializerSwitch->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure), 'array')\",\"#12 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#13 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Middleware\\\\SubstituteBindings.php(41): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#14 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Routing\\\\Middleware\\\\SubstituteBindings->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#15 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#16 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\PrepareController.php(45): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#17 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Dingo\\\\Api\\\\Http\\\\Middleware\\\\PrepareController->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#18 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#19 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#20 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(660): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#21 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(635): Illuminate\\\\Routing\\\\Router->runRouteWithinStack(Object(Illuminate\\\\Routing\\\\Route), Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#22 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(601): Illuminate\\\\Routing\\\\Router->runRoute(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Illuminate\\\\Routing\\\\Route))\",\"#23 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php(590): Illuminate\\\\Routing\\\\Router->dispatchToRoute(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#24 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Routing\\\\Adapter\\\\Laravel.php(81): Illuminate\\\\Routing\\\\Router->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#25 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Routing\\\\Router.php(512): Dingo\\\\Api\\\\Routing\\\\Adapter\\\\Laravel->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request), 'v1')\",\"#26 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(126): Dingo\\\\Api\\\\Routing\\\\Router->dispatch(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#27 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(114): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->Dingo\\\\Api\\\\Http\\\\Middleware\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#28 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\fideloper\\\\proxy\\\\src\\\\TrustProxies.php(56): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#29 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Fideloper\\\\Proxy\\\\TrustProxies->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#30 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php(30): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#31 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#32 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php(30): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#33 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#34 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize.php(27): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#35 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#36 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\CheckForMaintenanceMode.php(46): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#37 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\CheckForMaintenanceMode->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#38 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#39 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(127): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#40 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\dingo\\\\api\\\\src\\\\Http\\\\Middleware\\\\Request.php(103): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->sendRequestThroughRouter(Object(Dingo\\\\Api\\\\Http\\\\Request))\",\"#41 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(149): Dingo\\\\Api\\\\Http\\\\Middleware\\\\Request->handle(Object(Dingo\\\\Api\\\\Http\\\\Request), Object(Closure))\",\"#42 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php(53): Illuminate\\\\Pipeline\\\\Pipeline->Illuminate\\\\Pipeline\\\\{closure}(Object(Illuminate\\\\Http\\\\Request))\",\"#43 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php(102): Illuminate\\\\Routing\\\\Pipeline->Illuminate\\\\Routing\\\\{closure}(Object(Illuminate\\\\Http\\\\Request))\",\"#44 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php(151): Illuminate\\\\Pipeline\\\\Pipeline->then(Object(Closure))\",\"#45 E:\\\\project\\\\idea-2018-07\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php(116): Illuminate\\\\Foundation\\\\Http\\\\Kernel->sendRequestThroughRouter(Object(Illuminate\\\\Http\\\\Request))\",\"#46 E:\\\\project\\\\idea-2018-07\\\\public\\\\index.php(55): Illuminate\\\\Foundation\\\\Http\\\\Kernel->handle(Object(Illuminate\\\\Http\\\\Request))\",\"#47 {main}\"]}}"
+						},
+						{
+							"name": "获取社团信息成功",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/organizations/1",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Aug 2018 06:58:54 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"0567b353250fd6b95c8cdaa17912ce6043cd0ec5\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":0,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0}}"
+						}
+					]
+				},
+				{
+					"name": "审核通过某社团",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDQwMjE4NiwiZXhwIjoxNTM0NDA1Nzg2LCJuYmYiOjE1MzQ0MDIxODYsImp0aSI6InlDYWVNdWRRaXlmVVBLbHgiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.cSZ_GgxV8aBvGvkFwLfieKxQd2UikhwJGztRQks42O4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/organizations/activate/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"activate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "显示某用户信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/users/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "显示某用户信息",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/users/1",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Aug 2018 15:34:46 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"bbbb4b544e2ca781dd18983142523cb08f80d23f\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1}}"
+						}
+					]
+				},
+				{
+					"name": "获取某社团信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/organizations/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "获取某社团信息",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/organizations/1",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"organizations",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 19 Aug 2018 15:35:05 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"6d7520d23a7b2af32dce38fd7f6a721d8dd2a002\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0}}"
+						}
+					]
+				},
+				{
+					"name": "修改社团头像",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUwMjY2NTIsImV4cCI6MTUzNTAzMDI1MiwibmJmIjoxNTM1MDI2NjUyLCJqdGkiOiJVUVRYUkpNbUZJc3JVV0dZIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.SbXsno3E7GFF5SDxHgTz9eC9ZPdQbZnCGXeI0Uws7pY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/organizations/avatar/5",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"organizations",
+								"avatar",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改个人头像",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ5MjQzMTYsImV4cCI6MTUzNDkyNzkxNiwibmJmIjoxNTM0OTI0MzE2LCJqdGkiOiIzWXpGakt6cDNZckZDcmZSIiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.WHfWq51B0p3eCjm8etX1gB3MS87mu5VwoRZerWK1xYo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"value": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/users/avatar/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"users",
+								"avatar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取文章、评论是否被自己点赞或收藏",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxODM4MjYsImV4cCI6MTUzNTE4NzQyNiwibmJmIjoxNTM1MTgzODI2LCJqdGkiOiJVSGlRb0VjSTAydDc0NkxqIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.OGETytQ4LPDueGUi5rBlqknPSMe4jFtWbtv5O14lAYw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "article_id",
+									"value": "10",
+									"description": "非必需",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "reply_id",
+									"value": "17",
+									"description": "非必需",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/curinfo",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"curinfo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "获取文章、评论是否被自己点赞或收藏",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "article_id",
+											"value": "10",
+											"description": "非必需",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "reply_id",
+											"value": "17",
+											"description": "非必需",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/curinfo",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"curinfo"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Aug 2018 08:00:59 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"7d25f004af9959f508074b0a37d437940b6842f4\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"liked\":1}}"
+						},
+						{
+							"name": "获取文章、评论是否被自己点赞或收藏",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "article_id",
+											"value": "10",
+											"description": "非必需",
+											"type": "text"
+										},
+										{
+											"key": "reply_id",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/curinfo",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"curinfo"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Aug 2018 07:59:41 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"c9bd20e566a44757381b3864674780977610acc9\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"liked\":1,\"favorited\":0}}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Article",
+			"item": [
+				{
+					"name": "新建文章",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxOTkxMjksImV4cCI6MTUzNTIwMjcyOSwibmJmIjoxNTM1MTk5MTI5LCJqdGkiOiJzb1FNZ3B3UGJvdTBVWENVIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.oTX_s5aCyaggG4vCDMSv3xUzmSuJ8ebg2EtcdSZ9T78",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_id",
+									"value": "6",
+									"description": "必需，必需为二级类别",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "第4篇文章",
+									"description": "必需",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "第4篇文章正文",
+									"description": "必需",
+									"type": "text"
+								},
+								{
+									"key": "anonymous",
+									"value": "1",
+									"description": "非必需，是否匿名",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/articles",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"articles"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "新建文章成功",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "category_id",
+											"value": "6",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "第3篇文章",
+											"type": "text"
+										},
+										{
+											"key": "body",
+											"value": "第3篇文章正文",
+											"type": "text"
+										},
+										{
+											"key": "anonymous",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/articles",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"articles"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Aug 2018 11:07:27 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"c07cdca00728377f94420534ea27cec34809364c\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":201,\"message\":\"\\u6587\\u7ae0\\u5df2\\u521b\\u5efa\",\"data\":{\"title\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":\"1\",\"view_count\":null,\"like_count\":null,\"favorite_count\":null,\"reply_count\":null,\"created_at\":\"1\\u79d2\\u524d\",\"updated_at\":\"1\\u79d2\\u524d\"}}"
+						}
+					]
+				},
+				{
+					"name": "显示指定文章",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxODM4MjYsImV4cCI6MTUzNTE4NzQyNiwibmJmIjoxNTM1MTgzODI2LCJqdGkiOiJVSGlRb0VjSTAydDc0NkxqIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.OGETytQ4LPDueGUi5rBlqknPSMe4jFtWbtv5O14lAYw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/articles/10",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"articles",
+								"10"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "显示指定文章",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/articles/3",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"articles",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Aug 2018 12:39:37 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"de6f73bc00fc32b1713bcabf564b42b5a8cbd727\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":3,\"title\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":1,\"author_type\":\"organization\",\"view_count\":4,\"like_count\":0,\"favorite_count\":0,\"reply_count\":5,\"created_at\":\"2018-08-16 19:07:27\",\"updated_at\":\"2018-08-23 20:38:44\",\"category\":{\"id\":8,\"name\":\"\\u5566\\u5566\\u5566\\u5566\",\"parent_id\":1,\"article_count\":0,\"parent\":{\"id\":1,\"name\":\"\\u5e72\\u8d27\",\"parent_id\":0,\"article_count\":5}}}}"
+						}
+					]
+				},
+				{
+					"name": "修改文章内容",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0NzE4NzksImV4cCI6MTUzNDUwMDQyNywibmJmIjoxNTM0NDk2ODI3LCJqdGkiOiJ0d0lTckFGb0phcDltUlg5Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.dTyelCrUE2GC9drNLStFbHaIEhedWtRSitsuXFsudwI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "put",
+									"description": "必须为put",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "6",
+									"description": "必需，必须为二级类别",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "第5篇文章",
+									"description": "必需",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "第5篇文章正文",
+									"description": "必需",
+									"type": "text"
+								},
+								{
+									"key": "anonymous",
+									"value": "1",
+									"description": "非必需",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/articles/5",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"articles",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "按需求显示文章",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDkwNDA2NCwiZXhwIjoxNTM0OTA3NjY0LCJuYmYiOjE1MzQ5MDQwNjQsImp0aSI6ImZRYm5QVGt1ZE5xN2NpdjEiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.KJqlVeDYV_3ANPP-8xdGTqhVLmIbuALhSd2ItbpJ9QE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/articles?",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"articles"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "1",
+									"description": "非必需，每一页文章数，默认15 ",
+									"disabled": true
+								},
+								{
+									"key": "category_id",
+									"value": "0",
+									"description": "非必需，类别id，一级类别和二级类别均可，0表示无限制",
+									"disabled": true
+								},
+								{
+									"key": "orderBy",
+									"value": "id",
+									"description": "非必需，默认为id，可选列表：'updated_at', 'created_at', 'reply_count', 'favorite_count', 'like_count','view_count'",
+									"disabled": true
+								},
+								{
+									"key": "orderMode",
+									"value": "desc",
+									"description": "非必需，默认desc，可选列表：desc，asc",
+									"disabled": true
+								},
+								{
+									"key": "author_type",
+									"value": "organization",
+									"description": "非必需，默认为空，可选：me,user,organization,或空",
+									"disabled": true
+								},
+								{
+									"key": "author_id",
+									"value": "1",
+									"description": "非必需，当author_type为空或为me时该项可为空",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "非必需",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "按需求显示文章",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/articles?per_page=1&category_id=1&orderBy=id&orderMode=desc&page=2",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"articles"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "1",
+											"description": "每一页文章数，默认15 (所有字段均可空)"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"description": "类别id，一级类别和二级类别均可，0表示无限制"
+										},
+										{
+											"key": "orderBy",
+											"value": "id",
+											"description": "默认为id，可选列表：'updated_at', 'created_at', 'reply_count', 'favorite_count', 'like_count','view_count'"
+										},
+										{
+											"key": "orderMode",
+											"value": "desc",
+											"description": "默认desc，可选列表：desc，asc"
+										},
+										{
+											"key": "author_type",
+											"value": "user",
+											"description": "默认为空，可选：user,organization",
+											"disabled": true
+										},
+										{
+											"key": "author_id",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 07:49:22 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"26ad27d4ec30158c743ca23cd6686ed8b621c98c\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"articles\":[{\"id\":4,\"title\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":1,\"author_type\":\"user\",\"view_count\":0,\"like_count\":0,\"favorite_count\":0,\"reply_count\":0,\"created_at\":\"1\\u5929\\u524d\",\"updated_at\":\"1\\u5929\\u524d\",\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}}],\"pagination\":{\"total\":5,\"count\":1,\"per_page\":1,\"current_page\":2,\"total_pages\":5,\"first_page_url\":\"http:\\/\\/idea.test\\/api\\/articles?per_page=1&category_id=1&orderBy=id&orderMode=desc&page=1\",\"last_page_url\":\"http:\\/\\/idea.test\\/api\\/articles?per_page=1&category_id=1&orderBy=id&orderMode=desc&page=5\",\"previous_page_url\":\"http:\\/\\/idea.test\\/api\\/articles?per_page=1&category_id=1&orderBy=id&orderMode=desc&page=1\",\"next_page_url\":\"http:\\/\\/idea.test\\/api\\/articles?per_page=1&category_id=1&orderBy=id&orderMode=desc&page=3\"}}}"
+						}
+					]
+				},
+				{
+					"name": "删除文章",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ5MjQzMTYsImV4cCI6MTUzNDkyNzkxNiwibmJmIjoxNTM0OTI0MzE2LCJqdGkiOiIzWXpGakt6cDNZckZDcmZSIiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.WHfWq51B0p3eCjm8etX1gB3MS87mu5VwoRZerWK1xYo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/articles/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"articles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "上传文章所需图片",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxOTkxMjksImV4cCI6MTUzNTIwMjcyOSwibmJmIjoxNTM1MTk5MTI5LCJqdGkiOiJzb1FNZ3B3UGJvdTBVWENVIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.oTX_s5aCyaggG4vCDMSv3xUzmSuJ8ebg2EtcdSZ9T78",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/articles/images",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"articles",
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "上传封面图片",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxOTkxMjksImV4cCI6MTUzNTIwMjcyOSwibmJmIjoxNTM1MTk5MTI5LCJqdGkiOiJzb1FNZ3B3UGJvdTBVWENVIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.oTX_s5aCyaggG4vCDMSv3xUzmSuJ8ebg2EtcdSZ9T78",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/articles/cover/11",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"articles",
+								"cover",
+								"11"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "上传封面图片",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": {
+												"0": {}
+											}
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/articles/cover/11",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"articles",
+										"cover",
+										"11"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Aug 2018 12:24:06 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"71d42d4a475b081ba946089483a224c689ff5fd4\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"id\":11,\"title\":\"\\u7b2c4\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c4\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":1,\"cover\":\"http:\\/\\/idea.test\\/storage\\/images\\/covers\\/201808\\/25\\/11_1535199846_C2OEYgufl5.jpg\",\"author_type\":\"organization\",\"view_count\":0,\"like_count\":0,\"favorite_count\":0,\"reply_count\":0,\"created_at\":\"2018-08-25 20:12:24\",\"updated_at\":\"2018-08-25 20:24:06\",\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":7,\"parent\":{\"id\":1,\"name\":\"\\u5e72\\u8d27\",\"parent_id\":0,\"article_count\":7}}}}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "显示全部类别",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/categories",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "显示全部类别",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/categories",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Aug 2018 01:15:16 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"b4e752314af5fadfd74e41f4614a6646fb266daf\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":[{\"id\":1,\"name\":\"\\u5e72\\u8d27\",\"parent_id\":0,\"article_count\":0},{\"id\":2,\"name\":\"\\u9879\\u76ee\",\"parent_id\":0,\"article_count\":0},{\"id\":3,\"name\":\"\\u8d44\\u6e90\",\"parent_id\":0,\"article_count\":0},{\"id\":4,\"name\":\"\\u5947\\u601d\\u5999\\u60f3\",\"parent_id\":0,\"article_count\":0},{\"id\":5,\"name\":\"\\u5176\\u4ed6\",\"parent_id\":0,\"article_count\":0},{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":0}]}"
+						}
+					]
+				},
+				{
+					"name": "显示某类别",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/categories/1",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "创建新类别",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDUxMzU5NSwiZXhwIjoxNTM0NTE3MTk1LCJuYmYiOjE1MzQ1MTM1OTUsImp0aSI6ImtzQ1J3dk02UTJQOW96VDYiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.TGuqM2ai9X2COgSvg394J0HksRuwezXb8Ldw7ytIMgA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "parent_id",
+									"value": "1",
+									"description": "必需",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "啦啦啦啦2",
+									"description": "必需",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/categories",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改某类别",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDQ3MTg3OSwiZXhwIjoxNTM0NDc1NDc5LCJuYmYiOjE1MzQ0NzE4NzksImp0aSI6IlluOGxSeWZGeXAzRGRkZkMiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ZVTp1DgZvQS8L2LOKCQgM843MoWti_VKVQ8Lsa_U6zE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "parent_id",
+									"value": "2",
+									"description": "必需",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "第七个类别",
+									"description": "必需",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "put",
+									"description": "必需为put",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/categories/7",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"categories",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "修改某类别",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "parent_id",
+											"value": "2",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "第七个类别",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/categories/7",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"categories",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Aug 2018 03:02:02 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"8b5ec8ec5ae5ee6d987296ea8cf1af2410b1e378\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":201,\"message\":\"\\u4fee\\u6539\\u7c7b\\u522b\\u6210\\u529f\",\"data\":{\"id\":7,\"name\":\"\\u7b2c\\u4e03\\u4e2a\\u7c7b\\u522b\",\"parent_id\":2,\"article_count\":0}}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Reply",
+			"item": [
+				{
+					"name": "发表留言",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDgzNjE5MiwiZXhwIjoxNTM0ODM5NzkyLCJuYmYiOjE1MzQ4MzYxOTIsImp0aSI6ImQ4Z0xuV2tWOGpzMFBXalUiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.LW7FAQCu6Ar7t0UV0qQPAErI6EjggKMBiszRK5rcE1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "body",
+									"value": "第一条留言",
+									"description": "必需",
+									"type": "text"
+								},
+								{
+									"key": "article_id",
+									"value": "3",
+									"description": "非必需，article_id和reply_id仅输入几个，当有reply_id时，认为这是回复留言，此时若存在article_id，则article_id必须与reply_id对应的reply对应的文章id一致。",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "reply_id",
+									"value": "14",
+									"description": "非必需",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/replies",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"replies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除留言",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ0NzE4NzksImV4cCI6MTUzNDUwMDQyNywibmJmIjoxNTM0NDk2ODI3LCJqdGkiOiJ0d0lTckFGb0phcDltUlg5Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.dTyelCrUE2GC9drNLStFbHaIEhedWtRSitsuXFsudwI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/replies/2",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"replies",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定文章的全部留言",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxODM4MjYsImV4cCI6MTUzNTE4NzQyNiwibmJmIjoxNTM1MTgzODI2LCJqdGkiOiJVSGlRb0VjSTAydDc0NkxqIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.OGETytQ4LPDueGUi5rBlqknPSMe4jFtWbtv5O14lAYw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/replies?article_id=3&orderMode=desc&orderBy=like_count",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"replies"
+							],
+							"query": [
+								{
+									"key": "article_id",
+									"value": "3",
+									"description": "必需"
+								},
+								{
+									"key": "orderMode",
+									"value": "desc",
+									"description": "非必需，可选desc或asc，默认created_at"
+								},
+								{
+									"key": "orderBy",
+									"value": "like_count",
+									"description": "非必需，可选created_at或like_count，默认created_at"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "获取指定文章的全部留言",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/replies?article_id=3&orderMode=desc&orderBy=like_count",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"replies"
+									],
+									"query": [
+										{
+											"key": "article_id",
+											"value": "3",
+											"description": "必需"
+										},
+										{
+											"key": "orderMode",
+											"value": "desc",
+											"description": "非必需，可选desc或asc，默认created_at"
+										},
+										{
+											"key": "orderBy",
+											"value": "like_count",
+											"description": "非必需，可选created_at或like_count，默认created_at"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Aug 2018 08:19:22 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"58c6db2f096be366c614372739adf717da52a94f\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"replies\":[{\"id\":13,\"article_id\":3,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":1,\"author_type\":\"user\",\"created_at\":\"2018-08-21 15:58:10\",\"updated_at\":\"2018-08-21 15:58:10\",\"liked\":0,\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"article_count\":0,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"},\"children\":[]},{\"id\":14,\"article_id\":3,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"user\",\"created_at\":\"2018-08-21 15:58:11\",\"updated_at\":\"2018-08-21 15:58:11\",\"liked\":0,\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"article_count\":0,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"},\"children\":[{\"id\":16,\"article_id\":3,\"reply_id\":14,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"user\",\"created_at\":\"2018-08-21 15:58:26\",\"updated_at\":\"2018-08-21 15:58:26\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"article_count\":0,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"}},{\"id\":17,\"article_id\":3,\"reply_id\":14,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":1,\"author_type\":\"user\",\"created_at\":\"2018-08-21 15:58:27\",\"updated_at\":\"2018-08-21 15:58:27\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"article_count\":0,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"}}]},{\"id\":15,\"article_id\":3,\"reply_id\":0,\"body\":\"\\u7b2c\\u4e00\\u6761\\u7559\\u8a00\",\"like_count\":0,\"author_type\":\"user\",\"created_at\":\"2018-08-21 15:58:12\",\"updated_at\":\"2018-08-21 15:58:12\",\"liked\":0,\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"***\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"article_count\":0,\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1,\"created_at\":\"2018-08-16 14:49:46\"},\"children\":[]}],\"pagination\":{\"total\":3,\"count\":3,\"per_page\":15,\"current_page\":1,\"total_pages\":1,\"first_page_url\":\"http:\\/\\/idea.test\\/api\\/replies?article_id=3&orderMode=desc&orderBy=like_count&page=1\",\"last_page_url\":\"http:\\/\\/idea.test\\/api\\/replies?article_id=3&orderMode=desc&orderBy=like_count&page=1\"}}}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Favorite收藏",
+			"item": [
+				{
+					"name": "收藏/取消收藏某文章",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxODM4MjYsImV4cCI6MTUzNTE4NzQyNiwibmJmIjoxNTM1MTgzODI2LCJqdGkiOiJVSGlRb0VjSTAydDc0NkxqIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.OGETytQ4LPDueGUi5rBlqknPSMe4jFtWbtv5O14lAYw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "article_id",
+									"value": "10",
+									"description": "必需",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/favorites",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"favorites"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "收藏/取消收藏某文章",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "article_id",
+											"value": "3",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/favorites",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"favorites"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 10:01:19 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"e34d3068830ce94ae026fe442f7081c35ab5ab09\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"\\u53d6\\u6d88\\u6536\\u85cf\\u6210\\u529f\",\"data\":[\"\\u53d6\\u6d88\\u6536\\u85cf\\u6210\\u529f\"]}"
+						}
+					]
+				},
+				{
+					"name": "查看某人的全部收藏",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ1ODAyMjAsImV4cCI6MTUzNDU4NzUzMiwibmJmIjoxNTM0NTgzOTMyLCJqdGkiOiJrOFE1cjl1dGI4M21Jd0ZYIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.xrlV4DaARl3GTap8yCSDXhgzdyNvantWY0ewbb1Tazg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/favorites?author_type=user&author_id=1&per_page=2",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"favorites"
+							],
+							"query": [
+								{
+									"key": "author_type",
+									"value": "user",
+									"description": "必需，可选：me,organization,user"
+								},
+								{
+									"key": "author_id",
+									"value": "1",
+									"description": "必需，当user_type为me时该字段无效。"
+								},
+								{
+									"key": "per_page",
+									"value": "2",
+									"description": "非必需，默认为15"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "查看某人的全部收藏",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/favorites?author_type=user&author_id=1&per_page=2",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"favorites"
+									],
+									"query": [
+										{
+											"key": "author_type",
+											"value": "user",
+											"description": "不可为空，可选：me,organization,user"
+										},
+										{
+											"key": "author_id",
+											"value": "1",
+											"description": "不可为空，当user_type为me时该字段无效。"
+										},
+										{
+											"key": "per_page",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 10:00:49 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"15590deccfd3c730dd4894a401d19079402535c9\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"articles\":[{\"id\":1,\"title\":\"\\u7b2c1\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c1\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":0,\"author_type\":\"user\",\"view_count\":0,\"like_count\":1,\"favorite_count\":2,\"reply_count\":0,\"created_at\":\"1\\u5929\\u524d\",\"updated_at\":\"1\\u5206\\u949f\\u524d\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"18932869937\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1},\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}},{\"id\":2,\"title\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":0,\"author_type\":\"user\",\"view_count\":0,\"like_count\":1,\"favorite_count\":1,\"reply_count\":0,\"created_at\":\"1\\u5929\\u524d\",\"updated_at\":\"1\\u5206\\u949f\\u524d\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"18932869937\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1},\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}}],\"pagination\":{\"total\":3,\"count\":2,\"per_page\":2,\"current_page\":1,\"total_pages\":2,\"first_page_url\":\"http:\\/\\/idea.test\\/api\\/favorites?author_type=user&author_id=1&per_page=2&page=1\",\"last_page_url\":\"http:\\/\\/idea.test\\/api\\/favorites?author_type=user&author_id=1&per_page=2&page=2\",\"next_page_url\":\"http:\\/\\/idea.test\\/api\\/favorites?author_type=user&author_id=1&per_page=2&page=2\"}}}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Like点赞",
+			"item": [
+				{
+					"name": "查看自己点过的赞",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDYwMzAxMCwiZXhwIjoxNTM0NjA2NjEwLCJuYmYiOjE1MzQ2MDMwMTAsImp0aSI6IlVnQkhWWHpCUTJETlNsWUwiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.1AbtmPMD-MTqMwQaDT8tBZe02JyXBOF-dxuWjZ5Dnrk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/likes?per_page=15",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"likes"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "15",
+									"description": "非必需，默认为15"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "查看自己点过的赞",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/likes",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"likes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 09:59:35 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"9c5f182fe5abf0c01543c75becc882108661a2fb\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"articles\":[{\"id\":1,\"title\":\"\\u7b2c1\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c1\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":0,\"author_type\":\"user\",\"view_count\":0,\"like_count\":1,\"favorite_count\":2,\"reply_count\":0,\"created_at\":\"1\\u5929\\u524d\",\"updated_at\":\"38\\u79d2\\u524d\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"18932869937\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1},\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}},{\"id\":2,\"title\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":0,\"author_type\":\"user\",\"view_count\":0,\"like_count\":1,\"favorite_count\":1,\"reply_count\":0,\"created_at\":\"1\\u5929\\u524d\",\"updated_at\":\"33\\u79d2\\u524d\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"18932869937\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1},\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}},{\"id\":5,\"title\":\"\\u7b2c5\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c5\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":1,\"author_type\":\"user\",\"view_count\":0,\"like_count\":1,\"favorite_count\":0,\"reply_count\":0,\"created_at\":\"1\\u5929\\u524d\",\"updated_at\":\"25\\u79d2\\u524d\",\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}}],\"pagination\":{\"total\":3,\"count\":3,\"per_page\":15,\"current_page\":1,\"total_pages\":1,\"first_page_url\":\"http:\\/\\/idea.test\\/api\\/likes?page=1\",\"last_page_url\":\"http:\\/\\/idea.test\\/api\\/likes?page=1\"}}}"
+						}
+					]
+				},
+				{
+					"name": "点赞/取消赞(articleOrReply)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzUxODM4MjYsImV4cCI6MTUzNTE4NzQyNiwibmJmIjoxNTM1MTgzODI2LCJqdGkiOiJVSGlRb0VjSTAydDc0NkxqIiwic3ViIjo1LCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.OGETytQ4LPDueGUi5rBlqknPSMe4jFtWbtv5O14lAYw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "article_id",
+									"value": "10",
+									"description": "非必需",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "reply_id",
+									"value": "13",
+									"description": "非必需，article_id和reply_id不可同时为空",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/likes/",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"likes",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "点赞/取消赞某文章",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "article_id",
+											"value": "5",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/likes",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"likes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 09:59:10 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"cdf0339828fe9834cabdbe83003e154a85897dbb\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.13.5",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.10",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":201,\"message\":\"\\u70b9\\u8d5e\\u6210\\u529f\",\"data\":[\"\\u70b9\\u8d5e\\u6210\\u529f\"]}"
+						},
+						{
+							"name": "点赞/取消赞(articleOrReply)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "article_id",
+											"value": "5",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "reply_id",
+											"value": "2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apihost}}/likes",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"likes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "close",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 22:38:26 +0800",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 14:38:26 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"7991787aa780976ebbfc2a71c741bafdd71f7e9c\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Host",
+									"value": "idea.test",
+									"name": "Host",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.7",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"\\u53d6\\u6d88\\u70b9\\u8d5e\\u6210\\u529f\",\"data\":[\"\\u53d6\\u6d88\\u70b9\\u8d5e\\u6210\\u529f\"]}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "搜索User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDYwNjI2MSwiZXhwIjoxNTM0NjA5ODYxLCJuYmYiOjE1MzQ2MDYyNjEsImp0aSI6Im5CN21kejRvMUNxbHZLNHYiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.3254v0EIYfFwTxrcxeuCGe_vtAIf9KWcwWvUiPI6VNU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/search/users?wd=c&per_page=15",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"search",
+								"users"
+							],
+							"query": [
+								{
+									"key": "wd",
+									"value": "c",
+									"description": "必需，关键词"
+								},
+								{
+									"key": "per_page",
+									"value": "15",
+									"description": "非必需，默认15"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "搜索User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/search/users?wd=c&per_page=15",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"search",
+										"users"
+									],
+									"query": [
+										{
+											"key": "wd",
+											"value": "c"
+										},
+										{
+											"key": "per_page",
+											"value": "15",
+											"description": "default 15"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "close",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 23:46:03 +0800",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 15:46:03 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"d6cf41318e829bf476272474f00d7533389ae8eb\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Host",
+									"value": "idea.test",
+									"name": "Host",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.7",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"users\":[{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"18932869937\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1}],\"pagination\":{\"total\":1,\"count\":1,\"per_page\":15,\"current_page\":1,\"total_pages\":1,\"first_page_url\":\"http:\\/\\/idea.test\\/api\\/search\\/users?wd=c&per_page=15&page=1\",\"last_page_url\":\"http:\\/\\/idea.test\\/api\\/search\\/users?wd=c&per_page=15&page=1\"}}}"
+						}
+					]
+				},
+				{
+					"name": "搜索Organization",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDYwNjI2MSwiZXhwIjoxNTM0NjA5ODYxLCJuYmYiOjE1MzQ2MDYyNjEsImp0aSI6Im5CN21kejRvMUNxbHZLNHYiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.3254v0EIYfFwTxrcxeuCGe_vtAIf9KWcwWvUiPI6VNU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/search/organization?wd=c&per_page=15",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"search",
+								"organization"
+							],
+							"query": [
+								{
+									"key": "wd",
+									"value": "c",
+									"description": "必需，关键词"
+								},
+								{
+									"key": "per_page",
+									"value": "15",
+									"description": "非必需，默认15"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "搜索Organization",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/search/organization?wd=懒",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"search",
+										"organization"
+									],
+									"query": [
+										{
+											"key": "wd",
+											"value": "懒"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "close",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 23:40:41 +0800",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 15:40:41 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"68923f5f1e8955c679500c7eba4477e9c0446488\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Host",
+									"value": "idea.test",
+									"name": "Host",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.7",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"organizations\":[{\"id\":1,\"username\":\"\\u8881\\u65b0\\u6770\\u7684\\u793e\\u56e2\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/org_avatar\\/201808\\/16\\/1_1534402313_RKCFEmxlzA.jpg\",\"signature\":\"\\u61d2\\uff01\",\"active\":1,\"email\":\"cantjie@163.com\",\"qq\":\"***\",\"email_visibility\":1,\"qq_visibility\":0}],\"pagination\":{\"total\":1,\"count\":1,\"per_page\":15,\"current_page\":1,\"total_pages\":1,\"first_page_url\":\"http:\\/\\/idea.test\\/api\\/search\\/organization?wd=%E6%87%92&page=1\",\"last_page_url\":\"http:\\/\\/idea.test\\/api\\/search\\/organization?wd=%E6%87%92&page=1\"}}}"
+						}
+					]
+				},
+				{
+					"name": "搜索文章",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDYwNjI2MSwiZXhwIjoxNTM0NjA5ODYxLCJuYmYiOjE1MzQ2MDYyNjEsImp0aSI6Im5CN21kejRvMUNxbHZLNHYiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.3254v0EIYfFwTxrcxeuCGe_vtAIf9KWcwWvUiPI6VNU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/search/article?wd=文&per_page=13",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"search",
+								"article"
+							],
+							"query": [
+								{
+									"key": "wd",
+									"value": "文",
+									"description": "必需，关键词"
+								},
+								{
+									"key": "per_page",
+									"value": "13",
+									"description": "非必需，默认15"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "搜索文章",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{apihost}}/search/article?wd=文",
+									"host": [
+										"{{apihost}}"
+									],
+									"path": [
+										"search",
+										"article"
+									],
+									"query": [
+										{
+											"key": "wd",
+											"value": "文"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "private, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "close",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 23:45:14 +0800",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Aug 2018 15:45:14 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "\"55690060b1584df5149446c86749f60e94427f81\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "Host",
+									"value": "idea.test",
+									"name": "Host",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.7",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status_code\":200,\"message\":\"OK\",\"data\":{\"articles\":[{\"id\":5,\"title\":\"\\u7b2c5\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c5\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":1,\"author_type\":\"user\",\"view_count\":0,\"like_count\":1,\"favorite_count\":0,\"reply_count\":0,\"created_at\":\"1\\u5929\\u524d\",\"updated_at\":\"1\\u5c0f\\u65f6\\u524d\",\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}},{\"id\":2,\"title\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c2\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":0,\"author_type\":\"user\",\"view_count\":2,\"like_count\":1,\"favorite_count\":1,\"reply_count\":0,\"created_at\":\"2\\u5929\\u524d\",\"updated_at\":\"1\\u5c0f\\u65f6\\u524d\",\"author\":{\"id\":1,\"name\":\"\\u8881\\u65b0\\u6770\",\"username\":\"cantjie\",\"NetID\":\"cantjie\",\"nickname\":\"cantjie\",\"avatar\":\"http:\\/\\/idea.test\\/storage\\/images\\/avatar\\/201808\\/16\\/1_1534419544_StlSIvsgiR.jpg\",\"signature\":\"\\u61d2\\uff01\",\"phone\":\"18932869937\",\"email\":\"cantjie@stu.xjtu.edu.cn\",\"qq\":\"8776\",\"phone_visibility\":0,\"email_visibility\":1,\"qq_visibility\":1},\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}},{\"id\":3,\"title\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":1,\"author_type\":\"organization\",\"view_count\":0,\"like_count\":0,\"favorite_count\":0,\"reply_count\":0,\"created_at\":\"2\\u5929\\u524d\",\"updated_at\":\"5\\u5c0f\\u65f6\\u524d\",\"category\":{\"id\":8,\"name\":\"\\u5566\\u5566\\u5566\\u5566\",\"parent_id\":1,\"article_count\":0}},{\"id\":4,\"title\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\",\"body\":\"\\u7b2c3\\u7bc7\\u6587\\u7ae0\\u6b63\\u6587\",\"anonymous\":1,\"author_type\":\"user\",\"view_count\":0,\"like_count\":0,\"favorite_count\":0,\"reply_count\":0,\"created_at\":\"2\\u5929\\u524d\",\"updated_at\":\"2\\u5929\\u524d\",\"category\":{\"id\":6,\"name\":\"\\u9ed1\\u79d1\\u6280\",\"parent_id\":1,\"article_count\":1}}],\"pagination\":{\"total\":4,\"count\":4,\"per_page\":15,\"current_page\":1,\"total_pages\":1,\"first_page_url\":\"http:\\/\\/idea.test\\/api\\/search\\/article?wd=%E6%96%87&page=1\",\"last_page_url\":\"http:\\/\\/idea.test\\/api\\/search\\/article?wd=%E6%96%87&page=1\"}}}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "获取通知",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL2F1dGhvcml6YXRpb25zXC9jYWxsYmFjayIsImlhdCI6MTUzNDgzNjE5MiwiZXhwIjoxNTM0ODM5NzkyLCJuYmYiOjE1MzQ4MzYxOTIsImp0aSI6ImQ4Z0xuV2tWOGpzMFBXalUiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.LW7FAQCu6Ar7t0UV0qQPAErI6EjggKMBiszRK5rcE1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/notifications?",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"notifications"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "article_liked",
+									"description": "非必需，可选reply_replied,article_replied,private_message,reply_liked,article_liked,all",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "标记通知为已读",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvdXNlcnNcL3JlZnJlc2giLCJpYXQiOjE1MzQ3NzE4MzAsImV4cCI6MTUzNDc3NTQ0MSwibmJmIjoxNTM0NzcxODQxLCJqdGkiOiJndXB3eG5nU3FKa3F2eWw5Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.r9vhhaF8XjGe_gzD99rOcnuba22jR4dmRbQ9GtSriUs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "q",
+									"value": "26468f5f-7e3d-40ec-90de-8d04741aacf6",
+									"description": "必需，数组[uuid1,uuid1] 或字符串uuid1 均可。",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/notifications/read",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"notifications",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "发送站内信",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ3ODAxODUsImV4cCI6MTUzNDc4Mzc4NSwibmJmIjoxNTM0NzgwMTg1LCJqdGkiOiJBWkxOZ0V5NlpzeXRIYkp0Iiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.I2BdQToGwqBXVh3eT0WW86VXOKknfhQPrtWwrmTAosE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_type",
+									"value": "user",
+									"description": "必需，可选user,organization,all。选all需要权限,尚不可填all",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"description": "必需",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "aaa",
+									"description": "必需",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apihost}}/notifications",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除站内信",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9pZGVhLnRlc3RcL2FwaVwvb3JnYW5pemF0aW9uc1wvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1MzQ4NDEzMzksImV4cCI6MTUzNDg0NDkzOSwibmJmIjoxNTM0ODQxMzM5LCJqdGkiOiJkMm5rVDNPb3Y2bmRaRHhVIiwic3ViIjoxLCJwcnYiOiI5NGJhNWZhYzIzNWIyMTAyOTM1NTcwOWQ4M2RjZjUzNTJmN2VhNTU5In0.nR6AacsZoFNvSmII9EUNuU9dlWaZ0QVGiNJO0ac9oxg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{apihost}}/notifications/61c90f45-891d-4adf-96f5-79a822f0a0bf",
+							"host": [
+								"{{apihost}}"
+							],
+							"path": [
+								"notifications",
+								"61c90f45-891d-4adf-96f5-79a822f0a0bf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

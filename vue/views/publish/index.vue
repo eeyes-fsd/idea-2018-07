@@ -33,7 +33,7 @@
             <ImageUploader
               name="image"
               ref="coverUploader"
-              :action="`/api/articles/images/${articleId}`"
+              :action="`/api/articles/cover/${articleId}`"
               @success="handleCoverSuccess"></ImageUploader>
           </div>
           <button @click="publishIt" class="btn btn-primary center-block">发表文章</button>

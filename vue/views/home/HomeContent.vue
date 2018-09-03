@@ -8,7 +8,7 @@
         v-for="(item,key) in articles"
         :key="key"
         class="article"
-        img-src=""
+        :img-src="item.cover"
         :title="item.title"
         :id="item.id"
         :author="item.author.nickname"

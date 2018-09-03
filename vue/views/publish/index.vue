@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-loading="loading">
         <div class="editor-body col-md-8 panel panel-default">
           <div class="form-group">
             <label for="title">标题</label>
@@ -36,7 +36,7 @@
               :action="`/api/articles/cover/${articleId}`"
               @success="handleCoverSuccess"></ImageUploader>
           </div>
-          <button @click="publishIt" class="btn btn-primary center-block">发表文章</button>
+          <button @click="publishIt" class="btn btn-primary center-block" :class="{ disabled : loading }">发表文章</button>
         </div>
     </div>
 </template>
@@ -63,7 +63,8 @@ export default {
       selectedParent: 1, //初始化默认的分类
       category: 6,
       anonymous: false,
-      articleId: -1
+      articleId: -1,
+      loading: false,
     }
   },
   methods: {
@@ -73,6 +74,7 @@ export default {
         return
       }
       try {
+        this.loading = true
         let data = await request.post('/articles', {
           title: this.title,
           body: this.content,
@@ -97,6 +99,7 @@ export default {
       }
     },
     handleCoverSuccess () {
+      this.loading = false
       this.$message.success('发表文章成功')
       let id = this.articleId
       this.articleId = -1

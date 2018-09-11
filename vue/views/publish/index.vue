@@ -34,6 +34,7 @@
               name="image"
               ref="coverUploader"
               :action="`/api/articles/cover/${articleId}`"
+              @choose="choosed = true"
               @success="handleCoverSuccess"></ImageUploader>
           </div>
           <button @click="publishIt" class="btn btn-primary center-block" :class="{ disabled : loading }">发表文章</button>
@@ -65,6 +66,7 @@ export default {
       anonymous: false,
       articleId: -1,
       loading: false,
+      choosed: false
     }
   },
   methods: {
@@ -72,6 +74,8 @@ export default {
       if (this.title === '') {
         this.$message.warning('请输入标题')
         return
+      } else if (this.choosed === false) {
+        this.$message.warning('你还没选图片')
       }
       try {
         this.loading = true
